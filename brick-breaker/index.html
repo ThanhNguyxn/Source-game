@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brick Breaker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🏀 Brick Breaker</h1>
+        
+        <div class="mode-selector" id="modeSelector">
+            <h2>Select Level:</h2>
+            <div class="mode-buttons">
+                <button class="mode-btn" onclick="startGame('easy')">🟢 Easy (Slow Ball)</button>
+                <button class="mode-btn" onclick="startGame('medium')">🟡 Medium (Normal)</button>
+                <button class="mode-btn" onclick="startGame('hard')">🔴 Hard (Fast Ball)</button>
+                <button class="mode-btn" onclick="startGame('extreme')">💀 Extreme (Multi-Ball)</button>
+            </div>
+        </div>
+        
+        <div class="game-area" id="gameArea" style="display:none;">
+            <div class="game-info">
+                <div class="stat">Score: <span id="score">0</span></div>
+                <div class="stat">Lives: <span id="lives">3</span> ❤️</div>
+                <div class="stat">Level: <span id="level">1</span></div>
+                <div class="stat">Bricks: <span id="bricks">0</span></div>
+            </div>
+            
+            <canvas id="gameCanvas" width="800" height="600"></canvas>
+            
+            <div class="controls">
+                <button id="pauseBtn">Pause</button>
+                <button id="resetBtn">Reset</button>
+                <button id="changeLevelBtn">Change Level</button>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>How to Play:</h3>
+            <p><strong>Objective:</strong> Break all bricks with the ball without letting it fall</p>
+            <p><strong>Controls:</strong></p>
+            <ul>
+                <li>Move Mouse or Arrow Keys ← → to control paddle</li>
+                <li>Space: Launch ball (at start)</li>
+                <li>P: Pause game</li>
+            </ul>
+            <p><strong>Levels:</strong></p>
+            <ul>
+                <li><strong>Easy:</strong> Slow ball speed, 3 lives</li>
+                <li><strong>Medium:</strong> Normal speed, 3 lives</li>
+                <li><strong>Hard:</strong> Fast ball, 2 lives</li>
+                <li><strong>Extreme:</strong> Multiple balls, 3 lives</li>
+            </ul>
+            <p><strong>Tips:</strong> Aim for the sides of the paddle for angled shots!</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
