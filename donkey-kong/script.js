@@ -394,7 +394,27 @@ document.getElementById('restartBtn').addEventListener('click', () => {
     updateDisplay();
 });
 
+// Start button
+let gameStarted = false;
+let animationId = null;
+
+document.getElementById('startBtn').addEventListener('click', () => {
+    if (!gameStarted) {
+        gameStarted = true;
+        gameRunning = true;
+        document.getElementById('startBtn').disabled = true;
+        document.getElementById('pauseBtn').disabled = false;
+        gameLoop();
+    }
+});
+
+// Pause button
+document.getElementById('pauseBtn').addEventListener('click', () => {
+    paused = !paused;
+    document.getElementById('pauseBtn').textContent = paused ? '▶️ Resume' : '⏸ Pause';
+});
+
 // Initialize
 updateDisplay();
-gameLoop();
+// Don't auto-start - removed gameLoop();
 

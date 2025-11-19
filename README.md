@@ -10,9 +10,28 @@
 
 ## 🎯 Quick Start
 
-**[▶️ Play Online](https://thanhnguyen.github.io/Source-game/)** | **[⭐ Star on GitHub](https://github.com/ThanhNguyxn/Source-game)**
+**[▶️ Play Online](https://thanhnguyxn.github.io/Source-game/)** | **[⭐ Star on GitHub](https://github.com/ThanhNguyxn/Source-game)**
 
 Simply open `index.html` in your browser or visit the live demo!
+
+## 📖 How to Play
+
+### Universal Controls
+Most games follow these common patterns:
+- **Arrow Keys** or **WASD** - Movement
+- **Space** - Action (Jump/Shoot/Select)
+- **Mouse** - Point and Click
+- **P** - Pause
+- **Click Start/Play** - Begin the game (games don't auto-start)
+
+### Starting a Game
+1. Open any game from the main menu
+2. Read the on-screen instructions
+3. **Click the Start/Play button** to begin
+4. Use keyboard/mouse controls as indicated
+5. Press P to pause anytime
+
+**Note:** Games require user interaction to start - they won't begin automatically!
 
 ## 📊 Project Statistics
 
