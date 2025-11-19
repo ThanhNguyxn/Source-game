@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Copter</title><link rel="stylesheet" href="style.css"></head>
+<body><div class="game-container"><h1>🚁 Copter</h1>
+<div class="mode-selector" id="modeSelector">
+<h2>Select Difficulty:</h2>
+<button class="mode-btn" onclick="startGame('easy')">🟢 Easy</button>
+<button class="mode-btn" onclick="startGame('medium')">🟡 Medium</button>
+<button class="mode-btn" onclick="startGame('hard')">🔴 Hard</button>
+</div>
+<div id="gameArea" style="display:none;">
+<div class="game-info">
+<div>Score: <span id="score">0</span></div>
+<div>Best: <span id="best">0</span></div>
+</div>
+<canvas id="canvas" width="800" height="400"></canvas>
+<div class="controls">
+<button id="restartBtn">Restart</button>
+</div>
+</div>
+<div class="instructions">
+<h3>How to Play:</h3>
+<p><strong>Objective:</strong> Fly as far as possible without hitting obstacles!</p>
+<p><strong>Controls:</strong> Click or Space to go up, Release to go down</p>
+<ul><li>Avoid ceiling and floor</li><li>Dodge obstacles</li><li>Score increases with distance</li></ul>
+</div></div>
+<script src="script.js"></script></body></html>

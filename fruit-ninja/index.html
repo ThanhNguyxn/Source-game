@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Fruit Ninja</title><link rel="stylesheet" href="style.css"></head>
+<body><div class="game-container"><h1>🍒 Fruit Ninja</h1>
+<div class="mode-selector" id="modeSelector">
+<h2>Select Mode:</h2>
+<button class="mode-btn" onclick="startGame('classic')">🎮 Classic (60s)</button>
+<button class="mode-btn" onclick="startGame('zen')">🧘 Zen (No bombs)</button>
+<button class="mode-btn" onclick="startGame('arcade')">⚡ Arcade (Fast)</button>
+</div>
+<div id="gameArea" style="display:none;">
+<div class="game-info">
+<div>Score: <span id="score">0</span></div>
+<div>Time: <span id="time">60</span>s</div>
+<div>Lives: <span id="lives">3</span> ❤️</div>
+</div>
+<canvas id="canvas" width="800" height="600"></canvas>
+<div class="controls">
+<button id="pauseBtn">Pause</button>
+<button id="restartBtn">Restart</button>
+</div>
+</div>
+<div class="instructions">
+<h3>How to Play:</h3>
+<p><strong>Objective:</strong> Slice the fruits, avoid bombs!</p>
+<p><strong>Controls:</strong> Click and drag to slice</p>
+<ul><li>Slice fruits for points</li><li>Avoid bombs (lose life)</li><li>Zen mode has no bombs</li></ul>
+</div></div>
+<script src="script.js"></script></body></html>

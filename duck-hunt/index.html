@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Duck Hunt</title><link rel="stylesheet" href="style.css"></head>
+<body><div class="game-container"><h1>🔫 Duck Hunt</h1>
+<div class="mode-selector" id="modeSelector">
+<h2>Select Difficulty:</h2>
+<button class="mode-btn" onclick="startGame('easy')">🟢 Easy (Slow)</button>
+<button class="mode-btn" onclick="startGame('medium')">🟡 Medium</button>
+<button class="mode-btn" onclick="startGame('hard')">🔴 Hard (Fast)</button>
+</div>
+<div id="gameArea" style="display:none;">
+<div class="game-info">
+<div>Score: <span id="score">0</span></div>
+<div>Bullets: <span id="bullets">3</span></div>
+<div>Round: <span id="round">1</span></div>
+</div>
+<canvas id="canvas" width="800" height="600"></canvas>
+<div class="controls">
+<button id="reloadBtn">Reload</button>
+<button id="restartBtn">New Round</button>
+</div>
+</div>
+<div class="instructions">
+<h3>How to Play:</h3>
+<p><strong>Objective:</strong> Shoot all the ducks!</p>
+<p><strong>Controls:</strong> Click to shoot</p>
+<ul><li>3 bullets per round</li><li>Hit ducks before they fly away</li><li>Higher difficulty = faster ducks</li></ul>
+</div></div>
+<script src="script.js"></script></body></html>

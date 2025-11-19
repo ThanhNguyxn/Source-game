@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Sokoban</title><link rel="stylesheet" href="style.css"></head>
+<body><div class="game-container"><h1>🧩 Sokoban</h1>
+<div class="mode-selector" id="modeSelector">
+<h2>Select Level:</h2>
+<button class="mode-btn" onclick="startGame(1)">Level 1 (Easy)</button>
+<button class="mode-btn" onclick="startGame(2)">Level 2 (Medium)</button>
+<button class="mode-btn" onclick="startGame(3)">Level 3 (Hard)</button>
+</div>
+<div id="gameArea" style="display:none;">
+<div class="game-info">
+<div>Moves: <span id="moves">0</span></div>
+<div>Level: <span id="level">1</span></div>
+</div>
+<canvas id="canvas" width="600" height="600"></canvas>
+<div class="controls">
+<button id="undoBtn">Undo</button>
+<button id="restartBtn">Restart</button>
+<button id="changeLevelBtn">Change Level</button>
+</div>
+</div>
+<div class="instructions">
+<h3>How to Play:</h3>
+<p><strong>Objective:</strong> Push all boxes to goal positions!</p>
+<p><strong>Controls:</strong> Arrow Keys to move</p>
+<ul><li>Push boxes (can't pull)</li><li>All boxes must reach goals</li><li>Undo to fix mistakes</li></ul>
+</div></div>
+<script src="script.js"></script></body></html>
