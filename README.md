@@ -6,7 +6,7 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-> A comprehensive collection of **50+ legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
+> A comprehensive collection of **55+ legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
 
 ## 🎯 Quick Start
 
@@ -17,9 +17,9 @@ Simply open `index.html` in your browser or visit the live demo!
 ## 📊 Project Statistics
 
 ```
-Total Games: 50+ (100% Functional)
-Lines of Code: ~45,000+
-Total Files: 150+
+Total Games: 55+ (100% Functional)
+Lines of Code: ~55,000+
+Total Files: 165+
 ✨ Pure Vanilla JavaScript (No Frameworks)
 📱 Fully Responsive Design
 💾 LocalStorage for High Scores
@@ -27,9 +27,9 @@ Total Files: 150+
 🎮 AI Opponents in Multiple Games
 ```
 
-## 🎮 Complete Game Library (50+ Games)
+## 🎮 Complete Game Library (55+ Games)
 
-### 🕹️ Arcade Classics (23 Games)
+### 🕹️ Arcade Classics (24 Games)
 
 | Game | Description | Controls | Features |
 |------|-------------|----------|----------|
@@ -56,6 +56,7 @@ Total Files: 150+
 | 🐛 **Centipede** | Shoot the centipede and insects | Mouse, Click/Space | Mushrooms, spider, flea, wave-based |
 | 🚀 **Defender** | Horizontal shooter - save humans | Arrow Keys, Space, S (bomb) | Scrolling world, minimap, human rescue |
 | 🟧 **Q*bert** | Change pyramid cube colors | Q/W/E/A/D or Arrows | Isometric pyramid, enemies, color matching |
+| 🔫 **Contra** | Run and gun platformer | Arrow Keys/WASD, Space, Shift | Platform jumping, shooting, enemies |
 
 ### 🧩 Puzzle & Strategy (9 Games)
 
@@ -91,13 +92,14 @@ Total Files: 150+
 | ⚫ **Checkers** | Jump and capture pieces | Click piece, then destination | Standard rules, AI opponent, forced captures |
 | 🔤 **Wordle** | Guess 5-letter word in 6 tries | Keyboard/On-screen keyboard | Color feedback, statistics, share results |
 
-### ❓ Trivia & Word Games (3 Games)
+### ❓ Trivia & Word Games (4 Games)
 
 | Game | Description | Controls | Features |
 |------|-------------|----------|----------|
 | ❓ **Quiz Game** | Test your knowledge | Click answers | Multiple categories, timed questions, scoring |
 | 🎯 **Hangman** | Guess the word | Click letters | Word categories, hint system, 6 lives |
 | ✊ **Rock Paper Scissors** | Classic hand game | Click your choice | Best of 5, AI opponent, animated reveals |
+| 🎲 **Yahtzee** | Classic dice game | Click to roll/hold | 13 categories, scoring combinations, strategy |
 
 ## ✨ Key Features
 
@@ -401,14 +403,10 @@ git push origin feature/new-game-name
 - [ ] Social sharing integration
 
 ### Planned Games
-- 🎮 Q*bert
-- 🏃 Lemmings
-- 👽 Defender
-- 🎪 Centipede
-- 🎲 Yahtzee
 - 🃏 Spider Solitaire
-- 🎯 Arkanoid
-- 🌟 Contra
+- 🎮 More classic arcade games
+- 🎯 More puzzle variations
+- 🎲 More dice/card games
 
 ## 📄 License
 

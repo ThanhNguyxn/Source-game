@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yahtzee - Classic Dice Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎲 Yahtzee</h1>
+
+        <div class="game-info">
+            <div class="stat">
+                <span>Total Score:</span>
+                <span id="totalScore">0</span>
+            </div>
+            <div class="stat">
+                <span>Rolls Left:</span>
+                <span id="rollsLeft">3</span>
+            </div>
+            <div class="stat">
+                <span>Round:</span>
+                <span id="round">1 / 13</span>
+            </div>
+        </div>
+
+        <div class="dice-container">
+            <div class="dice" id="dice1" data-index="0">
+                <span class="dice-value">1</span>
+                <input type="checkbox" class="dice-hold" id="hold1">
+                <label for="hold1">Hold</label>
+            </div>
+            <div class="dice" id="dice2" data-index="1">
+                <span class="dice-value">1</span>
+                <input type="checkbox" class="dice-hold" id="hold2">
+                <label for="hold2">Hold</label>
+            </div>
+            <div class="dice" id="dice3" data-index="2">
+                <span class="dice-value">1</span>
+                <input type="checkbox" class="dice-hold" id="hold3">
+                <label for="hold3">Hold</label>
+            </div>
+            <div class="dice" id="dice4" data-index="3">
+                <span class="dice-value">1</span>
+                <input type="checkbox" class="dice-hold" id="hold4">
+                <label for="hold4">Hold</label>
+            </div>
+            <div class="dice" id="dice5" data-index="4">
+                <span class="dice-value">1</span>
+                <input type="checkbox" class="dice-hold" id="hold5">
+                <label for="hold5">Hold</label>
+            </div>
+        </div>
+
+        <button id="rollBtn" class="big-btn">🎲 Roll Dice</button>
+
+        <div class="scorecard">
+            <h3>Score Card</h3>
+            <div class="score-section">
+                <div class="score-item" data-category="ones">
+                    <span>Ones:</span>
+                    <span class="potential" id="potential-ones">-</span>
+                    <button class="score-btn" data-category="ones">Select</button>
+                </div>
+                <div class="score-item" data-category="twos">
+                    <span>Twos:</span>
+                    <span class="potential" id="potential-twos">-</span>
+                    <button class="score-btn" data-category="twos">Select</button>
+                </div>
+                <div class="score-item" data-category="threes">
+                    <span>Threes:</span>
+                    <span class="potential" id="potential-threes">-</span>
+                    <button class="score-btn" data-category="threes">Select</button>
+                </div>
+                <div class="score-item" data-category="fours">
+                    <span>Fours:</span>
+                    <span class="potential" id="potential-fours">-</span>
+                    <button class="score-btn" data-category="fours">Select</button>
+                </div>
+                <div class="score-item" data-category="fives">
+                    <span>Fives:</span>
+                    <span class="potential" id="potential-fives">-</span>
+                    <button class="score-btn" data-category="fives">Select</button>
+                </div>
+                <div class="score-item" data-category="sixes">
+                    <span>Sixes:</span>
+                    <span class="potential" id="potential-sixes">-</span>
+                    <button class="score-btn" data-category="sixes">Select</button>
+                </div>
+                <div class="score-item" data-category="threeOfKind">
+                    <span>3 of a Kind:</span>
+                    <span class="potential" id="potential-threeOfKind">-</span>
+                    <button class="score-btn" data-category="threeOfKind">Select</button>
+                </div>
+                <div class="score-item" data-category="fourOfKind">
+                    <span>4 of a Kind:</span>
+                    <span class="potential" id="potential-fourOfKind">-</span>
+                    <button class="score-btn" data-category="fourOfKind">Select</button>
+                </div>
+                <div class="score-item" data-category="fullHouse">
+                    <span>Full House:</span>
+                    <span class="potential" id="potential-fullHouse">-</span>
+                    <button class="score-btn" data-category="fullHouse">Select</button>
+                </div>
+                <div class="score-item" data-category="smallStraight">
+                    <span>Small Straight:</span>
+                    <span class="potential" id="potential-smallStraight">-</span>
+                    <button class="score-btn" data-category="smallStraight">Select</button>
+                </div>
+                <div class="score-item" data-category="largeStraight">
+                    <span>Large Straight:</span>
+                    <span class="potential" id="potential-largeStraight">-</span>
+                    <button class="score-btn" data-category="largeStraight">Select</button>
+                </div>
+                <div class="score-item" data-category="yahtzee">
+                    <span>YAHTZEE:</span>
+                    <span class="potential" id="potential-yahtzee">-</span>
+                    <button class="score-btn" data-category="yahtzee">Select</button>
+                </div>
+                <div class="score-item" data-category="chance">
+                    <span>Chance:</span>
+                    <span class="potential" id="potential-chance">-</span>
+                    <button class="score-btn" data-category="chance">Select</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="gameOver" class="modal hidden">
+            <div class="modal-content">
+                <h2>Game Complete!</h2>
+                <p>Final Score: <span id="finalScore"></span></p>
+                <button id="restartBtn">New Game</button>
+                <a href="../index.html" class="btn">← Back to Games</a>
+            </div>
+        </div>
+
+        <a href="../index.html" class="back-btn">← Back to Games</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
