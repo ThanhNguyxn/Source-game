@@ -10,6 +10,7 @@
 ## 🆕 Latest Updates
 
 **Recent Game Upgrades:**
+- 🎯 **Asteroids**: NEW GAME! Classic space shooter with 4 difficulty levels and UFO enemies
 - 🏀 **Brick Breaker**: NEW GAME! Arkanoid-style brick breaker with 4 difficulty levels and multi-ball mode
 - 🐍 **Snake Game**: Added 4 difficulty levels (Easy/Medium/Hard/Extreme) with obstacles in Extreme mode
 - 🟦 **Tetris**: Added 3 game modes (Classic/Sprint/Marathon) with ghost piece preview
@@ -32,7 +33,7 @@
 
 ```
 Total Files: 77
-Total Games: 31 (100% Functional)
+Total Games: 32 (100% Functional)
 Lines of Code: ~18,000+
 âœ¨ Pure Vanilla JavaScript (No Frameworks)
 ðŸ“± Modern Responsive Design
