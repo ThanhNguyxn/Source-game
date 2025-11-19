@@ -10,6 +10,7 @@ const COLS = 7;
 let board = [];
 let currentPlayer = 'red';
 let gameActive = true;
+let gameMode = 'pvp'; // pvp or ai
 let scores = {
     red: parseInt(localStorage.getItem('connect4RedScore')) || 0,
     yellow: parseInt(localStorage.getItem('connect4YellowScore')) || 0
@@ -17,6 +18,25 @@ let scores = {
 
 redScoreElement.textContent = scores.red;
 yellowScoreElement.textContent = scores.yellow;
+
+// Add mode selector at start
+const modeSelector = document.createElement('div');
+modeSelector.innerHTML = `
+    <div style="text-align: center; margin-bottom: 20px;">
+        <button onclick="startGame('pvp')" style="padding: 15px 30px; margin: 5px; background: #4CAF50; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+            👥 Player vs Player
+        </button>
+        <button onclick="startGame('ai')" style="padding: 15px 30px; margin: 5px; background: #ff6b6b; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+            🤖 vs AI
+        </button>
+    </div>
+`;
+document.querySelector('.game-card').insertBefore(modeSelector, gameBoard);
+
+function startGame(mode) {
+    gameMode = mode;
+    initGame();
+}
 
 function initGame() {
     board = Array(ROWS).fill().map(() => Array(COLS).fill(null));
@@ -49,7 +69,7 @@ function renderBoard() {
 }
 
 function dropDisc(col) {
-    if (!gameActive) return;
+    if (!gameActive || (gameMode === 'ai' && currentPlayer === 'yellow')) return;
     
     for (let row = ROWS - 1; row >= 0; row--) {
         if (!board[row][col]) {
@@ -69,9 +89,77 @@ function dropDisc(col) {
             currentPlayer = currentPlayer === 'red' ? 'yellow' : 'red';
             updatePlayerDisplay();
             renderBoard();
+            
+            // AI turn
+            if (gameMode === 'ai' && currentPlayer === 'yellow') {
+                setTimeout(() => {
+                    makeAIMove();
+                }, 500);
+            }
             return;
         }
     }
+}
+
+function makeAIMove() {
+    if (!gameActive) return;
+    
+    const move = getBestAIMove();
+    if (move !== null) {
+        dropDisc(move);
+    }
+}
+
+function getBestAIMove() {
+    // Check if AI can win
+    for (let col = 0; col < COLS; col++) {
+        const row = getAvailableRow(col);
+        if (row !== null) {
+            board[row][col] = 'yellow';
+            if (checkWin(row, col)) {
+                board[row][col] = null;
+                return col;
+            }
+            board[row][col] = null;
+        }
+    }
+    
+    // Block player from winning
+    for (let col = 0; col < COLS; col++) {
+        const row = getAvailableRow(col);
+        if (row !== null) {
+            board[row][col] = 'red';
+            if (checkWin(row, col)) {
+                board[row][col] = null;
+                return col;
+            }
+            board[row][col] = null;
+        }
+    }
+    
+    // Try center column
+    if (getAvailableRow(3) !== null) {
+        return 3;
+    }
+    
+    // Try adjacent to center
+    const centerCols = [2, 4, 1, 5, 0, 6];
+    for (let col of centerCols) {
+        if (getAvailableRow(col) !== null) {
+            return col;
+        }
+    }
+    
+    return null;
+}
+
+function getAvailableRow(col) {
+    for (let row = ROWS - 1; row >= 0; row--) {
+        if (!board[row][col]) {
+            return row;
+        }
+    }
+    return null;
 }
 
 function animateDrop(row, col) {
@@ -80,10 +168,10 @@ function animateDrop(row, col) {
 
 function checkWin(row, col) {
     const directions = [
-        [[0, 1], [0, -1]],
-        [[1, 0], [-1, 0]],
-        [[1, 1], [-1, -1]],
-        [[1, -1], [-1, 1]]
+        [[0, 1], [0, -1]],   // Horizontal
+        [[1, 0], [-1, 0]],   // Vertical
+        [[1, 1], [-1, -1]],  // Diagonal \
+        [[1, -1], [-1, 1]]   // Diagonal /
     ];
     
     for (let direction of directions) {
@@ -137,7 +225,8 @@ function endGame(winner) {
                 yellowScoreElement.textContent = scores.yellow;
             }
             
-            alert(`🎉 ${winner.toUpperCase()} wins!`);
+            const displayName = (gameMode === 'ai' && winner === 'yellow') ? 'AI' : winner.toUpperCase();
+            alert(`🎉 ${displayName} wins!`);
         } else {
             alert("🤝 It's a draw!");
         }
@@ -149,7 +238,8 @@ function updatePlayerDisplay() {
         currentPlayerElement.textContent = '🔴 Red';
         currentPlayerElement.style.color = '#e74c3c';
     } else {
-        currentPlayerElement.textContent = '🟡 Yellow';
+        const displayName = gameMode === 'ai' ? '🤖 AI' : '🟡 Yellow';
+        currentPlayerElement.textContent = displayName;
         currentPlayerElement.style.color = '#f1c40f';
     }
 }

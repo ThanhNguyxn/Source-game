@@ -9,31 +9,55 @@
 <body>
     <div class="game-container">
         <h1>❌⭕ Tic Tac Toe</h1>
-        <div class="game-info">
-            <div class="player-turn">Current Player: <span id="currentPlayer">X</span></div>
-            <div class="score-board">
-                <div>Player X: <span id="scoreX">0</span></div>
-                <div>Draws: <span id="scoreDraw">0</span></div>
-                <div>Player O: <span id="scoreO">0</span></div>
+        <div class="mode-selector" id="modeSelector">
+            <h2>Choose Game Mode:</h2>
+            <div class="mode-buttons">
+                <button class="mode-btn" data-mode="pvp">👥 Player vs Player</button>
+                <button class="mode-btn" data-mode="ai-easy">🤖 vs AI (Easy)</button>
+                <button class="mode-btn" data-mode="ai-medium">🤖 vs AI (Medium)</button>
+                <button class="mode-btn" data-mode="ai-hard">🤖 vs AI (Impossible)</button>
             </div>
         </div>
-        <div class="board" id="board">
-            <div class="cell" data-cell></div>
-            <div class="cell" data-cell></div>
-            <div class="cell" data-cell></div>
-            <div class="cell" data-cell></div>
-            <div class="cell" data-cell></div>
-            <div class="cell" data-cell></div>
-            <div class="cell" data-cell></div>
-            <div class="cell" data-cell></div>
-            <div class="cell" data-cell></div>
+        <div class="game-screen" id="gameScreen" style="display:none;">
+            <div class="game-info">
+                <div class="mode-display">Mode: <span id="currentMode">Player vs Player</span></div>
+                <div class="player-turn">Current: <span id="currentPlayer">X</span></div>
+                <div class="score-board">
+                    <div>X: <span id="scoreX">0</span></div>
+                    <div>Draws: <span id="scoreDraw">0</span></div>
+                    <div>O: <span id="scoreO">0</span></div>
+                </div>
+            </div>
+            <div class="board" id="board">
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+            </div>
+            <div class="controls">
+                <button id="restartBtn">New Game</button>
+                <button id="changeModeBtn">Change Mode</button>
+                <button id="resetScoreBtn">Reset Score</button>
+            </div>
         </div>
         <div class="winning-message" id="winningMessage">
             <div class="winning-message-text" id="winningMessageText"></div>
-            <button id="restartBtn">Play Again</button>
+            <button id="playAgainBtn">Play Again</button>
         </div>
-        <div class="controls">
-            <button id="resetScoreBtn">Reset Score</button>
+        <div class="instructions">
+            <h3>How to Play:</h3>
+            <ul>
+                <li><strong>Player vs Player:</strong> Take turns placing X and O</li>
+                <li><strong>vs AI Easy:</strong> AI makes random moves</li>
+                <li><strong>vs AI Medium:</strong> AI plays smart moves</li>
+                <li><strong>vs AI Impossible:</strong> AI uses Minimax algorithm (unbeatable!)</li>
+            </ul>
+            <p><strong>Goal:</strong> Get 3 in a row (horizontal, vertical, or diagonal)</p>
         </div>
     </div>
     <script src="script.js"></script>
