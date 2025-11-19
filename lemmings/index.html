@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lemmings - Save The Lemmings!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🐹 Lemmings</h1>
+
+        <div class="game-info">
+            <div class="stat">
+                <span>Out:</span>
+                <span id="out">0/20</span>
+            </div>
+            <div class="stat">
+                <span>Saved:</span>
+                <span id="saved">0</span>
+            </div>
+            <div class="stat">
+                <span>Lost:</span>
+                <span id="lost">0</span>
+            </div>
+            <div class="stat">
+                <span>Time:</span>
+                <span id="time">0:00</span>
+            </div>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div class="controls">
+            <button id="startBtn" class="btn">▶️ Start Game</button>
+            <button id="pauseBtn" class="btn" disabled>⏸ Pause</button>
+            <div class="tools">
+                <button class="tool-btn" data-tool="blocker">🛑 Blocker</button>
+                <button class="tool-btn" data-tool="climber">🧗 Climber</button>
+                <button class="tool-btn" data-tool="digger">⛏️ Digger</button>
+            </div>
+            <h3>🎮 How to Play</h3>
+            <p><strong>Click Lemming:</strong> Select lemming</p>
+            <p><strong>Click Tool Button:</strong> Assign ability</p>
+            <p><strong>Objective:</strong> Guide lemmings to the exit! Save 50% to win!</p>
+            <p><strong>Tools:</strong> Blocker (stops), Climber (climbs walls), Digger (digs down)</p>
+        </div>
+
+        <div id="gameOver" class="modal hidden">
+            <div class="modal-content">
+                <h2 id="resultTitle">Level Complete!</h2>
+                <p>Saved: <span id="finalSaved"></span></p>
+                <p>Lost: <span id="finalLost"></span></p>
+                <p>Success Rate: <span id="successRate"></span>%</p>
+                <button id="restartBtn">Play Again</button>
+                <a href="../index.html" class="btn">← Back to Games</a>
+            </div>
+        </div>
+
+        <a href="../index.html" class="back-btn">← Back to Games</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

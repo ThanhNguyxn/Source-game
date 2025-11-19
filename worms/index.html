@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worms - Artillery Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🪱 Worms</h1>
+
+        <div class="game-info">
+            <div class="stat">
+                <span>Turn:</span>
+                <span id="currentTeam">Team 1</span>
+            </div>
+            <div class="stat">
+                <span>Wind:</span>
+                <span id="wind">0</span>
+            </div>
+            <div class="stat">
+                <span>Power:</span>
+                <span id="power">50</span>
+            </div>
+            <div class="stat">
+                <span>Angle:</span>
+                <span id="angle">45</span>
+            </div>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div class="controls">
+            <button id="startBtn" class="btn">▶️ Start Game</button>
+            <button id="fireBtn" class="btn" disabled>🎯 Fire!</button>
+            <h3>🎮 Controls</h3>
+            <p><strong>← →:</strong> Adjust Angle</p>
+            <p><strong>↑ ↓:</strong> Adjust Power</p>
+            <p><strong>Space/Fire:</strong> Launch Weapon</p>
+            <p><strong>A/D:</strong> Move Worm</p>
+            <p><strong>Objective:</strong> Eliminate enemy team with strategic artillery shots!</p>
+        </div>
+
+        <div id="gameOver" class="modal hidden">
+            <div class="modal-content">
+                <h2>Game Over!</h2>
+                <p>Winner: <span id="winner"></span></p>
+                <button id="restartBtn">Play Again</button>
+                <a href="../index.html" class="btn">← Back to Games</a>
+            </div>
+        </div>
+
+        <a href="../index.html" class="back-btn">← Back to Games</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
