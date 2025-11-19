@@ -37,7 +37,7 @@ LocalStorage Integration
 
 ### 🕹️ Arcade Classics (7 Games)
 
-#### #### 1. 🐍 Snake Game
+#### 1. 🐍 Snake Game
 Classic arcade game where you control a growing snake.
 
 **Features:**
@@ -53,7 +53,7 @@ Classic arcade game where you control a growing snake.
 
 ---
 
-#### #### 2. 🐍 Breakout
+#### 2. 🐍 Breakout
 Break all the colored bricks with your paddle and ball.
 
 **Features:**
@@ -69,7 +69,7 @@ Break all the colored bricks with your paddle and ball.
 
 ---
 
-#### #### 3. 🐍 Tetris
+#### 3. 🐍 Tetris
 The legendary falling blocks puzzle game.
 
 **Features:**
@@ -90,7 +90,7 @@ The legendary falling blocks puzzle game.
 
 ---
 
-#### #### 4. 🐍 Pong
+#### 4. 🐍 Pong
 The first video game ever created - table tennis simulation.
 
 **Features:**
@@ -105,7 +105,7 @@ The first video game ever created - table tennis simulation.
 
 ---
 
-#### #### 5. 🐍 Space Invaders
+#### 5. 🐍 Space Invaders
 Defend Earth from waves of alien invaders!
 
 **Features:**
@@ -124,7 +124,7 @@ Defend Earth from waves of alien invaders!
 
 ---
 
-#### #### 6. 🐍 Flappy Bird
+#### 6. 🐍 Flappy Bird
 Navigate through pipes in this challenging arcade game.
 
 **Features:**
@@ -140,7 +140,7 @@ Navigate through pipes in this challenging arcade game.
 
 ---
 
-#### #### 7. 🐍 Dino Run
+#### 7. 🐍 Dino Run
 Chrome's famous offline dinosaur game!
 
 **Features:**
@@ -160,7 +160,7 @@ Chrome's famous offline dinosaur game!
 
 ### 🧩 Puzzle & Strategy (6 Games)
 
-#### #### 8. 🐍 2048
+#### 8. 🐍 2048
 Slide numbered tiles to create the 2048 tile.
 
 **Features:**
@@ -176,7 +176,7 @@ Slide numbered tiles to create the 2048 tile.
 
 ---
 
-#### #### 9. 🐍 Minesweeper
+#### 9. 🐍 Minesweeper
 Classic mine detection puzzle.
 
 **Features:**
@@ -197,7 +197,7 @@ Classic mine detection puzzle.
 
 ---
 
-#### #### 10. 🐍 Sudoku
+#### 10. 🐍 Sudoku
 Fill the 9x9 grid with numbers 1-9.
 
 **Features:**
@@ -222,7 +222,7 @@ Fill the 9x9 grid with numbers 1-9.
 
 ---
 
-#### #### 11. 🐍 Tic Tac Toe
+#### 11. 🐍 Tic Tac Toe
 The timeless two-player strategy game.
 
 **Features:**
@@ -254,7 +254,7 @@ Connect four discs vertically, horizontally, or diagonally.
 
 ---
 
-#### #### 13. 🐍 Sliding Puzzle
+#### 13. 🐍 Sliding Puzzle
 Classic 15-tile number sliding puzzle.
 
 **Features:**
@@ -273,7 +273,7 @@ Classic 15-tile number sliding puzzle.
 
 ### 🎨 Memory & Skill (4 Games)
 
-#### #### 14. 🐍 Memory Card Game
+#### 14. 🐍 Memory Card Game
 Match pairs of emoji cards to test your memory.
 
 **Features:**
@@ -289,7 +289,7 @@ Match pairs of emoji cards to test your memory.
 
 ---
 
-#### #### 15. 🐍 Simon Says
+#### 15. 🐍 Simon Says
 Repeat the color sequence shown by Simon.
 
 **Features:**
@@ -305,7 +305,7 @@ Repeat the color sequence shown by Simon.
 
 ---
 
-#### #### 16. 🐍 Whack-a-Mole
+#### 16. 🐍 Whack-a-Mole
 Hit the moles as they pop up from their holes!
 
 **Features:**
@@ -321,7 +321,7 @@ Hit the moles as they pop up from their holes!
 
 ---
 
-#### #### 17. 🐍 Typing Speed Test
+#### 17. 🐍 Typing Speed Test
 Test your typing speed and accuracy.
 
 **Features:**
@@ -341,7 +341,7 @@ Test your typing speed and accuracy.
 
 ### Word & Logic (3 Games)
 
-#### #### 18. 🐍 Hangman
+#### 18. 🐍 Hangman
 Word guessing game with drawing.
 
 **Features:**
@@ -376,7 +376,7 @@ Classic hand game vs computer.
 
 ---
 
-#### #### 20. 🐍 Quiz Game
+#### 20. 🐍 Quiz Game
 Test your knowledge across multiple categories.
 
 **Features:**
@@ -404,7 +404,7 @@ Test your knowledge across multiple categories.
 
 ### Card & Action (4 Games)
 
-#### #### 21. 🐍 Blackjack
+#### 21. 🐍 Blackjack
 Classic card game with betting system.
 
 **Features:**
@@ -427,7 +427,7 @@ Classic card game with betting system.
 
 ---
 
-#### #### 22. 🐍 Bubble Shooter
+#### 22. 🐍 Bubble Shooter
 Match-3 bubble popping game with physics.
 
 **Features:**
@@ -445,7 +445,7 @@ Match-3 bubble popping game with physics.
 
 ---
 
-#### #### 23. 🐍 Pac-Man
+#### 23. 🐍 Pac-Man
 Classic maze chase game with ghosts.
 
 **Features:**
@@ -466,7 +466,7 @@ Classic maze chase game with ghosts.
 
 ---
 
-#### #### 24. 🐍 Ping Pong AI
+#### 24. 🐍 Ping Pong AI
 Advanced pong with multiple difficulty levels.
 
 **Features:**
