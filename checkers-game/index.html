@@ -9,17 +9,26 @@
 <body>
     <div class="game-container">
         <h1>⚫ Checkers</h1>
-        <div class="game-stats">
-            <div>Red: <span id="redPieces">12</span></div>
-            <div id="turnDisplay">Red's Turn</div>
-            <div>Black: <span id="blackPieces">12</span></div>
+        <div class="mode-selector" id="modeSelector">
+            <h3>Select Game Mode:</h3>
+            <button class="mode-btn" onclick="startGame(\'pvp\')">👥 Player vs Player</button>
+            <button class="mode-btn" onclick="startGame(\'ai-easy\')">🤖 vs AI (Easy)</button>
+            <button class="mode-btn" onclick="startGame(\'ai-medium\')">🎯 vs AI (Medium)</button>
+            <button class="mode-btn" onclick="startGame(\'ai-hard\')">🔥 vs AI (Hard)</button>
         </div>
-        <div class="checkers-board" id="board"></div>
-        <div class="controls">
-            <button id="newGameBtn">New Game</button>
-            <button id="undoBtn">Undo Move</button>
+        <div class="game-area" id="gameArea" style="display:none;">
+            <div class="game-stats">
+                <div>Red: <span id="redPieces">12</span></div>
+                <div id="turnDisplay">Red\'s Turn</div>
+                <div>Black: <span id="blackPieces">12</span></div>
+            </div>
+            <div class="checkers-board" id="board"></div>
+            <div class="controls">
+                <button id="newGameBtn">New Game</button>
+                <button id="undoBtn">Undo Move</button>
+            </div>
+            <div class="message" id="message"></div>
         </div>
-        <div class="message" id="message"></div>
     </div>
     <script src="script.js"></script>
 </body>
