@@ -1,6 +1,35 @@
 ﻿<!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Ping Pong AI</title></head>
-<body style="font-family: Arial; text-align: center; padding: 50px;">
-<h1>🏓 Ping Pong AI</h1>
-<p>Coming Soon! Advanced Pong with AI opponent.</p>
-</body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ping Pong AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🏓 Ping Pong AI</h1>
+        <div class="difficulty-selector">
+            <button class="diff-btn active" data-difficulty="easy">Easy</button>
+            <button class="diff-btn" data-difficulty="medium">Medium</button>
+            <button class="diff-btn" data-difficulty="hard">Hard</button>
+            <button class="diff-btn" data-difficulty="impossible">Impossible</button>
+        </div>
+        <div class="score-board">
+            <div class="player-score">You: <span id="playerScore">0</span></div>
+            <div class="computer-score">AI: <span id="aiScore">0</span></div>
+        </div>
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div class="controls">
+            <button id="startBtn">Start Game</button>
+            <button id="resetBtn">Reset Score</button>
+        </div>
+        <div class="instructions">
+            <h3>How to Play:</h3>
+            <p>Move mouse to control paddle. First to 10 points wins!</p>
+            <p>Choose difficulty: Easy AI makes mistakes, Impossible AI is unbeatable!</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

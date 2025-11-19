@@ -1,6 +1,29 @@
 ﻿<!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Pac-Man</title></head>
-<body style="font-family: Arial; text-align: center; padding: 50px;">
-<h1>👻 Pac-Man</h1>
-<p>Coming Soon! Classic maze chase game with ghosts!</p>
-</body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pac-Man</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>👻 Pac-Man</h1>
+        <div class="game-stats">
+            <div>Score: <span id="score">0</span></div>
+            <div>Lives: <span id="lives">3</span></div>
+            <div>Level: <span id="level">1</span></div>
+        </div>
+        <canvas id="gameCanvas" width="560" height="620"></canvas>
+        <div class="controls">
+            <button id="startBtn">Start Game</button>
+            <button id="pauseBtn">Pause</button>
+        </div>
+        <div class="instructions">
+            <h3>How to Play:</h3>
+            <p>Use <strong>Arrow Keys</strong> or <strong>WASD</strong> to move. Eat all dots and avoid ghosts!</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

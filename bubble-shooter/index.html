@@ -1,6 +1,29 @@
 ﻿<!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Bubble Shooter</title></head>
-<body style="font-family: Arial; text-align: center; padding: 50px;">
-<h1>🔵 Bubble Shooter</h1>
-<p>Coming Soon! Match 3 or more bubbles of the same color.</p>
-</body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Shooter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🔵 Bubble Shooter</h1>
+        <div class="game-stats">
+            <div>Score: <span id="score">0</span></div>
+            <div>Level: <span id="level">1</span></div>
+            <div>Best: <span id="bestScore">0</span></div>
+        </div>
+        <canvas id="gameCanvas" width="600" height="700"></canvas>
+        <div class="controls">
+            <button id="startBtn">Start Game</button>
+            <button id="resetBtn">Reset</button>
+        </div>
+        <div class="instructions">
+            <h3>How to Play:</h3>
+            <p>Click or move mouse to aim and shoot bubbles. Match 3+ of same color to pop them!</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

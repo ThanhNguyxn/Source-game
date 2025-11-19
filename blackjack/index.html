@@ -1,6 +1,46 @@
 ﻿<!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Blackjack</title></head>
-<body style="font-family: Arial; text-align: center; padding: 50px;">
-<h1>🃏 Blackjack</h1>
-<p>Coming Soon! Classic card game - get to 21!</p>
-</body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🃏 Blackjack</h1>
+        <div class="game-stats">
+            <div>Chips: <span id="chips">1000</span></div>
+            <div>Bet: <span id="bet">0</span></div>
+            <div>Wins: <span id="wins">0</span></div>
+        </div>
+        <div class="table">
+            <div class="dealer-section">
+                <h3>Dealer: <span id="dealerScore">0</span></h3>
+                <div class="cards" id="dealerCards"></div>
+            </div>
+            <div class="player-section">
+                <h3>You: <span id="playerScore">0</span></h3>
+                <div class="cards" id="playerCards"></div>
+            </div>
+        </div>
+        <div class="betting" id="betting">
+            <h3>Place Your Bet:</h3>
+            <div class="bet-buttons">
+                <button class="bet-btn" onclick="placeBet(10)">$10</button>
+                <button class="bet-btn" onclick="placeBet(50)">$50</button>
+                <button class="bet-btn" onclick="placeBet(100)">$100</button>
+                <button class="bet-btn" onclick="placeBet(500)">$500</button>
+            </div>
+        </div>
+        <div class="actions" id="actions" style="display:none;">
+            <button id="hitBtn">Hit</button>
+            <button id="standBtn">Stand</button>
+            <button id="doubleBtn">Double Down</button>
+        </div>
+        <div class="message" id="message"></div>
+        <button id="newGameBtn" style="display:none;">New Round</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
