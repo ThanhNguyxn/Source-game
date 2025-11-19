@@ -13,7 +13,7 @@
 
 ## 🌐 Play Online
 
-**🎮 [Play All Games Here](https://thanhnguyen.github.io/Source-game/)**
+**🎮 [Play All Games Here](https://thanhnguyxn.github.io/Source-game/)**
 
 > Replace with your actual GitHub Pages URL after deployment
 
