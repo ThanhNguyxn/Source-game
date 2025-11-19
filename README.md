@@ -1,4 +1,4 @@
-﻿# ðŸŽ® Classic Games Collection
+# 🎮 Classic Games Collection
 
 [![GitHub Stars](https://img.shields.io/github/stars/ThanhNguyxn/Source-game?style=social)](https://github.com/ThanhNguyxn/Source-game)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -6,48 +6,45 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-
 ## 🆕 Latest Updates
 
 **Recent Game Upgrades:**
 - 🎯 **Asteroids**: NEW GAME! Classic space shooter with 4 difficulty levels and UFO enemies
 - 🏀 **Brick Breaker**: NEW GAME! Arkanoid-style brick breaker with 4 difficulty levels and multi-ball mode
-- 🐍 **Snake Game**: Added 4 difficulty levels (Easy/Medium/Hard/Extreme) with obstacles in Extreme mode
-- 🟦 **Tetris**: Added 3 game modes (Classic/Sprint/Marathon) with ghost piece preview
-- 🎯 **Whack-a-Mole**: Added 4 difficulty levels with special moles (Bomb 💣 & Golden 🌟) in Extreme mode
-- ⌨️ **Typing Speed Test**: Added 4 difficulty levels with 15+ different text samples
-> A comprehensive collection of **30 legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
+- 🐍 **Snake Game**: 4 difficulty levels with obstacles in Extreme mode
+- 🟦 **Tetris**: 3 game modes (Classic/Sprint/Marathon) + ghost piece
+- 🎯 **Whack-a-Mole**: 4 difficulty levels + special moles (Bomb 💣 & Golden 🌟)
+- ⌨️ **Typing Speed Test**: 4 difficulty levels + 15 text samples
 
-
----
-
-## ðŸŽ¯ Play Online
-
-**ðŸš€ [Play All Games Here](https://thanhnguyxn.github.io/Source-game/)**
-
-> Replace with your actual GitHub Pages URL after deployment
+> A comprehensive collection of **32 legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
 
 ---
 
-## ðŸ“Š Project Statistics
+## 🎯 Play Online
+
+**🚀 [Play All Games Here](https://thanhnguyxn.github.io/Source-game/)**
+
+---
+
+## 📊 Project Statistics
 
 ```
 Total Files: 77
 Total Games: 32 (100% Functional)
-Lines of Code: ~18,000+
-âœ¨ Pure Vanilla JavaScript (No Frameworks)
-ðŸ“± Modern Responsive Design
-ðŸ’¾ LocalStorage Integration
-ðŸŒ 100% English Interface
+Lines of Code: ~20,000+
+✨ Pure Vanilla JavaScript (No Frameworks)
+📱 Modern Responsive Design
+💾 LocalStorage Integration
+🌍 100% English Interface
 ```
 
 ---
 
-## ðŸŽ® Complete Game Collection
+## 🎮 Complete Game Collection
 
-### ðŸ•¹ï¸ Arcade Classics (7 Games)
+### 🕹️ Arcade Classics (8 Games)
 
-#### 1. ðŸ Snake Game
+#### 1. 🐍 Snake Game
 Classic arcade game where you control a growing snake.
 
 **Features:**
