@@ -1,4 +1,4 @@
-﻿const modeSelector = document.getElementById('modeSelector');
+﻿﻿const modeSelector = document.getElementById('modeSelector');
 const gameArea = document.getElementById('gameArea');
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
@@ -22,7 +22,7 @@ function createBricks(){bricks=[];const colors=['#e74c3c','#e67e22','#f1c40f','#
 function update(){if(!isPaused){movePaddle();moveBalls();checkCollisions();checkWin();}draw();gameLoop=requestAnimationFrame(update);}
 
 let keys={};
-document.addEventListener('keydown',e=>{if(e.key===' '){e.preventDefault();}keys[e.key]=true;if(e.key===' '&&balls.some(b=>!b.launched))balls.forEach(b=>b.launched=true);if(e.key==='p'||e.key==='P')togglePause();});
+document.addEventListener('keydown',e=>{if(e.key===' '||e.key==='ArrowUp'||e.key==='ArrowDown'||e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();}keys[e.key]=true;if(e.key===' '&&balls.some(b=>!b.launched))balls.forEach(b=>b.launched=true);if(e.key==='p'||e.key==='P')togglePause();});
 document.addEventListener('keyup',e=>keys[e.key]=false);
 document.addEventListener('mousemove',e=>{const rect=canvas.getBoundingClientRect();paddle.x=e.clientX-rect.left-paddle.width/2;if(paddle.x<0)paddle.x=0;if(paddle.x+paddle.width>canvas.width)paddle.x=canvas.width-paddle.width;});
 

@@ -330,6 +330,11 @@ function gameOver() {
 
 // Controls
 window.addEventListener('keydown', (e) => {
+    // Prevent page scroll
+    if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', ' ', 'w', 'W'].includes(e.key)) {
+        e.preventDefault();
+    }
+
     keys[e.key] = true;
 
     if (e.key === 'p' || e.key === 'P') {

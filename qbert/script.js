@@ -274,6 +274,11 @@ function gameOver() {
 window.addEventListener('keydown', (e) => {
     if (paused || !gameRunning) return;
 
+    // Prevent page scroll
+    if (['q','Q','w','W','e','E','a','A','d','D','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.key)) {
+        e.preventDefault();
+    }
+
     switch(e.key) {
         case 'q':
         case 'Q':

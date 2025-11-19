@@ -1,4 +1,4 @@
-﻿const canvas = document.getElementById('gameCanvas');
+﻿﻿const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 const scoreElement = document.getElementById('score');
 const livesElement = document.getElementById('lives');
@@ -231,9 +231,13 @@ let leftPressed = false;
 
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Right' || e.key === 'ArrowRight') {
+        e.preventDefault();
         rightPressed = true;
     } else if (e.key === 'Left' || e.key === 'ArrowLeft') {
+        e.preventDefault();
         leftPressed = true;
+    } else if (e.key === ' ' || e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+        e.preventDefault();
     }
 });
 

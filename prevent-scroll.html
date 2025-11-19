@@ -1,0 +1,29 @@
+<script>
+// Universal scroll prevention for all game controls
+(function() {
+    'use strict';
+
+    // Prevent arrow keys and space from scrolling the page
+    window.addEventListener('keydown', function(e) {
+        // Game control keys that should not scroll
+        const gameKeys = [
+            'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight',
+            ' ', // Space
+            'w', 'W', 'a', 'A', 's', 'S', 'd', 'D', // WASD
+            'q', 'Q', 'e', 'E' // Q*bert keys
+        ];
+
+        if (gameKeys.includes(e.key)) {
+            e.preventDefault();
+        }
+    }, false);
+
+    // Prevent spacebar from scrolling when focused on body
+    window.addEventListener('keydown', function(e) {
+        if (e.key === ' ' && e.target === document.body) {
+            e.preventDefault();
+        }
+    });
+})();
+</script>
+
