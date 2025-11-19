@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dino Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🦖 Dino Run</h1>
+        <div class="score-board">
+            <div class="score">Score: <span id="score">0</span></div>
+            <div class="high-score">High Score: <span id="highScore">0</span></div>
+        </div>
+        <canvas id="gameCanvas" width="800" height="400"></canvas>
+        <div class="controls">
+            <button id="startBtn">Start Game</button>
+            <button id="resetBtn">Reset</button>
+        </div>
+        <div class="instructions">
+            <h3>How to Play:</h3>
+            <p>Press <strong>Space</strong> or <strong>UP Arrow</strong> to jump over obstacles</p>
+            <p>Press <strong>DOWN Arrow</strong> to duck under flying obstacles</p>
+            <p>Don't hit the cacti!</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

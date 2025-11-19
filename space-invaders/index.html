@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Invaders</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>👾 Space Invaders</h1>
+        <div class="score-board">
+            <div class="score">Score: <span id="score">0</span></div>
+            <div class="lives">Lives: <span id="lives">3</span></div>
+            <div class="high-score">High Score: <span id="highScore">0</span></div>
+        </div>
+        <canvas id="gameCanvas" width="600" height="600"></canvas>
+        <div class="controls">
+            <button id="startBtn">Start Game</button>
+            <button id="resetBtn">Reset</button>
+        </div>
+        <div class="instructions">
+            <h3>How to Play:</h3>
+            <p><strong>←/→</strong> Move | <strong>Space</strong> Shoot</p>
+            <p>Destroy all aliens before they reach you!</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
