@@ -6,7 +6,7 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-> A comprehensive collection of **40 legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
+> A comprehensive collection of **45+ legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
 
 ## 🎯 Quick Start
 
@@ -17,9 +17,9 @@ Simply open `index.html` in your browser or visit the live demo!
 ## 📊 Project Statistics
 
 ```
-Total Games: 40 (100% Functional)
-Lines of Code: ~35,000+
-Total Files: 120+
+Total Games: 45+ (100% Functional)
+Lines of Code: ~40,000+
+Total Files: 135+
 ✨ Pure Vanilla JavaScript (No Frameworks)
 📱 Fully Responsive Design
 💾 LocalStorage for High Scores
@@ -27,9 +27,9 @@ Total Files: 120+
 🎮 AI Opponents in Multiple Games
 ```
 
-## 🎮 Complete Game Library (40 Games)
+## 🎮 Complete Game Library (45+ Games)
 
-### 🕹️ Arcade Classics (18 Games)
+### 🕹️ Arcade Classics (20 Games)
 
 | Game | Description | Controls | Features |
 |------|-------------|----------|----------|
@@ -51,6 +51,8 @@ Total Files: 120+
 | 🎯 **Missile Command** | Defend cities from missiles | Mouse Click | Strategic targeting, chain explosions |
 | 👻 **Pac-Man** | Eat dots, avoid ghosts | Arrow Keys | 4 ghost AI, power pellets, maze navigation |
 | 🎈 **Bubble Shooter** | Match 3+ bubbles to pop | Mouse | Color matching, physics-based |
+| 🦍 **Donkey Kong** | Classic platformer - rescue princess | Arrow Keys/WASD, Space (jump) | Platforms, ladders, barrel dodging, lives |
+| ⛏️ **Dig Dug** | Dig tunnels and defeat enemies | Arrow Keys/WASD, Space (pump) | Underground digging, enemy inflation, rocks |
 
 ### 🧩 Puzzle & Strategy (9 Games)
 
@@ -258,6 +260,60 @@ python -m http.server 8000
 - Plan defensive coverage zones
 </details>
 
+<details>
+<summary><b>🦍 Donkey Kong</b></summary>
+
+**Objective:** Climb to the top and rescue the princess while avoiding barrels
+
+**Controls:**
+- Arrow Keys or A/D to move left/right
+- Space / W / ↑ to jump
+- P to pause
+
+**Gameplay:**
+- Use ladders to climb between platforms
+- Jump over rolling barrels thrown by Donkey Kong
+- Time your jumps carefully to avoid obstacles
+- Reach the princess at the top to complete the level
+
+**Tips:**
+- Watch barrel patterns to find safe crossing points
+- Use ladders strategically to avoid barrels
+- Don't rush - timing is more important than speed
+- Higher levels have faster barrels
+</details>
+
+<details>
+<summary><b>⛏️ Dig Dug</b></summary>
+
+**Objective:** Defeat all underground enemies by inflating them or crushing them with rocks
+
+**Controls:**
+- Arrow Keys or WASD to move and dig
+- Space to use air pump
+- P to pause
+
+**Gameplay:**
+- Dig through dirt to create tunnels
+- Use air pump to inflate enemies until they pop
+- Drop rocks on enemies for bonus points
+- Avoid direct contact with enemies
+- Clear all enemies to advance to next level
+
+**Strategy:**
+- Plan your tunnel routes to trap enemies
+- Position rocks above enemy paths
+- Keep pumping to fully inflate enemies
+- Watch for enemies that can dig through dirt
+- Create escape routes before engaging enemies
+
+**Tips:**
+- Rocks fall when you dig below them
+- Enemies move faster on higher levels
+- Inflated enemies can't move
+- Multiple enemies can be crushed by one rock
+</details>
+
 ## 🌟 Featured Games
 
 ### Most Popular
@@ -342,14 +398,14 @@ git push origin feature/new-game-name
 - [ ] Social sharing integration
 
 ### Planned Games
-- 🦍 Donkey Kong
 - 🎮 Q*bert
 - 🏃 Lemmings
 - 👽 Defender
 - 🎪 Centipede
-- 🌟 Dig Dug
 - 🎲 Yahtzee
 - 🃏 Spider Solitaire
+- 🎯 Arkanoid
+- 🌟 Contra
 
 ## 📄 License
 
