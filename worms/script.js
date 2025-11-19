@@ -4,7 +4,8 @@ canvas.width = 800;
 canvas.height = 500;
 
 let gameStarted = false;
-let currentTeam = 0; // 0 = Team 1 (red), 1 = Team 2 (blue)
+let gameMode = 'pvp'; // 'pvp' or 'ai'
+let currentTeam = 0; // 0 = Team 1 (red/player), 1 = Team 2 (blue/AI or player2)
 let angle = 45;
 let power = 50;
 let wind = 0;
@@ -14,11 +15,33 @@ let terrain = [];
 
 // Teams
 const teams = [
-    { name: 'Team 1', color: '#e74c3c', worms: [] },
-    { name: 'Team 2', color: '#3498db', worms: [] }
+    { name: 'Player', color: '#e74c3c', worms: [] },
+    { name: 'AI', color: '#3498db', worms: [] }
 ];
 
 let currentWormIndex = 0;
+
+function startGame(mode) {
+    gameMode = mode;
+    if (mode === 'ai') {
+        teams[1].name = 'AI';
+    } else {
+        teams[1].name = 'Player 2';
+    }
+    document.getElementById('modeSelector').style.display = 'none';
+    document.getElementById('gameArea').style.display = 'block';
+
+    gameStarted = true;
+    currentTeam = 0;
+    currentWormIndex = 0;
+    projectiles = [];
+    explosions = [];
+    generateTerrain();
+    initWorms();
+    wind = Math.floor(Math.random() * 21) - 10;
+    updateDisplay();
+    document.getElementById('fireBtn').disabled = false;
+}
 
 // Generate terrain
 function generateTerrain() {
@@ -242,6 +265,54 @@ function nextTurn() {
     document.getElementById('fireBtn').disabled = false;
 
     checkGameOver();
+
+    // AI turn
+    if (gameMode === 'ai' && currentTeam === 1 && gameStarted) {
+        setTimeout(aiTurn, 1000);
+    }
+}
+
+function aiTurn() {
+    if (!gameStarted || currentTeam !== 1) return;
+
+    const aiWorm = teams[1].worms[currentWormIndex];
+    const targetWorms = teams[0].worms.filter(w => w.alive);
+
+    if (targetWorms.length === 0) return;
+
+    // Choose closest enemy worm
+    let closestWorm = targetWorms[0];
+    let minDist = Infinity;
+
+    targetWorms.forEach(worm => {
+        const dist = Math.abs(worm.x - aiWorm.x);
+        if (dist < minDist) {
+            minDist = dist;
+            closestWorm = worm;
+        }
+    });
+
+    // Calculate shot
+    const dx = closestWorm.x - aiWorm.x;
+    const dy = aiWorm.y - closestWorm.y;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    // Estimate angle and power
+    angle = Math.max(20, Math.min(160, 45 + (dy / distance) * 45));
+    power = Math.min(100, Math.max(30, distance / 5));
+
+    // Add some randomness to make AI not perfect
+    angle += (Math.random() - 0.5) * 15;
+    power += (Math.random() - 0.5) * 20;
+
+    angle = Math.max(0, Math.min(180, angle));
+    power = Math.max(10, Math.min(100, power));
+
+    updateDisplay();
+
+    setTimeout(() => {
+        fire();
+    }, 500);
 }
 
 function checkGameOver() {
@@ -284,6 +355,9 @@ function gameLoop() {
 // Controls
 window.addEventListener('keydown', (e) => {
     if (!gameStarted) return;
+
+    // Disable controls during AI turn
+    if (gameMode === 'ai' && currentTeam === 1) return;
 
     if (['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' ','a','A','d','D'].includes(e.key)) {
         e.preventDefault();

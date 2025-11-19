@@ -10,36 +10,46 @@
     <div class="container">
         <h1>🪱 Worms</h1>
 
-        <div class="game-info">
-            <div class="stat">
-                <span>Turn:</span>
-                <span id="currentTeam">Team 1</span>
-            </div>
-            <div class="stat">
-                <span>Wind:</span>
-                <span id="wind">0</span>
-            </div>
-            <div class="stat">
-                <span>Power:</span>
-                <span id="power">50</span>
-            </div>
-            <div class="stat">
-                <span>Angle:</span>
-                <span id="angle">45</span>
+        <div class="mode-selector" id="modeSelector">
+            <h2>Select Game Mode:</h2>
+            <div class="mode-buttons">
+                <button class="mode-btn" onclick="startGame('ai')">🤖 vs AI</button>
+                <button class="mode-btn" onclick="startGame('pvp')">👥 2 Players</button>
             </div>
         </div>
 
-        <canvas id="gameCanvas"></canvas>
+        <div class="game-area" id="gameArea" style="display:none;">
+            <div class="game-info">
+                <div class="stat">
+                    <span>Turn:</span>
+                    <span id="currentTeam">Team 1</span>
+                </div>
+                <div class="stat">
+                    <span>Wind:</span>
+                    <span id="wind">0</span>
+                </div>
+                <div class="stat">
+                    <span>Power:</span>
+                    <span id="power">50</span>
+                </div>
+                <div class="stat">
+                    <span>Angle:</span>
+                    <span id="angle">45</span>
+                </div>
+            </div>
 
-        <div class="controls">
-            <button id="startBtn" class="btn">▶️ Start Game</button>
-            <button id="fireBtn" class="btn" disabled>🎯 Fire!</button>
-            <h3>🎮 Controls</h3>
-            <p><strong>← →:</strong> Adjust Angle</p>
-            <p><strong>↑ ↓:</strong> Adjust Power</p>
-            <p><strong>Space/Fire:</strong> Launch Weapon</p>
-            <p><strong>A/D:</strong> Move Worm</p>
-            <p><strong>Objective:</strong> Eliminate enemy team with strategic artillery shots!</p>
+            <canvas id="gameCanvas"></canvas>
+
+            <div class="controls">
+                <button id="fireBtn" class="btn" disabled>🎯 Fire!</button>
+                <button id="changeModeBtn" class="btn">Change Mode</button>
+                <h3>🎮 Controls</h3>
+                <p><strong>← →:</strong> Adjust Angle</p>
+                <p><strong>↑ ↓:</strong> Adjust Power</p>
+                <p><strong>Space/Fire:</strong> Launch Weapon</p>
+                <p><strong>A/D:</strong> Move Worm</p>
+                <p><strong>Objective:</strong> Eliminate enemy team with strategic artillery shots!</p>
+            </div>
         </div>
 
         <div id="gameOver" class="modal hidden">

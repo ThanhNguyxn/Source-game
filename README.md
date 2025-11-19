@@ -132,7 +132,7 @@ Total Files: 180+
 
 | Game | Description | Controls | Features |
 |------|-------------|----------|----------|
-| 🪱 **Worms** | Artillery warfare game | ← → (angle), ↑ ↓ (power), Space (fire), A/D (move) | Turn-based combat, wind physics, terrain destruction, 2 teams |
+| 🪱 **Worms** | Artillery warfare game | ← → (angle), ↑ ↓ (power), Space (fire), A/D (move) | AI opponent, turn-based combat, wind physics, terrain destruction, 2 modes |
 | 🐹 **Lemmings** | Save the lemmings puzzle | Click lemming + tool button | Assign abilities (blocker, climber, digger), save 50% to win |
 
 ## ✨ Key Features
