@@ -11,10 +11,10 @@
         <h1>♟️ Chess</h1>
         <div class="mode-selector" id="modeSelector">
             <h3>Select Game Mode:</h3>
-            <button class="mode-btn" onclick="startGame(\'pvp\')">👥 Player vs Player</button>
-            <button class="mode-btn" onclick="startGame(\'ai-easy\')">🤖 vs AI (Easy)</button>
-            <button class="mode-btn" onclick="startGame(\'ai-medium\')">🎯 vs AI (Medium)</button>
-            <button class="mode-btn" onclick="startGame(\'ai-hard\')">🔥 vs AI (Hard)</button>
+            <button class="mode-btn" onclick="startGame('pvp')">👥 Player vs Player</button>
+            <button class="mode-btn" onclick="startGame('ai-easy')">🤖 vs AI (Easy)</button>
+            <button class="mode-btn" onclick="startGame('ai-medium')">🤖 vs AI (Medium)</button>
+            <button class="mode-btn" onclick="startGame('ai-hard')">🤖 vs AI (Hard)</button>
         </div>
         <div class="game-area" id="gameArea" style="display:none;">
             <div class="game-info">
@@ -23,7 +23,7 @@
                     <div class="captured" id="whiteCaptured"></div>
                 </div>
                 <div class="game-status">
-                    <div id="turnDisplay">White\'s Turn</div>
+                    <div id="turnDisplay">White's Turn</div>
                     <div id="checkDisplay"></div>
                 </div>
                 <div class="player-info black-player">
@@ -38,6 +38,21 @@
                 <button id="hintBtn">Show Hint</button>
             </div>
             <div class="message" id="message"></div>
+        </div>
+        <div class="instructions">
+            <h3>How to Play:</h3>
+            <p><strong>Objective:</strong> Checkmate your opponent's king</p>
+            <p><strong>Controls:</strong> Click a piece to select it, then click a valid square to move</p>
+            <p><strong>Piece Moves:</strong></p>
+            <ul>
+                <li>♟️ Pawn: Forward 1 square (2 on first move), captures diagonally</li>
+                <li>♜ Rook: Horizontal or vertical any distance</li>
+                <li>♞ Knight: L-shape (2+1 squares)</li>
+                <li>♝ Bishop: Diagonal any distance</li>
+                <li>♛ Queen: Any direction any distance</li>
+                <li>♚ King: Any direction 1 square</li>
+            </ul>
+            <p><strong>Special Moves:</strong> Castling, En Passant, Pawn Promotion</p>
         </div>
     </div>
     <script src="script.js"></script>

@@ -9,19 +9,67 @@
 <body>
     <div class="game-container">
         <h1>🏓 Pong Game</h1>
-        <div class="score-board">
-            <div class="player-score">Player: <span id="playerScore">0</span></div>
-            <div class="computer-score">Computer: <span id="computerScore">0</span></div>
+        
+        <div class="mode-selector" id="modeSelector">
+            <h2>Choose Game Mode:</h2>
+            <div class="mode-buttons">
+                <button class="mode-btn" onclick="startGame('pvp')">👥 Player vs Player</button>
+                <button class="mode-btn" onclick="startGame('ai-easy')">🤖 vs AI (Easy)</button>
+                <button class="mode-btn" onclick="startGame('ai-medium')">🤖 vs AI (Medium)</button>
+                <button class="mode-btn" onclick="startGame('ai-hard')">🤖 vs AI (Hard)</button>
+            </div>
         </div>
-        <canvas id="gameCanvas" width="800" height="600"></canvas>
-        <div class="controls">
-            <button id="startBtn">Start Game</button>
-            <button id="resetBtn">Reset</button>
+        
+        <div class="game-area" id="gameArea" style="display:none;">
+            <div class="score-board">
+                <div class="player-score">
+                    <h3>Player 1</h3>
+                    <div class="score" id="player1Score">0</div>
+                </div>
+                <div class="game-status">
+                    <div id="gameStatus">Press Space to Start</div>
+                </div>
+                <div class="player-score">
+                    <h3 id="player2Label">Player 2</h3>
+                    <div class="score" id="player2Score">0</div>
+                </div>
+            </div>
+            
+            <canvas id="pongCanvas" width="800" height="400"></canvas>
+            
+            <div class="controls-info">
+                <div>
+                    <strong>Player 1:</strong> W / S or Arrow Up / Down
+                </div>
+                <div id="player2Controls">
+                    <strong>Player 2:</strong> Arrow Up / Down
+                </div>
+                <div>
+                    <strong>Space:</strong> Start / Pause
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button id="newGameBtn">New Game</button>
+                <button id="changeModeBtn">Change Mode</button>
+            </div>
         </div>
+        
         <div class="instructions">
             <h3>How to Play:</h3>
-            <p>Move your paddle with <strong>UP/DOWN Arrow Keys</strong> or <strong>W/S</strong></p>
-            <p>First to 5 points wins!</p>
+            <p><strong>Objective:</strong> Score 5 points to win!</p>
+            <p><strong>Controls:</strong></p>
+            <ul>
+                <li>Player 1: W/S or ↑/↓ arrow keys</li>
+                <li>Player 2 (if PvP): ↑/↓ arrow keys</li>
+                <li>Space: Start/Pause game</li>
+            </ul>
+            <p><strong>Rules:</strong></p>
+            <ul>
+                <li>Hit the ball with your paddle</li>
+                <li>Ball speeds up with each hit</li>
+                <li>First to 5 points wins!</li>
+            </ul>
         </div>
     </div>
     <script src="script.js"></script>

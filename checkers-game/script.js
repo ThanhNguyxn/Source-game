@@ -7,7 +7,7 @@ let blackPieces = 12;
 let gameMode = 'pvp';
 let moveHistory = [];
 
-const boardEl = document.getElementById('board');
+const checkersBoard = document.getElementById('checkersBoard');
 const turnDisplay = document.getElementById('turnDisplay');
 const message = document.getElementById('message');
 const gameModeSelector = document.getElementById('modeSelector');
@@ -54,7 +54,7 @@ function initGame() {
 }
 
 function render() {
-    boardEl.innerHTML = '';
+    checkersBoard.innerHTML = '';
     for (let row = 0; row < 8; row++) {
         for (let col = 0; col < 8; col++) {
             const square = document.createElement('div');
@@ -70,7 +70,7 @@ function render() {
                 square.appendChild(pieceEl);
             }
             square.addEventListener('click', handleSquareClick);
-            boardEl.appendChild(square);
+            checkersBoard.appendChild(square);
         }
     }
 }

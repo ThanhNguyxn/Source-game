@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkers</title>
+    <title>Checkers Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,23 +11,45 @@
         <h1>⚫ Checkers</h1>
         <div class="mode-selector" id="modeSelector">
             <h3>Select Game Mode:</h3>
-            <button class="mode-btn" onclick="startGame(\'pvp\')">👥 Player vs Player</button>
-            <button class="mode-btn" onclick="startGame(\'ai-easy\')">🤖 vs AI (Easy)</button>
-            <button class="mode-btn" onclick="startGame(\'ai-medium\')">🎯 vs AI (Medium)</button>
-            <button class="mode-btn" onclick="startGame(\'ai-hard\')">🔥 vs AI (Hard)</button>
+            <button class="mode-btn" onclick="startGame('pvp')">👥 Player vs Player</button>
+            <button class="mode-btn" onclick="startGame('ai-easy')">🤖 vs AI (Easy)</button>
+            <button class="mode-btn" onclick="startGame('ai-medium')">🤖 vs AI (Medium)</button>
+            <button class="mode-btn" onclick="startGame('ai-hard')">🤖 vs AI (Hard)</button>
         </div>
         <div class="game-area" id="gameArea" style="display:none;">
-            <div class="game-stats">
-                <div>Red: <span id="redPieces">12</span></div>
-                <div id="turnDisplay">Red\'s Turn</div>
-                <div>Black: <span id="blackPieces">12</span></div>
+            <div class="game-info">
+                <div class="player-info">
+                    <h3>🔴 Red Player</h3>
+                    <div>Pieces: <span id="redPieces">12</span></div>
+                </div>
+                <div class="game-status">
+                    <div id="turnDisplay">Red's Turn</div>
+                </div>
+                <div class="player-info">
+                    <h3>⚫ Black Player</h3>
+                    <div>Pieces: <span id="blackPieces">12</span></div>
+                </div>
             </div>
-            <div class="checkers-board" id="board"></div>
+            <div id="checkersBoard"></div>
             <div class="controls">
                 <button id="newGameBtn">New Game</button>
                 <button id="undoBtn">Undo Move</button>
             </div>
             <div class="message" id="message"></div>
+        </div>
+        <div class="instructions">
+            <h3>How to Play:</h3>
+            <p><strong>Objective:</strong> Capture all opponent's pieces or block their moves</p>
+            <p><strong>Controls:</strong> Click a piece to select it, then click a valid square to move</p>
+            <p><strong>Rules:</strong></p>
+            <ul>
+                <li>Regular pieces move diagonally forward one square</li>
+                <li>Jump over opponent's pieces to capture them</li>
+                <li>Multiple jumps in one turn are allowed</li>
+                <li>Reach the opposite end to become a King 👑</li>
+                <li>Kings can move diagonally in any direction</li>
+                <li>Capturing is mandatory when possible</li>
+            </ul>
         </div>
     </div>
     <script src="script.js"></script>

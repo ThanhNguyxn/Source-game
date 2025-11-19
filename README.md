@@ -1,4 +1,4 @@
-﻿# 🎮 Classic Games Collection
+# 🎮 Classic Games Collection
 
 [![GitHub Stars](https://img.shields.io/github/stars/ThanhNguyxn/Source-game?style=social)](https://github.com/ThanhNguyxn/Source-game)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -11,9 +11,9 @@
 
 ---
 
-## 🌐 Play Online
+## 🎯 Play Online
 
-**🎮 [Play All Games Here](https://thanhnguyxn.github.io/Source-game/)**
+**🚀 [Play All Games Here](https://thanhnguyxn.github.io/Source-game/)**
 
 > Replace with your actual GitHub Pages URL after deployment
 
@@ -26,14 +26,14 @@ Total Files: 74
 Total Games: 30 (100% Functional)
 Lines of Code: ~18,000+
 ✨ Pure Vanilla JavaScript (No Frameworks)
-Modern Responsive Design
-LocalStorage Integration
-100% English Interface
+📱 Modern Responsive Design
+💾 LocalStorage Integration
+🌍 100% English Interface
 ```
 
 ---
 
-## 🎯 Complete Game Collection
+## 🎮 Complete Game Collection
 
 ### 🕹️ Arcade Classics (7 Games)
 
@@ -53,7 +53,7 @@ Classic arcade game where you control a growing snake.
 
 ---
 
-#### 2. 🐍 Breakout
+#### 2. 🧱 Breakout
 Break all the colored bricks with your paddle and ball.
 
 **Features:**
@@ -69,7 +69,7 @@ Break all the colored bricks with your paddle and ball.
 
 ---
 
-#### 3. 🐍 Tetris
+#### 3. 🟦 Tetris
 The legendary falling blocks puzzle game.
 
 **Features:**
@@ -81,16 +81,16 @@ The legendary falling blocks puzzle game.
 - Ghost piece preview (coming soon)
 
 **Controls:**  
-- ? ? : Move piece
-- ? : Rotate piece
-- ? : Soft drop
+- ← → : Move piece
+- ↑ : Rotate piece
+- ↓ : Soft drop
 - Space : Hard drop
 
 **Objective:** Clear lines by filling rows completely
 
 ---
 
-#### 4. 🐍 Pong
+#### 4. 🏓 Pong
 The first video game ever created - table tennis simulation.
 
 **Features:**
@@ -105,7 +105,7 @@ The first video game ever created - table tennis simulation.
 
 ---
 
-#### 5. 🐍 Space Invaders
+#### 5. 👾 Space Invaders
 Defend Earth from waves of alien invaders!
 
 **Features:**
@@ -117,14 +117,14 @@ Defend Earth from waves of alien invaders!
 - High score tracking
 
 **Controls:**  
-- ? ? : Move ship
+- ← → : Move ship
 - Space : Shoot
 
 **Objective:** Destroy all aliens before they reach you
 
 ---
 
-#### 6. 🐍 Flappy Bird
+#### 6. 🐦 Flappy Bird
 Navigate through pipes in this challenging arcade game.
 
 **Features:**
@@ -140,7 +140,7 @@ Navigate through pipes in this challenging arcade game.
 
 ---
 
-#### 7. 🐍 Dino Run
+#### 7. 🦖 Dino Run
 Chrome's famous offline dinosaur game!
 
 **Features:**
@@ -151,8 +151,8 @@ Chrome's famous offline dinosaur game!
 - Day/night cycle (coming soon)
 
 **Controls:**  
-- Space/? : Jump
-- ? : Duck
+- Space/↑ : Jump
+- ↓ : Duck
 
 **Objective:** Survive as long as possible
 
@@ -160,7 +160,7 @@ Chrome's famous offline dinosaur game!
 
 ### 🧩 Puzzle & Strategy (6 Games)
 
-#### 8. 🐍 2048
+#### 8. 🔢 2048
 Slide numbered tiles to create the 2048 tile.
 
 **Features:**
@@ -176,7 +176,7 @@ Slide numbered tiles to create the 2048 tile.
 
 ---
 
-#### 9. 🐍 Minesweeper
+#### 9. 💣 Minesweeper
 Classic mine detection puzzle.
 
 **Features:**
@@ -197,7 +197,7 @@ Classic mine detection puzzle.
 
 ---
 
-#### 10. 🐍 Sudoku
+#### 10. 🔢 Sudoku
 Fill the 9x9 grid with numbers 1-9.
 
 **Features:**
@@ -222,7 +222,7 @@ Fill the 9x9 grid with numbers 1-9.
 
 ---
 
-#### 11. 🐍 Tic Tac Toe
+#### 11. ❌ Tic Tac Toe
 The timeless two-player strategy game.
 
 **Features:**
@@ -238,7 +238,7 @@ The timeless two-player strategy game.
 
 ---
 
-#### 12. 🎮Connect Four
+#### 12. 🔴 Connect Four
 Connect four discs vertically, horizontally, or diagonally.
 
 **Features:**
@@ -249,530 +249,522 @@ Connect four discs vertically, horizontally, or diagonally.
 - Smooth animations
 - Reset score option
 
-**Controls:** Click on column  
-**Objective:** Connect four of your discs in a row
+**Controls:** Mouse Click  
+**Objective:** Connect four discs in a row
 
 ---
 
-#### 13. 🐍 Sliding Puzzle
-Classic 15-tile number sliding puzzle.
+#### 13. 🧩 Sliding Puzzle
+Rearrange scrambled tiles to form the complete image.
 
 **Features:**
-- 4x4 grid with numbers 1-15
+- **3 grid sizes:**
+  - 3x3 (Easy)
+  - 4x4 (Medium)
+  - 5x5 (Hard)
 - Move counter
 - Timer
-- Best moves tracking
-- Shuffle function
-- Show solution button
-- Visual feedback for correct tiles
+- Shuffle algorithm
+- Solvability check
+- Best time tracking
 
-**Controls:** Click tile adjacent to empty space  
-**Objective:** Arrange tiles in order 1-15
+**Controls:** Click adjacent tile to empty space  
+**Objective:** Arrange tiles in order from 1 to N
 
 ---
 
-### 🎨 Memory & Skill (4 Games)
+### 🎯 Skill & Reaction (5 Games)
 
-#### 14. 🐍 Memory Card Game
-Match pairs of emoji cards to test your memory.
+#### 14. 🎯 Whack-a-Mole
+Test your reflexes by whacking moles!
 
 **Features:**
-- 16 cards (8 pairs) with emojis
-- Move counter
-- Timer with best time tracking
-- Smooth flip animations
-- Win detection
-- Reset statistics option
+- 60-second time limit
+- Multiple mole holes (3x3 grid)
+- Random mole appearances
+- Score tracking
+- Difficulty progression
+- High score system
 
 **Controls:** Mouse Click  
-**Objective:** Match all pairs in minimum time
+**Objective:** Click as many moles as possible in 60 seconds
 
 ---
 
-#### 15. 🐍 Simon Says
-Repeat the color sequence shown by Simon.
+#### 15. 🎨 Simon Game
+Memorize and repeat the color sequence.
 
 **Features:**
-- 4 colored buttons
-- Progressive difficulty (longer sequences)
-- Sound effects for each button
-- Visual feedback
-- Best score tracking
-- Speed increases per level
+- 4 colored buttons with sounds
+- Progressive difficulty (sequence grows)
+- Visual and audio feedback
+- Level counter
+- Strict mode option (coming soon)
+- High score tracking
 
-**Controls:** Click colored buttons  
+**Controls:** Mouse Click  
 **Objective:** Repeat the sequence correctly
 
 ---
 
-#### 16. 🐍 Whack-a-Mole
-Hit the moles as they pop up from their holes!
+#### 16. 🎮 Ping Pong AI
+Advanced AI-powered table tennis game.
 
 **Features:**
-- 9 holes in 3x3 grid
-- 30-second timer
+- Smart AI opponent with 3 difficulty levels
+- Realistic ball physics
+- Paddle collision angles
+- Best of 5 rounds
 - Score tracking
-- Random mole appearances
-- Speed increases over time
-- Best score tracking
-
-**Controls:** Mouse Click  
-**Objective:** Hit as many moles as possible in 30 seconds
-
----
-
-#### 17. 🐍 Typing Speed Test
-Test your typing speed and accuracy.
-
-**Features:**
-- 5 different text passages
-- WPM (Words Per Minute) calculator
-- CPM (Characters Per Minute) calculator
-- Accuracy percentage
-- Real-time typing feedback
-- Color-coded correct/wrong characters
-- Detailed results screen
-- 60-second test
-
-**Controls:** Keyboard  
-**Objective:** Type the text as fast and accurately as possible
-
----
-
-### Word & Logic (3 Games)
-
-#### 18. 🐍 Hangman
-Word guessing game with drawing.
-
-**Features:**
-- 15+ words with hints
-- Progressive hangman drawing (6 stages)
-- On-screen keyboard
-- Score tracking (consecutive wins)
-- Best score tracking
-- Word categories
-
-**Controls:** Click letters  
-**Objective:** Guess the word before the hangman is complete
-
----
-
-#### 19. 🎮Rock Paper Scissors
-Classic hand game vs computer.
-
-**Features:**
-- Visual choice display
-- Computer randomization
-- Score tracking
-- Win/lose/draw detection
-- Animated results
-- Reset score option
-
-**Controls:** Click your choice  
-**Rules:**
-- Rock beats Scissors
-- Scissors beats Paper
-- Paper beats Rock
-
----
-
-#### 20. 🐍 Quiz Game
-Test your knowledge across multiple categories.
-
-**Features:**
-- **6 categories:** General Knowledge, Science, History, Geography, Sports, Technology
-- **60 total questions** (10 per category)
-- **3 difficulty levels:**
-  - Easy: 10 points
-  - Medium: 20 points
-  - Hard: 30 points
-- Progress bar
-- Answer feedback
-- Detailed results with:
-  - Final Score
-  - Correct Answers (X/10)
-  - Accuracy Percentage
-  - Letter Grade (A+ to F)
-- Best score tracking
-- Category selection
-- Visual difficulty badges
-
-**Controls:** Mouse Click  
-**Objective:** Answer 10 questions correctly to maximize score
-
----
-
-### Card & Action (4 Games)
-
-#### 21. 🐍 Blackjack
-Classic card game with betting system.
-
-**Features:**
-- Full 52-card deck
-- Betting system (chips start at 1000)
-- Hit, Stand, Double Down options
-- Dealer AI (hits until 17)
-- Card counting display
-- Win/lose/push detection
-- Animated card dealing
-- Multiple rounds
-- Bankruptcy detection
-
-**Controls:** Click buttons  
-**Rules:**
-- Get closer to 21 than dealer
-- Ace = 1 or 11
-- Face cards = 10
-- Bust if over 21
-
----
-
-#### 22. 🐍 Bubble Shooter
-Match-3 bubble popping game with physics.
-
-**Features:**
-- Color-coded bubbles
-- Aim line indicator
-- Physics-based shooting
-- Match-3+ detection
-- Bubble drop animations
-- Score based on bubbles popped
-- Progressive difficulty
-- Level system
-
-**Controls:** Mouse to aim and click to shoot  
-**Objective:** Clear all bubbles by matching 3+ of same color
-
----
-
-#### 23. 🐍 Pac-Man
-Classic maze chase game with ghosts.
-
-**Features:**
-- Full maze layout
-- 4 ghosts with AI
-- Dot eating mechanics
-- Power pellets
-- Lives system (3 lives)
-- Score tracking
-- Level progression
-- Wrap-around tunnels
-
-**Controls:** Arrow Keys / WASD  
-**Rules:**
-- Eat all dots to win
-- Avoid ghosts
-- Power pellets let you eat ghosts
-
----
-
-#### 24. 🐍 Ping Pong AI
-Advanced pong with multiple difficulty levels.
-
-**Features:**
-- **4 AI difficulty levels:**
-  - Easy: Slow, 70% accuracy
-  - Medium: Moderate, 85% accuracy
-  - Hard: Fast, 95% accuracy
-  - Impossible: Perfect, 100% accuracy
-- Ball spin mechanics
-- Speed increases during rally
-- First to 10 points wins
-- Paddle physics
-- Mouse control
-- Score tracking
+- Particle effects
 
 **Controls:** Mouse movement  
-**Objective:** Beat the AI in ping pong match
+**Objective:** Beat the AI in table tennis
 
 ---
 
-## Quick Start
+#### 17. ⌨️ Typing Speed Test
+Measure your typing speed and accuracy.
+
+**Features:**
+- 60-second test duration
+- WPM (Words Per Minute) calculation
+- Accuracy percentage
+- Real-time feedback
+- Error highlighting
+- Retry option
+- Multiple text samples
+
+**Controls:** Keyboard  
+**Objective:** Type as fast and accurately as possible
+
+---
+
+#### 18. 🎯 Memory Card Game
+Match pairs of cards to clear the board.
+
+**Features:**
+- 16 cards (8 pairs)
+- Flip animations
+- Move counter
+- Timer
+- Best time tracking
+- Card shuffling
+- Multiple themes (coming soon)
+
+**Controls:** Mouse Click  
+**Objective:** Find all matching pairs with minimum moves
+
+---
+
+### 🃏 Card & Casino (3 Games)
+
+#### 19. ♠️ Blackjack
+Classic casino card game - beat the dealer!
+
+**Features:**
+- Standard 52-card deck
+- Dealer AI (hits on 16, stands on 17)
+- Hit, Stand, Double Down options
+- Chip betting system ($1000 starting money)
+- Win/Loss tracking
+- Blackjack (21) detection
+- Bust detection
+
+**Controls:** Mouse Click  
+**Objective:** Get closer to 21 than dealer without going over
+
+---
+
+#### 20. 🀄 Mahjong Solitaire
+Match pairs of identical tiles to clear the board.
+
+**Features:**
+- Classic tile layout
+- 144 tiles (standard set)
+- Only free tiles can be matched
+- Hint system
+- Shuffle remaining tiles
+- Timer
+- Undo move option
+
+**Controls:** Mouse Click  
+**Objective:** Clear all tiles by matching pairs
+
+---
+
+#### 21. 🃏 Solitaire (Klondike)
+The classic single-player card game.
+
+**Features:**
+- Standard Klondike rules
+- Drag-and-drop cards
+- Draw 1 or 3 cards option
+- Foundation piles (4 suits)
+- Tableau building
+- Undo move
+- Timer and move counter
+- Win animation
+
+**Controls:** Drag and Drop  
+**Objective:** Move all cards to foundation piles
+
+---
+
+### 🏆 Arcade Action (4 Games)
+
+#### 22. 🎪 Pac-Man
+Navigate the maze and eat all the dots!
+
+**Features:**
+- Classic maze layout
+- 4 ghost AI opponents with unique behaviors:
+  - Blinky (Red): Aggressive chaser
+  - Pinky (Pink): Ambusher
+  - Inky (Cyan): Strategic
+  - Clyde (Orange): Random
+- Power pellets (eat ghosts temporarily)
+- Score system (dots, power pellets, ghosts)
+- Lives system
+- Level progression
+
+**Controls:** Arrow Keys / WASD  
+**Objective:** Eat all dots while avoiding ghosts
+
+---
+
+#### 23. 🧼 Bubble Shooter
+Pop bubbles by matching 3 or more of the same color.
+
+**Features:**
+- Color matching mechanics
+- Bubble physics
+- Aiming guide
+- Score system
+- Level progression
+- Special bubbles (coming soon)
+- Ceiling descent mechanic
+
+**Controls:** Mouse Aim + Click to Shoot  
+**Objective:** Clear all bubbles from the screen
+
+---
+
+#### 24. 🎯 Hangman
+Guess the word before the hangman is complete!
+
+**Features:**
+- 1000+ word dictionary
+- Multiple categories:
+  - Animals
+  - Countries
+  - Food
+  - Movies
+  - Technology
+- 6 incorrect guesses allowed
+- Letter tracking (used letters)
+- Hint system
+- Win/loss statistics
+
+**Controls:** Keyboard or Click Letters  
+**Objective:** Guess the word letter by letter
+
+---
+
+#### 25. 🎲 Quiz Game
+Test your knowledge across multiple categories!
+
+**Features:**
+- **Multiple categories:**
+  - General Knowledge
+  - Science
+  - History
+  - Geography
+  - Sports
+  - Entertainment
+- 4 answer choices per question
+- Score tracking
+- Timer per question (30 seconds)
+- Difficulty levels
+- Results summary
+
+**Controls:** Mouse Click  
+**Objective:** Answer as many questions correctly as possible
+
+---
+
+### ♟️ Board Games (5 Games)
+
+#### 26. ♟️ Chess
+The ultimate strategy board game.
+
+**Features:**
+- Full chess rules implementation
+- Legal move validation
+- Check and checkmate detection
+- Castling (kingside and queenside)
+- En passant capture
+- Pawn promotion
+- Move history
+- AI opponent (coming soon)
+- Two-player local mode
+
+**Controls:** Click piece, then click destination  
+**Objective:** Checkmate your opponent's king
+
+---
+
+#### 27. ⚫ Checkers
+Classic board game of strategy and tactics.
+
+**Features:**
+- 8x8 checkerboard
+- Legal move validation
+- Mandatory captures
+- King promotion (reach opposite end)
+- Multiple jumps in one turn
+- Two-player local mode
+- AI opponent (coming soon)
+- Move highlighting
+
+**Controls:** Click piece, then click destination  
+**Objective:** Capture all opponent's pieces or block their moves
+
+---
+
+#### 28. 🔤 Wordle
+Guess the 5-letter word in 6 attempts!
+
+**Features:**
+- **Daily word challenge** (same word for everyone each day)
+- Color-coded feedback:
+  - 🟩 Green: Correct letter in correct position
+  - 🟨 Yellow: Correct letter in wrong position
+  - ⬜ Gray: Letter not in word
+- Virtual keyboard with color feedback
+- Statistics tracking:
+  - Win streak
+  - Total wins
+  - Win distribution graph
+- Share results (coming soon)
+- Dictionary validation
+
+**Controls:** Keyboard  
+**Objective:** Guess the word in 6 tries
+
+---
+
+#### 29. 📝 Crossword Puzzle
+Solve clues to fill in the crossword grid!
+
+**Features:**
+- Multiple puzzle difficulties
+- Across and Down clues
+- Click or arrow keys to switch direction
+- Auto-advance to next cell
+- Check answers
+- Reveal word/puzzle options
+- Timer
+- Save progress
+
+**Controls:** Click cell, type letter  
+**Objective:** Fill in all words correctly
+
+---
+
+#### 30. ✊ Rock Paper Scissors
+Classic hand game against the computer!
+
+**Features:**
+- Best of 5 rounds
+- Computer AI (random selection)
+- Win/loss/draw tracking
+- Score display
+- Round history
+- Play again option
+- Visual feedback
+
+**Controls:** Click your choice  
+**Objective:** Win 3 out of 5 rounds
+
+---
+
+## 🚀 Quick Start
 
 ### Option 1: Play Online
+Visit [https://thanhnguyxn.github.io/Source-game/](https://thanhnguyxn.github.io/Source-game/)
 
-Visit: **[Your GitHub Pages URL]**
-
-### Option 2: Run Locally
+### Option 2: Download & Play Locally
 
 ```bash
 # Clone the repository
 git clone https://github.com/ThanhNguyxn/Source-game.git
+
+# Navigate to directory
 cd Source-game
 
-# Open index.html in browser
-# Or use a local server
-
-# Using Python
+# Open index.html in your browser
+# Or use a local server:
 python -m http.server 8000
-
-# Using Node.js
-npx http-server
-
-# Then open http://localhost:8000
+# Then visit: http://localhost:8000
 ```
 
 ---
 
-## Technologies Used
-
-- **HTML5** - Structure & Canvas API for graphics
-- **CSS3** - Styling, animations, gradients, transitions
-- **JavaScript (ES6+)** - Game logic, AI, physics engines
-- **Canvas API** - 2D graphics rendering for action games
-- **LocalStorage API** - Persistent high score storage
-- **No Frameworks** - Pure vanilla JavaScript
-
----
-
-## Controls Summary
-
-| Game | Controls |
-|------|----------|
-| **Snake** | Arrow Keys / WASD |
-| **Breakout** | Arrow Keys / Mouse |
-| **Tetris** | Arrows (Move/Rotate), Space (Drop) |
-| **Pong** | Up/Down / W/S |
-| **Space Invaders** | Arrows (Move), Space (Shoot) |
-| **Flappy Bird** | Space / Click |
-| **Dino Run** | Space/Up (Jump), Down (Duck) |
-| **2048** | Arrow Keys |
-| **Minesweeper** | Left Click (Reveal), Right Click (Flag) |
-| **Sudoku** | Click cell, then number |
-| **Tic Tac Toe** | Mouse Click |
-| **Connect Four** | Click on columns |
-| **Sliding Puzzle** | Click adjacent tiles |
-| **Memory Game** | Mouse Click |
-| **Simon Says** | Click colored buttons |
-| **Whack-a-Mole** | Click on moles |
-| **Typing Speed** | Keyboard typing |
-| **Hangman** | Click letters |
-| **Rock Paper Scissors** | Click your choice |
-| **Quiz Game** | Mouse Click |
-| **Blackjack** | Click buttons |
-| **Bubble Shooter** | Mouse to aim and shoot |
-| **Pac-Man** | Arrow Keys / WASD |
-| **Ping Pong AI** | Mouse movement |
-
----
-
-## Key Features
-
-### ? Gameplay Features
-- ? **24 fully functional games**
-- ? **High score tracking** - All scores saved locally
-- ? **Multiple difficulty levels** - Easy, Medium, Hard options
-- ? **AI opponents** - Smart computer opponents in multiple games
-- ? **Sound effects** - Audio feedback in Simon Says
-- ? **Smooth animations** - CSS and Canvas animations throughout
-- ? **Pause/Resume** - Most games support pausing
-- ? **Responsive design** - Works on all devices
-
-### Technical Features
-- ? **Pure Vanilla JS** - No frameworks or libraries
-- ? **Canvas API** - High-performance 2D rendering
-- ? **LocalStorage** - Persistent data storage
-- ? **CSS Grid/Flexbox** - Modern responsive layouts
-- ? **ES6+ Syntax** - Arrow functions, async/await, classes
-- ? **Clean Code** - Well-structured and commented
-- ? **Mobile-Friendly** - Touch and click support
-
-### Game-Specific Features
-- **Minesweeper:** 3 difficulty levels, first-click safety
-- **Sudoku:** Auto-generated puzzles, hint system, 3 difficulties
-- **Quiz Game:** 6 categories, 60 questions, grading system
-- **Blackjack:** Full betting system, multiple card actions
-- **Ping Pong AI:** 4 difficulty levels with different AI behaviors
-- **Tetris:** Next piece preview, progressive difficulty
-- **Pac-Man:** Ghost AI, power pellets, level system
-
----
-
-## 📊 Project Roadmap
-
-### ? Phase 1: Core Development (COMPLETED)
-- ? Implement 24 classic games
-- ? Add score tracking with localStorage
-- ? Create responsive UI for all games
-- ? Implement keyboard and mouse controls
-- ? Add animations and transitions
-- ? Create comprehensive instructions
-
-### ? Phase 2: Enhanced Features (COMPLETED)
-- ? Multiple difficulty levels (Minesweeper, Sudoku, Ping Pong AI)
-- ? AI opponents (Pong, Pac-Man, RPS, Blackjack)
-- ? Sound effects (Simon Says)
-- ? Best score tracking across all games
-- ? Pause/Resume functionality
-- ? Visual feedback systems
-- ? Progressive difficulty scaling
-
-### Phase 3: Quality Improvements (IN PROGRESS)
-- ? Complete Quiz Game with 6 categories
-- ? Enhance game rules and instructions
-- ? Add detailed README documentation
-- ? Add sound effects to all games
-- ? Implement background music with toggle
-- ? Add more visual effects and animations
-- ? Improve mobile touch controls
-
-### Phase 4: Advanced Features (PLANNED)
-- ? **Dark Mode** - Toggle between light and dark themes
-- ? **Achievements System** - Unlock badges for milestones
-- ? **Online Leaderboards** - Global high score competition
-- ? **Game Statistics** - Track total plays, wins, time played
-- ? **Social Sharing** - Share scores on social media
-- ? **More Games** - Chess, Checkers, Mahjong, Solitaire
-- ? **Multiplayer Support** - Real-time online multiplayer
-- ? **Progressive Web App** - Install as mobile/desktop app
-- ? **Customization** - Change themes, colors, sounds
-- ? **Tutorials** - Interactive game tutorials
-
-### Phase 5: Polish & Optimization (FUTURE)
-- ? Performance optimization
-- ? Advanced animations
-- ? Accessibility improvements (WCAG compliance)
-- ? Internationalization (multiple languages)
-- ? Advanced AI with machine learning
-- ? Game replays and highlights
-- ? User accounts and profiles
-- ? Tournament mode
-
----
-
-## 📊 Project Structure
+## 📁 Project Structure
 
 ```
 Source-game/
-+-- index.html                 # Main landing page
-+-- README.md                  # This file
-+-- LICENSE                    # MIT License
-+-- .gitignore                # Git ignore rules
-�
-+-- 2048-game/
-�   +-- index.html
-�   +-- style.css
-�   +-- script.js
-�
-+-- blackjack/
-�   +-- index.html
-�   +-- style.css
-�   +-- script.js
-�
-+-- breakout-game/
-�   +-- index.html
-�   +-- style.css
-�   +-- script.js
-�
-+-- bubble-shooter/
-�   +-- index.html
-�   +-- style.css
-�   +-- script.js
-�
-+-- connect-four/
-�   +-- index.html
-�   +-- style.css
-�   +-- script.js
-�
-+-- dino-game/
-�   +-- index.html
-�   +-- style.css
-�   +-- script.js
-�
-+-- flappy-bird/
-�   +-- index.html
-�   +-- style.css
-�   +-- script.js
-�
-+-- hangman/
-�   +-- index.html
-�   +-- style.css
-�   +-- script.js
-�
-+-- memory-card-game/
-�   +-- index.html
-�   +-- style.css
-�   +-- script.js
-�
-+-- minesweeper/
-�   +-- index.html
-�   +-- style.css
-�   +-- script.js
-�
-+-- pac-man/
-�   +-- index.html
-�   +-- style.css
-�   +-- script.js
-�
-+-- ping-pong-ai/
-�   +-- index.html
-�   +-- style.css
-�   +-- script.js
-�
-+-- pong-game/
-�   +-- index.html
-�   +-- style.css
-�   +-- script.js
-�
-+-- quiz-game/
-�   +-- index.html
-�   +-- style.css
-�   +-- script.js
-�
-+-- rock-paper-scissors/
-�   +-- index.html
-�   +-- style.css
-�   +-- script.js
-�
-+-- simon-game/
-�   +-- index.html
-�   +-- style.css
-�   +-- script.js
-�
-+-- sliding-puzzle/
-�   +-- index.html
-�   +-- style.css
-�   +-- script.js
-�
-+-- snake-game/
-�   +-- index.html
-�   +-- style.css
-�   +-- script.js
-�
-+-- space-invaders/
-�   +-- index.html
-�   +-- style.css
-�   +-- script.js
-�
-+-- sudoku/
-�   +-- index.html
-�   +-- style.css
-�   +-- script.js
-�
-+-- tetris-game/
-�   +-- index.html
-�   +-- style.css
-�   +-- script.js
-�
-+-- tic-tac-toe/
-�   +-- index.html
-�   +-- style.css
-�   +-- script.js
-�
-+-- typing-speed-test/
-�   +-- index.html
-�   +-- style.css
-�   +-- script.js
-�
-+-- whack-a-mole/
-    +-- index.html
-    +-- style.css
-    +-- script.js
+│
+├── index.html              # Main landing page with all games
+├── README.md              # This file
+├── LICENSE                # MIT License
+├── .gitignore            # Git ignore file
+│
+├── 2048-game/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── blackjack/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── breakout-game/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── bubble-shooter/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── checkers-game/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── chess-game/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── connect-four/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── crossword/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── dino-game/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── flappy-bird/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── hangman/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── mahjong/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── memory-card-game/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── minesweeper/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── pac-man/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── ping-pong-ai/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── pong-game/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── quiz-game/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── rock-paper-scissors/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── simon-game/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── sliding-puzzle/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── snake-game/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── space-invaders/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── sudoku/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── tetris-game/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── tic-tac-toe/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── typing-speed-test/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+└── whack-a-mole/
+    ├── index.html
+    ├── style.css
+    └── script.js
 ```
 
 ---
 
-## 🔧 Development
+## 🛠️ Development
 
 ### Prerequisites
 - Modern web browser (Chrome, Firefox, Safari, Edge)
@@ -803,21 +795,21 @@ git push origin feature/new-feature
 
 ---
 
-## Browser Support
+## 🌐 Browser Support
 
 | Browser | Version | Support |
 |---------|---------|---------|
-| Chrome | Latest 2 | ? Full |
-| Firefox | Latest 2 | ? Full |
-| Safari | Latest 2 | ? Full |
-| Edge | Latest 2 | ? Full |
-| Opera | Latest 2 | ? Full |
-| Mobile Safari | iOS 12+ | ? Full |
-| Chrome Mobile | Android 8+ | ? Full |
+| Chrome | Latest 2 | ✅ Full |
+| Firefox | Latest 2 | ✅ Full |
+| Safari | Latest 2 | ✅ Full |
+| Edge | Latest 2 | ✅ Full |
+| Opera | Latest 2 | ✅ Full |
+| Mobile Safari | iOS 12+ | ✅ Full |
+| Chrome Mobile | Android 8+ | ✅ Full |
 
 ---
 
-## Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Here's how you can help:
 
@@ -838,7 +830,7 @@ Contributions are welcome! Here's how you can help:
 
 ---
 
-## License
+## 📄 License
 
 This project is licensed under the **MIT License**.
 
@@ -868,7 +860,7 @@ SOFTWARE.
 
 ---
 
-## Inspiration & Credits
+## 💡 Inspiration & Credits
 
 This project is inspired by:
 - [awesome-open-source-games](https://github.com/michelpereira/awesome-open-source-games) - Comprehensive list of open source games
@@ -878,7 +870,7 @@ This project is inspired by:
 
 ---
 
-## 🎮?Author
+## 👤 Author
 
 **ThanhNguyxn**
 - GitHub: [@ThanhNguyxn](https://github.com/ThanhNguyxn)
@@ -886,7 +878,7 @@ This project is inspired by:
 
 ---
 
-## Acknowledgments
+## 🙏 Acknowledgments
 
 - Original game creators and arcade pioneers
 - Open-source community contributors
@@ -896,20 +888,20 @@ This project is inspired by:
 
 ---
 
-## ⭐ Support This Project
+## 💖 Support This Project
 
 If you like this project:
 
-- ? **Star** this repository
-- **Fork** it and create your own version
-- **Share** with friends and on social media
-- **Report bugs** to help us improve
-- **Suggest features** you'd like to see
-- **Contribute** code or documentation
+- ⭐ **Star** this repository
+- 🍴 **Fork** it and create your own version
+- 📢 **Share** with friends and on social media
+- 🐛 **Report bugs** to help us improve
+- 💡 **Suggest features** you'd like to see
+- 🔧 **Contribute** code or documentation
 
 ---
 
-## Contact & Support
+## 📞 Contact & Support
 
 - **Issues:** [Report bugs here](https://github.com/ThanhNguyxn/Source-game/issues)
 - **Discussions:** [Join discussions](https://github.com/ThanhNguyxn/Source-game/discussions)
@@ -919,13 +911,13 @@ If you like this project:
 
 <div align="center">
 
-**Made with and JavaScript**
+**Made with ❤️ and JavaScript**
 
-[Play Now](https://thanhnguyen.github.io/Source-game/) | [Documentation](https://github.com/ThanhNguyxn/Source-game) | [Report Bug](https://github.com/ThanhNguyxn/Source-game/issues) | [💡 Request Feature](https://github.com/ThanhNguyxn/Source-game/issues)
+[Play Now](https://thanhnguyxn.github.io/Source-game/) | [Documentation](https://github.com/ThanhNguyxn/Source-game) | [Report Bug](https://github.com/ThanhNguyxn/Source-game/issues) | [✨ Request Feature](https://github.com/ThanhNguyxn/Source-game/issues)
 
 ---
 
-### 📊 Project Stats
+### 📈 Project Stats
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/ThanhNguyxn/Source-game)
 ![GitHub issues](https://img.shields.io/github/issues/ThanhNguyxn/Source-game)
@@ -933,6 +925,6 @@ If you like this project:
 
 ---
 
-**? Don't forget to star this repository if you found it helpful! ?**
+**⭐ Don't forget to star this repository if you found it helpful! ⭐**
 
 </div>

@@ -6,109 +6,198 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    padding: 20px;
+    color: white;
 }
 
 .game-container {
-    background: white;
-    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    text-align: center;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    max-width: 900px;
+    width: 100%;
+    backdrop-filter: blur(10px);
 }
 
 h1 {
-    color: #333;
-    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
     font-size: 2.5em;
+    text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
 }
 
+/* Mode Selector */
+.mode-selector {
+    text-align: center;
+    padding: 40px;
+    background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.mode-selector h2 {
+    color: #0f0c29;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.mode-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.mode-btn {
+    padding: 15px 35px;
+    font-size: 1.1em;
+    background: #0f0c29;
+    color: #00ff88;
+    border: 2px solid #00ff88;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.mode-btn:hover {
+    background: #00ff88;
+    color: #0f0c29;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
+}
+
+/* Score Board */
 .score-board {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 20px;
-    font-size: 1.5em;
-    font-weight: bold;
-    padding: 15px;
-    background: #f8f9fa;
-    border-radius: 10px;
+    align-items: center;
+    margin: 20px 0;
+    padding: 20px;
+    background: rgba(0, 255, 136, 0.1);
+    border-radius: 15px;
+    border: 2px solid rgba(0, 255, 136, 0.3);
 }
 
 .player-score {
-    color: #4CAF50;
+    text-align: center;
 }
 
-.computer-score {
-    color: #ff6b6b;
+.player-score h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: #00ff88;
 }
 
-#gameCanvas {
-    border: 3px solid #333;
-    border-radius: 10px;
-    background: #000;
-    display: block;
-    margin: 0 auto 20px;
-}
-
-.controls {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-button {
-    padding: 12px 24px;
-    font-size: 16px;
+.score {
+    font-size: 2.5em;
     font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-}
-
-#startBtn {
-    background-color: #4CAF50;
     color: white;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
 }
 
-#startBtn:hover {
-    background-color: #45a049;
-    transform: translateY(-2px);
+.game-status {
+    text-align: center;
 }
 
-#resetBtn {
-    background-color: #f44336;
-    color: white;
-}
-
-#resetBtn:hover {
-    background-color: #da190b;
-    transform: translateY(-2px);
-}
-
-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.instructions {
-    background: #f8f9fa;
-    padding: 15px;
+#gameStatus {
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
+    color: #00ff88;
+}
+
+/* Canvas */
+#pongCanvas {
+    display: block;
+    margin: 20px auto;
+    border: 3px solid #00ff88;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.3), inset 0 0 20px rgba(0, 0, 0, 0.5);
+    background: #1a1a2e;
+}
+
+/* Controls Info */
+.controls-info {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0;
+    padding: 15px;
+    background: rgba(0, 255, 136, 0.1);
+    border-radius: 8px;
+    font-size: 0.9em;
+}
+
+.controls-info div {
+    color: #00ff88;
+}
+
+.controls-info strong {
+    color: white;
+}
+
+/* Controls */
+.controls {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.controls button {
+    padding: 12px 25px;
+    margin: 0 10px;
+    font-size: 1em;
+    background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+    color: #0f0c29;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.controls button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 255, 136, 0.5);
+}
+
+/* Instructions */
+.instructions {
+    margin-top: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+    border-radius: 15px;
+    color: #0f0c29;
 }
 
 .instructions h3 {
-    color: #333;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
 }
 
-.instructions p {
-    color: #666;
-    margin: 5px 0;
+.instructions ul {
+    list-style: none;
+    padding: 0;
+}
+
+.instructions li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+}
+
+.instructions li:before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    font-weight: bold;
 }

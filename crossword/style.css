@@ -1,4 +1,4 @@
-﻿* {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -157,4 +157,59 @@ h1 {
     .game-area {
         grid-template-columns: 1fr;
     }
+}
+
+/* Instructions Styling */
+.instructions {
+    margin-top: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    color: white;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.instructions h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.instructions p {
+    margin: 10px 0;
+    line-height: 1.6;
+    font-size: 1em;
+}
+
+.instructions ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 10px 0;
+}
+
+.instructions li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.instructions li:before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #ffd700;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.instructions strong {
+    color: #ffd700;
+    font-weight: bold;
 }
