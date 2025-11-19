@@ -6,7 +6,7 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-> A comprehensive collection of **45+ legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
+> A comprehensive collection of **50+ legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
 
 ## 🎯 Quick Start
 
@@ -17,9 +17,9 @@ Simply open `index.html` in your browser or visit the live demo!
 ## 📊 Project Statistics
 
 ```
-Total Games: 45+ (100% Functional)
-Lines of Code: ~40,000+
-Total Files: 135+
+Total Games: 50+ (100% Functional)
+Lines of Code: ~45,000+
+Total Files: 150+
 ✨ Pure Vanilla JavaScript (No Frameworks)
 📱 Fully Responsive Design
 💾 LocalStorage for High Scores
@@ -27,9 +27,9 @@ Total Files: 135+
 🎮 AI Opponents in Multiple Games
 ```
 
-## 🎮 Complete Game Library (45+ Games)
+## 🎮 Complete Game Library (50+ Games)
 
-### 🕹️ Arcade Classics (20 Games)
+### 🕹️ Arcade Classics (21 Games)
 
 | Game | Description | Controls | Features |
 |------|-------------|----------|----------|
@@ -53,6 +53,7 @@ Total Files: 135+
 | 🎈 **Bubble Shooter** | Match 3+ bubbles to pop | Mouse | Color matching, physics-based |
 | 🦍 **Donkey Kong** | Classic platformer - rescue princess | Arrow Keys/WASD, Space (jump) | Platforms, ladders, barrel dodging, lives |
 | ⛏️ **Dig Dug** | Dig tunnels and defeat enemies | Arrow Keys/WASD, Space (pump) | Underground digging, enemy inflation, rocks |
+| 🐛 **Centipede** | Shoot the centipede and insects | Mouse, Click/Space | Mushrooms, spider, flea, wave-based |
 
 ### 🧩 Puzzle & Strategy (9 Games)
 
