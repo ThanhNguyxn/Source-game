@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>⚫ Checkers</h1>
+        <div class="game-stats">
+            <div>Red: <span id="redPieces">12</span></div>
+            <div id="turnDisplay">Red's Turn</div>
+            <div>Black: <span id="blackPieces">12</span></div>
+        </div>
+        <div class="checkers-board" id="board"></div>
+        <div class="controls">
+            <button id="newGameBtn">New Game</button>
+            <button id="undoBtn">Undo Move</button>
+        </div>
+        <div class="message" id="message"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

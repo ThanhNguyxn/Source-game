@@ -1,0 +1,207 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.game-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f5f5f5;
+    border-radius: 10px;
+}
+
+.game-stats div {
+    font-size: 1.1em;
+}
+
+.game-stats span {
+    font-weight: bold;
+    color: #2a5298;
+}
+
+.game-area {
+    margin-bottom: 20px;
+}
+
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.stock-waste {
+    display: flex;
+    gap: 15px;
+}
+
+.foundations {
+    display: flex;
+    gap: 15px;
+}
+
+.pile {
+    width: 100px;
+    height: 140px;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.pile:hover {
+    border-color: #2a5298;
+    background: rgba(42, 82, 152, 0.05);
+}
+
+.pile.foundation::before {
+    content: '♠';
+    font-size: 3em;
+    color: rgba(0, 0, 0, 0.1);
+}
+
+.pile.foundation[data-suit="hearts"]::before { content: '♥'; color: rgba(255, 0, 0, 0.1); }
+.pile.foundation[data-suit="diamonds"]::before { content: '♦'; color: rgba(255, 0, 0, 0.1); }
+.pile.foundation[data-suit="clubs"]::before { content: '♣'; color: rgba(0, 0, 0, 0.1); }
+
+.card {
+    width: 100px;
+    height: 140px;
+    background: white;
+    border: 2px solid #333;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 8px;
+    position: absolute;
+    cursor: grab;
+    user-select: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.card.dragging {
+    opacity: 0.5;
+    cursor: grabbing;
+}
+
+.card.face-down {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: #333;
+}
+
+.card.face-down .card-value,
+.card.face-down .card-suit {
+    display: none;
+}
+
+.card-value {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.card-suit {
+    font-size: 2em;
+    text-align: center;
+}
+
+.card.red {
+    color: #e74c3c;
+}
+
+.card.black {
+    color: #000;
+}
+
+.tableau {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.tableau-pile {
+    width: 100px;
+    min-height: 200px;
+    position: relative;
+}
+
+.tableau-pile .card {
+    position: absolute;
+    left: 0;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.controls button {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.controls button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.message {
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    min-height: 30px;
+    color: #27ae60;
+}
+
+@media (max-width: 768px) {
+    .pile, .card, .tableau-pile {
+        width: 70px;
+        height: 100px;
+    }
+
+    .card-value {
+        font-size: 1.2em;
+    }
+
+    .card-suit {
+        font-size: 1.5em;
+    }
+}

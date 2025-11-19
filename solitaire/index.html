@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solitaire</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🃏 Solitaire (Klondike)</h1>
+        <div class="game-stats">
+            <div>Time: <span id="time">00:00</span></div>
+            <div>Moves: <span id="moves">0</span></div>
+            <div>Score: <span id="score">0</span></div>
+        </div>
+        <div class="game-area">
+            <div class="top-row">
+                <div class="stock-waste">
+                    <div class="pile stock" id="stock"></div>
+                    <div class="pile waste" id="waste"></div>
+                </div>
+                <div class="foundations">
+                    <div class="pile foundation" data-suit="hearts" id="foundation-0"></div>
+                    <div class="pile foundation" data-suit="diamonds" id="foundation-1"></div>
+                    <div class="pile foundation" data-suit="clubs" id="foundation-2"></div>
+                    <div class="pile foundation" data-suit="spades" id="foundation-3"></div>
+                </div>
+            </div>
+            <div class="tableau" id="tableau"></div>
+        </div>
+        <div class="controls">
+            <button id="newGameBtn">New Game</button>
+            <button id="undoBtn">Undo</button>
+            <button id="hintBtn">Hint</button>
+        </div>
+        <div class="message" id="message"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

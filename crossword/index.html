@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crossword Puzzle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>📝 Crossword Puzzle</h1>
+        <div class="game-stats">
+            <div>Time: <span id="time">00:00</span></div>
+            <div>Completed: <span id="completed">0%</span></div>
+        </div>
+        <div class="game-area">
+            <div class="crossword-grid" id="grid"></div>
+            <div class="clues">
+                <div class="clue-section">
+                    <h3>Across</h3>
+                    <div id="acrossClues"></div>
+                </div>
+                <div class="clue-section">
+                    <h3>Down</h3>
+                    <div id="downClues"></div>
+                </div>
+            </div>
+        </div>
+        <div class="controls">
+            <button id="checkBtn">Check Answers</button>
+            <button id="revealBtn">Reveal</button>
+            <button id="clearBtn">Clear All</button>
+        </div>
+        <div class="message" id="message"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
