@@ -16,7 +16,7 @@ let gameBoard = [];
 let currentPlayer = 'red';
 let gameActive = true;
 let gameMode = 'pvp';
-let aiThinking = false;
+let isAIThinking = false;
 let scores = {
     red: parseInt(localStorage.getItem('connect4RedScore')) || 0,
     yellow: parseInt(localStorage.getItem('connect4YellowScore')) || 0
@@ -28,6 +28,7 @@ yellowScoreElement.textContent = scores.yellow;
 
 // Start game with selected mode
 function startGame(mode) {
+    console.log('Starting game with mode:', mode);
     gameMode = mode;
     modeSelector.style.display = 'none';
     gameArea.style.display = 'block';
@@ -39,10 +40,11 @@ function initGame() {
     gameBoard = Array(ROWS).fill().map(() => Array(COLS).fill(null));
     currentPlayer = 'red';
     gameActive = true;
-    aiThinking = false;
+    isAIThinking = false;
     updatePlayerDisplay();
     renderBoard();
     message.textContent = '';
+    console.log('Game initialized, mode:', gameMode);
 }
 
 // Render the game board
@@ -62,61 +64,103 @@ function renderBoard() {
                 cell.appendChild(disc);
             }
             
-            cell.addEventListener('click', () => handleCellClick(col));
+            // Only add click to top row
+            if (row === 0) {
+                cell.addEventListener('click', () => handleColumnClick(col));
+            }
+            
             board.appendChild(cell);
         }
     }
 }
 
-// Handle cell click
-function handleCellClick(col) {
-    if (!gameActive || aiThinking) return;
-    if (gameMode !== 'pvp' && currentPlayer === 'yellow') return;
+// Handle column click
+function handleColumnClick(col) {
+    console.log('Column clicked:', col, 'Current player:', currentPlayer, 'AI thinking:', isAIThinking);
+    
+    // Don't allow clicks during AI turn or when game is over
+    if (!gameActive) {
+        console.log('Game not active');
+        return;
+    }
+    
+    if (isAIThinking) {
+        console.log('AI is thinking, ignoring click');
+        return;
+    }
+    
+    // In AI mode, only allow clicks when it's player's turn (red)
+    if (gameMode !== 'pvp' && currentPlayer === 'yellow') {
+        console.log('AI turn, ignoring click');
+        return;
+    }
     
     dropDisc(col);
 }
 
 // Drop disc in column
 function dropDisc(col) {
-    if (!gameActive || aiThinking) return;
+    console.log('Dropping disc in column:', col);
     
     // Find available row
+    let targetRow = -1;
     for (let row = ROWS - 1; row >= 0; row--) {
         if (!gameBoard[row][col]) {
-            gameBoard[row][col] = currentPlayer;
-            renderBoard();
-            
-            if (checkWin(row, col)) {
-                endGame(currentPlayer);
-                return;
-            }
-            
-            if (checkDraw()) {
-                endGame(null);
-                return;
-            }
-            
-            currentPlayer = currentPlayer === 'red' ? 'yellow' : 'red';
-            updatePlayerDisplay();
-            
-            // AI turn
-            if (gameMode !== 'pvp' && currentPlayer === 'yellow' && gameActive) {
-                aiThinking = true;
-                setTimeout(() => {
-                    makeAIMove();
-                    aiThinking = false;
-                }, 500);
-            }
-            return;
+            targetRow = row;
+            break;
         }
+    }
+    
+    // Column is full
+    if (targetRow === -1) {
+        console.log('Column is full');
+        return;
+    }
+    
+    // Place the disc
+    gameBoard[targetRow][col] = currentPlayer;
+    console.log('Placed', currentPlayer, 'disc at row:', targetRow, 'col:', col);
+    renderBoard();
+    
+    // Check for win
+    if (checkWin(targetRow, col)) {
+        endGame(currentPlayer);
+        return;
+    }
+    
+    // Check for draw
+    if (checkDraw()) {
+        endGame(null);
+        return;
+    }
+    
+    // Switch player
+    currentPlayer = currentPlayer === 'red' ? 'yellow' : 'red';
+    console.log('Switched to player:', currentPlayer);
+    updatePlayerDisplay();
+    
+    // Trigger AI move if needed
+    if (gameMode !== 'pvp' && currentPlayer === 'yellow' && gameActive) {
+        console.log('Triggering AI move...');
+        isAIThinking = true;
+        setTimeout(() => {
+            makeAIMove();
+            isAIThinking = false;
+        }, 600);
     }
 }
 
 // AI move logic
 function makeAIMove() {
-    if (!gameActive) return;
+    console.log('AI making move, difficulty:', gameMode);
     
-    let move;
+    if (!gameActive) {
+        console.log('Game not active, AI aborting');
+        return;
+    }
+    
+    let move = null;
+    
     if (gameMode === 'ai-easy') {
         move = getRandomMove();
     } else if (gameMode === 'ai-medium') {
@@ -125,8 +169,12 @@ function makeAIMove() {
         move = getHardMove();
     }
     
+    console.log('AI chose column:', move);
+    
     if (move !== null && move !== undefined) {
         dropDisc(move);
+    } else {
+        console.log('AI could not find valid move!');
     }
 }
 
@@ -270,7 +318,7 @@ function checkDraw() {
 // End game
 function endGame(winner) {
     gameActive = false;
-    aiThinking = false;
+    isAIThinking = false;
     
     if (winner) {
         scores[winner]++;
@@ -324,3 +372,5 @@ function changeMode() {
 newGameBtn.addEventListener('click', initGame);
 resetScoreBtn.addEventListener('click', resetScore);
 changeModeBtn.addEventListener('click', changeMode);
+
+console.log('Connect Four loaded, game mode:', gameMode);

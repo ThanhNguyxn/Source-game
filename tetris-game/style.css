@@ -159,3 +159,82 @@ button:disabled {
 .instructions p {
     color: #666;
 }
+
+/* Mode Selector */
+.mode-selector {
+    text-align: center;
+    padding: 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.mode-selector h2 {
+    color: white;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.mode-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.mode-btn {
+    padding: 15px 35px;
+    font-size: 1.1em;
+    background: white;
+    color: #764ba2;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.mode-btn:hover {
+    background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.score-panel {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    flex: 1;
+}
+
+.stat {
+    margin: 10px 0;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.next-piece {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.controls-info {
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.9em;
+}

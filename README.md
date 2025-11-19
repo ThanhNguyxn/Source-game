@@ -1,4 +1,4 @@
-# 🎮 Classic Games Collection
+﻿# ðŸŽ® Classic Games Collection
 
 [![GitHub Stars](https://img.shields.io/github/stars/ThanhNguyxn/Source-game?style=social)](https://github.com/ThanhNguyxn/Source-game)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -6,38 +6,46 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
+
+## 🆕 Latest Updates
+
+**Recent Game Upgrades:**
+- 🐍 **Snake Game**: Added 4 difficulty levels (Easy/Medium/Hard/Extreme) with obstacles in Extreme mode
+- 🟦 **Tetris**: Added 3 game modes (Classic/Sprint/Marathon) with ghost piece preview
+- 🎯 **Whack-a-Mole**: Added 4 difficulty levels with special moles (Bomb 💣 & Golden 🌟) in Extreme mode
+- ⌨️ **Typing Speed Test**: Added 4 difficulty levels with 15+ different text samples
 > A comprehensive collection of **30 legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
 
 
 ---
 
-## 🎯 Play Online
+## ðŸŽ¯ Play Online
 
-**🚀 [Play All Games Here](https://thanhnguyxn.github.io/Source-game/)**
+**ðŸš€ [Play All Games Here](https://thanhnguyxn.github.io/Source-game/)**
 
 > Replace with your actual GitHub Pages URL after deployment
 
 ---
 
-## 📊 Project Statistics
+## ðŸ“Š Project Statistics
 
 ```
 Total Files: 74
 Total Games: 30 (100% Functional)
 Lines of Code: ~18,000+
-✨ Pure Vanilla JavaScript (No Frameworks)
-📱 Modern Responsive Design
-💾 LocalStorage Integration
-🌍 100% English Interface
+âœ¨ Pure Vanilla JavaScript (No Frameworks)
+ðŸ“± Modern Responsive Design
+ðŸ’¾ LocalStorage Integration
+ðŸŒ 100% English Interface
 ```
 
 ---
 
-## 🎮 Complete Game Collection
+## ðŸŽ® Complete Game Collection
 
-### 🕹️ Arcade Classics (7 Games)
+### ðŸ•¹ï¸ Arcade Classics (7 Games)
 
-#### 1. 🐍 Snake Game
+#### 1. ðŸ Snake Game
 Classic arcade game where you control a growing snake.
 
 **Features:**
@@ -53,7 +61,7 @@ Classic arcade game where you control a growing snake.
 
 ---
 
-#### 2. 🧱 Breakout
+#### 2. ðŸ§± Breakout
 Break all the colored bricks with your paddle and ball.
 
 **Features:**
@@ -69,7 +77,7 @@ Break all the colored bricks with your paddle and ball.
 
 ---
 
-#### 3. 🟦 Tetris
+#### 3. ðŸŸ¦ Tetris
 The legendary falling blocks puzzle game.
 
 **Features:**
@@ -81,16 +89,16 @@ The legendary falling blocks puzzle game.
 - Ghost piece preview (coming soon)
 
 **Controls:**  
-- ← → : Move piece
-- ↑ : Rotate piece
-- ↓ : Soft drop
+- â† â†’ : Move piece
+- â†‘ : Rotate piece
+- â†“ : Soft drop
 - Space : Hard drop
 
 **Objective:** Clear lines by filling rows completely
 
 ---
 
-#### 4. 🏓 Pong
+#### 4. ðŸ“ Pong
 The first video game ever created - table tennis simulation.
 
 **Features:**
@@ -105,7 +113,7 @@ The first video game ever created - table tennis simulation.
 
 ---
 
-#### 5. 👾 Space Invaders
+#### 5. ðŸ‘¾ Space Invaders
 Defend Earth from waves of alien invaders!
 
 **Features:**
@@ -117,14 +125,14 @@ Defend Earth from waves of alien invaders!
 - High score tracking
 
 **Controls:**  
-- ← → : Move ship
+- â† â†’ : Move ship
 - Space : Shoot
 
 **Objective:** Destroy all aliens before they reach you
 
 ---
 
-#### 6. 🐦 Flappy Bird
+#### 6. ðŸ¦ Flappy Bird
 Navigate through pipes in this challenging arcade game.
 
 **Features:**
@@ -140,7 +148,7 @@ Navigate through pipes in this challenging arcade game.
 
 ---
 
-#### 7. 🦖 Dino Run
+#### 7. ðŸ¦– Dino Run
 Chrome's famous offline dinosaur game!
 
 **Features:**
@@ -151,16 +159,16 @@ Chrome's famous offline dinosaur game!
 - Day/night cycle (coming soon)
 
 **Controls:**  
-- Space/↑ : Jump
-- ↓ : Duck
+- Space/â†‘ : Jump
+- â†“ : Duck
 
 **Objective:** Survive as long as possible
 
 ---
 
-### 🧩 Puzzle & Strategy (6 Games)
+### ðŸ§© Puzzle & Strategy (6 Games)
 
-#### 8. 🔢 2048
+#### 8. ðŸ”¢ 2048
 Slide numbered tiles to create the 2048 tile.
 
 **Features:**
@@ -176,7 +184,7 @@ Slide numbered tiles to create the 2048 tile.
 
 ---
 
-#### 9. 💣 Minesweeper
+#### 9. ðŸ’£ Minesweeper
 Classic mine detection puzzle.
 
 **Features:**
@@ -197,7 +205,7 @@ Classic mine detection puzzle.
 
 ---
 
-#### 10. 🔢 Sudoku
+#### 10. ðŸ”¢ Sudoku
 Fill the 9x9 grid with numbers 1-9.
 
 **Features:**
@@ -222,7 +230,7 @@ Fill the 9x9 grid with numbers 1-9.
 
 ---
 
-#### 11. ❌ Tic Tac Toe
+#### 11. âŒ Tic Tac Toe
 The timeless two-player strategy game.
 
 **Features:**
@@ -238,7 +246,7 @@ The timeless two-player strategy game.
 
 ---
 
-#### 12. 🔴 Connect Four
+#### 12. ðŸ”´ Connect Four
 Connect four discs vertically, horizontally, or diagonally.
 
 **Features:**
@@ -254,7 +262,7 @@ Connect four discs vertically, horizontally, or diagonally.
 
 ---
 
-#### 13. 🧩 Sliding Puzzle
+#### 13. ðŸ§© Sliding Puzzle
 Rearrange scrambled tiles to form the complete image.
 
 **Features:**
@@ -273,9 +281,9 @@ Rearrange scrambled tiles to form the complete image.
 
 ---
 
-### 🎯 Skill & Reaction (5 Games)
+### ðŸŽ¯ Skill & Reaction (5 Games)
 
-#### 14. 🎯 Whack-a-Mole
+#### 14. ðŸŽ¯ Whack-a-Mole
 Test your reflexes by whacking moles!
 
 **Features:**
@@ -291,7 +299,7 @@ Test your reflexes by whacking moles!
 
 ---
 
-#### 15. 🎨 Simon Game
+#### 15. ðŸŽ¨ Simon Game
 Memorize and repeat the color sequence.
 
 **Features:**
@@ -307,7 +315,7 @@ Memorize and repeat the color sequence.
 
 ---
 
-#### 16. 🎮 Ping Pong AI
+#### 16. ðŸŽ® Ping Pong AI
 Advanced AI-powered table tennis game.
 
 **Features:**
@@ -323,7 +331,7 @@ Advanced AI-powered table tennis game.
 
 ---
 
-#### 17. ⌨️ Typing Speed Test
+#### 17. âŒ¨ï¸ Typing Speed Test
 Measure your typing speed and accuracy.
 
 **Features:**
@@ -340,7 +348,7 @@ Measure your typing speed and accuracy.
 
 ---
 
-#### 18. 🎯 Memory Card Game
+#### 18. ðŸŽ¯ Memory Card Game
 Match pairs of cards to clear the board.
 
 **Features:**
@@ -357,9 +365,9 @@ Match pairs of cards to clear the board.
 
 ---
 
-### 🃏 Card & Casino (3 Games)
+### ðŸƒ Card & Casino (3 Games)
 
-#### 19. ♠️ Blackjack
+#### 19. â™ ï¸ Blackjack
 Classic casino card game - beat the dealer!
 
 **Features:**
@@ -376,7 +384,7 @@ Classic casino card game - beat the dealer!
 
 ---
 
-#### 20. 🀄 Mahjong Solitaire
+#### 20. ðŸ€„ Mahjong Solitaire
 Match pairs of identical tiles to clear the board.
 
 **Features:**
@@ -393,7 +401,7 @@ Match pairs of identical tiles to clear the board.
 
 ---
 
-#### 21. 🃏 Solitaire (Klondike)
+#### 21. ðŸƒ Solitaire (Klondike)
 The classic single-player card game.
 
 **Features:**
@@ -411,9 +419,9 @@ The classic single-player card game.
 
 ---
 
-### 🏆 Arcade Action (4 Games)
+### ðŸ† Arcade Action (4 Games)
 
-#### 22. 🎪 Pac-Man
+#### 22. ðŸŽª Pac-Man
 Navigate the maze and eat all the dots!
 
 **Features:**
@@ -433,7 +441,7 @@ Navigate the maze and eat all the dots!
 
 ---
 
-#### 23. 🧼 Bubble Shooter
+#### 23. ðŸ§¼ Bubble Shooter
 Pop bubbles by matching 3 or more of the same color.
 
 **Features:**
@@ -450,7 +458,7 @@ Pop bubbles by matching 3 or more of the same color.
 
 ---
 
-#### 24. 🎯 Hangman
+#### 24. ðŸŽ¯ Hangman
 Guess the word before the hangman is complete!
 
 **Features:**
@@ -471,7 +479,7 @@ Guess the word before the hangman is complete!
 
 ---
 
-#### 25. 🎲 Quiz Game
+#### 25. ðŸŽ² Quiz Game
 Test your knowledge across multiple categories!
 
 **Features:**
@@ -493,9 +501,9 @@ Test your knowledge across multiple categories!
 
 ---
 
-### ♟️ Board Games (5 Games)
+### â™Ÿï¸ Board Games (5 Games)
 
-#### 26. ♟️ Chess
+#### 26. â™Ÿï¸ Chess
 The ultimate strategy board game.
 
 **Features:**
@@ -514,7 +522,7 @@ The ultimate strategy board game.
 
 ---
 
-#### 27. ⚫ Checkers
+#### 27. âš« Checkers
 Classic board game of strategy and tactics.
 
 **Features:**
@@ -532,15 +540,15 @@ Classic board game of strategy and tactics.
 
 ---
 
-#### 28. 🔤 Wordle
+#### 28. ðŸ”¤ Wordle
 Guess the 5-letter word in 6 attempts!
 
 **Features:**
 - **Daily word challenge** (same word for everyone each day)
 - Color-coded feedback:
-  - 🟩 Green: Correct letter in correct position
-  - 🟨 Yellow: Correct letter in wrong position
-  - ⬜ Gray: Letter not in word
+  - ðŸŸ© Green: Correct letter in correct position
+  - ðŸŸ¨ Yellow: Correct letter in wrong position
+  - â¬œ Gray: Letter not in word
 - Virtual keyboard with color feedback
 - Statistics tracking:
   - Win streak
@@ -554,7 +562,7 @@ Guess the 5-letter word in 6 attempts!
 
 ---
 
-#### 29. 📝 Crossword Puzzle
+#### 29. ðŸ“ Crossword Puzzle
 Solve clues to fill in the crossword grid!
 
 **Features:**
@@ -572,7 +580,7 @@ Solve clues to fill in the crossword grid!
 
 ---
 
-#### 30. ✊ Rock Paper Scissors
+#### 30. âœŠ Rock Paper Scissors
 Classic hand game against the computer!
 
 **Features:**
@@ -589,7 +597,7 @@ Classic hand game against the computer!
 
 ---
 
-## 🚀 Quick Start
+## ðŸš€ Quick Start
 
 ### Option 1: Play Online
 Visit [https://thanhnguyxn.github.io/Source-game/](https://thanhnguyxn.github.io/Source-game/)
@@ -611,160 +619,160 @@ python -m http.server 8000
 
 ---
 
-## 📁 Project Structure
+## ðŸ“ Project Structure
 
 ```
 Source-game/
-│
-├── index.html              # Main landing page with all games
-├── README.md              # This file
-├── LICENSE                # MIT License
-├── .gitignore            # Git ignore file
-│
-├── 2048-game/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── blackjack/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── breakout-game/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── bubble-shooter/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── checkers-game/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── chess-game/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── connect-four/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── crossword/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── dino-game/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── flappy-bird/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── hangman/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── mahjong/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── memory-card-game/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── minesweeper/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── pac-man/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── ping-pong-ai/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── pong-game/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── quiz-game/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── rock-paper-scissors/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── simon-game/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── sliding-puzzle/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── snake-game/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── space-invaders/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── sudoku/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── tetris-game/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── tic-tac-toe/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── typing-speed-test/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-└── whack-a-mole/
-    ├── index.html
-    ├── style.css
-    └── script.js
+â”‚
+â”œâ”€â”€ index.html              # Main landing page with all games
+â”œâ”€â”€ README.md              # This file
+â”œâ”€â”€ LICENSE                # MIT License
+â”œâ”€â”€ .gitignore            # Git ignore file
+â”‚
+â”œâ”€â”€ 2048-game/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ blackjack/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ breakout-game/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ bubble-shooter/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ checkers-game/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ chess-game/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ connect-four/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ crossword/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ dino-game/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ flappy-bird/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ hangman/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ mahjong/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ memory-card-game/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ minesweeper/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ pac-man/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ ping-pong-ai/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ pong-game/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ quiz-game/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ rock-paper-scissors/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ simon-game/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ sliding-puzzle/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ snake-game/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ space-invaders/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ sudoku/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ tetris-game/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ tic-tac-toe/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â”œâ”€â”€ typing-speed-test/
+â”‚   â”œâ”€â”€ index.html
+â”‚   â”œâ”€â”€ style.css
+â”‚   â””â”€â”€ script.js
+â”‚
+â””â”€â”€ whack-a-mole/
+    â”œâ”€â”€ index.html
+    â”œâ”€â”€ style.css
+    â””â”€â”€ script.js
 ```
 
 ---
 
-## 🛠️ Development
+## ðŸ› ï¸ Development
 
 ### Prerequisites
 - Modern web browser (Chrome, Firefox, Safari, Edge)
@@ -795,21 +803,21 @@ git push origin feature/new-feature
 
 ---
 
-## 🌐 Browser Support
+## ðŸŒ Browser Support
 
 | Browser | Version | Support |
 |---------|---------|---------|
-| Chrome | Latest 2 | ✅ Full |
-| Firefox | Latest 2 | ✅ Full |
-| Safari | Latest 2 | ✅ Full |
-| Edge | Latest 2 | ✅ Full |
-| Opera | Latest 2 | ✅ Full |
-| Mobile Safari | iOS 12+ | ✅ Full |
-| Chrome Mobile | Android 8+ | ✅ Full |
+| Chrome | Latest 2 | âœ… Full |
+| Firefox | Latest 2 | âœ… Full |
+| Safari | Latest 2 | âœ… Full |
+| Edge | Latest 2 | âœ… Full |
+| Opera | Latest 2 | âœ… Full |
+| Mobile Safari | iOS 12+ | âœ… Full |
+| Chrome Mobile | Android 8+ | âœ… Full |
 
 ---
 
-## 🤝 Contributing
+## ðŸ¤ Contributing
 
 Contributions are welcome! Here's how you can help:
 
@@ -830,7 +838,7 @@ Contributions are welcome! Here's how you can help:
 
 ---
 
-## 📄 License
+## ðŸ“„ License
 
 This project is licensed under the **MIT License**.
 
@@ -860,7 +868,7 @@ SOFTWARE.
 
 ---
 
-## 💡 Inspiration & Credits
+## ðŸ’¡ Inspiration & Credits
 
 This project is inspired by:
 - [awesome-open-source-games](https://github.com/michelpereira/awesome-open-source-games) - Comprehensive list of open source games
@@ -870,7 +878,7 @@ This project is inspired by:
 
 ---
 
-## 👤 Author
+## ðŸ‘¤ Author
 
 **ThanhNguyxn**
 - GitHub: [@ThanhNguyxn](https://github.com/ThanhNguyxn)
@@ -878,7 +886,7 @@ This project is inspired by:
 
 ---
 
-## 🙏 Acknowledgments
+## ðŸ™ Acknowledgments
 
 - Original game creators and arcade pioneers
 - Open-source community contributors
@@ -888,20 +896,20 @@ This project is inspired by:
 
 ---
 
-## 💖 Support This Project
+## ðŸ’– Support This Project
 
 If you like this project:
 
-- ⭐ **Star** this repository
-- 🍴 **Fork** it and create your own version
-- 📢 **Share** with friends and on social media
-- 🐛 **Report bugs** to help us improve
-- 💡 **Suggest features** you'd like to see
-- 🔧 **Contribute** code or documentation
+- â­ **Star** this repository
+- ðŸ´ **Fork** it and create your own version
+- ðŸ“¢ **Share** with friends and on social media
+- ðŸ› **Report bugs** to help us improve
+- ðŸ’¡ **Suggest features** you'd like to see
+- ðŸ”§ **Contribute** code or documentation
 
 ---
 
-## 📞 Contact & Support
+## ðŸ“ž Contact & Support
 
 - **Issues:** [Report bugs here](https://github.com/ThanhNguyxn/Source-game/issues)
 - **Discussions:** [Join discussions](https://github.com/ThanhNguyxn/Source-game/discussions)
@@ -911,13 +919,13 @@ If you like this project:
 
 <div align="center">
 
-**Made with ❤️ and JavaScript**
+**Made with â¤ï¸ and JavaScript**
 
-[Play Now](https://thanhnguyxn.github.io/Source-game/) | [Documentation](https://github.com/ThanhNguyxn/Source-game) | [Report Bug](https://github.com/ThanhNguyxn/Source-game/issues) | [✨ Request Feature](https://github.com/ThanhNguyxn/Source-game/issues)
+[Play Now](https://thanhnguyxn.github.io/Source-game/) | [Documentation](https://github.com/ThanhNguyxn/Source-game) | [Report Bug](https://github.com/ThanhNguyxn/Source-game/issues) | [âœ¨ Request Feature](https://github.com/ThanhNguyxn/Source-game/issues)
 
 ---
 
-### 📈 Project Stats
+### ðŸ“ˆ Project Stats
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/ThanhNguyxn/Source-game)
 ![GitHub issues](https://img.shields.io/github/issues/ThanhNguyxn/Source-game)
@@ -925,6 +933,6 @@ If you like this project:
 
 ---
 
-**⭐ Don't forget to star this repository if you found it helpful! ⭐**
+**â­ Don't forget to star this repository if you found it helpful! â­**
 
 </div>

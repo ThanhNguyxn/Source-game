@@ -8,40 +8,61 @@
 </head>
 <body>
     <div class="game-container">
-        <h1>🎮 Tetris</h1>
-        <div class="game-wrapper">
-            <div class="main-game">
-                <canvas id="gameCanvas" width="300" height="600"></canvas>
-            </div>
-            <div class="side-panel">
-                <div class="next-piece">
-                    <h3>Next Piece</h3>
-                    <canvas id="nextCanvas" width="120" height="120"></canvas>
-                </div>
-                <div class="game-stats">
-                    <div class="stat">
-                        <span class="stat-label">Score</span>
-                        <span id="score">0</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-label">Lines</span>
-                        <span id="lines">0</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-label">Level</span>
-                        <span id="level">1</span>
-                    </div>
-                </div>
-                <div class="controls">
-                    <button id="startBtn">Start</button>
-                    <button id="pauseBtn">Pause</button>
-                    <button id="resetBtn">Reset</button>
-                </div>
+        <h1>🟦 Tetris</h1>
+        
+        <div class="mode-selector" id="modeSelector">
+            <h2>Select Game Mode:</h2>
+            <div class="mode-buttons">
+                <button class="mode-btn" onclick="startGame('classic')">🎮 Classic (Endless)</button>
+                <button class="mode-btn" onclick="startGame('sprint')">⚡ Sprint (40 Lines)</button>
+                <button class="mode-btn" onclick="startGame('marathon')">🏃 Marathon (150 Lines)</button>
             </div>
         </div>
+        
+        <div class="game-area" id="gameArea" style="display:none;">
+            <div class="game-info">
+                <div class="score-panel">
+                    <div class="stat">Score: <span id="score">0</span></div>
+                    <div class="stat">Lines: <span id="lines">0</span></div>
+                    <div class="stat">Level: <span id="level">1</span></div>
+                    <div class="stat mode-display">Mode: <span id="modeDisplay">Classic</span></div>
+                </div>
+                <div class="next-piece">
+                    <h3>Next:</h3>
+                    <canvas id="nextCanvas" width="80" height="80"></canvas>
+                </div>
+            </div>
+            
+            <canvas id="gameCanvas" width="240" height="400"></canvas>
+            
+            <div class="controls">
+                <button id="pauseBtn">Pause</button>
+                <button id="resetBtn">Reset</button>
+                <button id="changeModeBtn">Change Mode</button>
+            </div>
+            
+            <div class="controls-info">
+                <p><strong>Controls:</strong> ← → to move, ↑ to rotate, ↓ soft drop, Space hard drop</p>
+            </div>
+        </div>
+        
         <div class="instructions">
-            <h3>Controls:</h3>
-            <p><strong>←/→</strong> Move | <strong>↑</strong> Rotate | <strong>↓</strong> Soft Drop | <strong>Space</strong> Hard Drop</p>
+            <h3>How to Play:</h3>
+            <p><strong>Objective:</strong> Clear lines by filling rows completely</p>
+            <p><strong>Controls:</strong></p>
+            <ul>
+                <li>← → : Move piece left/right</li>
+                <li>↑ : Rotate piece</li>
+                <li>↓ : Soft drop (faster fall)</li>
+                <li>Space : Hard drop (instant placement)</li>
+            </ul>
+            <p><strong>Game Modes:</strong></p>
+            <ul>
+                <li><strong>Classic:</strong> Endless mode, speed increases with level</li>
+                <li><strong>Sprint:</strong> Clear 40 lines as fast as possible</li>
+                <li><strong>Marathon:</strong> Clear 150 lines to win</li>
+            </ul>
+            <p><strong>Scoring:</strong> Clear multiple lines for bonus points!</p>
         </div>
     </div>
     <script src="script.js"></script>

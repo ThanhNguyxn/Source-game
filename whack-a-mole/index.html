@@ -8,27 +8,60 @@
 </head>
 <body>
     <div class="game-container">
-        <h1>🔨 Whack-a-Mole</h1>
-        <div class="game-stats">
-            <div>Score: <span id="score">0</span></div>
-            <div>Time: <span id="time">30</span>s</div>
-            <div>Best: <span id="bestScore">0</span></div>
+        <h1>🎯 Whack-a-Mole</h1>
+        
+        <div class="mode-selector" id="modeSelector">
+            <h2>Select Difficulty:</h2>
+            <div class="mode-buttons">
+                <button class="mode-btn" onclick="startGame('easy')">🟢 Easy (Slow)</button>
+                <button class="mode-btn" onclick="startGame('medium')">🟡 Medium (Normal)</button>
+                <button class="mode-btn" onclick="startGame('hard')">🔴 Hard (Fast)</button>
+                <button class="mode-btn" onclick="startGame('extreme')">💀 Extreme (Special Moles)</button>
+            </div>
         </div>
-        <div class="game-board">
-            <div class="hole" data-index="0"><div class="mole">🦫</div></div>
-            <div class="hole" data-index="1"><div class="mole">🦫</div></div>
-            <div class="hole" data-index="2"><div class="mole">🦫</div></div>
-            <div class="hole" data-index="3"><div class="mole">🦫</div></div>
-            <div class="hole" data-index="4"><div class="mole">🦫</div></div>
-            <div class="hole" data-index="5"><div class="mole">🦫</div></div>
-            <div class="hole" data-index="6"><div class="mole">🦫</div></div>
-            <div class="hole" data-index="7"><div class="mole">🦫</div></div>
-            <div class="hole" data-index="8"><div class="mole">🦫</div></div>
+        
+        <div class="game-area" id="gameArea" style="display:none;">
+            <div class="game-info">
+                <div class="stat">Score: <span id="score">0</span></div>
+                <div class="stat">Time: <span id="timeLeft">60</span>s</div>
+                <div class="stat">Lives: <span id="lives">3</span>❤️</div>
+                <div class="stat">Difficulty: <span id="difficultyDisplay">Easy</span></div>
+            </div>
+            
+            <div class="game-board" id="gameBoard">
+                <div class="hole" data-hole="0"></div>
+                <div class="hole" data-hole="1"></div>
+                <div class="hole" data-hole="2"></div>
+                <div class="hole" data-hole="3"></div>
+                <div class="hole" data-hole="4"></div>
+                <div class="hole" data-hole="5"></div>
+                <div class="hole" data-hole="6"></div>
+                <div class="hole" data-hole="7"></div>
+                <div class="hole" data-hole="8"></div>
+            </div>
+            
+            <div class="controls">
+                <button id="pauseBtn">Pause</button>
+                <button id="changeModeBtn">Change Difficulty</button>
+            </div>
         </div>
-        <button id="startBtn">Start Game</button>
+        
         <div class="instructions">
             <h3>How to Play:</h3>
-            <p>Click on the moles as they pop up! Try to get the highest score in 30 seconds!</p>
+            <p><strong>Objective:</strong> Click on moles before they hide!</p>
+            <p><strong>Controls:</strong> Click/tap on moles to whack them</p>
+            <p><strong>Difficulties:</strong></p>
+            <ul>
+                <li><strong>Easy:</strong> Slow moles, 60 seconds</li>
+                <li><strong>Medium:</strong> Normal speed, 60 seconds</li>
+                <li><strong>Hard:</strong> Fast moles, 60 seconds</li>
+                <li><strong>Extreme:</strong> Fast + Special moles (bomb 💣, golden 🌟)</li>
+            </ul>
+            <p><strong>Special Moles:</strong></p>
+            <ul>
+                <li>💣 Bomb: Avoid! Lose 1 life and -10 points</li>
+                <li>🌟 Golden: Bonus! +20 points</li>
+            </ul>
         </div>
     </div>
     <script src="script.js"></script>

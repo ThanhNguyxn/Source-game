@@ -120,3 +120,51 @@ button:disabled {
     color: #666;
     margin: 5px 0;
 }
+
+/* Mode Selector */
+.mode-selector {
+    text-align: center;
+    padding: 40px;
+    background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.mode-selector h2 {
+    color: #1a1a2e;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.mode-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.mode-btn {
+    padding: 15px 35px;
+    font-size: 1.1em;
+    background: #1a1a2e;
+    color: #00ff88;
+    border: 2px solid #00ff88;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.mode-btn:hover {
+    background: #00ff88;
+    color: #1a1a2e;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
+}
+
+.difficulty-display {
+    font-weight: bold;
+    color: #00ff88;
+}

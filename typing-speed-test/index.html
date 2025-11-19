@@ -9,35 +9,65 @@
 <body>
     <div class="game-container">
         <h1>⌨️ Typing Speed Test</h1>
-        <div class="game-stats">
-            <div class="stat">
-                <span class="label">Time:</span>
-                <span id="time">60</span>s
-            </div>
-            <div class="stat">
-                <span class="label">WPM:</span>
-                <span id="wpm">0</span>
-            </div>
-            <div class="stat">
-                <span class="label">Accuracy:</span>
-                <span id="accuracy">100</span>%
+        
+        <div class="mode-selector" id="modeSelector">
+            <h2>Select Difficulty:</h2>
+            <div class="mode-buttons">
+                <button class="mode-btn" onclick="startTest('easy')">🟢 Easy (Short Text)</button>
+                <button class="mode-btn" onclick="startTest('medium')">🟡 Medium (Normal Text)</button>
+                <button class="mode-btn" onclick="startTest('hard')">🔴 Hard (Long Text)</button>
+                <button class="mode-btn" onclick="startTest('expert')">💀 Expert (Complex)</button>
             </div>
         </div>
-        <div class="text-display" id="textDisplay"></div>
-        <textarea id="inputArea" placeholder="Click here and start typing..." disabled></textarea>
-        <button id="startBtn">Start Test</button>
-        <div class="results" id="results" style="display: none;">
-            <h3>Test Results</h3>
-            <p>Words Per Minute: <strong id="finalWpm">0</strong></p>
-            <p>Characters Per Minute: <strong id="finalCpm">0</strong></p>
-            <p>Accuracy: <strong id="finalAccuracy">0</strong>%</p>
-            <p>Correct Characters: <strong id="correctChars">0</strong></p>
-            <p>Wrong Characters: <strong id="wrongChars">0</strong></p>
+        
+        <div class="game-area" id="gameArea" style="display:none;">
+            <div class="stats">
+                <div class="stat">Time: <span id="time">60</span>s</div>
+                <div class="stat">WPM: <span id="wpm">0</span></div>
+                <div class="stat">Accuracy: <span id="accuracy">100</span>%</div>
+                <div class="stat">Difficulty: <span id="difficultyDisplay">Easy</span></div>
+            </div>
+            
+            <div class="text-display" id="textDisplay"></div>
+            
+            <textarea 
+                id="inputArea" 
+                placeholder="Start typing here..." 
+                rows="5"
+            ></textarea>
+            
+            <div class="controls">
+                <button id="resetBtn">Try Again</button>
+                <button id="changeModeBtn">Change Difficulty</button>
+            </div>
+            
+            <div class="results" id="results" style="display:none;">
+                <h3>Test Results</h3>
+                <div class="result-item">WPM: <span id="finalWPM">0</span></div>
+                <div class="result-item">Accuracy: <span id="finalAccuracy">0</span>%</div>
+                <div class="result-item">Correct Words: <span id="correctWords">0</span></div>
+                <div class="result-item">Wrong Words: <span id="wrongWords">0</span></div>
+            </div>
         </div>
+        
         <div class="instructions">
             <h3>How to Play:</h3>
-            <p>Type the text as fast and accurately as you can. You have 60 seconds!</p>
-            <p>Green = Correct, Red = Wrong</p>
+            <p><strong>Objective:</strong> Type the given text as fast and accurately as possible</p>
+            <p><strong>How it Works:</strong></p>
+            <ul>
+                <li>Type the displayed text in the input area</li>
+                <li>You have 60 seconds to type</li>
+                <li>WPM (Words Per Minute) measures your speed</li>
+                <li>Accuracy measures your precision</li>
+            </ul>
+            <p><strong>Difficulties:</strong></p>
+            <ul>
+                <li><strong>Easy:</strong> Short, simple sentences</li>
+                <li><strong>Medium:</strong> Normal length paragraphs</li>
+                <li><strong>Hard:</strong> Longer, more complex text</li>
+                <li><strong>Expert:</strong> Technical text with punctuation</li>
+            </ul>
+            <p><strong>Tips:</strong> Focus on accuracy first, then speed!</p>
         </div>
     </div>
     <script src="script.js"></script>

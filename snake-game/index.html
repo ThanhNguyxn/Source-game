@@ -9,21 +9,46 @@
 <body>
     <div class="game-container">
         <h1>🐍 Snake Game</h1>
-        <div class="score-board">
-            <div class="score">Score: <span id="score">0</span></div>
-            <div class="high-score">High Score: <span id="highScore">0</span></div>
+        
+        <div class="mode-selector" id="modeSelector">
+            <h2>Select Difficulty:</h2>
+            <div class="mode-buttons">
+                <button class="mode-btn" onclick="startGame('easy')">🟢 Easy (Slow)</button>
+                <button class="mode-btn" onclick="startGame('medium')">🟡 Medium (Normal)</button>
+                <button class="mode-btn" onclick="startGame('hard')">🔴 Hard (Fast)</button>
+                <button class="mode-btn" onclick="startGame('extreme')">💀 Extreme (Obstacles)</button>
+            </div>
         </div>
-        <canvas id="gameCanvas" width="400" height="400"></canvas>
-        <div class="controls">
-            <button id="startBtn">Start Game</button>
-            <button id="pauseBtn">Pause</button>
-            <button id="resetBtn">Reset</button>
+        
+        <div class="game-area" id="gameArea" style="display:none;">
+            <div class="score-board">
+                <div class="score">Score: <span id="score">0</span></div>
+                <div class="high-score">High Score: <span id="highScore">0</span></div>
+                <div class="difficulty-display">Difficulty: <span id="difficultyDisplay">Easy</span></div>
+            </div>
+            
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+            
+            <div class="controls">
+                <button id="pauseBtn">Pause</button>
+                <button id="resetBtn">Reset</button>
+                <button id="changeModeBtn">Change Difficulty</button>
+            </div>
         </div>
+        
         <div class="instructions">
             <h3>How to Play:</h3>
-            <p>Use Arrow Keys or WASD to control the snake</p>
-            <p>Eat the red food to grow and score points</p>
-            <p>Don't hit the walls or yourself!</p>
+            <p><strong>Controls:</strong> Use Arrow Keys or WASD to control the snake</p>
+            <p><strong>Objective:</strong> Eat the red food to grow and score points</p>
+            <p><strong>Rules:</strong></p>
+            <ul>
+                <li>Don't hit the walls or yourself!</li>
+                <li><strong>Easy:</strong> Slow speed, no obstacles</li>
+                <li><strong>Medium:</strong> Normal speed, no obstacles</li>
+                <li><strong>Hard:</strong> Fast speed, no obstacles</li>
+                <li><strong>Extreme:</strong> Fast speed + obstacles!</li>
+            </ul>
+            <p><strong>Tip:</strong> Plan your moves ahead to avoid trapping yourself!</p>
         </div>
     </div>
     <script src="script.js"></script>
