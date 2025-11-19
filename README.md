@@ -29,7 +29,7 @@ Total Files: 150+
 
 ## 🎮 Complete Game Library (50+ Games)
 
-### 🕹️ Arcade Classics (21 Games)
+### 🕹️ Arcade Classics (23 Games)
 
 | Game | Description | Controls | Features |
 |------|-------------|----------|----------|
@@ -54,6 +54,8 @@ Total Files: 150+
 | 🦍 **Donkey Kong** | Classic platformer - rescue princess | Arrow Keys/WASD, Space (jump) | Platforms, ladders, barrel dodging, lives |
 | ⛏️ **Dig Dug** | Dig tunnels and defeat enemies | Arrow Keys/WASD, Space (pump) | Underground digging, enemy inflation, rocks |
 | 🐛 **Centipede** | Shoot the centipede and insects | Mouse, Click/Space | Mushrooms, spider, flea, wave-based |
+| 🚀 **Defender** | Horizontal shooter - save humans | Arrow Keys, Space, S (bomb) | Scrolling world, minimap, human rescue |
+| 🟧 **Q*bert** | Change pyramid cube colors | Q/W/E/A/D or Arrows | Isometric pyramid, enemies, color matching |
 
 ### 🧩 Puzzle & Strategy (9 Games)
 
