@@ -8,8 +8,6 @@
 
 A collection of **16 legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
 
-Inspired by [awesome-open-source-games](https://github.com/michelpereira/awesome-open-source-games)
-
 ---
 
 ## 🌐 Play Online
