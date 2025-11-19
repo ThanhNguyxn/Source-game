@@ -357,6 +357,7 @@ canvas.addEventListener('click', (e) => {
 // Keyboard control
 window.addEventListener('keydown', (e) => {
     if (e.key === 'p' || e.key === 'P') {
+        e.preventDefault();
         paused = !paused;
     }
 });

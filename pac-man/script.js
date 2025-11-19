@@ -1,4 +1,4 @@
-﻿const canvas = document.getElementById('gameCanvas');
+﻿﻿const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 const scoreElement = document.getElementById('score');
 const livesElement = document.getElementById('lives');
@@ -250,6 +250,11 @@ function endGame() {
 }
 
 document.addEventListener('keydown', (e) => {
+    // Prevent page scroll
+    if (['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','w','W','a','A','s','S','d','D'].includes(e.key)) {
+        e.preventDefault();
+    }
+
     const key = e.key.toLowerCase();
     if (key === 'arrowright' || key === 'd') pacman.nextDir = 0;
     if (key === 'arrowdown' || key === 's') pacman.nextDir = 1;
