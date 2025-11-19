@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missile Command - Defend Your Cities</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Missile Command</h1>
+
+        <div class="game-info">
+            <div class="stat">
+                <span>Score:</span>
+                <span id="score">0</span>
+            </div>
+            <div class="stat">
+                <span>Cities:</span>
+                <span id="cities">6</span>
+            </div>
+            <div class="stat">
+                <span>Wave:</span>
+                <span id="wave">1</span>
+            </div>
+            <div class="stat">
+                <span>Missiles:</span>
+                <span id="missiles">30</span>
+            </div>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div class="controls">
+            <h3>🎮 Controls</h3>
+            <p><strong>Mouse Click:</strong> Launch defensive missile</p>
+            <p><strong>P:</strong> Pause</p>
+            <p><strong>Objective:</strong> Defend your cities from incoming missiles!</p>
+        </div>
+
+        <div id="gameOver" class="modal hidden">
+            <div class="modal-content">
+                <h2>Game Over!</h2>
+                <p>Final Score: <span id="finalScore"></span></p>
+                <p>Wave Reached: <span id="finalWave"></span></p>
+                <button id="restartBtn">Play Again</button>
+                <a href="../index.html" class="btn">← Back to Games</a>
+            </div>
+        </div>
+
+        <a href="../index.html" class="back-btn">← Back to Games</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
