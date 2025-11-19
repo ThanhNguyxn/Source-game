@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🎵 Simon Says</h1>
+        <div class="score-display">
+            <div>Level: <span id="level">0</span></div>
+            <div>Best: <span id="bestScore">0</span></div>
+        </div>
+        <div class="simon-board">
+            <div class="simon-btn green" data-color="green"></div>
+            <div class="simon-btn red" data-color="red"></div>
+            <div class="simon-btn yellow" data-color="yellow"></div>
+            <div class="simon-btn blue" data-color="blue"></div>
+        </div>
+        <button id="startBtn">Start Game</button>
+        <div class="instructions">
+            <h3>How to Play:</h3>
+            <p>Watch the sequence of colors and repeat it by clicking the buttons in the same order!</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

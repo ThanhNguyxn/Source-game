@@ -6,208 +6,148 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-A collection of **10 legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
+A collection of **16 legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
+
+Inspired by [awesome-open-source-games](https://github.com/michelpereira/awesome-open-source-games)
+
+---
 
 ## 🌐 Play Online
 
 **🎮 [Play All Games Here](https://thanhnguyen.github.io/Source-game/)**
 
-> **Note:** Replace the URL above with your actual GitHub Pages URL after deployment.
+> **Note:** After enabling GitHub Pages, your games will be live at the URL above.
 
 ---
 
-## 🎯 Games Included
+## 🎯 16 Games Included
 
-### 1. 🐍 Snake Game
-The classic arcade game where you control a snake to eat food and grow longer.
+### Arcade Classics
 
-**Features:**
-- Smooth controls with Arrow Keys or WASD
-- Score tracking with persistent high score
-- Pause and resume functionality
-- Clean, modern UI with animations
+#### 1. 🐍 Snake Game
+The iconic arcade game where you control a snake to eat food and grow longer.
+- Controls: Arrow Keys / WASD
+- Features: Score tracking, pause/resume, smooth animations
 
-**Controls:** Arrow Keys / WASD
-
-[▶️ Play Snake Game](./snake-game/index.html)
-
----
-
-### 2. ❌⭕ Tic Tac Toe
-The timeless two-player strategy game on a 3x3 grid.
-
-**Features:**
-- Two-player local gameplay
-- Score tracking for both players
-- Win detection with visual feedback
-- Persistent match history
-
-**Controls:** Mouse Click
-
-[▶️ Play Tic Tac Toe](./tic-tac-toe/index.html)
-
----
-
-### 3. 🎲 2048
-The addictive puzzle game where you slide numbered tiles to create 2048.
-
-**Features:**
-- Smooth tile animations
-- Score and best score tracking
-- Win/lose detection
-- Keyboard controls
-
-**Controls:** Arrow Keys
-
-[▶️ Play 2048](./2048-game/index.html)
-
----
-
-### 4. 🐦 Flappy Bird
-Navigate a bird through pipes by tapping or pressing space.
-
-**Features:**
-- One-button control system
-- Endless gameplay
-- High score tracking
-- Smooth physics and animations
-
-**Controls:** Space / Mouse Click
-
-[▶️ Play Flappy Bird](./flappy-bird/index.html)
-
----
-
-### 5. 🧠 Memory Card Game
-Test your memory by matching pairs of emoji cards.
-
-**Features:**
-- 16 cards (8 pairs) to match
-- Move counter and timer
-- Best time tracking
-- Smooth flip animations
-
-**Controls:** Mouse Click
-
-[▶️ Play Memory Game](./memory-card-game/index.html)
-
----
-
-### 6. 🎯 Breakout
+#### 2. 🎯 Breakout
 Break all the colored bricks with your paddle and ball.
+- Controls: Arrow Keys / Mouse
+- Features: Multiple levels, lives system, progressive difficulty
 
-**Features:**
-- Multiple levels with increasing difficulty
-- Mouse and keyboard controls
-- Lives system
-- Score multiplier
-
-**Controls:** Left/Right Arrows or Mouse
-
-[▶️ Play Breakout](./breakout-game/index.html)
-
----
-
-### 7. 🎮 Tetris
+#### 3. 🎮 Tetris
 The legendary falling blocks puzzle game.
+- Controls: Arrow Keys (Move/Rotate), Space (Hard Drop)
+- Features: Next piece preview, line clearing, level progression
 
-**Features:**
-- Classic tetromino shapes
-- Next piece preview
-- Line clearing with score multiplier
-- Progressive difficulty levels
+#### 4. 🏓 Pong
+The first video game ever created!
+- Controls: Up/Down Arrows / W/S
+- Features: AI opponent, smooth physics, first to 5 wins
 
-**Controls:** Arrow Keys (↑ Rotate, ← → Move, ↓ Soft Drop, Space Hard Drop)
-
-[▶️ Play Tetris](./tetris-game/index.html)
-
----
-
-### 8. 🏓 Pong
-The first video game ever created - now in your browser!
-
-**Features:**
-- Play against AI
-- First to 5 points wins
-- Smooth ball physics
-- Increasing difficulty
-
-**Controls:** Up/Down Arrows or W/S
-
-[▶️ Play Pong](./pong-game/index.html)
-
----
-
-### 9. 👾 Space Invaders
+#### 5. 👾 Space Invaders
 Defend Earth from waves of alien invaders!
+- Controls: Arrow Keys (Move), Space (Shoot)
+- Features: Classic alien patterns, progressive difficulty
 
-**Features:**
-- Classic alien movement patterns
-- Shooting mechanics
-- Progressive difficulty
-- High score system
+#### 6. 🐦 Flappy Bird
+Navigate through pipes in this challenging arcade game.
+- Controls: Space / Mouse Click
+- Features: Endless gameplay, physics-based, high scores
 
-**Controls:** Left/Right Arrows (Move), Space (Shoot)
-
-[▶️ Play Space Invaders](./space-invaders/index.html)
+#### 7. 🦖 Dino Run
+Chrome's famous offline dinosaur game!
+- Controls: Space/Up (Jump), Down (Duck)
+- Features: Obstacle variety, increasing speed
 
 ---
 
-### 10. 🦖 Dino Run
-Chrome's famous offline dinosaur game!
+### Puzzle & Strategy
 
-**Features:**
-- Jump and duck mechanics
-- Obstacle variety (cacti and birds)
-- Increasing speed
-- Score tracking
+#### 8. 🎲 2048
+Slide numbered tiles to create the 2048 tile.
+- Controls: Arrow Keys
+- Features: Smooth animations, undo feature, best score
 
-**Controls:** Space/Up Arrow (Jump), Down Arrow (Duck)
+#### 9. 💣 Minesweeper
+Classic puzzle game - find all mines without clicking them!
+- Controls: Left Click (Reveal), Right Click (Flag)
+- Features: 3 difficulty levels, timer, first-click safety
 
-[▶️ Play Dino Run](./dino-game/index.html)
+#### 10. 🔢 Sudoku
+Fill the 9x9 grid with numbers 1-9.
+- Controls: Click cell, then number
+- Features: 3 difficulty levels, hint system, error checking
+
+#### 11. ❌⭕ Tic Tac Toe
+The timeless two-player strategy game.
+- Controls: Mouse Click
+- Features: Score tracking, win detection, local multiplayer
+
+#### 12. 🔴🟡 Connect Four
+Connect four discs vertically, horizontally, or diagonally.
+- Controls: Mouse Click on columns
+- Features: Win detection, score tracking, smooth animations
+
+---
+
+### Memory & Skill
+
+#### 13. 🧠 Memory Card Game
+Match pairs of emoji cards to test your memory.
+- Controls: Mouse Click
+- Features: Timer, move counter, best time tracking
+
+#### 14. 🎵 Simon Says
+Repeat the color sequence shown by Simon.
+- Controls: Click colored buttons
+- Features: Progressive difficulty, sound effects, best score
+
+#### 15. 🔨 Whack-a-Mole
+Hit the moles as they pop up from their holes!
+- Controls: Mouse Click
+- Features: 30-second timer, score tracking, speed increases
+
+#### 16. ⌨️ Typing Speed Test
+Test your typing speed and accuracy.
+- Controls: Keyboard typing
+- Features: WPM calculator, accuracy tracking, detailed results
 
 ---
 
 ## 🚀 Quick Start
 
 ### Option 1: Play Online (Recommended)
-Visit the live site: **[Play Now](https://thanhnguyen.github.io/Source-game/)**
+
+Visit: **https://thanhnguyen.github.io/Source-game/**
 
 ### Option 2: Run Locally
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/ThanhNguyxn/Source-game.git
-   cd Source-game
-   ```
+```bash
+# Clone the repository
+git clone https://github.com/ThanhNguyxn/Source-game.git
+cd Source-game
 
-2. **Open in browser:**
-   - Double-click `index.html` to open the main page
-   - Or navigate to any game folder and open its `index.html`
+# Open index.html in your browser
+# Or use a local server (recommended)
 
-3. **Using a local server (optional but recommended):**
-   ```bash
-   # Using Python 3
-   python -m http.server 8000
-   
-   # Using Python 2
-   python -m SimpleHTTPServer 8000
-   
-   # Using Node.js http-server
-   npx http-server
-   ```
-   
-   Then open `http://localhost:8000` in your browser.
+# Using Python
+python -m http.server 8000
+
+# Using Node.js
+npx http-server
+
+# Then open http://localhost:8000
+```
 
 ---
 
-## 💻 Technologies Used
+## 💻 Technologies
 
-- **HTML5** - Structure and Canvas API for graphics
-- **CSS3** - Modern styling with gradients, animations, and flexbox/grid
-- **JavaScript (ES6+)** - Game logic, animations, and interactivity
-- **Canvas API** - 2D graphics rendering for games
-- **LocalStorage** - Persistent high score saving
+- **HTML5** - Structure & Canvas API
+- **CSS3** - Styling, animations, gradients
+- **JavaScript (ES6+)** - Game logic & interactivity
+- **Canvas API** - 2D graphics rendering
+- **LocalStorage** - Persistent data storage
 
 ---
 
@@ -216,56 +156,26 @@ Visit the live site: **[Play Now](https://thanhnguyen.github.io/Source-game/)**
 ```
 Source-game/
 ├── index.html              # Main landing page
-├── README.md              # This file
+├── README.md              # Documentation
 ├── LICENSE                # MIT License
-├── .gitignore             # Git ignore file
+├── .gitignore             # Git ignore rules
 │
 ├── snake-game/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
 ├── tic-tac-toe/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
 ├── 2048-game/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
 ├── flappy-bird/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
 ├── memory-card-game/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
 ├── breakout-game/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
 ├── tetris-game/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
 ├── pong-game/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
 ├── space-invaders/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-└── dino-game/
+├── dino-game/
+├── minesweeper/
+├── sudoku/
+├── connect-four/
+├── simon-game/
+├── whack-a-mole/
+└── typing-speed-test/
     ├── index.html
     ├── style.css
     └── script.js
@@ -277,101 +187,110 @@ Source-game/
 
 | Game | Controls |
 |------|----------|
-| **Snake** | Arrow Keys or WASD to move |
-| **Tic Tac Toe** | Mouse Click to place marks |
-| **2048** | Arrow Keys to slide tiles |
-| **Flappy Bird** | Space or Click to flap |
-| **Memory Game** | Click to flip cards |
-| **Breakout** | Arrow Keys or Mouse to move paddle |
-| **Tetris** | Arrow Keys (Move/Rotate), Space (Hard Drop) |
-| **Pong** | Up/Down Arrows or W/S |
-| **Space Invaders** | Arrow Keys (Move), Space (Shoot) |
+| **Snake** | Arrow Keys / WASD |
+| **Tic Tac Toe** | Mouse Click |
+| **2048** | Arrow Keys |
+| **Flappy Bird** | Space / Click |
+| **Memory Game** | Mouse Click |
+| **Breakout** | Arrow Keys / Mouse |
+| **Tetris** | Arrows (Move/Rotate), Space (Drop) |
+| **Pong** | Up/Down / W/S |
+| **Space Invaders** | Arrows (Move), Space (Shoot) |
 | **Dino Run** | Space/Up (Jump), Down (Duck) |
+| **Minesweeper** | Left Click (Reveal), Right Click (Flag) |
+| **Sudoku** | Click cell, then number |
+| **Connect Four** | Click on columns |
+| **Simon Says** | Click colored buttons |
+| **Whack-a-Mole** | Click on moles |
+| **Typing Speed** | Keyboard typing |
 
 ---
 
 ## 🌟 Features
 
-### ✨ Core Features
-- **No Installation Required** - Play instantly in any modern browser
-- **Responsive Design** - Works on desktop, tablet, and mobile devices
-- **High Score Tracking** - Uses LocalStorage to save your best scores
-- **Modern UI/UX** - Beautiful gradients, smooth animations, and clean design
-- **Keyboard & Mouse Support** - Multiple control options for better gameplay
-- **Pause/Resume** - Most games support pausing during gameplay
+### ✨ Gameplay Features
+- **High Score Tracking** - All scores saved locally
+- **Pause/Resume** - Most games support pausing
+- **Difficulty Levels** - Multiple difficulty options
+- **Sound Effects** - Audio feedback (selected games)
+- **Smooth Animations** - CSS and Canvas animations
+- **Responsive Design** - Works on all devices
 
-### 🎨 Technical Highlights
-- **Pure Vanilla JavaScript** - No frameworks or libraries required
-- **Canvas API** - High-performance 2D rendering
-- **CSS Animations** - Smooth transitions and effects
-- **LocalStorage API** - Persistent data storage
-- **Responsive Grid Layout** - Adapts to any screen size
+### 🎨 Technical Features
+- **Pure Vanilla JS** - No frameworks needed
+- **Canvas API** - High-performance rendering
+- **LocalStorage** - Persistent data
+- **CSS Grid/Flexbox** - Modern layouts
+- **ES6+ Syntax** - Modern JavaScript
+- **Mobile-Friendly** - Touch and click support
 
 ---
 
 ## 🛠️ Development
 
 ### Prerequisites
-- A modern web browser (Chrome, Firefox, Safari, Edge)
-- Basic knowledge of HTML, CSS, and JavaScript (if you want to modify)
-- Text editor or IDE (VS Code, Sublime Text, etc.)
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+- Text editor (VS Code, Sublime, etc.)
+- Basic HTML/CSS/JavaScript knowledge
 
-### Making Changes
+### Local Development
 
-1. **Fork this repository**
-2. **Create a new branch:**
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. **Make your changes**
-4. **Test thoroughly**
-5. **Commit your changes:**
-   ```bash
-   git add .
-   git commit -m "Add: your feature description"
-   ```
-6. **Push to your fork:**
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-7. **Create a Pull Request**
+```bash
+# Fork and clone the repo
+git clone https://github.com/YOUR_USERNAME/Source-game.git
+
+# Create a new branch
+git checkout -b feature/new-game
+
+# Make your changes
+# Test thoroughly
+
+# Commit and push
+git add .
+git commit -m "Add: new game feature"
+git push origin feature/new-game
+
+# Create a Pull Request
+```
 
 ---
 
 ## 📱 Browser Support
 
-| Browser | Supported Version |
-|---------|------------------|
-| Chrome | ✅ Latest 2 versions |
-| Firefox | ✅ Latest 2 versions |
-| Safari | ✅ Latest 2 versions |
-| Edge | ✅ Latest 2 versions |
-| Opera | ✅ Latest 2 versions |
+| Browser | Version |
+|---------|---------|
+| Chrome | ✅ Latest |
+| Firefox | ✅ Latest |
+| Safari | ✅ Latest |
+| Edge | ✅ Latest |
+| Opera | ✅ Latest |
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are always welcome! Here's how you can help:
+Contributions are welcome! Here's how:
 
-1. **Report bugs** - Open an issue describing the bug
-2. **Suggest features** - Share your ideas for new games or improvements
-3. **Submit pull requests** - Fix bugs or add new features
-4. **Improve documentation** - Help make the README better
-5. **Share the project** - Star ⭐ and share with others!
+1. **Fork** the repository
+2. **Create** a feature branch
+3. **Commit** your changes
+4. **Push** to the branch
+5. **Open** a Pull Request
 
-### Contribution Guidelines
-- Follow the existing code style
-- Test your changes thoroughly
-- Write clear commit messages
-- Update documentation if needed
-- One feature per pull request
+### Contribution Ideas
+- Add new games
+- Improve existing games
+- Add sound effects
+- Optimize performance
+- Fix bugs
+- Improve documentation
+- Add multiplayer features
 
 ---
 
 ## 📝 License
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License**.
 
 ```
 MIT License
@@ -384,6 +303,13 @@ in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 ```
 
 ---
@@ -391,20 +317,25 @@ furnished to do so, subject to the following conditions:
 ## 🎯 Roadmap
 
 ### Planned Features
-- [ ] Sound effects and background music
+- [ ] Sound effects for all games
+- [ ] Background music toggle
 - [ ] Online leaderboards
-- [ ] Multiplayer support for selected games
-- [ ] More games (Pac-Man, Minesweeper, etc.)
-- [ ] Mobile touch controls optimization
-- [ ] Game difficulty settings
+- [ ] Multiplayer support
+- [ ] More games (Pac-Man, Chess, etc.)
+- [ ] Mobile app version
 - [ ] Achievements system
-- [ ] Dark mode toggle
+- [ ] Dark mode
+- [ ] Game statistics
+- [ ] Social sharing
 
 ---
 
-## 💡 Inspiration
+## 🏆 Inspiration
 
-These games are inspired by classic arcade and video games that defined the gaming industry. This project aims to preserve these timeless games and make them accessible to everyone through modern web technologies.
+This project is inspired by:
+- [awesome-open-source-games](https://github.com/michelpereira/awesome-open-source-games)
+- Classic arcade games from the 70s-90s
+- Modern web game development techniques
 
 ---
 
@@ -412,36 +343,36 @@ These games are inspired by classic arcade and video games that defined the gami
 
 **ThanhNguyxn**
 - GitHub: [@ThanhNguyxn](https://github.com/ThanhNguyxn)
+- Project: [Source-game](https://github.com/ThanhNguyxn/Source-game)
 
 ---
 
 ## 🙏 Acknowledgments
 
-- Thanks to all the original creators of these classic games
-- Inspired by the golden age of arcade gaming
-- Built for fun, learning, and nostalgia
-- Special thanks to the open-source community
+- Original game creators and arcade pioneers
+- Open-source community
+- awesome-open-source-games contributors
+- All testers and contributors
 
 ---
 
-## ⭐ Show Your Support
+## ⭐ Support
 
-If you enjoyed these games or found this project helpful:
+If you like this project:
 
-- ⭐ **Star this repository**
-- 🍴 **Fork it** and create your own version
-- 📢 **Share it** with your friends
-- 🐛 **Report bugs** to help improve it
-- 💡 **Suggest features** you'd like to see
+- ⭐ **Star** this repository
+- 🍴 **Fork** it and create your version
+- 📢 **Share** with friends
+- 🐛 **Report bugs** via issues
+- 💡 **Suggest features**
 
 ---
 
 ## 📞 Contact
 
-Have questions or suggestions? Feel free to:
-- Open an issue on GitHub
-- Start a discussion in the repository
-- Contribute via pull requests
+- **Issues:** [Report here](https://github.com/ThanhNguyxn/Source-game/issues)
+- **Discussions:** [Join here](https://github.com/ThanhNguyxn/Source-game/discussions)
+- **Pull Requests:** Always welcome!
 
 ---
 
@@ -449,8 +380,14 @@ Have questions or suggestions? Feel free to:
 
 **Made with ❤️ and JavaScript**
 
-[Play Now](https://thanhnguyen.github.io/Source-game/) | [View Code](https://github.com/ThanhNguyxn/Source-game) | [Report Bug](https://github.com/ThanhNguyxn/Source-game/issues)
+[🎮 Play Now](https://thanhnguyen.github.io/Source-game/) | [📖 Documentation](https://github.com/ThanhNguyxn/Source-game) | [🐛 Report Bug](https://github.com/ThanhNguyxn/Source-game/issues) | [✨ Request Feature](https://github.com/ThanhNguyxn/Source-game/issues)
 
-⭐ **Don't forget to star this repo if you like it!** ⭐
+### ⭐ Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=ThanhNguyxn/Source-game&type=Date)](https://star-history.com/#ThanhNguyxn/Source-game&Date)
+
+---
+
+**Don't forget to ⭐ star this repository if you found it helpful!**
 
 </div>

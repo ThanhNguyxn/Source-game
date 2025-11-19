@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect Four</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🔴🟡 Connect Four</h1>
+        <div class="game-info">
+            <div class="player-turn">Current Player: <span id="currentPlayer">🔴 Red</span></div>
+            <div class="score-board">
+                <div>Red: <span id="redScore">0</span></div>
+                <div>Yellow: <span id="yellowScore">0</span></div>
+            </div>
+        </div>
+        <div id="gameBoard"></div>
+        <div class="controls">
+            <button id="newGameBtn">New Game</button>
+            <button id="resetScoreBtn">Reset Score</button>
+        </div>
+        <div class="instructions">
+            <h3>How to Play:</h3>
+            <p>Click on a column to drop your disc. Connect four discs vertically, horizontally, or diagonally to win!</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

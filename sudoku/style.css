@@ -1,0 +1,253 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    padding: 20px;
+}
+
+.game-container {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    gap: 20px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.stat-label {
+    font-size: 0.9em;
+    color: #666;
+    font-weight: bold;
+}
+
+#difficulty, #time, #mistakes {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.difficulty-selector {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.diff-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 2px solid #f5576c;
+    border-radius: 8px;
+    background: white;
+    color: #f5576c;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.diff-btn:hover {
+    background: #f5576c;
+    color: white;
+}
+
+.diff-btn.active {
+    background: #f5576c;
+    color: white;
+}
+
+#sudokuBoard {
+    display: inline-grid;
+    grid-template-columns: repeat(9, 45px);
+    grid-template-rows: repeat(9, 45px);
+    gap: 0;
+    border: 3px solid #333;
+    margin-bottom: 20px;
+}
+
+.sudoku-cell {
+    width: 45px;
+    height: 45px;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.sudoku-cell:hover:not(.fixed) {
+    background: #e3f2fd;
+}
+
+.sudoku-cell.selected {
+    background: #bbdefb;
+}
+
+.sudoku-cell.fixed {
+    background: #f5f5f5;
+    color: #333;
+    cursor: default;
+}
+
+.sudoku-cell.user-input {
+    color: #2196F3;
+}
+
+.sudoku-cell.error {
+    background: #ffcdd2;
+    color: #d32f2f;
+}
+
+.sudoku-cell.correct {
+    background: #c8e6c9;
+    color: #388e3c;
+}
+
+.sudoku-cell:nth-child(3n) {
+    border-right: 2px solid #333;
+}
+
+.sudoku-cell:nth-child(n+19):nth-child(-n+27),
+.sudoku-cell:nth-child(n+46):nth-child(-n+54) {
+    border-bottom: 2px solid #333;
+}
+
+.number-pad {
+    display: grid;
+    grid-template-columns: repeat(5, 60px);
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.num-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5em;
+    font-weight: bold;
+    border: 2px solid #f5576c;
+    border-radius: 10px;
+    background: white;
+    color: #f5576c;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.num-btn:hover {
+    background: #f5576c;
+    color: white;
+    transform: scale(1.05);
+}
+
+.num-btn.clear {
+    background: #ff6b6b;
+    color: white;
+    border-color: #ff6b6b;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+#newGameBtn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#newGameBtn:hover {
+    background-color: #45a049;
+}
+
+#hintBtn {
+    background-color: #ff9800;
+    color: white;
+}
+
+#hintBtn:hover {
+    background-color: #e68900;
+}
+
+#checkBtn {
+    background-color: #2196F3;
+    color: white;
+}
+
+#checkBtn:hover {
+    background-color: #1976D2;
+}
+
+.instructions {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.instructions h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.instructions p {
+    color: #666;
+    margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+    #sudokuBoard {
+        grid-template-columns: repeat(9, 35px);
+        grid-template-rows: repeat(9, 35px);
+    }
+    
+    .sudoku-cell {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2em;
+    }
+}

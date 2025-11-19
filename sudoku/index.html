@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🔢 Sudoku</h1>
+        <div class="game-stats">
+            <div class="stat">
+                <span class="stat-label">Difficulty:</span>
+                <span id="difficulty">Easy</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Time:</span>
+                <span id="time">0:00</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Mistakes:</span>
+                <span id="mistakes">0/3</span>
+            </div>
+        </div>
+        <div class="difficulty-selector">
+            <button class="diff-btn active" data-level="easy">Easy</button>
+            <button class="diff-btn" data-level="medium">Medium</button>
+            <button class="diff-btn" data-level="hard">Hard</button>
+        </div>
+        <div id="sudokuBoard"></div>
+        <div class="number-pad">
+            <button class="num-btn" data-num="1">1</button>
+            <button class="num-btn" data-num="2">2</button>
+            <button class="num-btn" data-num="3">3</button>
+            <button class="num-btn" data-num="4">4</button>
+            <button class="num-btn" data-num="5">5</button>
+            <button class="num-btn" data-num="6">6</button>
+            <button class="num-btn" data-num="7">7</button>
+            <button class="num-btn" data-num="8">8</button>
+            <button class="num-btn" data-num="9">9</button>
+            <button class="num-btn clear" data-num="0">Clear</button>
+        </div>
+        <div class="controls">
+            <button id="newGameBtn">New Game</button>
+            <button id="hintBtn">Hint</button>
+            <button id="checkBtn">Check</button>
+        </div>
+        <div class="instructions">
+            <h3>How to Play:</h3>
+            <p>Fill the 9x9 grid so each row, column, and 3x3 box contains digits 1-9</p>
+            <p>Click a cell, then click a number to fill it. You have 3 mistakes allowed!</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

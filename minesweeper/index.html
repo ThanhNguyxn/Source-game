@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>💣 Minesweeper</h1>
+        <div class="game-stats">
+            <div class="stat">
+                <span class="stat-label">Mines:</span>
+                <span id="minesCount">10</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Time:</span>
+                <span id="time">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Flags:</span>
+                <span id="flagsCount">0</span>
+            </div>
+        </div>
+        <div class="difficulty-selector">
+            <button class="diff-btn active" data-difficulty="easy">Easy (8x8)</button>
+            <button class="diff-btn" data-difficulty="medium">Medium (16x16)</button>
+            <button class="diff-btn" data-difficulty="hard">Hard (16x30)</button>
+        </div>
+        <div id="gameBoard"></div>
+        <div class="controls">
+            <button id="newGameBtn">New Game</button>
+        </div>
+        <div class="instructions">
+            <h3>How to Play:</h3>
+            <p><strong>Left Click:</strong> Reveal cell | <strong>Right Click:</strong> Place/Remove flag</p>
+            <p>Numbers show how many mines are adjacent. Find all mines without clicking on them!</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
