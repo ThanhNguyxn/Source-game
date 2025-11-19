@@ -1,0 +1,122 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.game-container {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.score {
+    color: #4CAF50;
+}
+
+.high-score {
+    color: #ff6b6b;
+}
+
+#gameCanvas {
+    border: 3px solid #333;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+#startBtn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#startBtn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+#pauseBtn {
+    background-color: #ff9800;
+    color: white;
+}
+
+#pauseBtn:hover {
+    background-color: #e68900;
+    transform: translateY(-2px);
+}
+
+#resetBtn {
+    background-color: #f44336;
+    color: white;
+}
+
+#resetBtn:hover {
+    background-color: #da190b;
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.instructions {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.instructions h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.instructions p {
+    color: #666;
+    margin: 5px 0;
+}

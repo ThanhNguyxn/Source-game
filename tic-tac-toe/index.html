@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>❌⭕ Tic Tac Toe</h1>
+        <div class="game-info">
+            <div class="player-turn">Current Player: <span id="currentPlayer">X</span></div>
+            <div class="score-board">
+                <div>Player X: <span id="scoreX">0</span></div>
+                <div>Draws: <span id="scoreDraw">0</span></div>
+                <div>Player O: <span id="scoreO">0</span></div>
+            </div>
+        </div>
+        <div class="board" id="board">
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+        </div>
+        <div class="winning-message" id="winningMessage">
+            <div class="winning-message-text" id="winningMessageText"></div>
+            <button id="restartBtn">Play Again</button>
+        </div>
+        <div class="controls">
+            <button id="resetScoreBtn">Reset Score</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

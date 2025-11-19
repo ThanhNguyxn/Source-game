@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Games Collection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 4em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .game-icon {
+            font-size: 5em;
+            margin-bottom: 20px;
+        }
+
+        .game-card h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .game-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .play-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .play-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .features {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .features h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 {
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Mini Games Collection</h1>
+            <p class="subtitle">Classic games reimagined for the web. Choose your adventure!</p>
+        </header>
+
+        <div class="games-grid">
+            <div class="game-card">
+                <div class="game-icon">🐍</div>
+                <h2>Snake Game</h2>
+                <p>Guide the snake to eat food and grow longer. Don't hit the walls or yourself!</p>
+                <a href="snake-game/index.html" class="play-btn">Play Now</a>
+            </div>
+
+            <div class="game-card">
+                <div class="game-icon">❌⭕</div>
+                <h2>Tic Tac Toe</h2>
+                <p>Classic two-player game. Get three in a row to win!</p>
+                <a href="tic-tac-toe/index.html" class="play-btn">Play Now</a>
+            </div>
+
+            <div class="game-card">
+                <div class="game-icon">🎲</div>
+                <h2>2048</h2>
+                <p>Combine tiles to reach 2048. Strategic puzzle game that's easy to learn!</p>
+                <a href="2048-game/index.html" class="play-btn">Play Now</a>
+            </div>
+
+            <div class="game-card">
+                <div class="game-icon">🐦</div>
+                <h2>Flappy Bird</h2>
+                <p>Tap to fly through pipes. Simple controls, challenging gameplay!</p>
+                <a href="flappy-bird/index.html" class="play-btn">Play Now</a>
+            </div>
+
+            <div class="game-card">
+                <div class="game-icon">🧠</div>
+                <h2>Memory Game</h2>
+                <p>Match pairs of cards and test your memory. Beat your best time!</p>
+                <a href="memory-card-game/index.html" class="play-btn">Play Now</a>
+            </div>
+        </div>
+
+        <div class="features">
+            <h2>✨ Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Score Tracking</h3>
+                    <p>Keep track of your high scores and compete with yourself!</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <h3>Responsive Design</h3>
+                    <p>Play on any device - desktop, tablet, or mobile!</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💾</div>
+                    <h3>Local Storage</h3>
+                    <p>Your progress is automatically saved in your browser!</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Beautiful UI</h3>
+                    <p>Modern design with smooth animations and effects!</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>🎮 Built with ❤️ using HTML, CSS, and JavaScript</p>
+            <p>No installation required - just click and play!</p>
+            <div class="social-links">
+                <a href="https://github.com" target="_blank">⭐ GitHub</a>
+                <a href="#" onclick="alert('Share with your friends!')">📤 Share</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
