@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asteroids</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🎯 Asteroids</h1>
+        
+        <div class="mode-selector" id="modeSelector">
+            <h2>Select Difficulty:</h2>
+            <div class="mode-buttons">
+                <button class="mode-btn" onclick="startGame('easy')">🟢 Easy (Slow)</button>
+                <button class="mode-btn" onclick="startGame('medium')">🟡 Medium (Normal)</button>
+                <button class="mode-btn" onclick="startGame('hard')">🔴 Hard (Fast)</button>
+                <button class="mode-btn" onclick="startGame('extreme')">💀 Extreme (UFOs!)</button>
+            </div>
+        </div>
+        
+        <div class="game-area" id="gameArea" style="display:none;">
+            <div class="game-info">
+                <div class="stat">Score: <span id="score">0</span></div>
+                <div class="stat">Lives: <span id="lives">3</span> 🚀</div>
+                <div class="stat">Level: <span id="level">1</span></div>
+                <div class="stat">Difficulty: <span id="difficultyDisplay">Easy</span></div>
+            </div>
+            
+            <canvas id="gameCanvas" width="800" height="600"></canvas>
+            
+            <div class="controls-info">
+                <p><strong>Controls:</strong> Arrow Keys to move, Space to shoot</p>
+            </div>
+            
+            <div class="controls">
+                <button id="pauseBtn">Pause</button>
+                <button id="resetBtn">Reset</button>
+                <button id="changeDiffBtn">Change Difficulty</button>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>How to Play:</h3>
+            <p><strong>Objective:</strong> Destroy all asteroids without getting hit!</p>
+            <p><strong>Controls:</strong></p>
+            <ul>
+                <li>↑ : Thrust (move forward)</li>
+                <li>← → : Rotate ship</li>
+                <li>Space : Fire bullets</li>
+            </ul>
+            <p><strong>Difficulty Levels:</strong></p>
+            <ul>
+                <li><strong>Easy:</strong> Slow asteroids, 3 lives</li>
+                <li><strong>Medium:</strong> Normal speed, 3 lives</li>
+                <li><strong>Hard:</strong> Fast asteroids, 2 lives</li>
+                <li><strong>Extreme:</strong> Fast + UFO enemies attack!</li>
+            </ul>
+            <p><strong>Tips:</strong> Large asteroids break into smaller ones!</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
