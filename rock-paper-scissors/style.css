@@ -1,0 +1,172 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.game-container {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 600px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.player-score {
+    color: #4CAF50;
+}
+
+.computer-score {
+    color: #ff6b6b;
+}
+
+.choices-display {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.choice-box {
+    flex: 1;
+}
+
+.choice-box h3 {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.choice-icon {
+    font-size: 5em;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vs {
+    font-size: 2em;
+    font-weight: bold;
+    color: #667eea;
+    margin: 0 20px;
+}
+
+.result {
+    font-size: 1.8em;
+    font-weight: bold;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.result.win {
+    background: #d4edda;
+    color: #155724;
+}
+
+.result.lose {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.result.draw {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.choices {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.choice-btn {
+    padding: 30px 40px;
+    font-size: 1.5em;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.choice-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.choice-btn:active {
+    transform: translateY(0);
+}
+
+#resetBtn {
+    padding: 12px 30px;
+    font-size: 16px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#resetBtn:hover {
+    background: #ff5252;
+    transform: translateY(-2px);
+}
+
+.instructions {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.instructions h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.instructions p {
+    color: #666;
+    line-height: 1.6;
+}

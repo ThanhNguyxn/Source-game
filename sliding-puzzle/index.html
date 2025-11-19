@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Puzzle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🧩 Sliding Puzzle</h1>
+        <div class="game-stats">
+            <div>Moves: <span id="moves">0</span></div>
+            <div>Time: <span id="time">0:00</span></div>
+            <div>Best: <span id="bestMoves">-</span></div>
+        </div>
+        <div id="puzzleBoard"></div>
+        <div class="controls">
+            <button id="shuffleBtn">Shuffle</button>
+            <button id="solveBtn">Show Solution</button>
+        </div>
+        <div class="instructions">
+            <h3>How to Play:</h3>
+            <p>Click tiles next to the empty space to slide them. Arrange numbers 1-15 in order!</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
