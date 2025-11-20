@@ -1,4 +1,4 @@
-﻿const WORD_LENGTH = 5;
+﻿﻿const WORD_LENGTH = 5;
 const MAX_GUESSES = 6;
 
 const WORDS = [
@@ -164,8 +164,10 @@ function handleKeyPress(e) {
 
     const key = e.key.toUpperCase();
     if (key === 'ENTER') {
+        e.preventDefault();
         handleKeyClick('ENTER');
     } else if (key === 'BACKSPACE') {
+        e.preventDefault();
         handleKeyClick('BACK');
     } else if (/^[A-Z]$/.test(key)) {
         handleKeyClick(key);
