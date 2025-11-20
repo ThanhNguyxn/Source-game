@@ -6,7 +6,7 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-> A comprehensive collection of **57 legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
+> A comprehensive collection of **58 legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
 
 ## 🎯 Quick Start
 
@@ -36,9 +36,9 @@ Most games follow these common patterns:
 ## 📊 Project Statistics
 
 ```
-Total Games: 57 (100% Functional)
-Lines of Code: ~57,000+
-Total Files: 171
+Total Games: 58 (100% Functional)
+Lines of Code: ~58,000+
+Total Files: 174
 ✨ Pure Vanilla JavaScript (No Frameworks)
 📱 Fully Responsive Design
 💾 LocalStorage for High Scores
@@ -47,7 +47,7 @@ Total Files: 171
 ```
 
 
-## 🎮 Complete Game Library (57 Games)
+## 🎮 Complete Game Library (58 Games)
 
 ### 🕹️ Arcade Classics (29 Games)
 
@@ -97,7 +97,7 @@ Total Files: 171
 | 🎨 **Color Match** | Fast color name matching | Mouse Click | Streak system, speed bonus, 30 seconds |
 | 💎 **Gem Swap** | Match-3 puzzle game | Click adjacent gems | Cascade combos, move limit, color matching |
 
-### 🎯 Skill & Reflex (5 Games)
+### 🎯 Skill & Reflex (6 Games)
 
 | Game | Description | Controls | Features |
 |------|-------------|----------|----------|
@@ -106,6 +106,7 @@ Total Files: 171
 | 🎴 **Memory Card Game** | Match pairs of cards | Click cards | Multiple themes, timer, move counter |
 | 🎵 **Simon Says** | Repeat color sequences | Click colored buttons | Progressive difficulty, sound feedback |
 | 🏓 **Ping Pong AI** | Advanced pong with smart AI | Up/Down Arrow Keys or W/S | Ball spin, power shots, AI difficulty |
+| 🏗️ **Stack Tower** | Stack blocks perfectly | Click/Space to drop | Perfect bonuses, progressive difficulty, physics |
 
 ### 🃏 Card & Board Games (5 Games)
 
