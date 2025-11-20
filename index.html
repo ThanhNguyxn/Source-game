@@ -218,6 +218,7 @@
             <div class="game-card">
                 <div class="game-icon">🐍</div><h2>Snake Game</h2>
                 <p>Classic snake game with 4 difficulty levels!</p>
+                <button class="how-to-play-btn" onclick="showInstructions('snake')">📖 How to Play</button>
                 <a href="snake-game/index.html" class="play-btn">Play Now</a>
             </div>
 
@@ -686,5 +687,263 @@
             </div>
         </footer>
     </div>
+
+    <!-- Instructions Modal -->
+    <div id="instructionsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeInstructions()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        const gameInstructions = {
+            snake: {
+                title: '🐍 Snake Game',
+                controls: ['Arrow Keys or WASD: Move snake', 'P: Pause game'],
+                rules: ['Eat food to grow longer', 'Avoid hitting walls and yourself', 'Choose difficulty: Easy, Medium, Hard, or Extreme', 'Score increases with each food eaten'],
+                tips: ['Plan your path ahead', 'Use corners to buy time', 'Higher difficulty = faster speed']
+            },
+            tictactoe: {
+                title: '❌ Tic Tac Toe',
+                controls: ['Mouse Click: Place your mark (X or O)'],
+                rules: ['Two players take turns', 'First to get 3 in a row wins', 'Row, column, or diagonal counts', 'Game ends in draw if board fills with no winner'],
+                tips: ['Control the center', 'Block opponent\'s winning moves', 'Look for fork opportunities']
+            },
+            '2048': {
+                title: '🔢 2048',
+                controls: ['Arrow Keys: Move tiles in direction', 'Swipe on mobile'],
+                rules: ['Combine tiles of same number', 'Numbers double when combined (2+2=4, 4+4=8...)', 'Reach 2048 to win', 'Game over when no moves left'],
+                tips: ['Keep highest tile in corner', 'Build numbers in one direction', 'Always have an escape route']
+            },
+            flappybird: {
+                title: '🐦 Flappy Bird',
+                controls: ['Click or Space: Flap wings', 'Tap on mobile'],
+                rules: ['Navigate through pipe gaps', 'Don\'t hit pipes or ground', 'Each pipe passed = 1 point', 'Game over on collision'],
+                tips: ['Tap rhythmically', 'Aim for middle of gaps', 'Stay calm and focused']
+            },
+            memory: {
+                title: '🎴 Memory Game',
+                controls: ['Mouse Click: Flip cards'],
+                rules: ['Match pairs of identical cards', 'Only 2 cards can be flipped at once', 'Matched pairs stay revealed', 'Match all pairs to win'],
+                tips: ['Remember card positions', 'Start from corners', 'Focus on one area at a time']
+            },
+            breakout: {
+                title: '🧱 Breakout',
+                controls: ['Mouse or Arrow Keys: Move paddle', 'Space: Launch ball'],
+                rules: ['Break all bricks to advance', 'Don\'t let ball fall', '3 lives per game', 'Different brick colors = different points'],
+                tips: ['Aim for top bricks first', 'Use angles to your advantage', 'Keep ball in play']
+            },
+            tetris: {
+                title: '🎮 Tetris',
+                controls: ['Arrow Keys: Move and rotate pieces', 'Down: Soft drop', 'Space: Hard drop'],
+                rules: ['Complete horizontal lines to clear them', 'Game ends when pieces reach top', 'Cleared lines = points', '4 lines at once = Tetris bonus'],
+                tips: ['Leave space for I-piece', 'Build flat surfaces', 'Don\'t leave gaps']
+            },
+            pong: {
+                title: '🏓 Pong',
+                controls: ['Up/Down Arrow Keys or W/S: Move paddle'],
+                rules: ['Hit ball with paddle', 'Ball bounces off paddles and walls', 'Miss the ball = opponent scores', 'First to 5 points wins'],
+                tips: ['Predict ball trajectory', 'Hit with paddle edge for angles', 'Stay centered']
+            },
+            spaceinvaders: {
+                title: '👾 Space Invaders',
+                controls: ['Arrow Keys: Move ship', 'Space: Shoot'],
+                rules: ['Destroy all aliens to win', 'Aliens move faster as numbers decrease', 'Use shields for protection', '3 lives to start'],
+                tips: ['Focus on edge aliens first', 'Time your shots', 'Use shields wisely']
+            },
+            dino: {
+                title: '🦖 Dino Run',
+                controls: ['Space or Up Arrow: Jump', 'Down Arrow: Duck'],
+                rules: ['Avoid obstacles by jumping/ducking', 'Speed increases over time', 'Score based on distance', 'Game over on collision'],
+                tips: ['Jump early for cacti', 'Duck for pterodactyls', 'Watch for patterns']
+            },
+            minesweeper: {
+                title: '💣 Minesweeper',
+                controls: ['Left Click: Reveal cell', 'Right Click: Flag mine'],
+                rules: ['Clear all non-mine cells to win', 'Numbers show adjacent mines', 'Flag all mines correctly', 'One wrong click = game over'],
+                tips: ['Start with corners', 'Use numbers to deduce mine positions', 'Flag certain mines first']
+            },
+            sudoku: {
+                title: '🔢 Sudoku',
+                controls: ['Click cell, then number: Place number', 'Delete: Clear cell'],
+                rules: ['Fill 9x9 grid with numbers 1-9', 'Each row must have 1-9 once', 'Each column must have 1-9 once', 'Each 3x3 box must have 1-9 once'],
+                tips: ['Start with easiest cells', 'Use pencil marks', 'Look for naked singles']
+            },
+            connectfour: {
+                title: '🔴 Connect Four',
+                controls: ['Click column: Drop disc'],
+                rules: ['Connect 4 discs in a row to win', 'Row, column, or diagonal counts', 'Discs fall to lowest position', 'Take turns with opponent'],
+                tips: ['Control the center', 'Block opponent threats', 'Set up multiple winning threats']
+            },
+            simon: {
+                title: '🎵 Simon Says',
+                controls: ['Click colored buttons: Repeat sequence'],
+                rules: ['Watch the pattern', 'Repeat the exact sequence', 'Sequence gets longer each round', 'One mistake = game over'],
+                tips: ['Focus and memorize', 'Use rhythm to remember', 'Stay calm under pressure']
+            },
+            whackamole: {
+                title: '🔨 Whack-a-Mole',
+                controls: ['Click moles: Hit them'],
+                rules: ['Hit as many moles as possible', 'Moles appear randomly', 'Time limit applies', 'Bonus moles worth more points'],
+                tips: ['Keep mouse ready', 'Predict next position', 'Go for golden moles']
+            },
+            typing: {
+                title: '⌨️ Typing Speed',
+                controls: ['Keyboard: Type displayed text'],
+                rules: ['Type the given text accurately', 'Speed measured in WPM', 'Accuracy percentage tracked', 'Complete all text to finish'],
+                tips: ['Use proper finger position', 'Don\'t look at keyboard', 'Accuracy over speed']
+            },
+            blackjack: {
+                title: '🃏 Blackjack',
+                controls: ['Click buttons: Hit, Stand, Double, Split'],
+                rules: ['Get closer to 21 than dealer without going over', 'Face cards = 10, Ace = 1 or 11', 'Dealer must hit on 16 or less', 'Blackjack (21 with 2 cards) pays 3:2'],
+                tips: ['Basic strategy exists', 'Never hit on 17+', 'Watch dealer\'s up card']
+            },
+            pacman: {
+                title: '👻 Pac-Man',
+                controls: ['Arrow Keys: Move Pac-Man'],
+                rules: ['Eat all dots to complete level', 'Avoid ghosts or lose life', 'Power pellets let you eat ghosts', 'Bonus fruits appear for extra points'],
+                tips: ['Learn ghost patterns', 'Use corners strategically', 'Save power pellets']
+            },
+            chess: {
+                title: '♟️ Chess',
+                controls: ['Click piece then destination: Move'],
+                rules: ['Checkmate opponent\'s king to win', 'Each piece moves uniquely', 'Turns alternate', 'Castling and en passant are special moves'],
+                tips: ['Control the center', 'Develop pieces early', 'Protect your king']
+            },
+            solitaire: {
+                title: '🃏 Solitaire',
+                controls: ['Click and drag: Move cards'],
+                rules: ['Build foundations from Ace to King by suit', 'Tableau built down by alternating color', 'Draw cards from stock pile', 'Win by completing all 4 foundations'],
+                tips: ['Expose face-down cards first', 'Build evenly', 'Don\'t empty column without King']
+            },
+            wordle: {
+                title: '🔤 Wordle',
+                controls: ['Keyboard: Type 5-letter word', 'Enter: Submit guess'],
+                rules: ['Guess the word in 6 tries', 'Green = correct letter & position', 'Yellow = correct letter, wrong position', 'Gray = letter not in word'],
+                tips: ['Start with vowel-heavy words', 'Use common letters', 'Eliminate possibilities']
+            },
+            towerdefense: {
+                title: '🗼 Tower Defense',
+                controls: ['Click empty tile: Build tower', 'Click Next Wave: Start wave'],
+                rules: ['Build towers to stop enemies', 'Enemies follow path to base', 'Lose lives if enemies reach end', 'Earn gold by defeating enemies'],
+                tips: ['Build at chokepoints', 'Upgrade towers', 'Save gold for emergencies']
+            },
+            wordsearch: {
+                title: '🔍 Word Search',
+                controls: ['Drag mouse: Select letters'],
+                rules: ['Find all words in the grid', 'Words can be horizontal, vertical, or diagonal', 'Words shown at bottom when found', 'Find all to complete'],
+                tips: ['Look for first letter', 'Check all directions', 'Cross off found words']
+            },
+            paintdrop: {
+                title: '🎨 Paint Drop',
+                controls: ['Click: Drop paint'],
+                rules: ['Fill target percentage of canvas', 'Avoid moving obstacles', 'Paint spreads on impact', 'Complete level to advance'],
+                tips: ['Aim for gaps', 'Time your drops', 'Fill from bottom up']
+            },
+            ninjaslice: {
+                title: '⚔️ Ninja Slice',
+                controls: ['Drag mouse: Slash fruits'],
+                rules: ['Slice fruits for points', 'Avoid bombs!', 'Build combo by continuous slicing', 'Lose life if fruit falls unsliced'],
+                tips: ['Slash multiple at once', 'Watch for bombs', 'Keep combo going']
+            },
+            brickblast: {
+                title: '🧱 Brick Blast',
+                controls: ['Click group: Blast matching bricks'],
+                rules: ['Match 2+ adjacent bricks of same color', 'Larger groups = more points', 'Reach target score before moves run out', 'Bricks fall down after blast'],
+                tips: ['Plan ahead', 'Make large groups', 'Save moves']
+            },
+            matchcards: {
+                title: '🃏 Match Cards',
+                controls: ['Click 3 cards: Match same rank'],
+                rules: ['Match 3 cards of same rank (e.g., 3 Kings)', 'Beat the 60-second timer', 'More matches = higher score', 'All ranks from A to K'],
+                tips: ['Scan for easy matches first', 'Remember card positions', 'Work quickly']
+            },
+            jigsawpuzzle: {
+                title: '🧩 Jigsaw Puzzle',
+                controls: ['Drag pieces: Move to position'],
+                rules: ['Assemble all puzzle pieces', 'Pieces snap to correct position', 'Complete the full picture', 'Timer tracks completion time'],
+                tips: ['Start with corners/edges', 'Group by color', 'Work section by section']
+            },
+            stacktower: {
+                title: '🏗️ Stack Tower',
+                controls: ['Click or Space: Drop block'],
+                rules: ['Stack blocks as high as possible', 'Blocks move side to side', 'Perfect placement = bonus points', 'Miss = game over'],
+                tips: ['Time your clicks', 'Aim for perfect stacks', 'Speed increases gradually']
+            }
+        };
+
+        // Add default instructions for games without specific data
+        const defaultInstructions = {
+            title: '🎮 Game Instructions',
+            controls: ['Follow on-screen instructions', 'Press P to pause'],
+            rules: ['Complete objectives to win', 'Score points by playing well', 'Game ends when objectives are met or failed'],
+            tips: ['Practice makes perfect', 'Stay focused', 'Have fun!']
+        };
+
+        function showInstructions(gameKey) {
+            const modal = document.getElementById('instructionsModal');
+            const modalBody = document.getElementById('modalBody');
+            const instructions = gameInstructions[gameKey] || defaultInstructions;
+
+            let html = `
+                <h2>${instructions.title}</h2>
+                <h3>🎮 Controls</h3>
+                <ul>
+                    ${instructions.controls.map(c => `<li>${c}</li>`).join('')}
+                </ul>
+                <h3>📜 Rules</h3>
+                <ul>
+                    ${instructions.rules.map(r => `<li>${r}</li>`).join('')}
+                </ul>
+                <h3>💡 Tips</h3>
+                <ul>
+                    ${instructions.tips.map(t => `<li>${t}</li>`).join('')}
+                </ul>
+            `;
+
+            modalBody.innerHTML = html;
+            modal.style.display = 'block';
+        }
+
+        function closeInstructions() {
+            document.getElementById('instructionsModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('instructionsModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Auto-add How to Play buttons to all game cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const gameCards = document.querySelectorAll('.game-card');
+            gameCards.forEach((card, index) => {
+                const title = card.querySelector('h2').textContent.trim();
+                const playBtn = card.querySelector('.play-btn');
+
+                // Skip if already has how-to-play button
+                if (card.querySelector('.how-to-play-btn')) return;
+
+                // Create game key from title
+                const gameKey = title.toLowerCase()
+                    .replace(/[^a-z0-9]/g, '')
+                    .replace('game', '')
+                    .replace('classic', '');
+
+                // Add button before play button
+                const howToBtn = document.createElement('button');
+                howToBtn.className = 'how-to-play-btn';
+                howToBtn.textContent = '📖 How to Play';
+                howToBtn.onclick = () => showInstructions(gameKey);
+
+                playBtn.parentNode.insertBefore(howToBtn, playBtn);
+            });
+        });
+    </script>
 </body>
 </html>
