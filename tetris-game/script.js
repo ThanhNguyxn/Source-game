@@ -1,4 +1,4 @@
-﻿const modeSelector = document.getElementById('modeSelector');
+﻿﻿const modeSelector = document.getElementById('modeSelector');
 const gameArea = document.getElementById('gameArea');
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
@@ -332,6 +332,11 @@ function gameOver() {
 document.addEventListener('keydown', (e) => {
     if (isPaused) return;
     
+    // Prevent default scrolling for arrow keys and space
+    if (['ArrowLeft', 'ArrowRight', 'ArrowDown', 'ArrowUp', ' '].includes(e.key)) {
+        e.preventDefault();
+    }
+
     switch(e.key) {
         case 'ArrowLeft':
             if (canMove(currentPiece, -1, 0)) {
