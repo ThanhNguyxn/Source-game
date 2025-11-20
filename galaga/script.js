@@ -320,10 +320,14 @@ function gameOver() {
 // Controls
 const keys = {};
 window.addEventListener('keydown', (e) => {
+    // Prevent default scrolling for game controls
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' ', 'w', 'W', 'a', 'A', 's', 'S', 'd', 'D'].includes(e.key)) {
+        e.preventDefault();
+    }
+
     keys[e.key] = true;
 
     if (e.key === ' ') {
-        e.preventDefault();
         shoot();
     }
 

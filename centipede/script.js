@@ -394,8 +394,12 @@ canvas.addEventListener('click', () => {
 });
 
 window.addEventListener('keydown', (e) => {
-    if (e.key === ' ') {
+    // Prevent default scrolling for game controls
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' ', 'w', 'W', 'a', 'A', 's', 'S', 'd', 'D'].includes(e.key)) {
         e.preventDefault();
+    }
+
+    if (e.key === ' ') {
         shoot();
     }
     if (e.key === 'p' || e.key === 'P') {

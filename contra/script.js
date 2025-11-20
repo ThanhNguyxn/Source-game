@@ -231,18 +231,23 @@ function gameOver() {
 
 const keys = {};
 window.addEventListener('keydown', (e) => {
+    // Prevent default scrolling for game controls
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' ', 'w', 'W', 'a', 'A', 's', 'S', 'd', 'D'].includes(e.key)) {
+        e.preventDefault();
+    }
+
     keys[e.key] = true;
 
     if (e.key === ' ') {
-        e.preventDefault();
         shoot();
     }
-    if ((e.key === 'Shift' || e.key === 'w' || e.key === 'W') && player.onGround) {
+    if ((e.key === 'Shift' || e.key === 'w' || e.key === 'W' || e.key === 'ArrowUp') && player.onGround) {
         player.velocityY = player.jumpPower;
         player.jumping = true;
     }
     if (e.key === 'p' || e.key === 'P') {
         paused = !paused;
+        document.getElementById('pauseBtn').textContent = paused ? '▶️ Resume' : '⏸ Pause';
     }
 });
 
