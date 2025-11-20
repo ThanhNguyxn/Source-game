@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maze Runner - Navigate the Maze</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>🌀 Maze Runner</h1>
+            <div class="info">
+                <div class="info-item">
+                    <span class="label">Level:</span>
+                    <span id="level">1</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Time:</span>
+                    <span id="time">0:00</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Moves:</span>
+                    <span id="moves">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions" id="instructions">
+            <h2>📖 How to Play</h2>
+            <p><strong>Arrow Keys or WASD:</strong> Move through maze</p>
+            <p>Find the exit 🚪 to complete level!</p>
+            <p>Avoid getting stuck in dead ends</p>
+            <p>Maze gets larger each level</p>
+            <p><strong>P:</strong> Pause • <strong>R:</strong> Restart level</p>
+            <button id="startBtn" class="btn">▶️ Start Maze</button>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div class="controls">
+            <button id="pauseBtn" class="btn" disabled>⏸ Pause</button>
+            <button id="restartLevel" class="btn" disabled>🔄 Restart Level</button>
+        </div>
+
+        <div id="gameOver" class="game-over hidden">
+            <h2>🎉 Level Complete!</h2>
+            <p>Time: <span id="finalTime">0:00</span></p>
+            <p>Moves: <span id="finalMoves">0</span></p>
+            <button id="nextLevel" class="btn">➡️ Next Level</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
