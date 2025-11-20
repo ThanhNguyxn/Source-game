@@ -1,4 +1,4 @@
-﻿# 🎮 Classic Games Collection
+﻿﻿# 🎮 Classic Games Collection
 
 [![GitHub Stars](https://img.shields.io/github/stars/ThanhNguyxn/Source-game?style=social)](https://github.com/ThanhNguyxn/Source-game)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -6,7 +6,7 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-> A comprehensive collection of **60+ legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
+> A comprehensive collection of **75+ legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
 
 ## 🎯 Quick Start
 
@@ -36,9 +36,9 @@ Most games follow these common patterns:
 ## 📊 Project Statistics
 
 ```
-Total Games: 60+ (100% Functional)
-Lines of Code: ~60,000+
-Total Files: 180+
+Total Games: 75+ (100% Functional)
+Lines of Code: ~75,000+
+Total Files: 225+
 ✨ Pure Vanilla JavaScript (No Frameworks)
 📱 Fully Responsive Design
 💾 LocalStorage for High Scores
@@ -46,17 +46,17 @@ Total Files: 180+
 🎮 AI Opponents in Multiple Games
 ```
 
-## 🎮 Complete Game Library (60+ Games)
-✨ Pure Vanilla JavaScript (No Frameworks)
-📱 Fully Responsive Design
+## 🎮 Complete Game Library (65+ Games)
+
+### 🕹️ Arcade Classics (26 Games)
 💾 LocalStorage for High Scores
 🌍 100% English Interface
 🎮 AI Opponents in Multiple Games
 ```
 
-## 🎮 Complete Game Library (55+ Games)
+## 🎮 Complete Game Library (75+ Games)
 
-### 🕹️ Arcade Classics (24 Games)
+### 🕹️ Arcade Classics (36 Games)
 
 | Game | Description | Controls | Features |
 |------|-------------|----------|----------|
@@ -84,6 +84,17 @@ Total Files: 180+
 | 🚀 **Defender** | Horizontal shooter - save humans | Arrow Keys, Space, S (bomb) | Scrolling world, minimap, human rescue |
 | 🟧 **Q*bert** | Change pyramid cube colors | Q/W/E/A/D or Arrows | Isometric pyramid, enemies, color matching |
 | 🔫 **Contra** | Run and gun platformer | Arrow Keys/WASD, Space, Shift | Platform jumping, shooting, enemies |
+| 🍄 **Mario Bros** | Classic platformer | Arrow Keys/WASD, Space (jump) | Coin collecting, enemy stomping, flag reaching |
+| 🐲 **Bubble Bobble** | Trap enemies in bubbles | Arrow Keys/WASD, Space (bubble) | Bubble trapping, power-ups, levels |
+| 🎖️ **Metal Slug** | Run and gun action | Arrow Keys/WASD, Space (shoot), Shift (grenade) | Hostage rescue, weapon power-ups, tank combat |
+| ✈️ **Raiden** | Vertical scrolling shooter | Arrow Keys/WASD, Space (shoot), Shift (bomb) | Power-ups, boss battles, aerial combat |
+| 🚜 **Battle City** | Tank warfare | Arrow Keys/WASD, Space (shoot) | Base defense, power-ups, destructible walls |
+| 🥊 **Street Fighter** | Fighting game | Arrow Keys/A/D, Space (punch), Shift (kick) | AI opponent, special moves, combos |
+| 👊 **Double Dragon** | Beat 'em up | Arrow Keys/WASD, Space (punch), Shift (kick) | Wave-based combat, multiple enemies |
+| 🏎️ **OutRun** | Racing game | Arrow Keys/A/D (steer), W (accelerate) | Checkpoint racing, scenic routes, time limit |
+| 🏍️ **Excitebike** | Motocross racing | Arrow Keys/WASD, Space (turbo) | Ramp jumping, heat management, obstacles |
+| 🥷 **Shinobi** | Ninja action platformer | Arrow Keys/WASD, Space (shuriken), Shift (magic) | Hostage rescue, ninja abilities, enemies |
+| 👑 **Prince of Persia** | Platformer with sword combat | Arrow Keys/WASD, Space (attack), Shift (jump) | Sword fighting, traps, time limit, potions |
 
 ### 🧩 Puzzle & Strategy (9 Games)
 

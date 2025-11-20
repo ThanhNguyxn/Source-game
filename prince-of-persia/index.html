@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prince of Persia - Classic Platformer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>👑 Prince of Persia</h1>
+            <div class="info">
+                <div class="info-item">
+                    <span class="label">Time:</span>
+                    <span id="time">60:00</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Health:</span>
+                    <span id="health">❤️❤️❤️</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Level:</span>
+                    <span id="level">1</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions" id="instructions">
+            <h2>📖 How to Play</h2>
+            <p><strong>Arrow Keys / WASD:</strong> Move left/right</p>
+            <p><strong>Space:</strong> Attack with sword</p>
+            <p><strong>Shift / Up Arrow:</strong> Jump</p>
+            <p><strong>P:</strong> Pause game</p>
+            <p><strong>Objective:</strong> Navigate through dungeons, defeat guards, avoid traps, and rescue the princess!</p>
+            <button id="startBtn" class="btn">▶️ Start Game</button>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div class="controls">
+            <button id="pauseBtn" class="btn" disabled>⏸ Pause</button>
+        </div>
+
+        <div id="gameOver" class="game-over hidden">
+            <h2>Game Over!</h2>
+            <p>Level Reached: <span id="finalLevel">1</span></p>
+            <p>Time Survived: <span id="finalTime">0:00</span></p>
+            <button id="restartBtn" class="btn">🔄 Try Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

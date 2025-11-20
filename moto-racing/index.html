@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moto Racing - Classic Bike Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🏍️ Moto Racing</h1>
+
+        <div class="game-info">
+            <div class="stat">
+                <span>Score:</span>
+                <span id="score">0</span>
+            </div>
+            <div class="stat">
+                <span>High Score:</span>
+                <span id="highScore">0</span>
+            </div>
+            <div class="stat">
+                <span>Speed:</span>
+                <span id="speed">0</span>
+            </div>
+            <div class="stat">
+                <span>Distance:</span>
+                <span id="distance">0m</span>
+            </div>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div class="controls">
+            <button id="startBtn" class="btn">▶️ Start Race</button>
+            <button id="pauseBtn" class="btn" disabled>⏸ Pause</button>
+            <h3>🎮 Controls</h3>
+            <p><strong>← →:</strong> Move Left/Right</p>
+            <p><strong>↑:</strong> Accelerate</p>
+            <p><strong>↓:</strong> Brake</p>
+            <p><strong>P:</strong> Pause</p>
+            <p><strong>Objective:</strong> Avoid traffic and ride as far as possible!</p>
+        </div>
+
+        <div id="gameOver" class="modal hidden">
+            <div class="modal-content">
+                <h2>Crashed!</h2>
+                <p>Final Score: <span id="finalScore"></span></p>
+                <p>Distance: <span id="finalDistance"></span>m</p>
+                <button id="restartBtn">Play Again</button>
+                <a href="../index.html" class="btn">← Back to Games</a>
+            </div>
+        </div>
+
+        <a href="../index.html" class="back-btn">← Back to Games</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

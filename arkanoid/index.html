@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arkanoid - Classic Brick Breaker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Arkanoid</h1>
+
+        <div class="game-info">
+            <div class="stat">
+                <span>Score:</span>
+                <span id="score">0</span>
+            </div>
+            <div class="stat">
+                <span>High Score:</span>
+                <span id="highScore">0</span>
+            </div>
+            <div class="stat">
+                <span>Lives:</span>
+                <span id="lives">3</span>
+            </div>
+            <div class="stat">
+                <span>Level:</span>
+                <span id="level">1</span>
+            </div>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div class="controls">
+            <button id="startBtn" class="btn">▶️ Start Game</button>
+            <button id="pauseBtn" class="btn" disabled>⏸ Pause</button>
+            <h3>🎮 Controls</h3>
+            <p><strong>Mouse or ← →:</strong> Move Paddle</p>
+            <p><strong>Space:</strong> Launch Ball</p>
+            <p><strong>P:</strong> Pause</p>
+            <p><strong>Power-ups:</strong> Catch falling capsules for special abilities!</p>
+            <p><strong>Objective:</strong> Break all bricks to advance levels!</p>
+        </div>
+
+        <div id="gameOver" class="modal hidden">
+            <div class="modal-content">
+                <h2>Game Over!</h2>
+                <p>Final Score: <span id="finalScore"></span></p>
+                <p>Level Reached: <span id="finalLevel"></span></p>
+                <button id="restartBtn">Play Again</button>
+                <a href="../index.html" class="btn">← Back to Games</a>
+            </div>
+        </div>
+
+        <a href="../index.html" class="back-btn">← Back to Games</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
