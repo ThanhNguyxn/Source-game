@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classic Games Collection - 67 Legendary Games</title>
+    <title>Classic Games Collection - 70 Legendary Games</title>
     <style>
         * {
             margin: 0;
@@ -653,6 +653,27 @@
                 <p>Navigate through generated mazes! Find exit!</p>
                 <a href="maze-runner/index.html" class="play-btn">Play Now</a>
             </div>
+
+            <div class="game-card">
+                <div class="game-icon">⬛</div>
+                <h2>Dots & Boxes</h2><span class="badge new">⭐ NEW!</span>
+                <p>Strategy game vs AI! Complete boxes to win!</p>
+                <a href="dots-boxes/index.html" class="play-btn">Play Now</a>
+            </div>
+
+            <div class="game-card">
+                <div class="game-icon">⚡</div>
+                <h2>Reflex Click</h2><span class="badge new">⭐ NEW!</span>
+                <p>Click targets fast! Test your reflexes!</p>
+                <a href="reflex-click/index.html" class="play-btn">Play Now</a>
+            </div>
+
+            <div class="game-card">
+                <div class="game-icon">🔺</div>
+                <h2>Shape Avoider</h2><span class="badge new">⭐ NEW!</span>
+                <p>Avoid falling shapes with mouse control!</p>
+                <a href="shape-avoider/index.html" class="play-btn">Play Now</a>
+            </div>
         </div>
 
         <div class="features">
@@ -1101,6 +1122,24 @@
                 controls: ['Arrow Keys/WASD: Navigate maze', 'R: Restart current level', 'P: Pause'],
                 rules: ['Find green exit door 🚪', 'Navigate through procedurally generated maze', 'Maze gets bigger each level', 'Track time and moves'],
                 tips: ['Follow one wall consistently', 'Remember dead ends', 'Plan route before moving', 'Use restart if stuck']
+            },
+            dotsboxes: {
+                title: '⬛ Dots & Boxes',
+                controls: ['Click lines between dots: Draw line'],
+                rules: ['Take turns with AI drawing lines', 'Complete a box to score and get extra turn', 'Box gets your color (Blue=You, Red=AI)', 'Most boxes wins!'],
+                tips: ['Try to give away boxes strategically', 'Control the endgame', 'Count remaining moves', 'Force opponent into bad positions']
+            },
+            reflexclick: {
+                title: '⚡ Reflex Click',
+                controls: ['Mouse Click: Hit targets'],
+                rules: ['Click appearing targets as fast as possible', 'Targets shrink over time', '30 second time limit', 'Smaller targets = more points'],
+                tips: ['Click center of targets', 'Stay focused', 'Anticipate spawn positions', 'Speed matters']
+            },
+            shapeavoider: {
+                title: '🔺 Shape Avoider',
+                controls: ['Mouse Movement: Control player'],
+                rules: ['Move circle to avoid falling shapes', 'Shapes fall faster each level', 'Survive as long as possible', 'Collision = game over'],
+                tips: ['Stay near bottom', 'Watch multiple shapes', 'Move smoothly', 'Predict trajectories']
             }
         };
 

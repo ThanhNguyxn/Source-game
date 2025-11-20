@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dots & Boxes - Strategy vs AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>⬛ Dots & Boxes</h1>
+            <div class="info">
+                <div class="info-item" style="color: #4ecdc4;">
+                    <span class="label">You:</span>
+                    <span id="playerScore">0</span>
+                </div>
+                <div class="info-item" style="color: #ff6b6b;">
+                    <span class="label">AI:</span>
+                    <span id="aiScore">0</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Turn:</span>
+                    <span id="turn">You</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions" id="instructions">
+            <h2>📖 How to Play</h2>
+            <p><strong>Click lines</strong> between dots to draw them</p>
+            <p>Complete a box = score 1 point + extra turn</p>
+            <p>Most boxes wins!</p>
+            <p><strong>Blue:</strong> Your boxes • <strong>Red:</strong> AI boxes</p>
+            <p><strong>P:</strong> Pause game</p>
+            <button id="startBtn" class="btn">▶️ Play vs AI</button>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div class="controls">
+            <button id="pauseBtn" class="btn" disabled>⏸ Pause</button>
+        </div>
+
+        <div id="gameOver" class="game-over hidden">
+            <h2 id="winnerText">Game Over!</h2>
+            <p>Your Score: <span id="finalPlayer">0</span></p>
+            <p>AI Score: <span id="finalAI">0</span></p>
+            <button id="restartBtn" class="btn">🔄 Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
