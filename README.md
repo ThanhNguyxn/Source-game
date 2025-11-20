@@ -6,7 +6,7 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-> A comprehensive collection of **62+ legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
+> A comprehensive collection of **53 legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
 
 ## 🎯 Quick Start
 
@@ -36,9 +36,9 @@ Most games follow these common patterns:
 ## 📊 Project Statistics
 
 ```
-Total Games: 62 (100% Functional)
-Lines of Code: ~62,000+
-Total Files: 186+
+Total Games: 53 (100% Functional)
+Lines of Code: ~53,000+
+Total Files: 159
 ✨ Pure Vanilla JavaScript (No Frameworks)
 📱 Fully Responsive Design
 💾 LocalStorage for High Scores
@@ -54,9 +54,9 @@ Total Files: 186+
 🎮 AI Opponents in Multiple Games
 ```
 
-## 🎮 Complete Game Library (62 Games)
+## 🎮 Complete Game Library (53 Games)
 
-### 🕹️ Arcade Classics (36 Games)
+### 🕹️ Arcade Classics (27 Games)
 
 | Game | Description | Controls | Features |
 |------|-------------|----------|----------|
@@ -84,16 +84,6 @@ Total Files: 186+
 | 🚀 **Defender** | Horizontal shooter - save humans | Arrow Keys, Space, S (bomb) | Scrolling world, minimap, human rescue |
 | 🟧 **Q*bert** | Change pyramid cube colors | Q/W/E/A/D or Arrows | Isometric pyramid, enemies, color matching |
 | 🔫 **Contra** | Run and gun platformer | Arrow Keys/WASD, Space, Shift | Platform jumping, shooting, enemies |
-| 🍄 **Mario Bros** | Classic platformer | Arrow Keys/WASD, Space (jump) | Coin collecting, enemy stomping, flag reaching |
-| 🐲 **Bubble Bobble** | Trap enemies in bubbles | Arrow Keys/WASD, Space (bubble) | Bubble trapping, power-ups, levels |
-| 🎖️ **Metal Slug** | Run and gun action | Arrow Keys/WASD, Space (shoot), Shift (grenade) | Hostage rescue, weapon power-ups, tank combat |
-| ✈️ **Raiden** | Vertical scrolling shooter | Arrow Keys/WASD, Space (shoot), Shift (bomb) | Power-ups, boss battles, aerial combat |
-| 🚜 **Battle City** | Tank warfare | Arrow Keys/WASD, Space (shoot) | Base defense, power-ups, destructible walls |
-| 🥊 **Street Fighter** | Fighting game | Arrow Keys/A/D, Space (punch), Shift (kick) | AI opponent, special moves, combos |
-| 👊 **Double Dragon** | Beat 'em up | Arrow Keys/WASD, Space (punch), Shift (kick) | Wave-based combat, multiple enemies |
-| 🏎️ **OutRun** | Racing game | Arrow Keys/A/D (steer), W (accelerate) | Checkpoint racing, scenic routes, time limit |
-| 🏍️ **Excitebike** | Motocross racing | Arrow Keys/WASD, Space (turbo) | Ramp jumping, heat management, obstacles |
-| 🥷 **Shinobi** | Ninja action platformer | Arrow Keys/WASD, Space (shuriken), Shift (magic) | Hostage rescue, ninja abilities, enemies |
 | 👑 **Prince of Persia** | Platformer with sword combat | Arrow Keys/WASD, Space (attack), Shift (jump) | Sword fighting, traps, time limit, potions |
 
 ### 🧩 Puzzle & Strategy (9 Games)
