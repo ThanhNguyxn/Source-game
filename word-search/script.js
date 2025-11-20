@@ -135,8 +135,11 @@ function drawGrid() {
 
 function getCellFromMouse(x, y) {
     const rect = canvas.getBoundingClientRect();
-    const mouseX = x - rect.left;
-    const mouseY = y - rect.top;
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+
+    const mouseX = (x - rect.left) * scaleX;
+    const mouseY = (y - rect.top) * scaleY;
 
     const col = Math.floor(mouseX / CELL_SIZE);
     const row = Math.floor(mouseY / CELL_SIZE);
