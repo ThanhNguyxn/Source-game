@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tower Defense - Strategy Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>🗼 Tower Defense</h1>
+            <div class="info">
+                <div class="info-item">
+                    <span class="label">Gold:</span>
+                    <span id="gold">100</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Lives:</span>
+                    <span id="lives">20</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Wave:</span>
+                    <span id="wave">1</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions" id="instructions">
+            <h2>📖 How to Play</h2>
+            <p><strong>Click empty tiles</strong> to build towers (Cost: 50 gold)</p>
+            <p><strong>Red enemies</strong> follow the path to your base</p>
+            <p><strong>Towers</strong> automatically shoot nearby enemies</p>
+            <p>Kill enemies to earn gold and defend your base!</p>
+            <p><strong>P:</strong> Pause game</p>
+            <button id="startBtn" class="btn">▶️ Start Defense</button>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div class="controls">
+            <button id="pauseBtn" class="btn" disabled>⏸ Pause</button>
+            <button id="nextWaveBtn" class="btn" disabled>🌊 Next Wave</button>
+        </div>
+
+        <div id="gameOver" class="game-over hidden">
+            <h2>Game Over!</h2>
+            <p>Waves Survived: <span id="finalWave">0</span></p>
+            <p>Enemies Killed: <span id="finalKills">0</span></p>
+            <button id="restartBtn" class="btn">🔄 Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

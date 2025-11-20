@@ -6,7 +6,7 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-> A comprehensive collection of **58 legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
+> A comprehensive collection of **64 legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
 
 ## 🎯 Quick Start
 
@@ -36,9 +36,9 @@ Most games follow these common patterns:
 ## 📊 Project Statistics
 
 ```
-Total Games: 58 (100% Functional)
-Lines of Code: ~58,000+
-Total Files: 174
+Total Games: 64 (100% Functional)
+Lines of Code: ~64,000+
+Total Files: 192
 ✨ Pure Vanilla JavaScript (No Frameworks)
 📱 Fully Responsive Design
 💾 LocalStorage for High Scores
@@ -47,9 +47,9 @@ Total Files: 174
 ```
 
 
-## 🎮 Complete Game Library (58 Games)
+## 🎮 Complete Game Library (64 Games)
 
-### 🕹️ Arcade Classics (29 Games)
+### 🕹️ Arcade Classics (30 Games)
 
 | Game | Description | Controls | Features |
 |------|-------------|----------|----------|
@@ -81,7 +81,7 @@ Total Files: 174
 | 🚀 **Space Race** | Vertical space racing | Arrow Keys/A/D | Asteroid dodging, fuel collection, progressive speed |
 | 🎈 **Balloon Pop** | Click balloons before they escape | Mouse Click | Combo system, time limit, different balloon types |
 
-### 🧩 Puzzle & Strategy (11 Games)
+### 🧩 Puzzle & Strategy (16 Games)
 
 | Game | Description | Controls | Features |
 |------|-------------|----------|----------|
@@ -96,6 +96,11 @@ Total Files: 174
 | 📝 **Crossword** | Fill crossword puzzle | Click cell and type | Multiple difficulties, hint system |
 | 🎨 **Color Match** | Fast color name matching | Mouse Click | Streak system, speed bonus, 30 seconds |
 | 💎 **Gem Swap** | Match-3 puzzle game | Click adjacent gems | Cascade combos, move limit, color matching |
+| 🔍 **Word Search** | Find hidden words | Mouse drag | Word highlighting, multiple directions, timer |
+| 🧩 **Jigsaw Puzzle** | Assemble puzzle pieces | Click and drag | Multiple difficulty levels, piece rotation |
+| 🧱 **Brick Blast** | Match and blast bricks | Mouse Click | Chain reactions, color matching, scoring |
+| 🎨 **Paint Drop** | Fill canvas with paint | Mouse Click | Color spreading, pattern filling, levels |
+| ⚔️ **Ninja Slice** | Slice objects precisely | Mouse drag | Slash mechanics, combo system, timing |
 
 ### 🎯 Skill & Reflex (6 Games)
 
@@ -127,12 +132,13 @@ Total Files: 174
 | ✊ **Rock Paper Scissors** | Classic hand game | Click your choice | Best of 5, AI opponent, animated reveals |
 | 🎲 **Yahtzee** | Classic dice game | Click to roll/hold | 13 categories, scoring combinations, strategy |
 
-### 🎯 Strategy & Action (2 Games)
+### 🎯 Strategy & Action (3 Games)
 
 | Game | Description | Controls | Features |
 |------|-------------|----------|----------|
 | 🪱 **Worms** | Artillery warfare game | ← → (angle), ↑ ↓ (power), Space (fire), A/D (move) | AI opponent, turn-based combat, wind physics, terrain destruction, 2 modes |
 | 🐹 **Lemmings** | Save the lemmings puzzle | Click lemming + tool button | Assign abilities (blocker, climber, digger), save 50% to win |
+| 🗼 **Tower Defense** | Build towers to stop enemies | Mouse Click (build towers) | Wave-based, tower upgrades, path following, strategic placement |
 
 ## ✨ Key Features
 

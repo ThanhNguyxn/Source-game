@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Search - Find Hidden Words</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>🔍 Word Search</h1>
+            <div class="info">
+                <div class="info-item">
+                    <span class="label">Found:</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Time:</span>
+                    <span id="level">0:00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions" id="instructions">
+            <h2>📖 How to Play</h2>
+            <p><strong>Drag across letters</strong> to select words</p>
+            <p>Find all hidden words in the grid!</p>
+            <p>Words can be horizontal, vertical, or diagonal</p>
+            <button id="startBtn" class="btn">▶️ Start Game</button>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div class="controls">
+            <button id="pauseBtn" class="btn" disabled>⏸ Pause</button>
+        </div>
+
+        <div id="gameOver" class="game-over hidden">
+            <h2>Tower Collapsed!</h2>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <p>Height: <span id="finalHeight">0</span> blocks</p>
+            <p>Perfect Drops: <span id="finalPerfect">0</span></p>
+            <button id="restartBtn" class="btn">🔄 Build Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
