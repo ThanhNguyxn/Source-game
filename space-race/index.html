@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Race - Vertical Racing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>🚀 Space Race</h1>
+            <div class="info">
+                <div class="info-item">
+                    <span class="label">Score:</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">High Score:</span>
+                    <span id="highScore">0</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Speed:</span>
+                    <span id="speed">1</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions" id="instructions">
+            <h2>📖 How to Play</h2>
+            <p><strong>Left/Right Arrow or A/D:</strong> Move your rocket</p>
+            <p><strong>P:</strong> Pause game</p>
+            <p><strong>Objective:</strong> Avoid asteroids and collect fuel! Speed increases over time!</p>
+            <button id="startBtn" class="btn">▶️ Start Race</button>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div class="controls">
+            <button id="pauseBtn" class="btn" disabled>⏸ Pause</button>
+        </div>
+
+        <div id="gameOver" class="game-over hidden">
+            <h2>Race Over!</h2>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <p>Distance: <span id="finalDistance">0</span>m</p>
+            <button id="restartBtn" class="btn">🔄 Race Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

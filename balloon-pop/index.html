@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon Pop - Click & Pop!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>🎈 Balloon Pop</h1>
+            <div class="info">
+                <div class="info-item">
+                    <span class="label">Score:</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Time:</span>
+                    <span id="time">60</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Combo:</span>
+                    <span id="combo">x1</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions" id="instructions">
+            <h2>📖 How to Play</h2>
+            <p><strong>Click:</strong> Pop balloons before they float away!</p>
+            <p><strong>Red balloons:</strong> +10 points</p>
+            <p><strong>Gold balloons:</strong> +50 points (rare!)</p>
+            <p><strong>Black balloons:</strong> -20 points (avoid!)</p>
+            <p><strong>Combo:</strong> Pop balloons quickly for multiplier!</p>
+            <button id="startBtn" class="btn">▶️ Start Popping</button>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div class="controls">
+            <button id="pauseBtn" class="btn" disabled>⏸ Pause</button>
+        </div>
+
+        <div id="gameOver" class="game-over hidden">
+            <h2>Time's Up!</h2>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <p>Balloons Popped: <span id="finalPopped">0</span></p>
+            <p>Max Combo: <span id="maxCombo">x1</span></p>
+            <button id="restartBtn" class="btn">🔄 Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -6,7 +6,7 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-> A comprehensive collection of **53 legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
+> A comprehensive collection of **55 legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
 
 ## 🎯 Quick Start
 
@@ -36,9 +36,9 @@ Most games follow these common patterns:
 ## 📊 Project Statistics
 
 ```
-Total Games: 53 (100% Functional)
-Lines of Code: ~53,000+
-Total Files: 159
+Total Games: 55 (100% Functional)
+Lines of Code: ~55,000+
+Total Files: 165
 ✨ Pure Vanilla JavaScript (No Frameworks)
 📱 Fully Responsive Design
 💾 LocalStorage for High Scores
@@ -54,9 +54,9 @@ Total Files: 159
 🎮 AI Opponents in Multiple Games
 ```
 
-## 🎮 Complete Game Library (53 Games)
+## 🎮 Complete Game Library (55 Games)
 
-### 🕹️ Arcade Classics (27 Games)
+### 🕹️ Arcade Classics (29 Games)
 
 | Game | Description | Controls | Features |
 |------|-------------|----------|----------|
@@ -85,6 +85,8 @@ Total Files: 159
 | 🟧 **Q*bert** | Change pyramid cube colors | Q/W/E/A/D or Arrows | Isometric pyramid, enemies, color matching |
 | 🔫 **Contra** | Run and gun platformer | Arrow Keys/WASD, Space, Shift | Platform jumping, shooting, enemies |
 | 👑 **Prince of Persia** | Platformer with sword combat | Arrow Keys/WASD, Space (attack), Shift (jump) | Sword fighting, traps, time limit, potions |
+| 🚀 **Space Race** | Vertical space racing | Arrow Keys/A/D | Asteroid dodging, fuel collection, progressive speed |
+| 🎈 **Balloon Pop** | Click balloons before they escape | Mouse Click | Combo system, time limit, different balloon types |
 
 ### 🧩 Puzzle & Strategy (9 Games)
 
