@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Match - Fast Reaction Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>🎨 Color Match</h1>
+            <div class="info">
+                <div class="info-item">
+                    <span class="label">Score:</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Time:</span>
+                    <span id="time">30</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Streak:</span>
+                    <span id="streak">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions" id="instructions">
+            <h2>📖 How to Play</h2>
+            <p><strong>Click the circle that matches the color NAME!</strong></p>
+            <p>Example: If text says "RED" in blue color, click the RED circle!</p>
+            <p><strong>Speed matters:</strong> Faster answers = more points!</p>
+            <p><strong>Streak bonus:</strong> Correct answers in a row multiply your score!</p>
+            <button id="startBtn" class="btn">▶️ Start Game</button>
+        </div>
+
+        <div id="gameArea" class="game-area hidden">
+            <div class="question-box">
+                <div id="questionText" class="question-text"></div>
+            </div>
+
+            <div class="circles-container" id="circlesContainer"></div>
+        </div>
+
+        <div class="controls">
+            <button id="pauseBtn" class="btn" disabled>⏸ Pause</button>
+        </div>
+
+        <div id="gameOver" class="game-over hidden">
+            <h2>Game Over!</h2>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <p>Correct: <span id="finalCorrect">0</span> / <span id="finalTotal">0</span></p>
+            <p>Best Streak: <span id="finalStreak">0</span></p>
+            <button id="restartBtn" class="btn">🔄 Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gem Swap - Match 3 Puzzle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>💎 Gem Swap</h1>
+            <div class="info">
+                <div class="info-item">
+                    <span class="label">Score:</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Moves:</span>
+                    <span id="moves">30</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Target:</span>
+                    <span id="target">1000</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions" id="instructions">
+            <h2>📖 How to Play</h2>
+            <p><strong>Click two adjacent gems to swap them!</strong></p>
+            <p>Match 3 or more gems of the same color to score points</p>
+            <p><strong>💎 Gems:</strong></p>
+            <p>🔴 Red • 🔵 Blue • 🟢 Green • 🟡 Yellow • 🟣 Purple • 🟠 Orange</p>
+            <p><strong>Match 4+:</strong> Bonus points! • <strong>Cascades:</strong> Extra combos!</p>
+            <button id="startBtn" class="btn">▶️ Start Game</button>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div class="controls">
+            <button id="pauseBtn" class="btn" disabled>⏸ Pause</button>
+            <button id="hintBtn" class="btn" disabled>💡 Hint</button>
+        </div>
+
+        <div id="gameOver" class="game-over hidden">
+            <h2 id="resultTitle">Level Complete!</h2>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <p>Matches Made: <span id="finalMatches">0</span></p>
+            <p>Largest Combo: <span id="finalCombo">3</span></p>
+            <button id="restartBtn" class="btn">🔄 Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

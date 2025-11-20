@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.game-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 650px;
+    width: 100%;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #8e44ad;
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.info-item {
+    font-size: 1.2em;
+}
+
+.label {
+    font-weight: bold;
+    color: #555;
+    margin-right: 8px;
+}
+
+#gameCanvas {
+    display: block;
+    margin: 0 auto;
+    border: 3px solid #8e44ad;
+    border-radius: 10px;
+    background: #1a1a2e;
+    max-width: 100%;
+    cursor: pointer;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 12px 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.instructions {
+    background: linear-gradient(135deg, #f3e5f5 0%, #e1f5fe 100%);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #8e44ad;
+}
+
+.instructions h2 {
+    color: #8e44ad;
+    margin-bottom: 15px;
+}
+
+.instructions p {
+    margin: 10px 0;
+    font-size: 1em;
+    color: #333;
+}
+
+.instructions strong {
+    color: #8e44ad;
+}
+
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    min-width: 300px;
+}
+
+.game-over h2 {
+    color: #8e44ad;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.game-over p {
+    font-size: 1.3em;
+    margin: 10px 0;
+    color: #555;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .info {
+        gap: 15px;
+    }
+
+    .info-item {
+        font-size: 1em;
+    }
+}
+
