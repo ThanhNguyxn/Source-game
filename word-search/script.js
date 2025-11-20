@@ -1,178 +1,240 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
-canvas.width = 400;
+canvas.width = 600;
 canvas.height = 600;
+
+const GRID_SIZE = 12;
+const CELL_SIZE = canvas.width / GRID_SIZE;
 
 let gameRunning = false;
 let paused = false;
 let gameStarted = false;
-let score = 0;
-let height = 0;
-let perfectCount = 0;
+let wordsFound = 0;
+let startTime = 0;
+let timer = null;
 
-let currentBlock = null;
-let stackedBlocks = [];
-let movingDirection = 1;
-let blockSpeed = 3;
+const WORDS = ['JAVASCRIPT', 'HTML', 'CSS', 'CODE', 'GAME', 'PLAY', 'FUN', 'PUZZLE', 'WORD', 'SEARCH'];
+let grid = [];
+let wordPositions = [];
+let foundWords = [];
+let selecting = false;
+let selectedCells = [];
 
-const BLOCK_HEIGHT = 30;
-const INITIAL_WIDTH = 200;
-
-function createBlock() {
-    const lastBlock = stackedBlocks[stackedBlocks.length - 1];
-    const startX = movingDirection > 0 ? 0 : canvas.width;
-
-    currentBlock = {
-        x: startX,
-        y: canvas.height - (stackedBlocks.length + 1) * BLOCK_HEIGHT - 50,
-        width: lastBlock ? lastBlock.width : INITIAL_WIDTH,
-        height: BLOCK_HEIGHT,
-        color: `hsl(${(stackedBlocks.length * 30) % 360}, 70%, 60%)`
-    };
+function createGrid() {
+    grid = [];
+    for (let i = 0; i < GRID_SIZE; i++) {
+        grid[i] = [];
+        for (let j = 0; j < GRID_SIZE; j++) {
+            grid[i][j] = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+        }
+    }
 }
 
-function drawBlock(block) {
-    ctx.fillStyle = block.color;
-    ctx.fillRect(block.x, block.y, block.width, block.height);
+function placeWord(word) {
+    const directions = [
+        {x: 1, y: 0},   // horizontal
+        {x: 0, y: 1},   // vertical
+        {x: 1, y: 1},   // diagonal down-right
+        {x: 1, y: -1}   // diagonal up-right
+    ];
 
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.3)';
-    ctx.lineWidth = 2;
-    ctx.strokeRect(block.x, block.y, block.width, block.height);
+    let placed = false;
+    let attempts = 0;
+
+    while (!placed && attempts < 100) {
+        const dir = directions[Math.floor(Math.random() * directions.length)];
+        const startX = Math.floor(Math.random() * GRID_SIZE);
+        const startY = Math.floor(Math.random() * GRID_SIZE);
+
+        if (canPlaceWord(word, startX, startY, dir)) {
+            const positions = [];
+            for (let i = 0; i < word.length; i++) {
+                const x = startX + dir.x * i;
+                const y = startY + dir.y * i;
+                grid[y][x] = word[i];
+                positions.push({x, y});
+            }
+            wordPositions.push({word, positions});
+            placed = true;
+        }
+        attempts++;
+    }
 }
 
-function draw() {
-    // Sky gradient
-    const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-    gradient.addColorStop(0, '#87CEEB');
-    gradient.addColorStop(1, '#E0F6FF');
-    ctx.fillStyle = gradient;
+function canPlaceWord(word, startX, startY, dir) {
+    for (let i = 0; i < word.length; i++) {
+        const x = startX + dir.x * i;
+        const y = startY + dir.y * i;
+
+        if (x < 0 || x >= GRID_SIZE || y < 0 || y >= GRID_SIZE) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function drawGrid() {
+    ctx.fillStyle = '#fff';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Draw ground
-    ctx.fillStyle = '#8b4513';
-    ctx.fillRect(0, canvas.height - 30, canvas.width, 30);
+    // Draw cells
+    for (let i = 0; i < GRID_SIZE; i++) {
+        for (let j = 0; j < GRID_SIZE; j++) {
+            const x = j * CELL_SIZE;
+            const y = i * CELL_SIZE;
 
-    // Draw stacked blocks
-    stackedBlocks.forEach(block => drawBlock(block));
+            // Check if cell is in found word
+            const isFound = wordPositions.some(wp =>
+                foundWords.includes(wp.word) &&
+                wp.positions.some(p => p.x === j && p.y === i)
+            );
 
-    // Draw current moving block
-    if (currentBlock) {
-        drawBlock(currentBlock);
+            // Check if cell is selected
+            const isSelected = selectedCells.some(c => c.x === j && c.y === i);
+
+            if (isFound) {
+                ctx.fillStyle = '#a8e6cf';
+            } else if (isSelected) {
+                ctx.fillStyle = '#ffd3b6';
+            } else {
+                ctx.fillStyle = '#fff';
+            }
+
+            ctx.fillRect(x, y, CELL_SIZE, CELL_SIZE);
+
+            // Draw border
+            ctx.strokeStyle = '#ddd';
+            ctx.lineWidth = 1;
+            ctx.strokeRect(x, y, CELL_SIZE, CELL_SIZE);
+
+            // Draw letter
+            ctx.fillStyle = '#333';
+            ctx.font = 'bold 20px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(grid[i][j], x + CELL_SIZE / 2, y + CELL_SIZE / 2);
+        }
     }
 
-    // Draw score
+    // Draw word list
     ctx.fillStyle = '#333';
-    ctx.font = 'bold 20px Arial';
+    ctx.font = '14px Arial';
     ctx.textAlign = 'left';
-    ctx.fillText(`Score: ${score}`, 10, 30);
-    ctx.fillText(`Height: ${height}`, 10, 55);
+    let yOffset = 10;
+    WORDS.forEach((word, idx) => {
+        const found = foundWords.includes(word);
+        ctx.fillStyle = found ? '#00aa00' : '#333';
+        if (found) ctx.font = 'bold 14px Arial';
+        else ctx.font = '14px Arial';
+
+        const text = found ? `✓ ${word}` : word;
+        ctx.fillText(text, 10, canvas.height - 140 + yOffset);
+        yOffset += 16;
+    });
 }
 
-function update() {
-    if (!gameRunning || paused || !currentBlock) return;
+function getCellFromMouse(x, y) {
+    const rect = canvas.getBoundingClientRect();
+    const mouseX = x - rect.left;
+    const mouseY = y - rect.top;
 
-    currentBlock.x += blockSpeed * movingDirection;
+    const col = Math.floor(mouseX / CELL_SIZE);
+    const row = Math.floor(mouseY / CELL_SIZE);
 
-    // Bounce at edges
-    if (currentBlock.x <= 0 || currentBlock.x + currentBlock.width >= canvas.width) {
-        movingDirection *= -1;
+    if (col >= 0 && col < GRID_SIZE && row >= 0 && row < GRID_SIZE) {
+        return {x: col, y: row};
+    }
+    return null;
+}
+
+function getSelectedWord() {
+    if (selectedCells.length < 2) return '';
+
+    return selectedCells.map(c => grid[c.y][c.x]).join('');
+}
+
+function checkWord() {
+    const word = getSelectedWord();
+
+    if (WORDS.includes(word) && !foundWords.includes(word)) {
+        foundWords.push(word);
+        wordsFound++;
+        updateDisplay();
+
+        if (foundWords.length === WORDS.length) {
+            setTimeout(gameOver, 500);
+        }
     }
 }
 
-function dropBlock() {
-    if (!currentBlock || !gameRunning) return;
+canvas.addEventListener('mousedown', (e) => {
+    if (!gameRunning || paused) return;
 
-    const lastBlock = stackedBlocks[stackedBlocks.length - 1];
+    selecting = true;
+    selectedCells = [];
+    const cell = getCellFromMouse(e.clientX, e.clientY);
+    if (cell) selectedCells.push(cell);
+    drawGrid();
+});
 
-    if (!lastBlock) {
-        // First block
-        stackedBlocks.push({...currentBlock});
-        height++;
-        score += 10;
-        movingDirection *= -1;
-        createBlock();
-    } else {
-        // Check overlap
-        const overlapLeft = Math.max(currentBlock.x, lastBlock.x);
-        const overlapRight = Math.min(currentBlock.x + currentBlock.width, lastBlock.x + lastBlock.width);
-        const overlapWidth = overlapRight - overlapLeft;
+canvas.addEventListener('mousemove', (e) => {
+    if (!selecting || !gameRunning || paused) return;
 
-        if (overlapWidth <= 0) {
-            // Miss - Game Over
-            gameOver();
-            return;
+    const cell = getCellFromMouse(e.clientX, e.clientY);
+    if (cell) {
+        const lastCell = selectedCells[selectedCells.length - 1];
+        if (!lastCell || cell.x !== lastCell.x || cell.y !== lastCell.y) {
+            // Check if cell is adjacent or in line
+            if (selectedCells.length === 0 || isAdjacent(lastCell, cell)) {
+                selectedCells.push(cell);
+                drawGrid();
+            }
         }
-
-        // Check for perfect drop
-        const tolerance = 5;
-        const isPerfect = Math.abs(currentBlock.x - lastBlock.x) <= tolerance;
-
-        if (isPerfect) {
-            perfectCount++;
-            score += 20; // Bonus for perfect
-        } else {
-            score += 10;
-        }
-
-        // Create new block with overlap width
-        const newBlock = {
-            x: overlapLeft,
-            y: currentBlock.y,
-            width: overlapWidth,
-            height: BLOCK_HEIGHT,
-            color: currentBlock.color
-        };
-
-        stackedBlocks.push(newBlock);
-        height++;
-
-        // Increase difficulty
-        if (height % 5 === 0) {
-            blockSpeed += 0.5;
-        }
-
-        // Scroll down if too high
-        if (stackedBlocks.length > 15) {
-            stackedBlocks.shift();
-            stackedBlocks.forEach(block => block.y += BLOCK_HEIGHT);
-        }
-
-        movingDirection *= -1;
-        createBlock();
     }
+});
 
-    updateDisplay();
+canvas.addEventListener('mouseup', () => {
+    if (!selecting) return;
+
+    selecting = false;
+    checkWord();
+    selectedCells = [];
+    drawGrid();
+});
+
+function isAdjacent(cell1, cell2) {
+    const dx = Math.abs(cell1.x - cell2.x);
+    const dy = Math.abs(cell1.y - cell2.y);
+    return dx <= 1 && dy <= 1 && (dx + dy) > 0;
+}
+
+function updateTimer() {
+    if (!gameRunning || paused) return;
+
+    const elapsed = Math.floor((Date.now() - startTime) / 1000);
+    const minutes = Math.floor(elapsed / 60);
+    const seconds = elapsed % 60;
+    document.getElementById('level').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
 }
 
 function updateDisplay() {
-    document.getElementById('score').textContent = score;
-    document.getElementById('height').textContent = height;
-    document.getElementById('perfect').textContent = perfectCount;
+    document.getElementById('score').textContent = `${wordsFound}/${WORDS.length}`;
 }
 
 function gameOver() {
     gameRunning = false;
+    clearInterval(timer);
 
-    document.getElementById('finalScore').textContent = score;
-    document.getElementById('finalHeight').textContent = height;
-    document.getElementById('finalPerfect').textContent = perfectCount;
+    const elapsed = Math.floor((Date.now() - startTime) / 1000);
+    const minutes = Math.floor(elapsed / 60);
+    const seconds = elapsed % 60;
+
+    document.getElementById('finalScore').textContent = `${wordsFound}/${WORDS.length}`;
+    document.getElementById('finalTime').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
     document.getElementById('gameOver').classList.remove('hidden');
 }
 
-function gameLoop() {
-    update();
-    draw();
-    requestAnimationFrame(gameLoop);
-}
-
-canvas.addEventListener('click', dropBlock);
-
 window.addEventListener('keydown', (e) => {
-    if (e.key === ' ') {
-        e.preventDefault();
-        dropBlock();
-    }
-
     if (e.key === 'p' || e.key === 'P') {
         e.preventDefault();
         paused = !paused;
@@ -187,25 +249,18 @@ document.getElementById('startBtn').addEventListener('click', () => {
         document.getElementById('instructions').classList.add('hidden');
         document.getElementById('pauseBtn').disabled = false;
 
-        score = 0;
-        height = 0;
-        perfectCount = 0;
-        stackedBlocks = [];
-        blockSpeed = 3;
-        movingDirection = 1;
+        wordsFound = 0;
+        foundWords = [];
+        selectedCells = [];
 
-        // Create base block
-        stackedBlocks.push({
-            x: canvas.width / 2 - INITIAL_WIDTH / 2,
-            y: canvas.height - 80,
-            width: INITIAL_WIDTH,
-            height: BLOCK_HEIGHT,
-            color: 'hsl(0, 70%, 60%)'
-        });
+        createGrid();
+        WORDS.forEach(word => placeWord(word));
 
-        createBlock();
+        startTime = Date.now();
+        timer = setInterval(updateTimer, 1000);
+
         updateDisplay();
-        gameLoop();
+        drawGrid();
     }
 });
 
@@ -215,26 +270,21 @@ document.getElementById('pauseBtn').addEventListener('click', () => {
 });
 
 document.getElementById('restartBtn').addEventListener('click', () => {
-    score = 0;
-    height = 0;
-    perfectCount = 0;
-    stackedBlocks = [];
-    blockSpeed = 3;
-    movingDirection = 1;
+    wordsFound = 0;
+    foundWords = [];
+    selectedCells = [];
     gameRunning = true;
     paused = false;
 
-    stackedBlocks.push({
-        x: canvas.width / 2 - INITIAL_WIDTH / 2,
-        y: canvas.height - 80,
-        width: INITIAL_WIDTH,
-        height: BLOCK_HEIGHT,
-        color: 'hsl(0, 70%, 60%)'
-    });
+    createGrid();
+    WORDS.forEach(word => placeWord(word));
 
-    createBlock();
+    startTime = Date.now();
+    timer = setInterval(updateTimer, 1000);
+
     document.getElementById('gameOver').classList.add('hidden');
     updateDisplay();
+    drawGrid();
 });
 
 updateDisplay();
