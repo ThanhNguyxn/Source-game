@@ -1,3 +1,41 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>Flip Card Match</title><link rel="stylesheet" href="style.css"></head><body><div class="game-container"><div class="header"><h1>🎴 Flip Card</h1><div class="info"><div class="info-item"><span class="label">Moves:</span><span id="moves">0</span></div><div class="info-item"><span class="label">Pairs:</span><span id="pairs">0/8</span></div><div class="info-item"><span class="label">Time:</span><span id="time">0:00</span></div></div></div><div class="instructions" id="instructions"><h2>📖 How to Play</h2><p><strong>Click cards</strong> to flip and match pairs</p><p>Find all 8 pairs to win!</p><p>Match cards with same number/color</p><button id="startBtn" class="btn">▶️ Start</button></div><canvas id="gameCanvas"></canvas><div id="gameOver" class="game-over hidden"><h2>🎉 Complete!</h2><p>Time: <span id="finalTime">0:00</span></p><p>Moves: <span id="finalMoves">0</span></p><button id="restartBtn" class="btn">🔄 Again</button></div></div><script src="script.js"></script></body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Draw</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>🎨 Pixel Draw</h1>
+            <div class="info">
+                <div class="info-item">
+                    <span class="label">Color:</span>
+                    <input type="color" id="colorPicker" value="#000000">
+                </div>
+                <div class="info-item">
+                    <button id="clearBtn" class="btn">🗑️ Clear</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions" id="instructions">
+            <h2>📖 How to Play</h2>
+            <p><strong>Click/Drag:</strong> Draw pixels</p>
+            <p><strong>Pick color:</strong> Use color picker</p>
+            <p>Create pixel art masterpieces!</p>
+            <button id="startBtn" class="btn">▶️ Start Drawing</button>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div class="controls">
+            <button id="saveBtn" class="btn">💾 Save Image</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
 
