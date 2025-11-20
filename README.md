@@ -6,7 +6,7 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-> A comprehensive collection of **64 legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
+> A comprehensive collection of **65 legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
 
 ## 🎯 Quick Start
 
@@ -36,9 +36,9 @@ Most games follow these common patterns:
 ## 📊 Project Statistics
 
 ```
-Total Games: 64 (100% Functional)
-Lines of Code: ~64,000+
-Total Files: 192
+Total Games: 65 (100% Functional)
+Lines of Code: ~65,000+
+Total Files: 195
 ✨ Pure Vanilla JavaScript (No Frameworks)
 📱 Fully Responsive Design
 💾 LocalStorage for High Scores
@@ -47,7 +47,7 @@ Total Files: 192
 ```
 
 
-## 🎮 Complete Game Library (64 Games)
+## 🎮 Complete Game Library (65 Games)
 
 ### 🕹️ Arcade Classics (30 Games)
 

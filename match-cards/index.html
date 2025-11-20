@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match Cards - Poker Matching</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>🃏 Match Cards</h1>
+            <div class="info">
+                <div class="info-item">
+                    <span class="label">Score:</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Time:</span>
+                    <span id="time">60</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Matches:</span>
+                    <span id="matches">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions" id="instructions">
+            <h2>📖 How to Play</h2>
+            <p><strong>Click 3 cards</strong> of the same rank to match</p>
+            <p>More matches = higher score!</p>
+            <p>⏱️ Beat the clock - 60 seconds!</p>
+            <p><strong>P:</strong> Pause game</p>
+            <button id="startBtn" class="btn">▶️ Start Matching</button>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div class="controls">
+            <button id="pauseBtn" class="btn" disabled>⏸ Pause</button>
+        </div>
+
+        <div id="gameOver" class="game-over hidden">
+            <h2>Time's Up!</h2>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <p>Matches: <span id="finalMatches">0</span></p>
+            <button id="restartBtn" class="btn">🔄 Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
