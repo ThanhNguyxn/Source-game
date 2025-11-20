@@ -1,4 +1,4 @@
-﻿﻿# 🎮 Classic Games Collection
+?# ?? Classic Games Collection
 
 [![GitHub Stars](https://img.shields.io/github/stars/ThanhNguyxn/Source-game?style=social)](https://github.com/ThanhNguyxn/Source-game)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -6,15 +6,15 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-> A comprehensive collection of **70 legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
+> A comprehensive collection of **77 legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
 
-## 🎯 Quick Start
+## ?? Quick Start
 
-**[▶️ Play Online](https://thanhnguyxn.github.io/Source-game/)** | **[⭐ Star on GitHub](https://github.com/ThanhNguyxn/Source-game)**
+**[?? Play Online](https://thanhnguyxn.github.io/Source-game/)** | **[? Star on GitHub](https://github.com/ThanhNguyxn/Source-game)**
 
 Simply open `index.html` in your browser or visit the live demo!
 
-## 📖 How to Play
+## ?? How to Play
 
 ### Universal Controls
 Most games follow these common patterns:
@@ -33,138 +33,138 @@ Most games follow these common patterns:
 
 **Note:** Games require user interaction to start - they won't begin automatically!
 
-## 📊 Project Statistics
+## ?? Project Statistics
 
 ```
-Total Games: 70 (100% Functional)
-Lines of Code: ~70,000+
-Total Files: 210
-✨ Pure Vanilla JavaScript (No Frameworks)
-📱 Fully Responsive Design
-💾 LocalStorage for High Scores
-🌍 100% English Interface
-🎮 AI Opponents in Multiple Games
+Total Games: 77 (100% Functional)
+Lines of Code: ~77,000+
+Total Files: 231
+? Pure Vanilla JavaScript (No Frameworks)
+?? Fully Responsive Design
+?? LocalStorage for High Scores
+?? 100% English Interface
+?? AI Opponents in Multiple Games
 ```
 
 
-## 🎮 Complete Game Library (70 Games)
+## ?? Complete Game Library (77 Games)
 
-### 🕹️ Arcade Classics (30 Games)
-
-| Game | Description | Controls | Features |
-|------|-------------|----------|----------|
-| 🐍 **Snake Game** | Classic snake with 4 difficulty levels | Arrow Keys/WASD | 4 difficulties, obstacles in Extreme mode |
-| 🧱 **Breakout** | Break bricks with paddle and ball | Arrow Keys/Mouse | Multiple brick types, lives system |
-| 🟦 **Tetris** | Legendary falling blocks puzzle | Arrow Keys, Space | 3 game modes, ghost piece, hold piece |
-| 🏓 **Pong** | First video game ever - table tennis | Arrow Keys/W/S | AI opponent, progressive difficulty |
-| 👾 **Space Invaders** | Defend Earth from alien invaders | Arrow Keys, Space | Classic patterns, alien return fire |
-| 🐦 **Flappy Bird** | Navigate through pipes | Space/Click | Endless gameplay, physics engine |
-| 🦖 **Dino Run** | Chrome's offline dinosaur game | Space/↑ (jump), ↓ (duck) | Speed progression, obstacles |
-| 🚀 **Asteroids** | Classic space shooter | ↑ (thrust), ← → (rotate), Space (shoot), Shift (hyperspace) | 4 difficulty levels, UFO enemies |
-| 🏀 **Brick Breaker** | Arkanoid-style with power-ups | Arrow Keys/Mouse | 4 difficulties, multi-ball, moving bricks |
-| 🐸 **Frogger** | Cross road and river safely | Arrow Keys | Multi-lane traffic, timer, lives system |
-| 🦆 **Duck Hunt** | Classic shooting game | Mouse | Moving targets, ammo limit, progressive difficulty |
-| 🥷 **Fruit Ninja** | Slice fruits, avoid bombs | Mouse drag | Combo system, special fruits, lives |
-| 🚁 **Copter** | Endless helicopter flight | Space/Click | Procedural obstacles, distance scoring |
-| 💣 **Bomberman** | Strategic maze bomber | Arrow Keys/WASD, Space (bomb) | Power-ups, enemy AI, destructible walls |
-| 🛸 **Galaga** | Space shooter with diving enemies | Arrow Keys/A/D, Space | Wave attacks, formation movement |
-| 🎯 **Missile Command** | Defend cities from missiles | Mouse Click | Strategic targeting, chain explosions |
-| 👻 **Pac-Man** | Eat dots, avoid ghosts | Arrow Keys | 4 ghost AI, power pellets, maze navigation |
-| 🎈 **Bubble Shooter** | Match 3+ bubbles to pop | Mouse | Color matching, physics-based |
-| 🦍 **Donkey Kong** | Classic platformer - rescue princess | Arrow Keys/WASD, Space (jump) | Platforms, ladders, barrel dodging, lives |
-| ⛏️ **Dig Dug** | Dig tunnels and defeat enemies | Arrow Keys/WASD, Space (pump) | Underground digging, enemy inflation, rocks |
-| 🐛 **Centipede** | Shoot the centipede and insects | Mouse, Click/Space | Mushrooms, spider, flea, wave-based |
-| 🚀 **Defender** | Horizontal shooter - save humans | Arrow Keys, Space, S (bomb) | Scrolling world, minimap, human rescue |
-| 🟧 **Q*bert** | Change pyramid cube colors | Q/W/E/A/D or Arrows | Isometric pyramid, enemies, color matching |
-| 🔫 **Contra** | Run and gun platformer | Arrow Keys/WASD, Space, Shift | Platform jumping, shooting, enemies |
-| 👑 **Prince of Persia** | Platformer with sword combat | Arrow Keys/WASD, Space (attack), Shift (jump) | Sword fighting, traps, time limit, potions |
-| 🚀 **Space Race** | Vertical space racing | Arrow Keys/A/D | Asteroid dodging, fuel collection, progressive speed |
-| 🎈 **Balloon Pop** | Click balloons before they escape | Mouse Click | Combo system, time limit, different balloon types |
-
-### 🧩 Puzzle & Strategy (16 Games)
+### ??? Arcade Classics (30 Games)
 
 | Game | Description | Controls | Features |
 |------|-------------|----------|----------|
-| 🔢 **2048** | Slide tiles to reach 2048 | Arrow Keys | 4x4 grid, undo move, merge animations |
-| 💣 **Minesweeper** | Find mines without clicking them | Left Click (reveal), Right Click (flag) | 3 difficulties, first-click safety, timer |
-| 🔢 **Sudoku** | Fill 9x9 grid with numbers 1-9 | Click cell, then number | 3 difficulties, hint system, error checking |
-| ❌ **Tic Tac Toe** | Get three in a row | Click cells | Player vs AI, 3 AI difficulties |
-| 🔴 **Connect Four** | Connect 4 discs in a row | Click column | Smart AI, gravity physics, win detection |
-| 🧩 **Sliding Puzzle** | Arrange tiles in order | Click adjacent tiles | 3 difficulties (3x3, 4x4, 5x5), timer |
-| 📦 **Sokoban** | Push boxes to targets | Arrow Keys/WASD, Z (undo), R (restart) | Multiple levels, undo moves, move counter |
-| 🀄 **Mahjong** | Match pairs of tiles | Click matching pairs | Multiple layouts, hints, shuffle |
-| 📝 **Crossword** | Fill crossword puzzle | Click cell and type | Multiple difficulties, hint system |
-| 🎨 **Color Match** | Fast color name matching | Mouse Click | Streak system, speed bonus, 30 seconds |
-| 💎 **Gem Swap** | Match-3 puzzle game | Click adjacent gems | Cascade combos, move limit, color matching |
-| 🔍 **Word Search** | Find hidden words | Mouse drag | Word highlighting, multiple directions, timer |
-| 🧩 **Jigsaw Puzzle** | Assemble puzzle pieces | Click and drag | Multiple difficulty levels, piece rotation |
-| 🧱 **Brick Blast** | Match and blast bricks | Mouse Click | Chain reactions, color matching, scoring |
-| 🎨 **Paint Drop** | Fill canvas with paint | Mouse Click | Color spreading, pattern filling, levels |
-| ⚔️ **Ninja Slice** | Slice objects precisely | Mouse drag | Slash mechanics, combo system, timing |
+| ?? **Snake Game** | Classic snake with 4 difficulty levels | Arrow Keys/WASD | 4 difficulties, obstacles in Extreme mode |
+| ?? **Breakout** | Break bricks with paddle and ball | Arrow Keys/Mouse | Multiple brick types, lives system |
+| ?? **Tetris** | Legendary falling blocks puzzle | Arrow Keys, Space | 3 game modes, ghost piece, hold piece |
+| ?? **Pong** | First video game ever - table tennis | Arrow Keys/W/S | AI opponent, progressive difficulty |
+| ?? **Space Invaders** | Defend Earth from alien invaders | Arrow Keys, Space | Classic patterns, alien return fire |
+| ?? **Flappy Bird** | Navigate through pipes | Space/Click | Endless gameplay, physics engine |
+| ?? **Dino Run** | Chrome's offline dinosaur game | Space/? (jump), ? (duck) | Speed progression, obstacles |
+| ?? **Asteroids** | Classic space shooter | ? (thrust), ? ? (rotate), Space (shoot), Shift (hyperspace) | 4 difficulty levels, UFO enemies |
+| ?? **Brick Breaker** | Arkanoid-style with power-ups | Arrow Keys/Mouse | 4 difficulties, multi-ball, moving bricks |
+| ?? **Frogger** | Cross road and river safely | Arrow Keys | Multi-lane traffic, timer, lives system |
+| ?? **Duck Hunt** | Classic shooting game | Mouse | Moving targets, ammo limit, progressive difficulty |
+| ?? **Fruit Ninja** | Slice fruits, avoid bombs | Mouse drag | Combo system, special fruits, lives |
+| ?? **Copter** | Endless helicopter flight | Space/Click | Procedural obstacles, distance scoring |
+| ?? **Bomberman** | Strategic maze bomber | Arrow Keys/WASD, Space (bomb) | Power-ups, enemy AI, destructible walls |
+| ?? **Galaga** | Space shooter with diving enemies | Arrow Keys/A/D, Space | Wave attacks, formation movement |
+| ?? **Missile Command** | Defend cities from missiles | Mouse Click | Strategic targeting, chain explosions |
+| ?? **Pac-Man** | Eat dots, avoid ghosts | Arrow Keys | 4 ghost AI, power pellets, maze navigation |
+| ?? **Bubble Shooter** | Match 3+ bubbles to pop | Mouse | Color matching, physics-based |
+| ?? **Donkey Kong** | Classic platformer - rescue princess | Arrow Keys/WASD, Space (jump) | Platforms, ladders, barrel dodging, lives |
+| ?? **Dig Dug** | Dig tunnels and defeat enemies | Arrow Keys/WASD, Space (pump) | Underground digging, enemy inflation, rocks |
+| ?? **Centipede** | Shoot the centipede and insects | Mouse, Click/Space | Mushrooms, spider, flea, wave-based |
+| ?? **Defender** | Horizontal shooter - save humans | Arrow Keys, Space, S (bomb) | Scrolling world, minimap, human rescue |
+| ?? **Q*bert** | Change pyramid cube colors | Q/W/E/A/D or Arrows | Isometric pyramid, enemies, color matching |
+| ?? **Contra** | Run and gun platformer | Arrow Keys/WASD, Space, Shift | Platform jumping, shooting, enemies |
+| ?? **Prince of Persia** | Platformer with sword combat | Arrow Keys/WASD, Space (attack), Shift (jump) | Sword fighting, traps, time limit, potions |
+| ?? **Space Race** | Vertical space racing | Arrow Keys/A/D | Asteroid dodging, fuel collection, progressive speed |
+| ?? **Balloon Pop** | Click balloons before they escape | Mouse Click | Combo system, time limit, different balloon types |
 
-### 🎯 Skill & Reflex (6 Games)
-
-| Game | Description | Controls | Features |
-|------|-------------|----------|----------|
-| 🔨 **Whack-a-Mole** | Hit moles before they disappear | Mouse Click | 4 difficulties, special moles (bomb 💣, golden 🌟) |
-| ⌨️ **Typing Speed Test** | Test typing speed and accuracy | Keyboard typing | 4 difficulties, 15 samples, WPM & accuracy |
-| 🎴 **Memory Card Game** | Match pairs of cards | Click cards | Multiple themes, timer, move counter |
-| 🎵 **Simon Says** | Repeat color sequences | Click colored buttons | Progressive difficulty, sound feedback |
-| 🏓 **Ping Pong AI** | Advanced pong with smart AI | Up/Down Arrow Keys or W/S | Ball spin, power shots, AI difficulty |
-| 🏗️ **Stack Tower** | Stack blocks perfectly | Click/Space to drop | Perfect bonuses, progressive difficulty, physics |
-
-### 🃏 Card & Board Games (5 Games)
-
-| Game | Description | Controls | Features |
-|------|-------------|----------|----------|
-| 🃏 **Blackjack** | Beat the dealer to 21 | Click Hit/Stand/Bet | Standard rules, chip betting, balance tracking |
-| 🃏 **Solitaire** | Classic Klondike solitaire | Drag cards | Auto-complete, undo, timer, draw 1 or 3 |
-| ♟️ **Chess** | Strategic board game | Click piece, then destination | Full rules, AI opponent, move validation |
-| ⚫ **Checkers** | Jump and capture pieces | Click piece, then destination | Standard rules, AI opponent, forced captures |
-| 🔤 **Wordle** | Guess 5-letter word in 6 tries | Keyboard/On-screen keyboard | Color feedback, statistics, share results |
-
-### ❓ Trivia & Word Games (4 Games)
+### ?? Puzzle & Strategy (16 Games)
 
 | Game | Description | Controls | Features |
 |------|-------------|----------|----------|
-| ❓ **Quiz Game** | Test your knowledge | Click answers | Multiple categories, timed questions, scoring |
-| 🎯 **Hangman** | Guess the word | Click letters | Word categories, hint system, 6 lives |
-| ✊ **Rock Paper Scissors** | Classic hand game | Click your choice | Best of 5, AI opponent, animated reveals |
-| 🎲 **Yahtzee** | Classic dice game | Click to roll/hold | 13 categories, scoring combinations, strategy |
+| ?? **2048** | Slide tiles to reach 2048 | Arrow Keys | 4x4 grid, undo move, merge animations |
+| ?? **Minesweeper** | Find mines without clicking them | Left Click (reveal), Right Click (flag) | 3 difficulties, first-click safety, timer |
+| ?? **Sudoku** | Fill 9x9 grid with numbers 1-9 | Click cell, then number | 3 difficulties, hint system, error checking |
+| ? **Tic Tac Toe** | Get three in a row | Click cells | Player vs AI, 3 AI difficulties |
+| ?? **Connect Four** | Connect 4 discs in a row | Click column | Smart AI, gravity physics, win detection |
+| ?? **Sliding Puzzle** | Arrange tiles in order | Click adjacent tiles | 3 difficulties (3x3, 4x4, 5x5), timer |
+| ?? **Sokoban** | Push boxes to targets | Arrow Keys/WASD, Z (undo), R (restart) | Multiple levels, undo moves, move counter |
+| ?? **Mahjong** | Match pairs of tiles | Click matching pairs | Multiple layouts, hints, shuffle |
+| ?? **Crossword** | Fill crossword puzzle | Click cell and type | Multiple difficulties, hint system |
+| ?? **Color Match** | Fast color name matching | Mouse Click | Streak system, speed bonus, 30 seconds |
+| ?? **Gem Swap** | Match-3 puzzle game | Click adjacent gems | Cascade combos, move limit, color matching |
+| ?? **Word Search** | Find hidden words | Mouse drag | Word highlighting, multiple directions, timer |
+| ?? **Jigsaw Puzzle** | Assemble puzzle pieces | Click and drag | Multiple difficulty levels, piece rotation |
+| ?? **Brick Blast** | Match and blast bricks | Mouse Click | Chain reactions, color matching, scoring |
+| ?? **Paint Drop** | Fill canvas with paint | Mouse Click | Color spreading, pattern filling, levels |
+| ?? **Ninja Slice** | Slice objects precisely | Mouse drag | Slash mechanics, combo system, timing |
 
-### 🎯 Strategy & Action (3 Games)
+### ?? Skill & Reflex (6 Games)
 
 | Game | Description | Controls | Features |
 |------|-------------|----------|----------|
-| 🪱 **Worms** | Artillery warfare game | ← → (angle), ↑ ↓ (power), Space (fire), A/D (move) | AI opponent, turn-based combat, wind physics, terrain destruction, 2 modes |
-| 🐹 **Lemmings** | Save the lemmings puzzle | Click lemming + tool button | Assign abilities (blocker, climber, digger), save 50% to win |
-| 🗼 **Tower Defense** | Build towers to stop enemies | Mouse Click (build towers) | Wave-based, tower upgrades, path following, strategic placement |
+| ?? **Whack-a-Mole** | Hit moles before they disappear | Mouse Click | 4 difficulties, special moles (bomb ??, golden ??) |
+| ?? **Typing Speed Test** | Test typing speed and accuracy | Keyboard typing | 4 difficulties, 15 samples, WPM & accuracy |
+| ?? **Memory Card Game** | Match pairs of cards | Click cards | Multiple themes, timer, move counter |
+| ?? **Simon Says** | Repeat color sequences | Click colored buttons | Progressive difficulty, sound feedback |
+| ?? **Ping Pong AI** | Advanced pong with smart AI | Up/Down Arrow Keys or W/S | Ball spin, power shots, AI difficulty |
+| ??? **Stack Tower** | Stack blocks perfectly | Click/Space to drop | Perfect bonuses, progressive difficulty, physics |
 
-## ✨ Key Features
+### ?? Card & Board Games (5 Games)
 
-### 🎨 Beautiful User Interface
+| Game | Description | Controls | Features |
+|------|-------------|----------|----------|
+| ?? **Blackjack** | Beat the dealer to 21 | Click Hit/Stand/Bet | Standard rules, chip betting, balance tracking |
+| ?? **Solitaire** | Classic Klondike solitaire | Drag cards | Auto-complete, undo, timer, draw 1 or 3 |
+| ?? **Chess** | Strategic board game | Click piece, then destination | Full rules, AI opponent, move validation |
+| ? **Checkers** | Jump and capture pieces | Click piece, then destination | Standard rules, AI opponent, forced captures |
+| ?? **Wordle** | Guess 5-letter word in 6 tries | Keyboard/On-screen keyboard | Color feedback, statistics, share results |
+
+### ? Trivia & Word Games (4 Games)
+
+| Game | Description | Controls | Features |
+|------|-------------|----------|----------|
+| ? **Quiz Game** | Test your knowledge | Click answers | Multiple categories, timed questions, scoring |
+| ?? **Hangman** | Guess the word | Click letters | Word categories, hint system, 6 lives |
+| ? **Rock Paper Scissors** | Classic hand game | Click your choice | Best of 5, AI opponent, animated reveals |
+| ?? **Yahtzee** | Classic dice game | Click to roll/hold | 13 categories, scoring combinations, strategy |
+
+### ?? Strategy & Action (3 Games)
+
+| Game | Description | Controls | Features |
+|------|-------------|----------|----------|
+| ?? **Worms** | Artillery warfare game | ? ? (angle), ? ? (power), Space (fire), A/D (move) | AI opponent, turn-based combat, wind physics, terrain destruction, 2 modes |
+| ?? **Lemmings** | Save the lemmings puzzle | Click lemming + tool button | Assign abilities (blocker, climber, digger), save 50% to win |
+| ?? **Tower Defense** | Build towers to stop enemies | Mouse Click (build towers) | Wave-based, tower upgrades, path following, strategic placement |
+
+## ? Key Features
+
+### ?? Beautiful User Interface
 - Modern gradient designs with smooth animations
 - Responsive layout that works on all devices
 - Clean, intuitive controls
 
-### 💾 Progress Tracking
+### ?? Progress Tracking
 - High scores saved locally using LocalStorage
 - Auto-save game progress
 - Personal statistics tracking
 
-### 🎮 Gameplay Features
+### ?? Gameplay Features
 - Multiple difficulty levels in many games
 - AI opponents with smart behaviors
 - Progressive difficulty systems
 - Sound and visual feedback
 
-### 📱 Cross-Platform
+### ?? Cross-Platform
 - Works on desktop, tablet, and mobile
 - No installation or download required
 - Browser-based gameplay
 - Offline capability for most games
 
-## 🚀 Getting Started
+## ?? Getting Started
 
 ### Option 1: Play Online
 Visit the live demo: **[Play Now](https://thanhnguyen.github.io/Source-game/)**
@@ -186,7 +186,7 @@ python -m http.server 8000
 # Then visit: http://localhost:8000
 ```
 
-## 🛠️ Technology Stack
+## ??? Technology Stack
 
 - **HTML5** - Structure and Canvas API for graphics
 - **CSS3** - Styling, animations, and responsive design  
@@ -195,12 +195,12 @@ python -m http.server 8000
 - **Canvas API** - 2D graphics rendering
 - **No external libraries** - Pure vanilla JavaScript
 
-## 📖 Game Instructions
+## ?? Game Instructions
 
 ### How to Play Each Game
 
 <details>
-<summary><b>🐍 Snake Game</b></summary>
+<summary><b>?? Snake Game</b></summary>
 
 **Objective:** Grow your snake by eating food without hitting walls or yourself
 
@@ -221,14 +221,14 @@ python -m http.server 8000
 </details>
 
 <details>
-<summary><b>🟦 Tetris</b></summary>
+<summary><b>?? Tetris</b></summary>
 
 **Objective:** Clear lines by filling rows completely
 
 **Controls:**
-- ← → : Move piece left/right
-- ↑ : Rotate piece
-- ↓ : Soft drop (faster fall)
+- ? ? : Move piece left/right
+- ? : Rotate piece
+- ? : Soft drop (faster fall)
 - Space : Hard drop (instant)
 - C : Hold piece
 
@@ -244,7 +244,7 @@ python -m http.server 8000
 </details>
 
 <details>
-<summary><b>💣 Bomberman</b></summary>
+<summary><b>?? Bomberman</b></summary>
 
 **Objective:** Destroy all enemies and clear levels
 
@@ -254,8 +254,8 @@ python -m http.server 8000
 - P to pause
 
 **Power-ups:**
-- 🟣 Extra bomb capacity
-- 🟡 Increased explosion range
+- ?? Extra bomb capacity
+- ?? Increased explosion range
 
 **Tips:**
 - Trap enemies between bombs and walls
@@ -264,7 +264,7 @@ python -m http.server 8000
 </details>
 
 <details>
-<summary><b>🛸 Galaga</b></summary>
+<summary><b>?? Galaga</b></summary>
 
 **Objective:** Survive waves of alien attacks
 
@@ -274,8 +274,8 @@ python -m http.server 8000
 - P to pause
 
 **Enemy Types:**
-- 🟡 Bee: Faster, worth more points
-- 🔴 Butterfly: Slower, basic enemy
+- ?? Bee: Faster, worth more points
+- ?? Butterfly: Slower, basic enemy
 
 **Tips:**
 - Watch for diving attack patterns
@@ -284,7 +284,7 @@ python -m http.server 8000
 </details>
 
 <details>
-<summary><b>🎯 Missile Command</b></summary>
+<summary><b>?? Missile Command</b></summary>
 
 **Objective:** Protect your cities from incoming missiles
 
@@ -305,13 +305,13 @@ python -m http.server 8000
 </details>
 
 <details>
-<summary><b>🦍 Donkey Kong</b></summary>
+<summary><b>?? Donkey Kong</b></summary>
 
 **Objective:** Climb to the top and rescue the princess while avoiding barrels
 
 **Controls:**
 - Arrow Keys or A/D to move left/right
-- Space / W / ↑ to jump
+- Space / W / ? to jump
 - P to pause
 
 **Gameplay:**
@@ -328,7 +328,7 @@ python -m http.server 8000
 </details>
 
 <details>
-<summary><b>⛏️ Dig Dug</b></summary>
+<summary><b>?? Dig Dug</b></summary>
 
 **Objective:** Defeat all underground enemies by inflating them or crushing them with rocks
 
@@ -358,49 +358,49 @@ python -m http.server 8000
 - Multiple enemies can be crushed by one rock
 </details>
 
-## 🌟 Featured Games
+## ?? Featured Games
 
 ### Most Popular
-1. 🐍 Snake Game - Classic with modern features
-2. 🟦 Tetris - 3 game modes
-3. 🔢 2048 - Addictive puzzle
-4. 💣 Minesweeper - Strategic thinking
-5. ♟️ Chess - Full implementation
+1. ?? Snake Game - Classic with modern features
+2. ?? Tetris - 3 game modes
+3. ?? 2048 - Addictive puzzle
+4. ?? Minesweeper - Strategic thinking
+5. ?? Chess - Full implementation
 
 ### Best for Quick Play
-- 🔤 Wordle - Daily word challenge
-- ✊ Rock Paper Scissors - Best of 5
-- ❌ Tic Tac Toe - Quick strategy
-- 🎯 Whack-a-Mole - Reflex test
+- ?? Wordle - Daily word challenge
+- ? Rock Paper Scissors - Best of 5
+- ? Tic Tac Toe - Quick strategy
+- ?? Whack-a-Mole - Reflex test
 
 ### Most Challenging
-- 💣 Bomberman - Strategic planning
-- 🛸 Galaga - Survival skills
-- 🎯 Missile Command - Multi-tasking
-- ♟️ Chess - Deep strategy
-- 🀄 Mahjong - Pattern recognition
+- ?? Bomberman - Strategic planning
+- ?? Galaga - Survival skills
+- ?? Missile Command - Multi-tasking
+- ?? Chess - Deep strategy
+- ?? Mahjong - Pattern recognition
 
-## 📱 Browser Compatibility
+## ?? Browser Compatibility
 
 | Browser | Status | Notes |
 |---------|--------|-------|
-| Chrome/Edge | ✅ Fully Supported | Recommended |
-| Firefox | ✅ Fully Supported | Excellent performance |
-| Safari | ✅ Fully Supported | Desktop & iOS |
-| Opera | ✅ Fully Supported | All features work |
-| Mobile Browsers | ✅ Optimized | Touch controls enabled |
+| Chrome/Edge | ? Fully Supported | Recommended |
+| Firefox | ? Fully Supported | Excellent performance |
+| Safari | ? Fully Supported | Desktop & iOS |
+| Opera | ? Fully Supported | All features work |
+| Mobile Browsers | ? Optimized | Touch controls enabled |
 
-## 🤝 Contributing
+## ?? Contributing
 
 Contributions are welcome! Here's how you can help:
 
 ### Ways to Contribute
-- 🐛 Report bugs
-- 💡 Suggest new games or features
-- 🎨 Improve UI/UX
-- 📝 Enhance documentation
-- 🔧 Fix issues
-- ➕ Add new games
+- ?? Report bugs
+- ?? Suggest new games or features
+- ?? Improve UI/UX
+- ?? Enhance documentation
+- ?? Fix issues
+- ? Add new games
 
 ### Development Guidelines
 
@@ -428,7 +428,7 @@ git push origin feature/new-game-name
 - Comment complex logic
 - Test on multiple browsers
 
-## 🎯 Future Roadmap
+## ?? Future Roadmap
 
 ### Planned Features
 - [ ] Sound effects and background music toggle
@@ -442,12 +442,12 @@ git push origin feature/new-game-name
 - [ ] Social sharing integration
 
 ### Planned Games
-- 🃏 Spider Solitaire
-- 🎮 More classic arcade games
-- 🎯 More puzzle variations
-- 🎲 More dice/card games
+- ?? Spider Solitaire
+- ?? More classic arcade games
+- ?? More puzzle variations
+- ?? More dice/card games
 
-## 📄 License
+## ?? License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
@@ -467,27 +467,27 @@ The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 ```
 
-## 👨‍💻 Author
+## ????? Author
 
 **ThanhNguyxn**
 - GitHub: [@ThanhNguyxn](https://github.com/ThanhNguyxn)
 - Portfolio: [View Projects](https://github.com/ThanhNguyxn?tab=repositories)
 
-## 🙏 Acknowledgments
+## ?? Acknowledgments
 
 - Classic game developers who created these timeless originals
 - Open-source community for inspiration and resources
 - All contributors and players who support this project
 - MDN Web Docs for excellent JavaScript documentation
 
-## 📞 Support & Contact
+## ?? Support & Contact
 
-- 🐛 **Bug Reports:** [Create an Issue](https://github.com/ThanhNguyxn/Source-game/issues/new)
-- 💡 **Feature Requests:** [Submit an Idea](https://github.com/ThanhNguyxn/Source-game/issues/new)
-- ⭐ **Star this repo** if you find it useful!
-- 🔄 **Fork and contribute** to make it even better!
+- ?? **Bug Reports:** [Create an Issue](https://github.com/ThanhNguyxn/Source-game/issues/new)
+- ?? **Feature Requests:** [Submit an Idea](https://github.com/ThanhNguyxn/Source-game/issues/new)
+- ? **Star this repo** if you find it useful!
+- ?? **Fork and contribute** to make it even better!
 
-## 📈 Project Stats
+## ?? Project Stats
 
 ![GitHub stars](https://img.shields.io/github/stars/ThanhNguyxn/Source-game?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/ThanhNguyxn/Source-game?style=social)
@@ -498,11 +498,11 @@ copies or substantial portions of the Software.
 
 <div align="center">
 
-### 🎮 Happy Gaming! 🎮
+### ?? Happy Gaming! ??
 
-**Made with ❤️ and JavaScript**
+**Made with ?? and JavaScript**
 
-[⬆ Back to Top](#-classic-games-collection)
+[? Back to Top](#-classic-games-collection)
 
 </div>
 
