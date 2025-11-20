@@ -1,178 +1,244 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
-canvas.width = 400;
+canvas.width = 600;
 canvas.height = 600;
 
 let gameRunning = false;
 let paused = false;
 let gameStarted = false;
-let score = 0;
-let height = 0;
-let perfectCount = 0;
+let placedPieces = 0;
+let totalPieces = 16;
+let startTime = 0;
+let timer = null;
 
-let currentBlock = null;
-let stackedBlocks = [];
-let movingDirection = 1;
-let blockSpeed = 3;
+const GRID = 4; // 4x4 puzzle
+const PIECE_SIZE = canvas.width / GRID;
+let pieces = [];
+let draggedPiece = null;
+let offsetX = 0;
+let offsetY = 0;
 
-const BLOCK_HEIGHT = 30;
-const INITIAL_WIDTH = 200;
+function generatePuzzle() {
+    pieces = [];
 
-function createBlock() {
-    const lastBlock = stackedBlocks[stackedBlocks.length - 1];
-    const startX = movingDirection > 0 ? 0 : canvas.width;
+    // Create pieces with gradient pattern
+    for (let row = 0; row < GRID; row++) {
+        for (let col = 0; col < GRID; col++) {
+            pieces.push({
+                id: row * GRID + col,
+                targetRow: row,
+                targetCol: col,
+                currentX: Math.random() * (canvas.width - PIECE_SIZE),
+                currentY: Math.random() * (canvas.height - PIECE_SIZE),
+                placed: false,
+                color: `hsl(${(row * GRID + col) * (360 / totalPieces)}, 70%, 60%)`
+            });
+        }
+    }
 
-    currentBlock = {
-        x: startX,
-        y: canvas.height - (stackedBlocks.length + 1) * BLOCK_HEIGHT - 50,
-        width: lastBlock ? lastBlock.width : INITIAL_WIDTH,
-        height: BLOCK_HEIGHT,
-        color: `hsl(${(stackedBlocks.length * 30) % 360}, 70%, 60%)`
-    };
+    // Shuffle pieces
+    pieces.sort(() => Math.random() - 0.5);
 }
 
-function drawBlock(block) {
-    ctx.fillStyle = block.color;
-    ctx.fillRect(block.x, block.y, block.width, block.height);
+function drawPiece(piece) {
+    const x = piece.placed ? piece.targetCol * PIECE_SIZE : piece.currentX;
+    const y = piece.placed ? piece.targetRow * PIECE_SIZE : piece.currentY;
 
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.3)';
-    ctx.lineWidth = 2;
-    ctx.strokeRect(block.x, block.y, block.width, block.height);
+    // Create gradient for piece
+    const gradient = ctx.createLinearGradient(x, y, x + PIECE_SIZE, y + PIECE_SIZE);
+    gradient.addColorStop(0, piece.color);
+    gradient.addColorStop(1, adjustColor(piece.color, -20));
+
+    ctx.fillStyle = gradient;
+    ctx.fillRect(x + 2, y + 2, PIECE_SIZE - 4, PIECE_SIZE - 4);
+
+    // Border
+    ctx.strokeStyle = piece.placed ? '#00ff00' : '#333';
+    ctx.lineWidth = piece.placed ? 3 : 2;
+    ctx.strokeRect(x + 2, y + 2, PIECE_SIZE - 4, PIECE_SIZE - 4);
+
+    // Number (for debugging, can remove)
+    if (!piece.placed) {
+        ctx.fillStyle = '#fff';
+        ctx.font = 'bold 20px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(piece.id + 1, x + PIECE_SIZE / 2, y + PIECE_SIZE / 2);
+    }
+
+    // Highlight
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+    ctx.fillRect(x + 5, y + 5, PIECE_SIZE / 2, PIECE_SIZE / 4);
+}
+
+function adjustColor(color, amount) {
+    const hsl = color.match(/\d+/g);
+    const l = Math.max(0, Math.min(100, parseInt(hsl[2]) + amount));
+    return `hsl(${hsl[0]}, ${hsl[1]}%, ${l}%)`;
+}
+
+function drawBoard() {
+    // Draw target grid
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+    ctx.lineWidth = 1;
+    for (let i = 0; i <= GRID; i++) {
+        ctx.beginPath();
+        ctx.moveTo(i * PIECE_SIZE, 0);
+        ctx.lineTo(i * PIECE_SIZE, canvas.height);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(0, i * PIECE_SIZE);
+        ctx.lineTo(canvas.width, i * PIECE_SIZE);
+        ctx.stroke();
+    }
 }
 
 function draw() {
-    // Sky gradient
-    const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-    gradient.addColorStop(0, '#87CEEB');
-    gradient.addColorStop(1, '#E0F6FF');
-    ctx.fillStyle = gradient;
+    // Background
+    const bgGradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    bgGradient.addColorStop(0, '#2c3e50');
+    bgGradient.addColorStop(1, '#34495e');
+    ctx.fillStyle = bgGradient;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Draw ground
-    ctx.fillStyle = '#8b4513';
-    ctx.fillRect(0, canvas.height - 30, canvas.width, 30);
+    drawBoard();
 
-    // Draw stacked blocks
-    stackedBlocks.forEach(block => drawBlock(block));
+    // Draw placed pieces first
+    pieces.filter(p => p.placed).forEach(piece => drawPiece(piece));
 
-    // Draw current moving block
-    if (currentBlock) {
-        drawBlock(currentBlock);
-    }
+    // Draw unplaced pieces
+    pieces.filter(p => !p.placed && p !== draggedPiece).forEach(piece => drawPiece(piece));
 
-    // Draw score
-    ctx.fillStyle = '#333';
-    ctx.font = 'bold 20px Arial';
-    ctx.textAlign = 'left';
-    ctx.fillText(`Score: ${score}`, 10, 30);
-    ctx.fillText(`Height: ${height}`, 10, 55);
-}
-
-function update() {
-    if (!gameRunning || paused || !currentBlock) return;
-
-    currentBlock.x += blockSpeed * movingDirection;
-
-    // Bounce at edges
-    if (currentBlock.x <= 0 || currentBlock.x + currentBlock.width >= canvas.width) {
-        movingDirection *= -1;
+    // Draw dragged piece last (on top)
+    if (draggedPiece) {
+        drawPiece(draggedPiece);
     }
 }
 
-function dropBlock() {
-    if (!currentBlock || !gameRunning) return;
+function getPieceAt(x, y) {
+    // Check from top to bottom (reverse order)
+    for (let i = pieces.length - 1; i >= 0; i--) {
+        const piece = pieces[i];
+        if (piece.placed) continue;
 
-    const lastBlock = stackedBlocks[stackedBlocks.length - 1];
+        const px = piece.currentX;
+        const py = piece.currentY;
 
-    if (!lastBlock) {
-        // First block
-        stackedBlocks.push({...currentBlock});
-        height++;
-        score += 10;
-        movingDirection *= -1;
-        createBlock();
-    } else {
-        // Check overlap
-        const overlapLeft = Math.max(currentBlock.x, lastBlock.x);
-        const overlapRight = Math.min(currentBlock.x + currentBlock.width, lastBlock.x + lastBlock.width);
-        const overlapWidth = overlapRight - overlapLeft;
-
-        if (overlapWidth <= 0) {
-            // Miss - Game Over
-            gameOver();
-            return;
+        if (x >= px && x <= px + PIECE_SIZE && y >= py && y <= py + PIECE_SIZE) {
+            return piece;
         }
-
-        // Check for perfect drop
-        const tolerance = 5;
-        const isPerfect = Math.abs(currentBlock.x - lastBlock.x) <= tolerance;
-
-        if (isPerfect) {
-            perfectCount++;
-            score += 20; // Bonus for perfect
-        } else {
-            score += 10;
-        }
-
-        // Create new block with overlap width
-        const newBlock = {
-            x: overlapLeft,
-            y: currentBlock.y,
-            width: overlapWidth,
-            height: BLOCK_HEIGHT,
-            color: currentBlock.color
-        };
-
-        stackedBlocks.push(newBlock);
-        height++;
-
-        // Increase difficulty
-        if (height % 5 === 0) {
-            blockSpeed += 0.5;
-        }
-
-        // Scroll down if too high
-        if (stackedBlocks.length > 15) {
-            stackedBlocks.shift();
-            stackedBlocks.forEach(block => block.y += BLOCK_HEIGHT);
-        }
-
-        movingDirection *= -1;
-        createBlock();
     }
+    return null;
+}
 
-    updateDisplay();
+function snapToGrid(piece) {
+    const targetX = piece.targetCol * PIECE_SIZE;
+    const targetY = piece.targetRow * PIECE_SIZE;
+
+    const dx = piece.currentX - targetX;
+    const dy = piece.currentY - targetY;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    if (distance < PIECE_SIZE / 2) {
+        piece.placed = true;
+        placedPieces++;
+        updateDisplay();
+
+        if (placedPieces === totalPieces) {
+            setTimeout(puzzleComplete, 500);
+        }
+        return true;
+    }
+    return false;
+}
+
+canvas.addEventListener('mousedown', (e) => {
+    if (!gameRunning || paused) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+
+    const x = (e.clientX - rect.left) * scaleX;
+    const y = (e.clientY - rect.top) * scaleY;
+
+    draggedPiece = getPieceAt(x, y);
+    if (draggedPiece) {
+        offsetX = x - draggedPiece.currentX;
+        offsetY = y - draggedPiece.currentY;
+
+        // Move to end of array (draw on top)
+        pieces = pieces.filter(p => p !== draggedPiece);
+        pieces.push(draggedPiece);
+    }
+});
+
+canvas.addEventListener('mousemove', (e) => {
+    if (!draggedPiece || !gameRunning || paused) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+
+    const x = (e.clientX - rect.left) * scaleX;
+    const y = (e.clientY - rect.top) * scaleY;
+
+    draggedPiece.currentX = Math.max(0, Math.min(canvas.width - PIECE_SIZE, x - offsetX));
+    draggedPiece.currentY = Math.max(0, Math.min(canvas.height - PIECE_SIZE, y - offsetY));
+
+    draw();
+});
+
+canvas.addEventListener('mouseup', () => {
+    if (!draggedPiece) return;
+
+    snapToGrid(draggedPiece);
+    draggedPiece = null;
+    draw();
+});
+
+canvas.addEventListener('mouseleave', () => {
+    if (draggedPiece) {
+        snapToGrid(draggedPiece);
+        draggedPiece = null;
+        draw();
+    }
+});
+
+function updateTimer() {
+    if (!gameRunning || paused) return;
+
+    const elapsed = Math.floor((Date.now() - startTime) / 1000);
+    const minutes = Math.floor(elapsed / 60);
+    const seconds = elapsed % 60;
+    document.getElementById('level').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
 }
 
 function updateDisplay() {
-    document.getElementById('score').textContent = score;
-    document.getElementById('height').textContent = height;
-    document.getElementById('perfect').textContent = perfectCount;
+    document.getElementById('score').textContent = `${placedPieces}/${totalPieces}`;
 }
 
-function gameOver() {
+function puzzleComplete() {
     gameRunning = false;
+    clearInterval(timer);
 
-    document.getElementById('finalScore').textContent = score;
-    document.getElementById('finalHeight').textContent = height;
-    document.getElementById('finalPerfect').textContent = perfectCount;
+    const elapsed = Math.floor((Date.now() - startTime) / 1000);
+    const minutes = Math.floor(elapsed / 60);
+    const seconds = elapsed % 60;
+
+    document.getElementById('finalTime').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
     document.getElementById('gameOver').classList.remove('hidden');
 }
 
 function gameLoop() {
-    update();
-    draw();
+    if (gameRunning && !paused) {
+        draw();
+    }
     requestAnimationFrame(gameLoop);
 }
 
-canvas.addEventListener('click', dropBlock);
-
 window.addEventListener('keydown', (e) => {
-    if (e.key === ' ') {
-        e.preventDefault();
-        dropBlock();
-    }
-
     if (e.key === 'p' || e.key === 'P') {
         e.preventDefault();
         paused = !paused;
@@ -187,23 +253,12 @@ document.getElementById('startBtn').addEventListener('click', () => {
         document.getElementById('instructions').classList.add('hidden');
         document.getElementById('pauseBtn').disabled = false;
 
-        score = 0;
-        height = 0;
-        perfectCount = 0;
-        stackedBlocks = [];
-        blockSpeed = 3;
-        movingDirection = 1;
+        placedPieces = 0;
+        generatePuzzle();
 
-        // Create base block
-        stackedBlocks.push({
-            x: canvas.width / 2 - INITIAL_WIDTH / 2,
-            y: canvas.height - 80,
-            width: INITIAL_WIDTH,
-            height: BLOCK_HEIGHT,
-            color: 'hsl(0, 70%, 60%)'
-        });
+        startTime = Date.now();
+        timer = setInterval(updateTimer, 1000);
 
-        createBlock();
         updateDisplay();
         gameLoop();
     }
@@ -215,24 +270,16 @@ document.getElementById('pauseBtn').addEventListener('click', () => {
 });
 
 document.getElementById('restartBtn').addEventListener('click', () => {
-    score = 0;
-    height = 0;
-    perfectCount = 0;
-    stackedBlocks = [];
-    blockSpeed = 3;
-    movingDirection = 1;
+    placedPieces = 0;
     gameRunning = true;
     paused = false;
+    draggedPiece = null;
 
-    stackedBlocks.push({
-        x: canvas.width / 2 - INITIAL_WIDTH / 2,
-        y: canvas.height - 80,
-        width: INITIAL_WIDTH,
-        height: BLOCK_HEIGHT,
-        color: 'hsl(0, 70%, 60%)'
-    });
+    generatePuzzle();
 
-    createBlock();
+    startTime = Date.now();
+    timer = setInterval(updateTimer, 1000);
+
     document.getElementById('gameOver').classList.add('hidden');
     updateDisplay();
 });
