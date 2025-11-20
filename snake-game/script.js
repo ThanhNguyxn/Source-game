@@ -1,4 +1,4 @@
-﻿const modeSelector = document.getElementById('modeSelector');
+﻿﻿const modeSelector = document.getElementById('modeSelector');
 const gameArea = document.getElementById('gameArea');
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
@@ -28,9 +28,9 @@ highScoreElement.textContent = highScore;
 
 // Difficulty settings
 const difficultySettings = {
-    easy: { speed: 150, obstacles: false, name: 'Easy' },
-    medium: { speed: 100, obstacles: false, name: 'Medium' },
-    hard: { speed: 60, obstacles: false, name: 'Hard' },
+    easy: { speed: 200, obstacles: false, name: 'Easy' },
+    medium: { speed: 130, obstacles: false, name: 'Medium' },
+    hard: { speed: 80, obstacles: false, name: 'Hard' },
     extreme: { speed: 60, obstacles: true, name: 'Extreme' }
 };
 
