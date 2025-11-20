@@ -46,13 +46,6 @@ Total Files: 165
 🎮 AI Opponents in Multiple Games
 ```
 
-## 🎮 Complete Game Library (65+ Games)
-
-### 🕹️ Arcade Classics (26 Games)
-💾 LocalStorage for High Scores
-🌍 100% English Interface
-🎮 AI Opponents in Multiple Games
-```
 
 ## 🎮 Complete Game Library (55 Games)
 
