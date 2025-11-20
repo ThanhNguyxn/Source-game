@@ -1,163 +1,256 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
-canvas.width = 400;
+canvas.width = 600;
 canvas.height = 600;
 
 let gameRunning = false;
 let paused = false;
 let gameStarted = false;
 let score = 0;
-let height = 0;
-let perfectCount = 0;
+let combo = 1;
+let maxCombo = 1;
+let lives = 3;
 
-let currentBlock = null;
-let stackedBlocks = [];
-let movingDirection = 1;
-let blockSpeed = 3;
+let fruits = [];
+let slashTrail = [];
+let particles = [];
 
-const BLOCK_HEIGHT = 30;
-const INITIAL_WIDTH = 200;
+const FRUIT_TYPES = [
+    { emoji: '🍎', color: '#ff0000', points: 10 },
+    { emoji: '🍊', color: '#ff8800', points: 10 },
+    { emoji: '🍋', color: '#ffff00', points: 10 },
+    { emoji: '🍉', color: '#00ff00', points: 15 },
+    { emoji: '🍇', color: '#9900ff', points: 15 },
+    { emoji: '💣', color: '#333', points: -50, isBomb: true }
+];
 
-function createBlock() {
-    const lastBlock = stackedBlocks[stackedBlocks.length - 1];
-    const startX = movingDirection > 0 ? 0 : canvas.width;
+function createFruit() {
+    const type = FRUIT_TYPES[Math.floor(Math.random() * FRUIT_TYPES.length)];
+    const x = 50 + Math.random() * (canvas.width - 100);
+    const velocityX = (Math.random() - 0.5) * 8;
+    const velocityY = -10 - Math.random() * 5;
 
-    currentBlock = {
-        x: startX,
-        y: canvas.height - (stackedBlocks.length + 1) * BLOCK_HEIGHT - 50,
-        width: lastBlock ? lastBlock.width : INITIAL_WIDTH,
-        height: BLOCK_HEIGHT,
-        color: `hsl(${(stackedBlocks.length * 30) % 360}, 70%, 60%)`
-    };
+    fruits.push({
+        x: x,
+        y: canvas.height,
+        velocityX: velocityX,
+        velocityY: velocityY,
+        rotation: 0,
+        rotationSpeed: (Math.random() - 0.5) * 0.2,
+        type: type,
+        sliced: false,
+        size: 30
+    });
 }
 
-function drawBlock(block) {
-    ctx.fillStyle = block.color;
-    ctx.fillRect(block.x, block.y, block.width, block.height);
+function drawFruit(fruit) {
+    if (fruit.sliced) return;
 
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.3)';
-    ctx.lineWidth = 2;
-    ctx.strokeRect(block.x, block.y, block.width, block.height);
+    ctx.save();
+    ctx.translate(fruit.x, fruit.y);
+    ctx.rotate(fruit.rotation);
+
+    // Draw fruit
+    ctx.font = `${fruit.size * 2}px Arial`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(fruit.type.emoji, 0, 0);
+
+    ctx.restore();
+}
+
+function drawSlashTrail() {
+    if (slashTrail.length < 2) return;
+
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+    ctx.lineWidth = 5;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+
+    ctx.beginPath();
+    ctx.moveTo(slashTrail[0].x, slashTrail[0].y);
+
+    for (let i = 1; i < slashTrail.length; i++) {
+        ctx.lineTo(slashTrail[i].x, slashTrail[i].y);
+    }
+
+    ctx.stroke();
+}
+
+function drawParticles() {
+    particles.forEach((p, idx) => {
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = p.life / p.maxLife;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalAlpha = 1;
+
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.3; // gravity
+        p.life--;
+
+        if (p.life <= 0) particles.splice(idx, 1);
+    });
+}
+
+function createParticles(x, y, color, count = 10) {
+    for (let i = 0; i < count; i++) {
+        particles.push({
+            x: x,
+            y: y,
+            vx: (Math.random() - 0.5) * 10,
+            vy: (Math.random() - 0.5) * 10,
+            color: color,
+            size: 3 + Math.random() * 3,
+            life: 30,
+            maxLife: 30
+        });
+    }
 }
 
 function draw() {
-    // Sky gradient
+    // Background gradient
     const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-    gradient.addColorStop(0, '#87CEEB');
-    gradient.addColorStop(1, '#E0F6FF');
+    gradient.addColorStop(0, '#1a1a2e');
+    gradient.addColorStop(1, '#16213e');
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Draw ground
-    ctx.fillStyle = '#8b4513';
-    ctx.fillRect(0, canvas.height - 30, canvas.width, 30);
+    fruits.forEach(fruit => drawFruit(fruit));
+    drawParticles();
+    drawSlashTrail();
 
-    // Draw stacked blocks
-    stackedBlocks.forEach(block => drawBlock(block));
-
-    // Draw current moving block
-    if (currentBlock) {
-        drawBlock(currentBlock);
+    // Combo display
+    if (combo > 1) {
+        ctx.fillStyle = '#ffd700';
+        ctx.font = 'bold 40px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText(`x${combo} COMBO!`, canvas.width / 2, 80);
     }
-
-    // Draw score
-    ctx.fillStyle = '#333';
-    ctx.font = 'bold 20px Arial';
-    ctx.textAlign = 'left';
-    ctx.fillText(`Score: ${score}`, 10, 30);
-    ctx.fillText(`Height: ${height}`, 10, 55);
 }
 
 function update() {
-    if (!gameRunning || paused || !currentBlock) return;
+    if (!gameRunning || paused) return;
 
-    currentBlock.x += blockSpeed * movingDirection;
-
-    // Bounce at edges
-    if (currentBlock.x <= 0 || currentBlock.x + currentBlock.width >= canvas.width) {
-        movingDirection *= -1;
-    }
-}
-
-function dropBlock() {
-    if (!currentBlock || !gameRunning) return;
-
-    const lastBlock = stackedBlocks[stackedBlocks.length - 1];
-
-    if (!lastBlock) {
-        // First block
-        stackedBlocks.push({...currentBlock});
-        height++;
-        score += 10;
-        movingDirection *= -1;
-        createBlock();
-    } else {
-        // Check overlap
-        const overlapLeft = Math.max(currentBlock.x, lastBlock.x);
-        const overlapRight = Math.min(currentBlock.x + currentBlock.width, lastBlock.x + lastBlock.width);
-        const overlapWidth = overlapRight - overlapLeft;
-
-        if (overlapWidth <= 0) {
-            // Miss - Game Over
-            gameOver();
-            return;
-        }
-
-        // Check for perfect drop
-        const tolerance = 5;
-        const isPerfect = Math.abs(currentBlock.x - lastBlock.x) <= tolerance;
-
-        if (isPerfect) {
-            perfectCount++;
-            score += 20; // Bonus for perfect
-        } else {
-            score += 10;
-        }
-
-        // Create new block with overlap width
-        const newBlock = {
-            x: overlapLeft,
-            y: currentBlock.y,
-            width: overlapWidth,
-            height: BLOCK_HEIGHT,
-            color: currentBlock.color
-        };
-
-        stackedBlocks.push(newBlock);
-        height++;
-
-        // Increase difficulty
-        if (height % 5 === 0) {
-            blockSpeed += 0.5;
-        }
-
-        // Scroll down if too high
-        if (stackedBlocks.length > 15) {
-            stackedBlocks.shift();
-            stackedBlocks.forEach(block => block.y += BLOCK_HEIGHT);
-        }
-
-        movingDirection *= -1;
-        createBlock();
+    // Spawn fruits
+    if (Math.random() < 0.02) {
+        createFruit();
     }
 
-    updateDisplay();
+    // Update fruits
+    fruits.forEach((fruit, idx) => {
+        fruit.velocityY += 0.4; // gravity
+        fruit.x += fruit.velocityX;
+        fruit.y += fruit.velocityY;
+        fruit.rotation += fruit.rotationSpeed;
+
+        // Remove if off screen
+        if (fruit.y > canvas.height + 50 || fruit.x < -50 || fruit.x > canvas.width + 50) {
+            if (!fruit.sliced && !fruit.type.isBomb) {
+                lives--;
+                combo = 1;
+                updateDisplay();
+
+                if (lives <= 0) {
+                    gameOver();
+                }
+            }
+            fruits.splice(idx, 1);
+        }
+    });
+
+    // Fade slash trail
+    slashTrail.forEach((point, idx) => {
+        point.life--;
+        if (point.life <= 0) {
+            slashTrail.splice(idx, 1);
+        }
+    });
 }
 
-function updateDisplay() {
-    document.getElementById('score').textContent = score;
-    document.getElementById('height').textContent = height;
-    document.getElementById('perfect').textContent = perfectCount;
+function checkSlash(x, y) {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+
+    const canvasX = (x - rect.left) * scaleX;
+    const canvasY = (y - rect.top) * scaleY;
+
+    fruits.forEach((fruit, idx) => {
+        if (fruit.sliced) return;
+
+        const dist = Math.sqrt(
+            Math.pow(canvasX - fruit.x, 2) +
+            Math.pow(canvasY - fruit.y, 2)
+        );
+
+        if (dist < fruit.size) {
+            fruit.sliced = true;
+
+            if (fruit.type.isBomb) {
+                // Hit bomb - lose life
+                lives--;
+                combo = 1;
+                createParticles(fruit.x, fruit.y, '#ff0000', 20);
+
+                if (lives <= 0) {
+                    gameOver();
+                }
+            } else {
+                // Sliced fruit
+                score += fruit.type.points * combo;
+                combo = Math.min(combo + 1, 10);
+                maxCombo = Math.max(maxCombo, combo);
+                createParticles(fruit.x, fruit.y, fruit.type.color, 15);
+            }
+
+            fruits.splice(idx, 1);
+            updateDisplay();
+        }
+    });
 }
 
-function gameOver() {
-    gameRunning = false;
+let isSlashing = false;
+let lastSlashTime = 0;
 
-    document.getElementById('finalScore').textContent = score;
-    document.getElementById('finalHeight').textContent = height;
-    document.getElementById('finalPerfect').textContent = perfectCount;
-    document.getElementById('gameOver').classList.remove('hidden');
-}
+canvas.addEventListener('mousedown', (e) => {
+    if (!gameRunning || paused) return;
+    isSlashing = true;
+    slashTrail = [];
+    lastSlashTime = Date.now();
+});
+
+canvas.addEventListener('mousemove', (e) => {
+    if (!isSlashing || !gameRunning || paused) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+
+    const x = (e.clientX - rect.left) * scaleX;
+    const y = (e.clientY - rect.top) * scaleY;
+
+    slashTrail.push({ x, y, life: 10 });
+
+    if (slashTrail.length > 20) slashTrail.shift();
+
+    checkSlash(e.clientX, e.clientY);
+});
+
+canvas.addEventListener('mouseup', () => {
+    isSlashing = false;
+
+    // Reset combo if no slash for 2 seconds
+    if (Date.now() - lastSlashTime > 2000) {
+        combo = 1;
+    }
+});
+
+canvas.addEventListener('mouseleave', () => {
+    isSlashing = false;
+});
 
 function gameLoop() {
     update();
@@ -165,14 +258,21 @@ function gameLoop() {
     requestAnimationFrame(gameLoop);
 }
 
-canvas.addEventListener('click', dropBlock);
+function updateDisplay() {
+    document.getElementById('score').textContent = score;
+    document.getElementById('level').textContent = 'x' + combo;
+    document.getElementById('target').textContent = lives;
+}
+
+function gameOver() {
+    gameRunning = false;
+
+    document.getElementById('finalScore').textContent = score;
+    document.getElementById('finalCombo').textContent = 'x' + maxCombo;
+    document.getElementById('gameOver').classList.remove('hidden');
+}
 
 window.addEventListener('keydown', (e) => {
-    if (e.key === ' ') {
-        e.preventDefault();
-        dropBlock();
-    }
-
     if (e.key === 'p' || e.key === 'P') {
         e.preventDefault();
         paused = !paused;
@@ -188,22 +288,13 @@ document.getElementById('startBtn').addEventListener('click', () => {
         document.getElementById('pauseBtn').disabled = false;
 
         score = 0;
-        height = 0;
-        perfectCount = 0;
-        stackedBlocks = [];
-        blockSpeed = 3;
-        movingDirection = 1;
+        combo = 1;
+        maxCombo = 1;
+        lives = 3;
+        fruits = [];
+        slashTrail = [];
+        particles = [];
 
-        // Create base block
-        stackedBlocks.push({
-            x: canvas.width / 2 - INITIAL_WIDTH / 2,
-            y: canvas.height - 80,
-            width: INITIAL_WIDTH,
-            height: BLOCK_HEIGHT,
-            color: 'hsl(0, 70%, 60%)'
-        });
-
-        createBlock();
         updateDisplay();
         gameLoop();
     }
@@ -216,23 +307,15 @@ document.getElementById('pauseBtn').addEventListener('click', () => {
 
 document.getElementById('restartBtn').addEventListener('click', () => {
     score = 0;
-    height = 0;
-    perfectCount = 0;
-    stackedBlocks = [];
-    blockSpeed = 3;
-    movingDirection = 1;
+    combo = 1;
+    maxCombo = 1;
+    lives = 3;
+    fruits = [];
+    slashTrail = [];
+    particles = [];
     gameRunning = true;
     paused = false;
 
-    stackedBlocks.push({
-        x: canvas.width / 2 - INITIAL_WIDTH / 2,
-        y: canvas.height - 80,
-        width: INITIAL_WIDTH,
-        height: BLOCK_HEIGHT,
-        color: 'hsl(0, 70%, 60%)'
-    });
-
-    createBlock();
     document.getElementById('gameOver').classList.add('hidden');
     updateDisplay();
 });
