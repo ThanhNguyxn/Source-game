@@ -3,36 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stack Tower - Balance Game</title>
+    <title>Brick Blast - Match & Blast</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="game-container">
         <div class="header">
-            <h1>🏗️ Stack Tower</h1>
+            <h1>🧱 Brick Blast</h1>
             <div class="info">
                 <div class="info-item">
                     <span class="label">Score:</span>
                     <span id="score">0</span>
                 </div>
                 <div class="info-item">
-                    <span class="label">Height:</span>
-                    <span id="height">0</span>
+                    <span class="label">Moves:</span>
+                    <span id="level">20</span>
                 </div>
                 <div class="info-item">
-                    <span class="label">Perfect:</span>
-                    <span id="perfect">0</span>
+                    <span class="label">Target:</span>
+                    <span id="target">500</span>
                 </div>
             </div>
         </div>
 
         <div class="instructions" id="instructions">
             <h2>📖 How to Play</h2>
-            <p><strong>Click or Space:</strong> Drop the block</p>
-            <p>Stack blocks perfectly to build the tallest tower!</p>
-            <p><strong>Perfect placement:</strong> +10 bonus points!</p>
-            <p><strong>Miss:</strong> Game Over!</p>
-            <button id="startBtn" class="btn">▶️ Start Building</button>
+            <p><strong>Click</strong> on groups of 2+ matching bricks</p>
+            <p>Larger groups = more points!</p>
+            <p>Reach the target score before moves run out</p>
+            <p><strong>P:</strong> Pause game</p>
+            <button id="startBtn" class="btn">▶️ Start Blasting</button>
         </div>
 
         <canvas id="gameCanvas"></canvas>
@@ -42,11 +42,10 @@
         </div>
 
         <div id="gameOver" class="game-over hidden">
-            <h2>Tower Collapsed!</h2>
+            <h2 id="resultTitle">Game Over!</h2>
             <p>Final Score: <span id="finalScore">0</span></p>
-            <p>Height: <span id="finalHeight">0</span> blocks</p>
-            <p>Perfect Drops: <span id="finalPerfect">0</span></p>
-            <button id="restartBtn" class="btn">🔄 Build Again</button>
+            <p>Largest Blast: <span id="finalBlast">0</span> bricks</p>
+            <button id="restartBtn" class="btn">🔄 Play Again</button>
         </div>
     </div>
 

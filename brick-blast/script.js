@@ -1,178 +1,271 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
-canvas.width = 400;
-canvas.height = 600;
+canvas.width = 500;
+canvas.height = 700;
+
+const ROWS = 14;
+const COLS = 10;
+const BRICK_SIZE = canvas.width / COLS;
+const COLORS = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#f9ca24', '#6c5ce7', '#fd79a8'];
 
 let gameRunning = false;
 let paused = false;
 let gameStarted = false;
 let score = 0;
-let height = 0;
-let perfectCount = 0;
+let moves = 20;
+let target = 500;
+let largestBlast = 0;
 
-let currentBlock = null;
-let stackedBlocks = [];
-let movingDirection = 1;
-let blockSpeed = 3;
+let grid = [];
+let selectedGroup = [];
 
-const BLOCK_HEIGHT = 30;
-const INITIAL_WIDTH = 200;
-
-function createBlock() {
-    const lastBlock = stackedBlocks[stackedBlocks.length - 1];
-    const startX = movingDirection > 0 ? 0 : canvas.width;
-
-    currentBlock = {
-        x: startX,
-        y: canvas.height - (stackedBlocks.length + 1) * BLOCK_HEIGHT - 50,
-        width: lastBlock ? lastBlock.width : INITIAL_WIDTH,
-        height: BLOCK_HEIGHT,
-        color: `hsl(${(stackedBlocks.length * 30) % 360}, 70%, 60%)`
-    };
+function initGrid() {
+    grid = [];
+    for (let row = 0; row < ROWS; row++) {
+        grid[row] = [];
+        for (let col = 0; col < COLS; col++) {
+            grid[row][col] = {
+                color: COLORS[Math.floor(Math.random() * COLORS.length)],
+                removing: false
+            };
+        }
+    }
 }
 
-function drawBlock(block) {
-    ctx.fillStyle = block.color;
-    ctx.fillRect(block.x, block.y, block.width, block.height);
+function drawBrick(row, col) {
+    const brick = grid[row][col];
+    if (!brick || brick.removing) return;
 
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.3)';
-    ctx.lineWidth = 2;
-    ctx.strokeRect(block.x, block.y, block.width, block.height);
+    const x = col * BRICK_SIZE;
+    const y = row * BRICK_SIZE;
+
+    // Check if in selected group
+    const isSelected = selectedGroup.some(b => b.row === row && b.col === col);
+
+    ctx.fillStyle = brick.color;
+    ctx.fillRect(x + 2, y + 2, BRICK_SIZE - 4, BRICK_SIZE - 4);
+
+    // Highlight
+    if (isSelected) {
+        ctx.strokeStyle = '#fff';
+        ctx.lineWidth = 4;
+        ctx.strokeRect(x + 2, y + 2, BRICK_SIZE - 4, BRICK_SIZE - 4);
+    }
+
+    // Shine effect
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+    ctx.fillRect(x + 4, y + 4, BRICK_SIZE - 12, BRICK_SIZE / 3);
 }
 
 function draw() {
-    // Sky gradient
-    const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-    gradient.addColorStop(0, '#87CEEB');
-    gradient.addColorStop(1, '#E0F6FF');
-    ctx.fillStyle = gradient;
+    ctx.fillStyle = '#2d3436';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Draw ground
-    ctx.fillStyle = '#8b4513';
-    ctx.fillRect(0, canvas.height - 30, canvas.width, 30);
-
-    // Draw stacked blocks
-    stackedBlocks.forEach(block => drawBlock(block));
-
-    // Draw current moving block
-    if (currentBlock) {
-        drawBlock(currentBlock);
+    for (let row = 0; row < ROWS; row++) {
+        for (let col = 0; col < COLS; col++) {
+            drawBrick(row, col);
+        }
     }
 
-    // Draw score
-    ctx.fillStyle = '#333';
-    ctx.font = 'bold 20px Arial';
-    ctx.textAlign = 'left';
-    ctx.fillText(`Score: ${score}`, 10, 30);
-    ctx.fillText(`Height: ${height}`, 10, 55);
-}
-
-function update() {
-    if (!gameRunning || paused || !currentBlock) return;
-
-    currentBlock.x += blockSpeed * movingDirection;
-
-    // Bounce at edges
-    if (currentBlock.x <= 0 || currentBlock.x + currentBlock.width >= canvas.width) {
-        movingDirection *= -1;
+    // Selected group count
+    if (selectedGroup.length > 1) {
+        ctx.fillStyle = '#fff';
+        ctx.font = 'bold 30px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText(`${selectedGroup.length} bricks`, canvas.width / 2, 50);
+        ctx.font = '20px Arial';
+        ctx.fillText(`${calculatePoints(selectedGroup.length)} points`, canvas.width / 2, 80);
     }
 }
 
-function dropBlock() {
-    if (!currentBlock || !gameRunning) return;
+function findGroup(startRow, startCol) {
+    const color = grid[startRow][startCol].color;
+    const group = [];
+    const visited = new Set();
 
-    const lastBlock = stackedBlocks[stackedBlocks.length - 1];
+    function explore(row, col) {
+        const key = `${row},${col}`;
+        if (visited.has(key)) return;
+        if (row < 0 || row >= ROWS || col < 0 || col >= COLS) return;
+        if (!grid[row][col] || grid[row][col].color !== color) return;
 
-    if (!lastBlock) {
-        // First block
-        stackedBlocks.push({...currentBlock});
-        height++;
-        score += 10;
-        movingDirection *= -1;
-        createBlock();
+        visited.add(key);
+        group.push({row, col});
+
+        explore(row + 1, col);
+        explore(row - 1, col);
+        explore(row, col + 1);
+        explore(row, col - 1);
+    }
+
+    explore(startRow, startCol);
+    return group;
+}
+
+function calculatePoints(count) {
+    return count * count * 5;
+}
+
+function removeGroup(group) {
+    if (group.length < 2) return false;
+
+    const points = calculatePoints(group.length);
+    score += points;
+    moves--;
+    largestBlast = Math.max(largestBlast, group.length);
+
+    // Mark for removal
+    group.forEach(b => {
+        grid[b.row][b.col].removing = true;
+    });
+
+    setTimeout(() => {
+        // Remove bricks
+        group.forEach(b => {
+            grid[b.row][b.col] = null;
+        });
+
+        // Apply gravity
+        applyGravity();
+
+        // Check game over
+        if (moves <= 0) {
+            setTimeout(checkGameOver, 300);
+        }
+
+        updateDisplay();
+        draw();
+    }, 200);
+
+    return true;
+}
+
+function applyGravity() {
+    // Drop bricks down
+    for (let col = 0; col < COLS; col++) {
+        let emptyRow = ROWS - 1;
+
+        for (let row = ROWS - 1; row >= 0; row--) {
+            if (grid[row][col] !== null) {
+                if (row !== emptyRow) {
+                    grid[emptyRow][col] = grid[row][col];
+                    grid[row][col] = null;
+                }
+                emptyRow--;
+            }
+        }
+    }
+
+    // Shift columns left if empty
+    let writeCol = 0;
+    for (let col = 0; col < COLS; col++) {
+        let isEmpty = true;
+        for (let row = 0; row < ROWS; row++) {
+            if (grid[row][col] !== null) {
+                isEmpty = false;
+                break;
+            }
+        }
+
+        if (!isEmpty) {
+            if (col !== writeCol) {
+                for (let row = 0; row < ROWS; row++) {
+                    grid[row][writeCol] = grid[row][col];
+                    grid[row][col] = null;
+                }
+            }
+            writeCol++;
+        }
+    }
+}
+
+function hasMovesLeft() {
+    for (let row = 0; row < ROWS; row++) {
+        for (let col = 0; col < COLS; col++) {
+            if (grid[row][col]) {
+                const group = findGroup(row, col);
+                if (group.length >= 2) return true;
+            }
+        }
+    }
+    return false;
+}
+
+canvas.addEventListener('mousemove', (e) => {
+    if (!gameRunning || paused) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+
+    const x = (e.clientX - rect.left) * scaleX;
+    const y = (e.clientY - rect.top) * scaleY;
+
+    const col = Math.floor(x / BRICK_SIZE);
+    const row = Math.floor(y / BRICK_SIZE);
+
+    if (row >= 0 && row < ROWS && col >= 0 && col < COLS && grid[row][col]) {
+        selectedGroup = findGroup(row, col);
     } else {
-        // Check overlap
-        const overlapLeft = Math.max(currentBlock.x, lastBlock.x);
-        const overlapRight = Math.min(currentBlock.x + currentBlock.width, lastBlock.x + lastBlock.width);
-        const overlapWidth = overlapRight - overlapLeft;
-
-        if (overlapWidth <= 0) {
-            // Miss - Game Over
-            gameOver();
-            return;
-        }
-
-        // Check for perfect drop
-        const tolerance = 5;
-        const isPerfect = Math.abs(currentBlock.x - lastBlock.x) <= tolerance;
-
-        if (isPerfect) {
-            perfectCount++;
-            score += 20; // Bonus for perfect
-        } else {
-            score += 10;
-        }
-
-        // Create new block with overlap width
-        const newBlock = {
-            x: overlapLeft,
-            y: currentBlock.y,
-            width: overlapWidth,
-            height: BLOCK_HEIGHT,
-            color: currentBlock.color
-        };
-
-        stackedBlocks.push(newBlock);
-        height++;
-
-        // Increase difficulty
-        if (height % 5 === 0) {
-            blockSpeed += 0.5;
-        }
-
-        // Scroll down if too high
-        if (stackedBlocks.length > 15) {
-            stackedBlocks.shift();
-            stackedBlocks.forEach(block => block.y += BLOCK_HEIGHT);
-        }
-
-        movingDirection *= -1;
-        createBlock();
+        selectedGroup = [];
     }
 
-    updateDisplay();
-}
+    draw();
+});
+
+canvas.addEventListener('click', (e) => {
+    if (!gameRunning || paused) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+
+    const x = (e.clientX - rect.left) * scaleX;
+    const y = (e.clientY - rect.top) * scaleY;
+
+    const col = Math.floor(x / BRICK_SIZE);
+    const row = Math.floor(y / BRICK_SIZE);
+
+    if (row >= 0 && row < ROWS && col >= 0 && col < COLS && grid[row][col]) {
+        const group = findGroup(row, col);
+        if (removeGroup(group)) {
+            selectedGroup = [];
+            draw();
+        }
+    }
+});
+
+canvas.addEventListener('mouseleave', () => {
+    selectedGroup = [];
+    draw();
+});
 
 function updateDisplay() {
     document.getElementById('score').textContent = score;
-    document.getElementById('height').textContent = height;
-    document.getElementById('perfect').textContent = perfectCount;
+    document.getElementById('level').textContent = moves;
+    document.getElementById('target').textContent = target;
 }
 
-function gameOver() {
+function checkGameOver() {
+    const won = score >= target;
+    const hasMore = hasMovesLeft();
+
     gameRunning = false;
 
+    if (won) {
+        document.getElementById('resultTitle').textContent = '🎉 Level Complete!';
+    } else if (!hasMore) {
+        document.getElementById('resultTitle').textContent = 'No More Moves!';
+    } else {
+        document.getElementById('resultTitle').textContent = 'Out of Moves!';
+    }
+
     document.getElementById('finalScore').textContent = score;
-    document.getElementById('finalHeight').textContent = height;
-    document.getElementById('finalPerfect').textContent = perfectCount;
+    document.getElementById('finalBlast').textContent = largestBlast;
     document.getElementById('gameOver').classList.remove('hidden');
 }
 
-function gameLoop() {
-    update();
-    draw();
-    requestAnimationFrame(gameLoop);
-}
-
-canvas.addEventListener('click', dropBlock);
-
 window.addEventListener('keydown', (e) => {
-    if (e.key === ' ') {
-        e.preventDefault();
-        dropBlock();
-    }
-
     if (e.key === 'p' || e.key === 'P') {
         e.preventDefault();
         paused = !paused;
@@ -188,24 +281,14 @@ document.getElementById('startBtn').addEventListener('click', () => {
         document.getElementById('pauseBtn').disabled = false;
 
         score = 0;
-        height = 0;
-        perfectCount = 0;
-        stackedBlocks = [];
-        blockSpeed = 3;
-        movingDirection = 1;
+        moves = 20;
+        target = 500;
+        largestBlast = 0;
+        selectedGroup = [];
 
-        // Create base block
-        stackedBlocks.push({
-            x: canvas.width / 2 - INITIAL_WIDTH / 2,
-            y: canvas.height - 80,
-            width: INITIAL_WIDTH,
-            height: BLOCK_HEIGHT,
-            color: 'hsl(0, 70%, 60%)'
-        });
-
-        createBlock();
+        initGrid();
         updateDisplay();
-        gameLoop();
+        draw();
     }
 });
 
@@ -216,25 +299,17 @@ document.getElementById('pauseBtn').addEventListener('click', () => {
 
 document.getElementById('restartBtn').addEventListener('click', () => {
     score = 0;
-    height = 0;
-    perfectCount = 0;
-    stackedBlocks = [];
-    blockSpeed = 3;
-    movingDirection = 1;
+    moves = 20;
+    target = 500;
+    largestBlast = 0;
+    selectedGroup = [];
     gameRunning = true;
     paused = false;
 
-    stackedBlocks.push({
-        x: canvas.width / 2 - INITIAL_WIDTH / 2,
-        y: canvas.height - 80,
-        width: INITIAL_WIDTH,
-        height: BLOCK_HEIGHT,
-        color: 'hsl(0, 70%, 60%)'
-    });
-
-    createBlock();
+    initGrid();
     document.getElementById('gameOver').classList.add('hidden');
     updateDisplay();
+    draw();
 });
 
 updateDisplay();
