@@ -1,163 +1,224 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
-canvas.width = 400;
+canvas.width = 500;
 canvas.height = 600;
 
 let gameRunning = false;
 let paused = false;
 let gameStarted = false;
-let score = 0;
-let height = 0;
-let perfectCount = 0;
+let level = 1;
+let targetPercent = 75;
+let filledPercent = 0;
 
-let currentBlock = null;
-let stackedBlocks = [];
-let movingDirection = 1;
-let blockSpeed = 3;
+let paintDrops = [];
+let obstacles = [];
+let filledCells = new Set();
 
-const BLOCK_HEIGHT = 30;
-const INITIAL_WIDTH = 200;
+const GRID_COLS = 50;
+const GRID_ROWS = 60;
+const CELL_SIZE = canvas.width / GRID_COLS;
 
-function createBlock() {
-    const lastBlock = stackedBlocks[stackedBlocks.length - 1];
-    const startX = movingDirection > 0 ? 0 : canvas.width;
-
-    currentBlock = {
-        x: startX,
-        y: canvas.height - (stackedBlocks.length + 1) * BLOCK_HEIGHT - 50,
-        width: lastBlock ? lastBlock.width : INITIAL_WIDTH,
-        height: BLOCK_HEIGHT,
-        color: `hsl(${(stackedBlocks.length * 30) % 360}, 70%, 60%)`
-    };
+function createObstacles() {
+    obstacles = [];
+    const numObstacles = 2 + level;
+    
+    for (let i = 0; i < numObstacles; i++) {
+        obstacles.push({
+            x: Math.random() * canvas.width,
+            y: 100 + Math.random() * 300,
+            width: 60 + Math.random() * 40,
+            height: 20,
+            speedX: (Math.random() - 0.5) * 3,
+            speedY: (Math.random() - 0.5) * 2
+        });
+    }
 }
 
-function drawBlock(block) {
-    ctx.fillStyle = block.color;
-    ctx.fillRect(block.x, block.y, block.width, block.height);
+function drawGrid() {
+    // Draw filled cells
+    filledCells.forEach(key => {
+        const [x, y] = key.split(',').map(Number);
+        ctx.fillStyle = '#ff69b4';
+        ctx.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+    });
+}
 
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.3)';
-    ctx.lineWidth = 2;
-    ctx.strokeRect(block.x, block.y, block.width, block.height);
+function drawObstacles() {
+    obstacles.forEach(obs => {
+        ctx.fillStyle = '#333';
+        ctx.fillRect(obs.x, obs.y, obs.width, obs.height);
+        
+        // Border
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(obs.x, obs.y, obs.width, obs.height);
+    });
+}
+
+function drawPaintDrops() {
+    paintDrops.forEach(drop => {
+        ctx.fillStyle = drop.color;
+        ctx.beginPath();
+        ctx.arc(drop.x, drop.y, drop.radius, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Highlight
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+        ctx.beginPath();
+        ctx.arc(drop.x - drop.radius/3, drop.y - drop.radius/3, drop.radius/3, 0, Math.PI * 2);
+        ctx.fill();
+    });
+}
+
+function drawContainer() {
+    // Container walls
+    ctx.strokeStyle = '#8b4513';
+    ctx.lineWidth = 8;
+    
+    // Left wall
+    ctx.beginPath();
+    ctx.moveTo(0, 100);
+    ctx.lineTo(0, canvas.height);
+    ctx.stroke();
+    
+    // Right wall
+    ctx.beginPath();
+    ctx.moveTo(canvas.width, 100);
+    ctx.lineTo(canvas.width, canvas.height);
+    ctx.stroke();
+    
+    // Bottom
+    ctx.beginPath();
+    ctx.moveTo(0, canvas.height);
+    ctx.lineTo(canvas.width, canvas.height);
+    ctx.stroke();
 }
 
 function draw() {
-    // Sky gradient
-    const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-    gradient.addColorStop(0, '#87CEEB');
-    gradient.addColorStop(1, '#E0F6FF');
-    ctx.fillStyle = gradient;
+    // Background
+    ctx.fillStyle = '#f0f0f0';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    // Draw ground
-    ctx.fillStyle = '#8b4513';
-    ctx.fillRect(0, canvas.height - 30, canvas.width, 30);
-
-    // Draw stacked blocks
-    stackedBlocks.forEach(block => drawBlock(block));
-
-    // Draw current moving block
-    if (currentBlock) {
-        drawBlock(currentBlock);
-    }
-
-    // Draw score
+    
+    drawGrid();
+    drawContainer();
+    drawObstacles();
+    drawPaintDrops();
+    
+    // Fill percentage display
     ctx.fillStyle = '#333';
-    ctx.font = 'bold 20px Arial';
-    ctx.textAlign = 'left';
-    ctx.fillText(`Score: ${score}`, 10, 30);
-    ctx.fillText(`Height: ${height}`, 10, 55);
+    ctx.font = 'bold 24px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText(`${filledPercent.toFixed(1)}%`, canvas.width/2, 50);
 }
 
 function update() {
-    if (!gameRunning || paused || !currentBlock) return;
-
-    currentBlock.x += blockSpeed * movingDirection;
-
-    // Bounce at edges
-    if (currentBlock.x <= 0 || currentBlock.x + currentBlock.width >= canvas.width) {
-        movingDirection *= -1;
-    }
-}
-
-function dropBlock() {
-    if (!currentBlock || !gameRunning) return;
-
-    const lastBlock = stackedBlocks[stackedBlocks.length - 1];
-
-    if (!lastBlock) {
-        // First block
-        stackedBlocks.push({...currentBlock});
-        height++;
-        score += 10;
-        movingDirection *= -1;
-        createBlock();
-    } else {
-        // Check overlap
-        const overlapLeft = Math.max(currentBlock.x, lastBlock.x);
-        const overlapRight = Math.min(currentBlock.x + currentBlock.width, lastBlock.x + lastBlock.width);
-        const overlapWidth = overlapRight - overlapLeft;
-
-        if (overlapWidth <= 0) {
-            // Miss - Game Over
-            gameOver();
-            return;
+    if (!gameRunning || paused) return;
+    
+    // Update paint drops
+    paintDrops.forEach((drop, idx) => {
+        drop.velocityY += 0.5; // gravity
+        drop.y += drop.velocityY;
+        drop.x += drop.velocityX;
+        
+        // Bounce off walls
+        if (drop.x - drop.radius < 0 || drop.x + drop.radius > canvas.width) {
+            drop.velocityX *= -0.8;
+            drop.x = Math.max(drop.radius, Math.min(canvas.width - drop.radius, drop.x));
         }
-
-        // Check for perfect drop
-        const tolerance = 5;
-        const isPerfect = Math.abs(currentBlock.x - lastBlock.x) <= tolerance;
-
-        if (isPerfect) {
-            perfectCount++;
-            score += 20; // Bonus for perfect
-        } else {
-            score += 10;
+        
+        // Check collision with obstacles
+        obstacles.forEach(obs => {
+            if (drop.x + drop.radius > obs.x && 
+                drop.x - drop.radius < obs.x + obs.width &&
+                drop.y + drop.radius > obs.y && 
+                drop.y - drop.radius < obs.y + obs.height) {
+                
+                // Remove drop
+                paintDrops.splice(idx, 1);
+            }
+        });
+        
+        // Check if landed
+        if (drop.y + drop.radius >= canvas.height) {
+            drop.y = canvas.height - drop.radius;
+            drop.velocityY = 0;
+            drop.velocityX *= 0.9;
+            
+            // Fill cells
+            fillCellsAround(drop.x, drop.y, drop.radius);
+            
+            if (Math.abs(drop.velocityX) < 0.1) {
+                paintDrops.splice(idx, 1);
+            }
         }
-
-        // Create new block with overlap width
-        const newBlock = {
-            x: overlapLeft,
-            y: currentBlock.y,
-            width: overlapWidth,
-            height: BLOCK_HEIGHT,
-            color: currentBlock.color
-        };
-
-        stackedBlocks.push(newBlock);
-        height++;
-
-        // Increase difficulty
-        if (height % 5 === 0) {
-            blockSpeed += 0.5;
+    });
+    
+    // Update obstacles
+    obstacles.forEach(obs => {
+        obs.x += obs.speedX;
+        obs.y += obs.speedY;
+        
+        // Bounce
+        if (obs.x < 0 || obs.x + obs.width > canvas.width) {
+            obs.speedX *= -1;
         }
-
-        // Scroll down if too high
-        if (stackedBlocks.length > 15) {
-            stackedBlocks.shift();
-            stackedBlocks.forEach(block => block.y += BLOCK_HEIGHT);
+        if (obs.y < 100 || obs.y + obs.height > canvas.height - 100) {
+            obs.speedY *= -1;
         }
-
-        movingDirection *= -1;
-        createBlock();
-    }
-
+    });
+    
+    // Calculate filled percentage
+    const totalCells = GRID_COLS * (GRID_ROWS - 10); // Exclude top area
+    filledPercent = (filledCells.size / totalCells) * 100;
+    
     updateDisplay();
+    
+    // Check win condition
+    if (filledPercent >= targetPercent) {
+        setTimeout(levelComplete, 500);
+    }
 }
 
-function updateDisplay() {
-    document.getElementById('score').textContent = score;
-    document.getElementById('height').textContent = height;
-    document.getElementById('perfect').textContent = perfectCount;
+function fillCellsAround(x, y, radius) {
+    const cellX = Math.floor(x / CELL_SIZE);
+    const cellY = Math.floor(y / CELL_SIZE);
+    const cellRadius = Math.ceil(radius / CELL_SIZE);
+    
+    for (let dx = -cellRadius; dx <= cellRadius; dx++) {
+        for (let dy = -cellRadius; dy <= cellRadius; dy++) {
+            const cx = cellX + dx;
+            const cy = cellY + dy;
+            
+            if (cx >= 0 && cx < GRID_COLS && cy >= 10 && cy < GRID_ROWS) {
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                if (dist <= cellRadius) {
+                    filledCells.add(`${cx},${cy}`);
+                }
+            }
+        }
+    }
 }
 
-function gameOver() {
-    gameRunning = false;
-
-    document.getElementById('finalScore').textContent = score;
-    document.getElementById('finalHeight').textContent = height;
-    document.getElementById('finalPerfect').textContent = perfectCount;
-    document.getElementById('gameOver').classList.remove('hidden');
+function dropPaint(x) {
+    if (!gameRunning || paused) return;
+    
+    const colors = ['#ff69b4', '#ff1493', '#ff6ec7', '#ffc0cb'];
+    
+    paintDrops.push({
+        x: x,
+        y: 20,
+        radius: 8 + Math.random() * 4,
+        velocityX: (Math.random() - 0.5) * 2,
+        velocityY: 0,
+        color: colors[Math.floor(Math.random() * colors.length)]
+    });
 }
+
+canvas.addEventListener('click', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    dropPaint(x);
+});
 
 function gameLoop() {
     update();
@@ -165,14 +226,22 @@ function gameLoop() {
     requestAnimationFrame(gameLoop);
 }
 
-canvas.addEventListener('click', dropBlock);
+function updateDisplay() {
+    document.getElementById('score').textContent = level;
+    document.getElementById('level').textContent = filledPercent.toFixed(1) + '%';
+    document.getElementById('target').textContent = targetPercent + '%';
+}
+
+function levelComplete() {
+    gameRunning = false;
+    
+    document.getElementById('resultTitle').textContent = '🎉 Level Complete!';
+    document.getElementById('finalScore').textContent = level;
+    document.getElementById('finalFilled').textContent = filledPercent.toFixed(1);
+    document.getElementById('gameOver').classList.remove('hidden');
+}
 
 window.addEventListener('keydown', (e) => {
-    if (e.key === ' ') {
-        e.preventDefault();
-        dropBlock();
-    }
-
     if (e.key === 'p' || e.key === 'P') {
         e.preventDefault();
         paused = !paused;
@@ -186,24 +255,13 @@ document.getElementById('startBtn').addEventListener('click', () => {
         gameRunning = true;
         document.getElementById('instructions').classList.add('hidden');
         document.getElementById('pauseBtn').disabled = false;
-
-        score = 0;
-        height = 0;
-        perfectCount = 0;
-        stackedBlocks = [];
-        blockSpeed = 3;
-        movingDirection = 1;
-
-        // Create base block
-        stackedBlocks.push({
-            x: canvas.width / 2 - INITIAL_WIDTH / 2,
-            y: canvas.height - 80,
-            width: INITIAL_WIDTH,
-            height: BLOCK_HEIGHT,
-            color: 'hsl(0, 70%, 60%)'
-        });
-
-        createBlock();
+        
+        level = 1;
+        targetPercent = 75;
+        filledCells.clear();
+        paintDrops = [];
+        
+        createObstacles();
         updateDisplay();
         gameLoop();
     }
@@ -215,24 +273,14 @@ document.getElementById('pauseBtn').addEventListener('click', () => {
 });
 
 document.getElementById('restartBtn').addEventListener('click', () => {
-    score = 0;
-    height = 0;
-    perfectCount = 0;
-    stackedBlocks = [];
-    blockSpeed = 3;
-    movingDirection = 1;
+    level++;
+    targetPercent = Math.min(95, 70 + level * 5);
+    filledCells.clear();
+    paintDrops = [];
     gameRunning = true;
     paused = false;
-
-    stackedBlocks.push({
-        x: canvas.width / 2 - INITIAL_WIDTH / 2,
-        y: canvas.height - 80,
-        width: INITIAL_WIDTH,
-        height: BLOCK_HEIGHT,
-        color: 'hsl(0, 70%, 60%)'
-    });
-
-    createBlock();
+    
+    createObstacles();
     document.getElementById('gameOver').classList.add('hidden');
     updateDisplay();
 });
