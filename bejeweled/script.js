@@ -334,6 +334,4 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Initial draw
-draw();
 
