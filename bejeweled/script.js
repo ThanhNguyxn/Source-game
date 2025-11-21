@@ -6,7 +6,6 @@ canvas.height = 480;
 const GRID_SIZE = 8;
 const GEM_SIZE = 60;
 const COLORS = ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF', '#00FFFF'];
-const PADDING = 0;
 
 let gameRunning = false;
 let score = 0;
@@ -23,55 +22,61 @@ const restartBtn = document.getElementById('restartBtn');
 const instructions = document.getElementById('instructions');
 const gameOverDiv = document.getElementById('gameOver');
 
-// Initialize grid
+// Initialize grid - ensure no initial matches
 function initGrid() {
     grid = [];
     for (let row = 0; row < GRID_SIZE; row++) {
         grid[row] = [];
         for (let col = 0; col < GRID_SIZE; col++) {
             let color;
+            let attempts = 0;
             do {
                 color = COLORS[Math.floor(Math.random() * COLORS.length)];
-            } while (wouldMatch(row, col, color));
-            grid[row][col] = { color, row, col };
+                attempts++;
+                if (attempts > 50) break; // Prevent infinite loop
+            } while (wouldCreateMatch(row, col, color));
+
+            grid[row][col] = color;
         }
     }
 }
 
-// Check if placing a gem would create a match
-function wouldMatch(row, col, color) {
-    // Check horizontal
-    if (col >= 2 && grid[row][col-1]?.color === color && grid[row][col-2]?.color === color) {
+// Check if placing this color would create a match
+function wouldCreateMatch(row, col, color) {
+    // Check horizontal (left 2)
+    if (col >= 2 && grid[row][col-1] === color && grid[row][col-2] === color) {
         return true;
     }
-    // Check vertical
-    if (row >= 2 && grid[row-1][col]?.color === color && grid[row-2][col]?.color === color) {
+    // Check vertical (up 2)
+    if (row >= 2 && grid[row-1][col] === color && grid[row-2][col] === color) {
         return true;
     }
     return false;
 }
 
-// Draw grid
+// Draw the game board
 function draw() {
+    // Clear canvas
     ctx.fillStyle = '#2c3e50';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+    // Draw grid
     for (let row = 0; row < GRID_SIZE; row++) {
         for (let col = 0; col < GRID_SIZE; col++) {
-            const gem = grid[row][col];
-            const x = col * GEM_SIZE + PADDING;
-            const y = row * GEM_SIZE + PADDING;
+            const x = col * GEM_SIZE;
+            const y = row * GEM_SIZE;
+            const color = grid[row][col];
 
-            // Draw gem
-            ctx.fillStyle = gem.color;
+            // Draw gem circle
+            ctx.fillStyle = color;
             ctx.beginPath();
             ctx.arc(x + GEM_SIZE/2, y + GEM_SIZE/2, GEM_SIZE/2 - 5, 0, Math.PI * 2);
             ctx.fill();
 
-            // Draw shine
+            // Draw shine effect
             ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
             ctx.beginPath();
-            ctx.arc(x + GEM_SIZE/2 - 10, y + GEM_SIZE/2 - 10, GEM_SIZE/4, 0, Math.PI * 2);
+            ctx.arc(x + GEM_SIZE/2 - 8, y + GEM_SIZE/2 - 8, GEM_SIZE/5, 0, Math.PI * 2);
             ctx.fill();
 
             // Highlight selected gem
@@ -79,47 +84,49 @@ function draw() {
                 ctx.strokeStyle = '#FFD700';
                 ctx.lineWidth = 4;
                 ctx.beginPath();
-                ctx.arc(x + GEM_SIZE/2, y + GEM_SIZE/2, GEM_SIZE/2 - 3, 0, Math.PI * 2);
+                ctx.arc(x + GEM_SIZE/2, y + GEM_SIZE/2, GEM_SIZE/2 - 2, 0, Math.PI * 2);
                 ctx.stroke();
             }
         }
     }
 }
 
-// Check for matches
+// Find all matches on the board
 function findMatches() {
-    const matches = [];
+    const matches = new Set();
 
-    // Check horizontal matches
+    // Find horizontal matches
     for (let row = 0; row < GRID_SIZE; row++) {
         for (let col = 0; col < GRID_SIZE - 2; col++) {
-            const color = grid[row][col].color;
-            if (grid[row][col+1].color === color && grid[row][col+2].color === color) {
-                const match = [grid[row][col], grid[row][col+1], grid[row][col+2]];
-                let c = col + 3;
-                while (c < GRID_SIZE && grid[row][c].color === color) {
-                    match.push(grid[row][c]);
-                    c++;
+            const color = grid[row][col];
+            if (color && grid[row][col+1] === color && grid[row][col+2] === color) {
+                // Found a match, add all connected gems
+                let endCol = col + 2;
+                while (endCol + 1 < GRID_SIZE && grid[row][endCol + 1] === color) {
+                    endCol++;
                 }
-                matches.push(match);
-                col = c - 1;
+                // Add all gems in this match
+                for (let c = col; c <= endCol; c++) {
+                    matches.add(`${row},${c}`);
+                }
             }
         }
     }
 
-    // Check vertical matches
+    // Find vertical matches
     for (let col = 0; col < GRID_SIZE; col++) {
         for (let row = 0; row < GRID_SIZE - 2; row++) {
-            const color = grid[row][col].color;
-            if (grid[row+1][col].color === color && grid[row+2][col].color === color) {
-                const match = [grid[row][col], grid[row+1][col], grid[row+2][col]];
-                let r = row + 3;
-                while (r < GRID_SIZE && grid[r][col].color === color) {
-                    match.push(grid[r][col]);
-                    r++;
+            const color = grid[row][col];
+            if (color && grid[row+1][col] === color && grid[row+2][col] === color) {
+                // Found a match, add all connected gems
+                let endRow = row + 2;
+                while (endRow + 1 < GRID_SIZE && grid[endRow + 1][col] === color) {
+                    endRow++;
                 }
-                matches.push(match);
-                row = r - 1;
+                // Add all gems in this match
+                for (let r = row; r <= endRow; r++) {
+                    matches.add(`${r},${col}`);
+                }
             }
         }
     }
@@ -127,74 +134,75 @@ function findMatches() {
     return matches;
 }
 
-// Remove matches and update score
+// Remove matched gems
 function removeMatches(matches) {
-    const removed = new Set();
-    matches.forEach(match => {
-        match.forEach(gem => {
-            removed.add(`${gem.row},${gem.col}`);
-        });
-    });
-
-    removed.forEach(key => {
+    matches.forEach(key => {
         const [row, col] = key.split(',').map(Number);
         grid[row][col] = null;
     });
 
-    score += removed.size * 10;
+    // Update score
+    score += matches.size * 10;
     scoreElement.textContent = score;
-    return removed.size > 0;
 }
 
-// Apply gravity
+// Apply gravity - make gems fall down
 function applyGravity() {
     for (let col = 0; col < GRID_SIZE; col++) {
-        let emptyRow = GRID_SIZE - 1;
+        // Collect all non-null gems in this column from bottom to top
+        const gems = [];
         for (let row = GRID_SIZE - 1; row >= 0; row--) {
             if (grid[row][col] !== null) {
-                if (row !== emptyRow) {
-                    grid[emptyRow][col] = grid[row][col];
-                    grid[emptyRow][col].row = emptyRow;
-                    grid[row][col] = null;
-                }
-                emptyRow--;
+                gems.push(grid[row][col]);
+            }
+        }
+
+        // Place gems from bottom, fill top with null
+        for (let row = GRID_SIZE - 1; row >= 0; row--) {
+            if (gems.length > 0) {
+                grid[row][col] = gems.shift();
+            } else {
+                grid[row][col] = null;
             }
         }
     }
 }
 
-// Fill empty spaces
+// Fill empty spaces with new random gems
 function fillEmpty() {
     for (let row = 0; row < GRID_SIZE; row++) {
         for (let col = 0; col < GRID_SIZE; col++) {
             if (grid[row][col] === null) {
-                const color = COLORS[Math.floor(Math.random() * COLORS.length)];
-                grid[row][col] = { color, row, col };
+                grid[row][col] = COLORS[Math.floor(Math.random() * COLORS.length)];
             }
         }
     }
 }
 
-// Process all matches with cascading
+// Sleep utility
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// Process matches with cascading
 async function processMatches() {
     isAnimating = true;
-    let hasMatches = true;
 
-    while (hasMatches) {
+    while (true) {
         const matches = findMatches();
-        if (matches.length === 0) {
-            hasMatches = false;
-            break;
-        }
+        if (matches.size === 0) break;
 
+        // Remove matches
         removeMatches(matches);
         draw();
         await sleep(300);
 
+        // Apply gravity
         applyGravity();
         draw();
         await sleep(300);
 
+        // Fill empty spaces
         fillEmpty();
         draw();
         await sleep(300);
@@ -202,55 +210,21 @@ async function processMatches() {
 
     isAnimating = false;
 
-    // Check for game over
-    if (moves <= 0 || !hasPossibleMoves()) {
+    // Check game over
+    if (moves <= 0) {
         endGame();
     }
 }
 
-// Check if there are any possible moves
-function hasPossibleMoves() {
-    for (let row = 0; row < GRID_SIZE; row++) {
-        for (let col = 0; col < GRID_SIZE - 1; col++) {
-            // Try swapping with right neighbor
-            swap(grid[row][col], grid[row][col+1]);
-            if (findMatches().length > 0) {
-                swap(grid[row][col], grid[row][col+1]); // Swap back
-                return true;
-            }
-            swap(grid[row][col], grid[row][col+1]); // Swap back
-        }
-    }
-
-    for (let row = 0; row < GRID_SIZE - 1; row++) {
-        for (let col = 0; col < GRID_SIZE; col++) {
-            // Try swapping with bottom neighbor
-            swap(grid[row][col], grid[row+1][col]);
-            if (findMatches().length > 0) {
-                swap(grid[row][col], grid[row+1][col]); // Swap back
-                return true;
-            }
-            swap(grid[row][col], grid[row+1][col]); // Swap back
-        }
-    }
-
-    return false;
-}
-
-// Swap two gems
-function swap(gem1, gem2) {
-    const tempColor = gem1.color;
-    gem1.color = gem2.color;
-    gem2.color = tempColor;
-}
-
-// Sleep function
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+// Swap two gems in grid
+function swapGems(row1, col1, row2, col2) {
+    const temp = grid[row1][col1];
+    grid[row1][col1] = grid[row2][col2];
+    grid[row2][col2] = temp;
 }
 
 // Handle canvas click
-canvas.addEventListener('click', (e) => {
+canvas.addEventListener('click', async (e) => {
     if (!gameRunning || isAnimating) return;
 
     const rect = canvas.getBoundingClientRect();
@@ -260,40 +234,42 @@ canvas.addEventListener('click', (e) => {
     const col = Math.floor(x / GEM_SIZE);
     const row = Math.floor(y / GEM_SIZE);
 
-    if (row >= 0 && row < GRID_SIZE && col >= 0 && col < GRID_SIZE) {
-        const clickedGem = grid[row][col];
+    if (row < 0 || row >= GRID_SIZE || col < 0 || col >= GRID_SIZE) return;
 
-        if (!selectedGem) {
-            selectedGem = clickedGem;
+    if (!selectedGem) {
+        // Select first gem
+        selectedGem = { row, col };
+        draw();
+    } else {
+        // Check if second click is adjacent to first
+        const rowDiff = Math.abs(selectedGem.row - row);
+        const colDiff = Math.abs(selectedGem.col - col);
+
+        if ((rowDiff === 1 && colDiff === 0) || (rowDiff === 0 && colDiff === 1)) {
+            // Valid swap - try it
+            swapGems(selectedGem.row, selectedGem.col, row, col);
             draw();
-        } else {
-            // Check if gems are adjacent
-            const rowDiff = Math.abs(selectedGem.row - clickedGem.row);
-            const colDiff = Math.abs(selectedGem.col - clickedGem.col);
 
-            if ((rowDiff === 1 && colDiff === 0) || (rowDiff === 0 && colDiff === 1)) {
-                // Swap gems
-                swap(selectedGem, clickedGem);
-                draw();
+            await sleep(200);
 
-                // Check for matches
-                setTimeout(async () => {
-                    const matches = findMatches();
-                    if (matches.length > 0) {
-                        moves--;
-                        movesElement.textContent = moves;
-                        await processMatches();
-                    } else {
-                        // Swap back if no matches
-                        swap(selectedGem, clickedGem);
-                        draw();
-                    }
-                    selectedGem = null;
-                }, 100);
+            // Check for matches
+            const matches = findMatches();
+            if (matches.size > 0) {
+                // Valid move!
+                moves--;
+                movesElement.textContent = moves;
+                selectedGem = null;
+                await processMatches();
             } else {
-                selectedGem = clickedGem;
+                // No matches - swap back
+                swapGems(selectedGem.row, selectedGem.col, row, col);
+                selectedGem = null;
                 draw();
             }
+        } else {
+            // Not adjacent - select new gem
+            selectedGem = { row, col };
+            draw();
         }
     }
 });
@@ -303,17 +279,17 @@ function startGame() {
     gameRunning = true;
     score = 0;
     moves = 30;
+    selectedGem = null;
+    isAnimating = false;
+
     scoreElement.textContent = score;
     movesElement.textContent = moves;
     instructions.classList.add('hidden');
     gameOverDiv.classList.add('hidden');
-    canvas.style.display = 'block'; // Show canvas
+    canvas.style.display = 'block';
 
     initGrid();
     draw();
-
-    // Remove initial matches
-    processMatches();
 }
 
 // End game
@@ -333,5 +309,4 @@ document.addEventListener('keydown', (e) => {
         e.preventDefault();
     }
 });
-
 

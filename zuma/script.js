@@ -20,18 +20,17 @@ let shooter = {
     currentBall: null,
     nextBall: null
 };
-let chainProgress = 0;
 let chainSpeed = 0.5;
-let mouseX = 0;
-let mouseY = 0;
+let gameLoop = null;
 
-// Path for balls to follow (spiral)
+// Path for balls to follow (spiral from outside to center)
 function getPathPoint(progress) {
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
-    const spirals = 3;
+    const spirals = 2.5;
     const angle = progress * spirals * Math.PI * 2;
-    const radius = 200 - (progress * 150);
+    const maxRadius = 220;
+    const radius = maxRadius * (1 - progress);
 
     return {
         x: centerX + Math.cos(angle) * radius,
@@ -43,31 +42,31 @@ function getPathPoint(progress) {
 function initLevel() {
     ballChain = [];
     shotBalls = [];
-    chainProgress = 0;
-    chainSpeed = 0.5 + level * 0.1;
+    chainSpeed = 0.3 + (level - 1) * 0.05; // Increase speed each level
 
-    // Create initial chain
-    const ballCount = 20 + level * 5;
+    // Create initial chain of balls
+    const ballCount = 15 + level * 3;
     for (let i = 0; i < ballCount; i++) {
         ballChain.push({
             color: COLORS[Math.floor(Math.random() * COLORS.length)],
-            progress: -i * 0.04
+            progress: i * -0.035 // Negative = not on path yet
         });
     }
 
+    // Initialize shooter balls
     shooter.currentBall = COLORS[Math.floor(Math.random() * COLORS.length)];
     shooter.nextBall = COLORS[Math.floor(Math.random() * COLORS.length)];
 }
 
-// Draw function
+// Draw everything
 function draw() {
-    // Clear canvas
+    // Background
     ctx.fillStyle = '#1a1a2e';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Draw path guide
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
-    ctx.lineWidth = 2;
+    // Draw path guide (subtle)
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+    ctx.lineWidth = 30;
     ctx.beginPath();
     for (let i = 0; i <= 1; i += 0.01) {
         const point = getPathPoint(i);
@@ -76,26 +75,41 @@ function draw() {
     }
     ctx.stroke();
 
-    // Draw end hole
+    // Draw end hole (center)
     const endPoint = getPathPoint(1);
-    ctx.fillStyle = '#FF0000';
+    ctx.fillStyle = '#c0392b';
     ctx.beginPath();
-    ctx.arc(endPoint.x, endPoint.y, 25, 0, Math.PI * 2);
+    ctx.arc(endPoint.x, endPoint.y, 30, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = '#000';
+    ctx.beginPath();
+    ctx.arc(endPoint.x, endPoint.y, 20, 0, Math.PI * 2);
     ctx.fill();
 
     // Draw ball chain
-    ballChain.forEach(ball => {
+    for (let i = 0; i < ballChain.length; i++) {
+        const ball = ballChain[i];
         if (ball.progress >= 0 && ball.progress <= 1) {
             const pos = getPathPoint(ball.progress);
+
+            // Draw ball
             ctx.fillStyle = ball.color;
             ctx.beginPath();
             ctx.arc(pos.x, pos.y, BALL_RADIUS, 0, Math.PI * 2);
             ctx.fill();
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+
+            // Shine effect
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+            ctx.beginPath();
+            ctx.arc(pos.x - 5, pos.y - 5, BALL_RADIUS / 3, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Border
+            ctx.strokeStyle = 'rgba(0, 0, 0, 0.3)';
             ctx.lineWidth = 2;
             ctx.stroke();
         }
-    });
+    }
 
     // Draw shot balls
     shotBalls.forEach(ball => {
@@ -103,95 +117,109 @@ function draw() {
         ctx.beginPath();
         ctx.arc(ball.x, ball.y, BALL_RADIUS, 0, Math.PI * 2);
         ctx.fill();
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
-        ctx.lineWidth = 2;
-        ctx.stroke();
+
+        // Shine
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+        ctx.beginPath();
+        ctx.arc(ball.x - 5, ball.y - 5, BALL_RADIUS / 3, 0, Math.PI * 2);
+        ctx.fill();
     });
 
-    // Draw shooter
+    // Draw shooter base
+    ctx.fillStyle = '#34495e';
+    ctx.beginPath();
+    ctx.arc(shooter.x, shooter.y, 28, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Draw aiming line
     ctx.save();
     ctx.translate(shooter.x, shooter.y);
     ctx.rotate(shooter.angle);
-
-    // Shooter base
-    ctx.fillStyle = '#34495e';
-    ctx.beginPath();
-    ctx.arc(0, 0, 25, 0, Math.PI * 2);
-    ctx.fill();
-
-    // Aim line
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
-    ctx.lineWidth = 2;
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+    ctx.lineWidth = 3;
     ctx.beginPath();
     ctx.moveTo(0, 0);
-    ctx.lineTo(0, -40);
+    ctx.lineTo(0, -50);
     ctx.stroke();
-
     ctx.restore();
 
-    // Current ball
-    ctx.fillStyle = shooter.currentBall;
-    ctx.beginPath();
-    ctx.arc(shooter.x, shooter.y, BALL_RADIUS, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.strokeStyle = '#fff';
-    ctx.lineWidth = 2;
-    ctx.stroke();
+    // Draw current ball in shooter
+    if (shooter.currentBall) {
+        ctx.fillStyle = shooter.currentBall;
+        ctx.beginPath();
+        ctx.arc(shooter.x, shooter.y, BALL_RADIUS, 0, Math.PI * 2);
+        ctx.fill();
 
-    // Next ball
-    ctx.fillStyle = shooter.nextBall;
-    ctx.beginPath();
-    ctx.arc(shooter.x + 50, shooter.y, BALL_RADIUS - 3, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.font = '12px Arial';
-    ctx.fillStyle = '#fff';
-    ctx.textAlign = 'center';
-    ctx.fillText('Next', shooter.x + 50, shooter.y + 35);
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+        ctx.beginPath();
+        ctx.arc(shooter.x - 5, shooter.y - 5, BALL_RADIUS / 3, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    // Draw next ball
+    if (shooter.nextBall) {
+        ctx.fillStyle = shooter.nextBall;
+        ctx.beginPath();
+        ctx.arc(shooter.x + 55, shooter.y, BALL_RADIUS - 4, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.font = '14px Arial';
+        ctx.fillStyle = '#fff';
+        ctx.textAlign = 'center';
+        ctx.fillText('NEXT', shooter.x + 55, shooter.y + 35);
+    }
 }
 
-// Update function
+// Update game state
 function update() {
     if (!gameRunning) return;
 
     // Move chain forward
-    chainProgress += chainSpeed / 1000;
-    ballChain.forEach(ball => {
-        ball.progress += chainSpeed / 1000;
-    });
+    for (let i = 0; i < ballChain.length; i++) {
+        ballChain[i].progress += chainSpeed / 1000;
+    }
 
-    // Check if chain reached end
-    if (ballChain.length > 0 && ballChain[ballChain.length - 1].progress >= 1) {
+    // Check if any ball reached the end
+    const lastBall = ballChain[ballChain.length - 1];
+    if (lastBall && lastBall.progress >= 1.0) {
         endGame();
         return;
     }
 
     // Update shot balls
-    shotBalls.forEach((ball, index) => {
+    for (let i = shotBalls.length - 1; i >= 0; i--) {
+        const ball = shotBalls[i];
         ball.x += ball.vx;
         ball.y += ball.vy;
 
         // Check collision with chain
-        for (let i = 0; i < ballChain.length; i++) {
-            const chainBall = ballChain[i];
+        let collided = false;
+        for (let j = 0; j < ballChain.length; j++) {
+            const chainBall = ballChain[j];
+            if (chainBall.progress < 0 || chainBall.progress > 1) continue;
+
             const pos = getPathPoint(chainBall.progress);
             const dist = Math.sqrt((ball.x - pos.x) ** 2 + (ball.y - pos.y) ** 2);
 
-            if (dist < BALL_RADIUS * 2) {
+            if (dist < BALL_RADIUS * 1.8) {
                 // Insert ball into chain
-                ballChain.splice(i, 0, { color: ball.color, progress: chainBall.progress });
-                shotBalls.splice(index, 1);
-
-                // Check for matches
-                checkMatches(i);
-                return;
+                ballChain.splice(j, 0, {
+                    color: ball.color,
+                    progress: chainBall.progress - 0.001
+                });
+                shotBalls.splice(i, 1);
+                checkMatches(j);
+                collided = true;
+                break;
             }
         }
 
         // Remove if out of bounds
-        if (ball.x < 0 || ball.x > canvas.width || ball.y < 0 || ball.y > canvas.height) {
-            shotBalls.splice(index, 1);
+        if (!collided && (ball.x < -50 || ball.x > canvas.width + 50 ||
+                          ball.y < -50 || ball.y > canvas.height + 50)) {
+            shotBalls.splice(i, 1);
         }
-    });
+    }
 
     // Check win condition
     if (ballChain.length === 0 && shotBalls.length === 0) {
@@ -201,46 +229,49 @@ function update() {
     draw();
 }
 
-// Check for matches
+// Check for 3+ matching colors
 function checkMatches(index) {
+    if (index < 0 || index >= ballChain.length) return;
+
     const color = ballChain[index].color;
     let start = index;
     let end = index;
 
-    // Find start of match
+    // Find start of match (scan backwards)
     while (start > 0 && ballChain[start - 1].color === color) {
         start--;
     }
 
-    // Find end of match
+    // Find end of match (scan forwards)
     while (end < ballChain.length - 1 && ballChain[end + 1].color === color) {
         end++;
     }
 
-    // If 3 or more matches, remove them
-    if (end - start + 1 >= 3) {
-        const removed = end - start + 1;
-        ballChain.splice(start, removed);
-        score += removed * 10;
+    // If 3 or more, remove them
+    const matchLength = end - start + 1;
+    if (matchLength >= 3) {
+        ballChain.splice(start, matchLength);
+        score += matchLength * 10;
         document.getElementById('score').textContent = score;
 
-        // Close gap in chain
-        if (start < ballChain.length) {
-            const gap = ballChain[start].progress - (start > 0 ? ballChain[start - 1].progress : 0);
-            if (gap > 0.08) {
+        // Close the gap by adjusting progress
+        if (start < ballChain.length && start > 0) {
+            const gap = ballChain[start].progress - ballChain[start - 1].progress;
+            if (gap > 0.04) {
+                const adjustment = gap - 0.035;
                 for (let i = start; i < ballChain.length; i++) {
-                    ballChain[i].progress -= gap;
+                    ballChain[i].progress -= adjustment;
                 }
             }
         }
     }
 }
 
-// Shoot ball
+// Shoot a ball
 function shoot() {
     if (!gameRunning || !shooter.currentBall) return;
 
-    const speed = 8;
+    const speed = 7;
     const vx = Math.cos(shooter.angle) * speed;
     const vy = Math.sin(shooter.angle) * speed;
 
@@ -252,60 +283,80 @@ function shoot() {
         color: shooter.currentBall
     });
 
+    // Move next ball to current
     shooter.currentBall = shooter.nextBall;
     shooter.nextBall = COLORS[Math.floor(Math.random() * COLORS.length)];
+
+    draw();
 }
 
-// Mouse move handler
+// Mouse move - aim shooter
 canvas.addEventListener('mousemove', (e) => {
     if (!gameRunning) return;
 
     const rect = canvas.getBoundingClientRect();
-    mouseX = (e.clientX - rect.left) * (canvas.width / rect.width);
-    mouseY = (e.clientY - rect.top) * (canvas.height / rect.height);
+    const mouseX = (e.clientX - rect.left) * (canvas.width / rect.width);
+    const mouseY = (e.clientY - rect.top) * (canvas.height / rect.height);
 
     shooter.angle = Math.atan2(mouseY - shooter.y, mouseX - shooter.x);
     draw();
 });
 
-// Mouse click handler
-canvas.addEventListener('click', (e) => {
-    if (!gameRunning) return;
-    shoot();
+// Mouse click - shoot
+canvas.addEventListener('click', () => {
+    if (gameRunning) shoot();
 });
 
 // Level complete
 function levelComplete() {
+    gameRunning = false;
     level++;
+    score += 100;
+
     document.getElementById('level').textContent = level;
-    score += level * 100;
     document.getElementById('score').textContent = score;
 
     setTimeout(() => {
+        gameRunning = true;
         initLevel();
-    }, 1000);
+        draw();
+    }, 1500);
 }
 
 // Start game
 function startGame() {
+    // Clear any existing game loop
+    if (gameLoop) {
+        clearInterval(gameLoop);
+        gameLoop = null;
+    }
+
     gameRunning = true;
     score = 0;
     level = 1;
+
     document.getElementById('score').textContent = score;
     document.getElementById('level').textContent = level;
     document.getElementById('instructions').classList.add('hidden');
     document.getElementById('gameOver').classList.add('hidden');
-    canvas.style.display = 'block'; // Show canvas
+    canvas.style.display = 'block';
 
     initLevel();
     draw();
 
-    setInterval(update, 1000 / 60);
+    // Start game loop
+    gameLoop = setInterval(update, 1000 / 60);
 }
 
 // End game
 function endGame() {
     gameRunning = false;
+
+    if (gameLoop) {
+        clearInterval(gameLoop);
+        gameLoop = null;
+    }
+
     document.getElementById('finalScore').textContent = score;
     document.getElementById('finalLevel').textContent = level;
     document.getElementById('gameOver').classList.remove('hidden');
@@ -321,5 +372,4 @@ document.addEventListener('keydown', (e) => {
         e.preventDefault();
     }
 });
-
 
