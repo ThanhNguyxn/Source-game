@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Verify No How to Play Buttons</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .status {
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        .success {
+            background: #4CAF50;
+            color: white;
+        }
+        .error {
+            background: #f44336;
+            color: white;
+        }
+        .info {
+            background: #2196F3;
+            color: white;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background: #667eea;
+            color: white;
+        }
+        button:hover {
+            background: #5568d3;
+        }
+        pre {
+            background: #333;
+            color: #0f0;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Test Verification - Source Games</h1>
+
+    <div id="result"></div>
+
+    <h2>Instructions:</h2>
+    <ol>
+        <li>Click "Run Test" button below</li>
+        <li>If you see "How to Play" buttons in the test, your browser is caching old files</li>
+        <li>Follow the cache clearing instructions below</li>
+    </ol>
+
+    <button onclick="runTest()">🧪 Run Test</button>
+    <button onclick="location.reload(true)">🔄 Hard Reload</button>
+    <button onclick="clearAndReload()">🗑️ Clear Cache & Reload</button>
+
+    <div class="info status">
+        <h3>✅ Quick Fix - XÓA CACHE TRÌNH DUYỆT:</h3>
+        <p><strong>Chrome/Edge:</strong></p>
+        <ol>
+            <li>Nhấn <code>Ctrl + Shift + Delete</code></li>
+            <li>Chọn "Cached images and files" (Hình ảnh và tệp đã lưu trong bộ nhớ cache)</li>
+            <li>Nhấn "Clear data" (Xóa dữ liệu)</li>
+            <li>Reload lại trang: <code>Ctrl + F5</code></li>
+        </ol>
+
+        <p><strong>Firefox:</strong></p>
+        <ol>
+            <li>Nhấn <code>Ctrl + Shift + Delete</code></li>
+            <li>Chọn "Cache"</li>
+            <li>Nhấn "Clear"</li>
+            <li>Reload: <code>Ctrl + F5</code></li>
+        </ol>
+
+        <p><strong>Cách nhanh nhất:</strong></p>
+        <ul>
+            <li>Mở Incognito/Private Window: <code>Ctrl + Shift + N</code></li>
+            <li>Mở file index.html trong cửa sổ đó</li>
+        </ul>
+    </div>
+
+    <h2>Test Results:</h2>
+    <div id="testResults"></div>
+
+    <script>
+        function runTest() {
+            const results = document.getElementById('testResults');
+            results.innerHTML = '<p>Running tests...</p>';
+
+            // Test 1: Check for DOMContentLoaded
+            const hasDOM = document.body.innerHTML.includes('DOMContentLoaded');
+
+            // Test 2: Check for how-to-play-btn
+            const hasButton = document.body.innerHTML.includes('how-to-play-btn');
+
+            // Test 3: Check for Auto-add
+            const hasAutoAdd = document.body.innerHTML.includes('Auto-add How to Play');
+
+            let html = '<h3>Test Results:</h3>';
+
+            if (!hasDOM && !hasButton && !hasAutoAdd) {
+                html += '<div class="success status">✅ PASSED - No "How to Play" button code found!</div>';
+                html += '<p>Your browser is loading the correct version.</p>';
+            } else {
+                html += '<div class="error status">❌ FAILED - Old code detected!</div>';
+                html += '<p>Your browser is still caching the old version.</p>';
+                html += '<p><strong>Please clear your browser cache using the instructions above.</strong></p>';
+            }
+
+            html += '<pre>Test Details:\n';
+            html += `- DOMContentLoaded found: ${hasDOM ? '❌ YES (BAD)' : '✅ NO (GOOD)'}\n`;
+            html += `- how-to-play-btn found: ${hasButton ? '❌ YES (BAD)' : '✅ NO (GOOD)'}\n`;
+            html += `- Auto-add code found: ${hasAutoAdd ? '❌ YES (BAD)' : '✅ NO (GOOD)'}\n`;
+            html += '</pre>';
+
+            results.innerHTML = html;
+        }
+
+        function clearAndReload() {
+            if ('caches' in window) {
+                caches.keys().then(function(names) {
+                    for (let name of names) caches.delete(name);
+                });
+            }
+            location.reload(true);
+        }
+
+        // Auto-run test on load
+        window.onload = function() {
+            setTimeout(runTest, 500);
+        };
+    </script>
+</body>
+</html>
+
