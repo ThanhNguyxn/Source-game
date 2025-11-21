@@ -192,7 +192,7 @@ sourcegames/
 │   └── style.css
 ├── tetris-game/
 ├── breakout-game/
-└── ... (77 games total)
+└── ... (81 games total)
 ```
 
 ## 🚀 Getting Started

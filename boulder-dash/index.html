@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boulder Dash - Dig & Collect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>⛏️ Boulder Dash</h1>
+            <div class="info">
+                <div class="info-item"><span class="label">Diamonds:</span><span id="diamonds">0/10</span></div>
+                <div class="info-item"><span class="label">Level:</span><span id="level">1</span></div>
+            </div>
+        </div>
+        <div class="instructions" id="instructions">
+            <h2>📖 How to Play</h2>
+            <p><strong>Arrow Keys/WASD:</strong> Move</p>
+            <p>Collect diamonds, avoid falling boulders!</p>
+            <h3>Rules:</h3>
+            <ul>
+                <li>Collect all diamonds to complete level</li>
+                <li>Dig through dirt to navigate</li>
+                <li>Push boulders left/right</li>
+                <li>Falling boulders can crush you!</li>
+            </ul>
+            <button id="startBtn" class="btn">▶️ Start Game</button>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+        <div id="gameOver" class="game-over hidden">
+            <h2>Game Over!</h2>
+            <p>Level: <span id="finalLevel">1</span></p>
+            <button id="restartBtn" class="btn">🔄 Play Again</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
