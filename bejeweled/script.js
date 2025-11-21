@@ -307,6 +307,7 @@ function startGame() {
     movesElement.textContent = moves;
     instructions.classList.add('hidden');
     gameOverDiv.classList.add('hidden');
+    canvas.style.display = 'block'; // Show canvas
 
     initGrid();
     draw();

@@ -316,6 +316,8 @@ function initLevel() {
 
 // Start game
 function startGame() {
+// Start game
+function startGame() {
     gameRunning = true;
     score = 0;
     timeLeft = 60;
@@ -324,6 +326,7 @@ function startGame() {
     document.getElementById('instructions').classList.add('hidden');
     document.getElementById('gameOver').classList.add('hidden');
     document.querySelector('.next-pipe').style.display = 'block';
+    canvas.style.display = 'block'; // Show canvas
 
     initLevel();
 

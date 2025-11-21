@@ -85,7 +85,7 @@ h1 {
 }
 
 #gameCanvas {
-    display: block;
+    display: none; /* Hidden initially */
     margin: 20px auto;
     background: #1a1a2e;
     border-radius: 10px;

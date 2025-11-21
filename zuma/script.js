@@ -295,6 +295,7 @@ function startGame() {
     document.getElementById('level').textContent = level;
     document.getElementById('instructions').classList.add('hidden');
     document.getElementById('gameOver').classList.add('hidden');
+    canvas.style.display = 'block'; // Show canvas
 
     initLevel();
     draw();
