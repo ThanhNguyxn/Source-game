@@ -36,9 +36,9 @@ Most games follow these common patterns:
 ## 📊 Project Statistics
 
 ```
-Total Games: 77 (100% Functional)
-Lines of Code: ~77,000+
-Total Files: 231
+Total Games: 81 (100% Functional)
+Lines of Code: ~85,000+
+Total Files: 243
 ✨ Pure Vanilla JavaScript (No Frameworks)
 📱 Fully Responsive Design
 💾 LocalStorage for High Scores
@@ -46,7 +46,7 @@ Total Files: 231
 🤖 AI Opponents in Multiple Games
 ```
 
-## 🎮 Complete Game Library (77 Games)
+## 🎮 Complete Game Library (81 Games)
 
 ### 🕹️ Arcade Classics (30 Games)
 
@@ -159,7 +159,7 @@ Total Files: 231
 
 ## ✨ Key Features
 
-- 🎮 **77 Complete Games** - All fully functional and tested
+- 🎮 **81 Complete Games** - All fully functional and tested
 - 📱 **Responsive Design** - Works on desktop, tablet, and mobile
 - 🎯 **No Installation** - Play instantly in your browser
 - 💾 **High Score Tracking** - LocalStorage saves your progress
