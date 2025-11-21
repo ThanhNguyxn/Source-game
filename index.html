@@ -1256,32 +1256,6 @@
                 modal.style.display = 'none';
             }
         }
-
-        // Auto-add How to Play buttons to all game cards
-        document.addEventListener('DOMContentLoaded', function() {
-            const gameCards = document.querySelectorAll('.game-card');
-            gameCards.forEach((card, index) => {
-                const title = card.querySelector('h2').textContent.trim();
-                const playBtn = card.querySelector('.play-btn');
-
-                // Skip if already has how-to-play button
-                if (card.querySelector('.how-to-play-btn')) return;
-
-                // Create game key from title
-                const gameKey = title.toLowerCase()
-                    .replace(/[^a-z0-9]/g, '')
-                    .replace('game', '')
-                    .replace('classic', '');
-
-                // Add button before play button
-                const howToBtn = document.createElement('button');
-                howToBtn.className = 'how-to-play-btn';
-                howToBtn.textContent = '📖 How to Play';
-                howToBtn.onclick = () => showInstructions(gameKey);
-
-                playBtn.parentNode.insertBefore(howToBtn, playBtn);
-            });
-        });
     </script>
 </body>
 </html>
