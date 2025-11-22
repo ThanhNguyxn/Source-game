@@ -10,20 +10,26 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #0f0f1a;
+    /* Dark background */
+    color: #fff;
     padding: 20px;
 }
 
 .game-container {
-    background: white;
+    background: #1a1a2e;
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2), 0 0 40px rgba(255, 0, 255, 0.1);
+    /* Neon glow */
     text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 h1 {
-    color: #333;
+    color: #00ffff;
+    /* Cyan */
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
     margin-bottom: 20px;
     font-size: 2.5em;
 }
@@ -33,27 +39,27 @@ h1 {
     justify-content: space-around;
     margin-bottom: 20px;
     padding: 15px;
-    background: #f8f9fa;
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     gap: 20px;
-}
-
-.stat {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .stat-label {
     font-size: 0.9em;
-    color: #666;
+    color: #aaa;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
-#minesCount, #time, #flagsCount {
+#minesCount,
+#time,
+#flagsCount {
     font-size: 1.5em;
     font-weight: bold;
-    color: #4CAF50;
+    color: #ff00ff;
+    /* Magenta */
+    text-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
 }
 
 .difficulty-selector {
@@ -67,68 +73,73 @@ h1 {
     padding: 10px 20px;
     font-size: 14px;
     font-weight: bold;
-    border: 2px solid #667eea;
+    border: 2px solid #00ffff;
     border-radius: 8px;
-    background: white;
-    color: #667eea;
+    background: transparent;
+    color: #00ffff;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.diff-btn:hover {
-    background: #667eea;
-    color: white;
-}
-
+.diff-btn:hover,
 .diff-btn.active {
-    background: #667eea;
-    color: white;
+    background: #00ffff;
+    color: #000;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
 }
 
 #gameBoard {
     display: inline-grid;
     gap: 2px;
     padding: 10px;
-    background: #ccc;
+    background: #222;
     border-radius: 10px;
     margin-bottom: 20px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .cell {
     width: 30px;
     height: 30px;
-    background: #ddd;
-    border: 2px solid #999;
+    background: #333;
+    border: 1px solid #444;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
     cursor: pointer;
     user-select: none;
-    transition: all 0.1s ease;
+    transition: all 0.2s ease;
+    color: #fff;
 }
 
 .cell:hover:not(.revealed):not(.flagged) {
-    background: #ccc;
+    background: #444;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    z-index: 1;
 }
 
 .cell.revealed {
-    background: #fff;
-    border-color: #ccc;
+    background: #111;
+    border-color: #222;
     cursor: default;
 }
 
 .cell.mine {
-    background: #ff6b6b;
+    background: #ff0055;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .cell.flagged {
-    background: #ffd93d;
+    background: #222;
 }
 
 .cell.flagged::after {
     content: '🚩';
     font-size: 18px;
+    filter: drop-shadow(0 0 2px #ffff00);
 }
 
 .cell.mine.revealed::after {
@@ -136,14 +147,42 @@ h1 {
     font-size: 20px;
 }
 
-.cell.number-1 { color: #0000ff; }
-.cell.number-2 { color: #008000; }
-.cell.number-3 { color: #ff0000; }
-.cell.number-4 { color: #000080; }
-.cell.number-5 { color: #800000; }
-.cell.number-6 { color: #008080; }
-.cell.number-7 { color: #000000; }
-.cell.number-8 { color: #808080; }
+/* Neon Numbers */
+.cell.number-1 {
+    color: #00ffff;
+    text-shadow: 0 0 2px #00ffff;
+}
+
+.cell.number-2 {
+    color: #00ff00;
+    text-shadow: 0 0 2px #00ff00;
+}
+
+.cell.number-3 {
+    color: #ff0055;
+    text-shadow: 0 0 2px #ff0055;
+}
+
+.cell.number-4 {
+    color: #aa00ff;
+    text-shadow: 0 0 2px #aa00ff;
+}
+
+.cell.number-5 {
+    color: #ffaa00;
+}
+
+.cell.number-6 {
+    color: #00aaaa;
+}
+
+.cell.number-7 {
+    color: #ffffff;
+}
+
+.cell.number-8 {
+    color: #888888;
+}
 
 .controls {
     margin-bottom: 20px;
