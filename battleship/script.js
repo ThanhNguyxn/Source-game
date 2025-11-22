@@ -77,12 +77,12 @@ function handlePlacementHover(e) {
 
         const targetIndex = getIndex(targetX, targetY);
         const cell = playerBoard.children[targetIndex];
-        
+
         // Check if already occupied
         if (cell.classList.contains('ship')) {
             isValid = false;
         }
-        
+
         cellsToHighlight.push(cell);
     }
 
@@ -116,7 +116,7 @@ function handlePlacementClick(e) {
         });
 
         currentShipIndex++;
-        
+
         if (currentShipIndex < SHIPS.length) {
             gameStatus.textContent = `Place your ${SHIPS[currentShipIndex].name} (${SHIPS[currentShipIndex].length})`;
         } else {
@@ -140,7 +140,7 @@ function placeComputerShips() {
             const horizontal = Math.random() < 0.5;
             const x = Math.floor(Math.random() * BOARD_SIZE);
             const y = Math.floor(Math.random() * BOARD_SIZE);
-            
+
             const indices = [];
             let valid = true;
 
@@ -225,11 +225,11 @@ function computerTurn() {
 
     // Simple AI: Random shot (can be improved to target adjacent hits)
     // Improvement: Target mode if there's a hit but not sunk
-    
+
     // Find potential targets (adjacent to hits)
     const potentialTargets = [];
     // ... (Simple implementation for now: Random unshot cell)
-    
+
     while (!validShot) {
         index = Math.floor(Math.random() * (BOARD_SIZE * BOARD_SIZE));
         const cell = playerBoard.children[index];
@@ -281,15 +281,26 @@ function checkWin(isPlayer) {
 // Controls
 rotateBtn.addEventListener('click', () => {
     isHorizontal = !isHorizontal;
+    updateRotateBtn();
 });
+
+function updateRotateBtn() {
+    rotateBtn.textContent = `Rotate Ship (R): ${isHorizontal ? 'Horizontal ➡' : 'Vertical ⬇'}`;
+}
 
 document.addEventListener('keydown', (e) => {
     if (e.key.toLowerCase() === 'r' && !isGameActive) {
         isHorizontal = !isHorizontal;
-        // Trigger hover update if mouse is over board
-        // (Requires tracking last hover event, simplified here)
+        updateRotateBtn();
+        // Re-trigger hover effect if mouse is over a cell
+        const hoverCell = document.querySelector('.cell:hover');
+        if (hoverCell && hoverCell.parentElement.id === 'playerBoard') {
+            handlePlacementHover({ target: hoverCell });
+        }
     }
 });
+
+startBtn.addEventListener('click', startGame);
 
 resetBtn.addEventListener('click', initGame);
 
@@ -302,9 +313,10 @@ function initGame() {
     startBtn.disabled = true;
     rotateBtn.disabled = false;
     gameStatus.textContent = "Place your Carrier (5)";
-    
+
     createBoard(playerBoard, true);
     createBoard(computerBoard, false);
+    updateRotateBtn();
 }
 
 // Start
