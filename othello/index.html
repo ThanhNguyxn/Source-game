@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Othello (Reversi) - Strategy Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>⚫ Othello ⚪</h1>
+            <p>A minute to learn... a lifetime to master</p>
+            <div class="scoreboard">
+                <div class="score-box black active">
+                    <div class="disc black-disc"></div>
+                    <span id="blackScore">2</span>
+                </div>
+                <div class="score-box white">
+                    <div class="disc white-disc"></div>
+                    <span id="whiteScore">2</span>
+                </div>
+            </div>
+            <div class="status" id="status">Black's Turn</div>
+        </header>
+
+        <div class="game-area">
+            <div id="board" class="board"></div>
+        </div>
+
+        <div class="controls">
+            <button id="resetBtn">New Game</button>
+            <div class="difficulty">
+                <label>AI Level:</label>
+                <select id="difficultySelect">
+                    <option value="easy">Easy</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>How to Play</h3>
+            <ul>
+                <li><strong>Goal:</strong> Have the majority of discs on the board at the end of the game.</li>
+                <li><strong>Move:</strong> Place a disc to flank opponent's discs between two of yours.</li>
+                <li><strong>Capture:</strong> Flanked discs are flipped to your color.</li>
+                <li><strong>Valid Move:</strong> You must capture at least one opponent disc to make a move.</li>
+            </ul>
+        </div>
+
+        <a href="../index.html" class="back-link">← Back to Games Collection</a>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

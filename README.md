@@ -6,7 +6,7 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-> A comprehensive collection of **77 legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
+> A comprehensive collection of **84 legendary classic games** built with pure HTML5, CSS3, and JavaScript. Play these timeless games directly in your browser - no installation required!
 
 ## 🚀 Quick Start
 
@@ -36,7 +36,7 @@ Most games follow these common patterns:
 ## 📊 Project Statistics
 
 ```
-Total Games: 81 (100% Functional)
+Total Games: 84 (100% Functional)
 Lines of Code: ~85,000+
 Total Files: 243
 ✨ Pure Vanilla JavaScript (No Frameworks)
@@ -46,7 +46,7 @@ Total Files: 243
 🤖 AI Opponents in Multiple Games
 ```
 
-## 🎮 Complete Game Library (81 Games)
+## 🎮 Complete Game Library (84 Games)
 
 ### 🕹️ Arcade Classics (30 Games)
 
@@ -103,6 +103,9 @@ Total Files: 243
 | 🎴 **Flip Card** | Memory card matching | Click cards | 8 pairs, time tracking |
 | 🎨 **Paint Drop** | Fill canvas with paint | Mouse Click | Color spreading, levels |
 | 🎨 **Pixel Draw** | Create pixel art | Click/Drag, Color Picker | 32x32 grid, save PNG |
+| 🚢 **Battleship** | Sink the enemy fleet | Mouse Click | Strategy, AI opponent |
+| ⚫ **Othello** | Flip discs to your color | Mouse Click | Strategy, AI opponent |
+| 🗼 **Tower of Hanoi** | Move the tower | Mouse Click | Logic puzzle, difficulty levels |
 
 ### 🎯 Skill & Reflex (11 Games)
 
@@ -159,7 +162,7 @@ Total Files: 243
 
 ## ✨ Key Features
 
-- 🎮 **81 Complete Games** - All fully functional and tested
+- 🎮 **84 Complete Games** - All fully functional and tested
 - 📱 **Responsive Design** - Works on desktop, tablet, and mobile
 - 🎯 **No Installation** - Play instantly in your browser
 - 💾 **High Score Tracking** - LocalStorage saves your progress

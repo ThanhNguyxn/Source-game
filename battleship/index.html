@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battleship - Classic Strategy Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🚢 Battleship</h1>
+            <p>Sink the enemy fleet before they sink yours!</p>
+            <div class="status-bar">
+                <div class="status" id="gameStatus">Place your ships</div>
+                <button id="rotateBtn">Rotate Ship (R)</button>
+                <button id="startBtn" disabled>Start Game</button>
+                <button id="resetBtn" class="secondary">Reset</button>
+            </div>
+        </header>
+
+        <div class="game-area">
+            <div class="board-container">
+                <h2>Your Fleet</h2>
+                <div id="playerBoard" class="board"></div>
+            </div>
+            <div class="board-container">
+                <h2>Enemy Waters</h2>
+                <div id="computerBoard" class="board"></div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>How to Play</h3>
+            <ul>
+                <li><strong>Setup:</strong> Drag and drop your ships onto the left board. Click "Rotate Ship" or press
+                    'R' to change orientation.</li>
+                <li><strong>Battle:</strong> Click on the enemy board (right) to fire a shot.</li>
+                <li><strong>Objective:</strong> Sink all 5 enemy ships before they destroy yours!</li>
+                <li><strong>Ships:</strong> Carrier (5), Battleship (4), Cruiser (3), Submarine (3), Destroyer (2).</li>
+            </ul>
+        </div>
+
+        <a href="../index.html" class="back-link">← Back to Games Collection</a>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

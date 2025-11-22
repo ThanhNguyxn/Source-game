@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #614385, #516395);
+    min-height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.stat-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1.2em;
+}
+
+.game-area {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    min-height: 300px;
+    align-items: flex-end;
+}
+
+.tower {
+    position: relative;
+    width: 200px;
+    height: 250px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.tower:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.tower.selected {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.rod {
+    position: absolute;
+    bottom: 0;
+    width: 10px;
+    height: 200px;
+    background: #8e44ad;
+    border-radius: 5px 5px 0 0;
+    z-index: 0;
+}
+
+.base {
+    position: absolute;
+    bottom: -10px;
+    width: 180px;
+    height: 10px;
+    background: #8e44ad;
+    border-radius: 5px;
+}
+
+.disk {
+    height: 25px;
+    border-radius: 12px;
+    z-index: 1;
+    margin-bottom: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.disk.selected {
+    transform: translateY(-20px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Disk Colors */
+.disk-1 {
+    width: 40px;
+    background: #ff7675;
+}
+
+.disk-2 {
+    width: 60px;
+    background: #fab1a0;
+}
+
+.disk-3 {
+    width: 80px;
+    background: #ffeaa7;
+}
+
+.disk-4 {
+    width: 100px;
+    background: #55efc4;
+}
+
+.disk-5 {
+    width: 120px;
+    background: #81ecec;
+}
+
+.disk-6 {
+    width: 140px;
+    background: #74b9ff;
+}
+
+.disk-7 {
+    width: 160px;
+    background: #a29bfe;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+button {
+    padding: 10px 25px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #e84393;
+    color: white;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: #d63083;
+}
+
+select {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.instructions {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.instructions h3 {
+    margin-bottom: 10px;
+    color: #ffeaa7;
+}
+
+.instructions ul {
+    margin-left: 20px;
+    line-height: 1.6;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.back-link:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .tower {
+        width: 100px;
+    }
+
+    .base {
+        width: 90px;
+    }
+
+    .disk {
+        height: 20px;
+    }
+
+    /* Scale down disks */
+    .disk-1 {
+        width: 30px;
+    }
+
+    .disk-2 {
+        width: 40px;
+    }
+
+    .disk-3 {
+        width: 50px;
+    }
+
+    .disk-4 {
+        width: 60px;
+    }
+
+    .disk-5 {
+        width: 70px;
+    }
+
+    .disk-6 {
+        width: 80px;
+    }
+
+    .disk-7 {
+        width: 90px;
+    }
+}

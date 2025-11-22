@@ -1,4 +1,4 @@
-﻿﻿﻿const modeSelector = document.getElementById('modeSelector');
+﻿﻿const modeSelector = document.getElementById('modeSelector');
 const gameArea = document.getElementById('gameArea');
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
@@ -39,11 +39,11 @@ function startGame(diff) {
     difficulty = diff;
     const settings = difficultySettings[diff];
     gameSpeed = settings.speed;
-    
+
     modeSelector.style.display = 'none';
     gameArea.style.display = 'block';
     difficultyDisplay.textContent = settings.name;
-    
+
     initGame();
     gameLoop = setInterval(update, gameSpeed);
 }
@@ -57,7 +57,7 @@ function initGame() {
     isPaused = false;
     scoreElement.textContent = score;
     generateFood();
-    
+
     // Generate obstacles for extreme mode
     obstacles = [];
     if (difficultySettings[difficulty].obstacles) {
@@ -92,7 +92,7 @@ function generateFood() {
             y: Math.floor(Math.random() * tileCount)
         };
     } while (
-        isOnSnake(food) || 
+        isOnSnake(food) ||
         obstacles.some(obs => obs.x === food.x && obs.y === food.y)
     );
 }
@@ -105,30 +105,30 @@ function isOnSnake(pos) {
 // Update game state
 function update() {
     if (isPaused) return;
-    
+
     // Move snake
     const head = { x: snake[0].x + dx, y: snake[0].y + dy };
-    
+
     // Check wall collision
     if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) {
         gameOver();
         return;
     }
-    
+
     // Check self collision
     if (isOnSnake(head)) {
         gameOver();
         return;
     }
-    
+
     // Check obstacle collision
     if (obstacles.some(obs => obs.x === head.x && obs.y === head.y)) {
         gameOver();
         return;
     }
-    
+
     snake.unshift(head);
-    
+
     // Check food collision
     if (head.x === food.x && head.y === food.y) {
         score++;
@@ -142,7 +142,7 @@ function update() {
     } else {
         snake.pop();
     }
-    
+
     draw();
 }
 
@@ -151,7 +151,7 @@ function draw() {
     // Clear canvas
     ctx.fillStyle = '#1a1a2e';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
+
     // Draw grid
     ctx.strokeStyle = '#2a2a3e';
     for (let i = 0; i <= tileCount; i++) {
@@ -164,13 +164,13 @@ function draw() {
         ctx.lineTo(canvas.width, i * gridSize);
         ctx.stroke();
     }
-    
+
     // Draw obstacles
     ctx.fillStyle = '#e74c3c';
     obstacles.forEach(obs => {
         ctx.fillRect(obs.x * gridSize, obs.y * gridSize, gridSize - 2, gridSize - 2);
     });
-    
+
     // Draw food
     ctx.fillStyle = '#ff6b6b';
     ctx.beginPath();
@@ -182,7 +182,7 @@ function draw() {
         Math.PI * 2
     );
     ctx.fill();
-    
+
     // Draw snake
     snake.forEach((segment, index) => {
         if (index === 0) {
@@ -210,11 +210,11 @@ function gameOver() {
 // Keyboard controls
 document.addEventListener('keydown', (e) => {
     // Prevent default scrolling behavior for arrow keys and WASD
-    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'w', 'W', 'a', 'A', 's', 'S', 'd', 'D', ' '].includes(e.key)) {
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' ', 'w', 'W', 'a', 'A', 's', 'S', 'd', 'D'].includes(e.key)) {
         e.preventDefault();
     }
 
-    switch(e.key) {
+    switch (e.key) {
         case 'ArrowUp':
         case 'w':
         case 'W':

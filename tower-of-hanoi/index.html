@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tower of Hanoi - Logic Puzzle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🗼 Tower of Hanoi</h1>
+            <p>Move the tower to the last rod!</p>
+            <div class="stats">
+                <div class="stat-box">
+                    <span>Moves:</span>
+                    <span id="moveCount">0</span>
+                </div>
+                <div class="stat-box">
+                    <span>Min Moves:</span>
+                    <span id="minMoves">7</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="game-area">
+            <div class="tower" id="tower1" onclick="handleTowerClick(1)">
+                <div class="rod"></div>
+                <div class="base"></div>
+            </div>
+            <div class="tower" id="tower2" onclick="handleTowerClick(2)">
+                <div class="rod"></div>
+                <div class="base"></div>
+            </div>
+            <div class="tower" id="tower3" onclick="handleTowerClick(3)">
+                <div class="rod"></div>
+                <div class="base"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="difficulty">
+                <label>Disks:</label>
+                <select id="diskSelect" onchange="initGame()">
+                    <option value="3" selected>3 (Easy)</option>
+                    <option value="4">4 (Medium)</option>
+                    <option value="5">5 (Hard)</option>
+                    <option value="6">6 (Expert)</option>
+                    <option value="7">7 (Master)</option>
+                </select>
+            </div>
+            <button id="resetBtn" onclick="initGame()">Reset Game</button>
+        </div>
+
+        <div class="instructions">
+            <h3>Rules</h3>
+            <ul>
+                <li>Move all disks from the first tower to the last tower.</li>
+                <li>You can only move one disk at a time.</li>
+                <li>You cannot place a larger disk on top of a smaller disk.</li>
+                <li>Click a tower to pick up the top disk, then click another tower to drop it.</li>
+            </ul>
+        </div>
+
+        <a href="../index.html" class="back-link">← Back to Games Collection</a>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
