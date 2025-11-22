@@ -24,6 +24,8 @@ let computerMisses = [];
 let isGameActive = false;
 let isPlayerTurn = true;
 let currentShipIndex = 0; // For placement phase
+let aiPotentialTargets = []; // Stack for AI target mode
+
 
 // Initialize Boards
 function createBoard(boardElement, isPlayer) {
@@ -217,19 +219,25 @@ function handleAttackClick(e) {
 }
 
 // Computer AI
+// Computer AI
 function computerTurn() {
     if (!isGameActive) return;
 
     let index;
     let validShot = false;
 
-    // Simple AI: Random shot (can be improved to target adjacent hits)
-    // Improvement: Target mode if there's a hit but not sunk
+    // AI Strategy: Hunt and Target
+    // If we have potential targets (from previous hits), use them
+    while (aiPotentialTargets.length > 0 && !validShot) {
+        const target = aiPotentialTargets.pop();
+        index = target;
+        const cell = playerBoard.children[index];
+        if (!cell.classList.contains('hit') && !cell.classList.contains('miss')) {
+            validShot = true;
+        }
+    }
 
-    // Find potential targets (adjacent to hits)
-    const potentialTargets = [];
-    // ... (Simple implementation for now: Random unshot cell)
-
+    // If no potential targets or all were invalid, shoot random
     while (!validShot) {
         index = Math.floor(Math.random() * (BOARD_SIZE * BOARD_SIZE));
         const cell = playerBoard.children[index];
@@ -252,10 +260,29 @@ function computerTurn() {
         cell.classList.add('hit');
         hitShip.hits++;
         gameStatus.textContent = `Enemy hit your ${hitShip.name}!`;
+
+        // Add adjacent cells to potential targets
+        const { x, y } = getCoords(index);
+        const neighbors = [
+            { x: x, y: y - 1 }, // Up
+            { x: x, y: y + 1 }, // Down
+            { x: x - 1, y: y }, // Left
+            { x: x + 1, y: y }  // Right
+        ];
+
+        neighbors.forEach(n => {
+            if (n.x >= 0 && n.x < BOARD_SIZE && n.y >= 0 && n.y < BOARD_SIZE) {
+                const nIndex = getIndex(n.x, n.y);
+                const nCell = playerBoard.children[nIndex];
+                if (!nCell.classList.contains('hit') && !nCell.classList.contains('miss')) {
+                    aiPotentialTargets.push(nIndex);
+                }
+            }
+        });
+
         if (hitShip.hits === SHIPS.find(s => s.name === hitShip.name).length) {
             gameStatus.textContent = `Enemy sunk your ${hitShip.name}!`;
-            cell.classList.add('sunk'); // Visual indicator for sunk ship
-            // Mark all parts as sunk
+            cell.classList.add('sunk');
             hitShip.indices.forEach(idx => playerBoard.children[idx].classList.add('sunk'));
         }
         checkWin(false);
@@ -310,6 +337,7 @@ function initGame() {
     currentShipIndex = 0;
     playerShips = [];
     computerShips = [];
+    aiPotentialTargets = [];
     startBtn.disabled = true;
     rotateBtn.disabled = false;
     gameStatus.textContent = "Place your Carrier (5)";
